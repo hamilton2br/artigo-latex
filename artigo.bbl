@@ -3,7 +3,7 @@
 \setlength{\labelsep}{0pt}\begin{thebibliography}{}
 \providecommand{\abntrefinfo}[3]{}
 \providecommand{\abntbstabout}[1]{}
-\abntbstabout{v-1.9 }
+\abntbstabout{v-1.9.2 }
 
 \bibitem[Baar, Beek e Eijk 2014]{VanBaar2014}
 \abntrefinfo{Baar, Beek e Eijk}{BAAR; BEEK; EIJK}{2014}
@@ -50,7 +50,7 @@ p.~1--8, 2012.}
   Applications}, v.~4, n.~1, p. 135--152, 2013.
 ISSN 20935374 (ISSN).
 Dispon{\'\i}vel em:
-  \url{http://www.scopus.com/inward/record.url?eid=2-s2.0-84885399460{\&}partnerID=40{\&}md5=0e332690d4cb1f01934b540b535fd771}.}
+  \url{http://www.scopus.com/inward/record.url?eid=2-s2.0-84885399460{\&}partnerID=40{\&}md5=0e332690d4cb1f01934b540b53}.}
 
 \bibitem[Reichert, Richards e Yoshigoe 2015]{Reichert2015}
 \abntrefinfo{Reichert, Richards e Yoshigoe}{REICHERT; RICHARDS; YOSHIGOE}{2015}

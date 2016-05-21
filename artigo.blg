@@ -18,48 +18,48 @@ Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 +---------------------------------------------------------+
-| Estilo bibliográfico abntex2-alf.bst versão v-1.9           |
+| Estilo bibliográfico abntex2-alf.bst versão v-1.9.2           |
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://abntex2.googlecode.com                           |
 +---------------------------------------------------------+
 You've used 10 entries,
-            6667 wiz_defined-function locations,
-            1264 strings with 11623 characters,
-and the built_in function-call counts, 9747 in all, are:
-= -- 861
+            6711 wiz_defined-function locations,
+            1271 strings with 11646 characters,
+and the built_in function-call counts, 13596 in all, are:
+= -- 1469
 > -- 388
-< -- 19
-+ -- 188
+< -- 222
++ -- 393
 - -- 114
-* -- 740
-:= -- 1310
+* -- 942
+:= -- 1725
 add.period$ -- 36
 call.type$ -- 10
 change.case$ -- 124
 chr.to.int$ -- 22
 cite$ -- 9
-duplicate$ -- 424
+duplicate$ -- 1024
 empty$ -- 615
 format.name$ -- 542
-if$ -- 2290
+if$ -- 2896
 int.to.chr$ -- 0
 int.to.str$ -- 0
 missing$ -- 177
 newline$ -- 59
 num.names$ -- 45
-pop$ -- 251
+pop$ -- 253
 preamble$ -- 1
 purify$ -- 45
 quote$ -- 0
-skip$ -- 519
+skip$ -- 1119
 stack$ -- 1
-substring$ -- 471
-swap$ -- 229
-text.length$ -- 15
+substring$ -- 673
+swap$ -- 429
+text.length$ -- 18
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 1
 warning$ -- 0
-while$ -- 83
+while$ -- 86
 width$ -- 0
 write$ -- 158
