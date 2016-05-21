@@ -236,66 +236,69 @@ Aqui vão os métodos
 
 \begin{itemize}
 
-\item \textbf{Digital forensics framework for a cloud environment \cite{George2012} }: Framework para coleta de dados de máquinas virtuais. Tem duas formas de acionamento,
-a manual e outra automaticamente, integrada com algum sistema de detecção de ameaça. Quando acionado, escuta a rede, determina qual a máquina é objeto de investigação e 
-coleta informações de log e tráfego de rede e associa ao usuário das respectivas máquinas. Propõe o armazenamento das evidências em local fora da núvem para escapar de 
-problemas de jurisdição e multi-inquilino mas tem inteligência para usar a própria nuvem como armazenamento caso o espaço fora da nuvem acabe.
+\item \textbf{Digital forensics framework for a cloud environment \cite{George2012} }: Arcabouço para coleta de dados de máquinas virtuais. Possui duas formas de 
+acionamento, a manual e a automática, integrada com algum sistema de detecção de ameaça. Quando acionado, escuta a rede, determina qual máquina é objeto de investigação, 
+coleta informações de log e tráfego de rede e associa ao usuário da respectiva máquina. Propõe o armazenamento das evidências em local fora da núvem para escapar de 
+problemas de jurisdição e multi-inquilino mas tem inteligência para usar a própria nuvem como armazenamento caso o espaço fora acabe.
 
-A proposta dá a entender que é aplicável apenas a um sistema virtual estático, onde o número e organização das máquinas é constante. De informação volátil, coleta apenas 
+A proposta dá a entender que é aplicável apenas a um sistema virtual estático, onde o número e organização das máquinas é constante. De informação volátil coleta apenas 
 tráfego de rede, não coleta memória. Com a forma de acionamento descrito ele não consegue descrever, com as evidências, como era o sistema antes do ataque. Apesar de armazenar 
-a evidëncia fora da nuvem, não da detalhes de cadeia de custódia, garantia de integridade e confidencialidade. O autor não descreve como garante que a evidência não foi alterada
-destruída no transporte até o local de armazenamento nem como controla o acesso a evidência.
+a evidência fora da nuvem, não da detalhes de como garante que a evidência não foi alterada ou destruída no transporte até o local de armazenamento nem como controla o 
+acesso a evidência.
 
 Quando comparado a este trabalho, a presente proposta tem por vantagens a utilização de container para associar a evidência a sua origem tornando o processo independente 
-de máquina. Como a implementação de uma janela de x dias de coleta antes da detecção do ataque é possível descrever, através de evidência, como era o sistema antes do mesmo. 
-Com isso a solução apresentada consegue evidências em um cenário de infra-estrutura dinâmica. São tomadas precauções para garantir a integridade e confidencialidade dos 
-dados transportando-os via TLS os para um local fora da nuvem e controlando o acesso aos mesmos.\\
+de máquina e permitindo que seja repetido mesmo se a máquina de onde se originaram os dados não existir mais. Com a implementação de uma janela de x dias de coleta antes da
+detecção do ataque é possível descrever, através de evidência, como era o sistema antes do mesmo. Com isso a solução apresentada consegue evidências em um cenário de
+infra-estrutura dinâmica. São tomadas precauções para garantir que os dados não foram alterados ou destruídos no transporte via TLS os para um local fora da nuvem e 
+o acesso a mesma é controlado.\\
  
 \item \textbf{Evidence and cloud computing the virtual machine introspection approach \cite{Poisel2013} }: Descreve um método de coleta de informações de máquinas
 em nuvem através da técnica de introspecção em máquina virtual, onde se acessa os dados das máquinas virtuais através do hypervisor. Propõe que o processo seja disparado
-automaticamente por demanda integrado a um sistema de detecção de ameaça mas também suporta acionamento manual.
+automaticamente integrado a um sistema de detecção de ameaça mas também suporta acionamento manual.
 
 A técnica descrita cobre apenas o processo de coleta de informações, não explica onde ou como elas serão armazenadas. No que tange as informações de memória, como os 
 endereços de memória são os do host, estes precisam ser traduzidos para que a análise forense seja feita. Segundo a comunidade, tal estratégia é imune a técnicas anti-
 forenses empregadas por usuários maliciosos pois esta localizada fora da máquina virtual. Como a abordagem não tem conhecimento do que esta rodando dentro da máquina 
-virtual precisade uma copia bit a bit da evidência. Embora pareça possível, não descreve como lida com o cenário onde uma máquina é despejada do pool e os recursos liberados. 
+precisa de uma copia bit a bit da evidência. Embora pareça possível, não descreve como lida com o cenário onde uma máquina é despejada do pool e os recursos liberados. 
 
-Quando comparado este trabalho, a presente proposta tem por vantagens ser um arcabouço para coleta e armazenamento de evidências. Esta abordagem usa uma estratégia 
-diferente pois coleta-se a memória diretamente dentro da máquina virtual. Nessa estratégia evita-se o problema do gap semântico próprio das soluções por introspecção, 
-não precisa realizar tradução de endereços de memória para viabilizar a análise forense mas, de acordo com a comunidade é mais sucetível a técnicas anti-forenses. 
-a presente proposta tem também a vantagem de conhecer o que esta rodando dentro da máquina e assim ter mais eficiência na coleta.\\
+Quando comparado a este trabalho, a presente proposta tem por vantagens ser um arcabouço para coleta e armazenamento de evidências. Usa-se uma estratégia 
+diferente pois coleta-se a memória diretamente de dentro da máquina virtual onde se evita o problema do gap semântico próprio das soluções por introspecção. 
+Como não precisa realizar tradução de endereços, a presente proposta consegue realizar uma coleta onde os dados já são úteis para análise e pode direcionar a mesma
+pois tem o conhecimento do que esta rodando na máquina. De acordo com a comunidade é mais sucetível a técnicas anti-forenses.\\
 
-\item \textbf{Design and implementation of FROST: FoRensic tools for Open STack \cite{Dykstra2013} }: Framework para coleta de dados de máquinas virtuais através da API do
+\item \textbf{Design and implementation of FROST: FoRensic tools for Open STack \cite{Dykstra2013} }: Arcabouço para coleta de dados de máquinas virtuais através da API do
 hypervisor. Isola a máquina virtual afetada do pool original para realização da coleta. Precisa ser acionado quando uma ameaça é detectada. É o mais bem acabado arcabouço de
-todas as propostas encontradas até agora mas ao detalhar o processo de armazenamento não explica como garante que a evidência não será destruida ou alterado no transporte
-até o armazenamento nem como controla o acesso a evidência. Por estar integrado ao Open Stack o arcabouço depende de cooperação do provedor de serviços de núvem onde ele 
-esta rodando, isso é considerado problemático pela comunidade pois a prioridade do mesmo é manter o serviço funcionando e não coletar evidencias forenses. Como esta na
-mesma camada do hypervisor não conhece o que esta rodando dentro da máquina. Depende da existência da máquina virtual para realização da coleta.
+todas as propostas encontradas até agora mas ao detalhar o processo de armazenamento não explica como garante que a evidência não será destruida ou alterada no transporte
+até o armazenamento nem como controla o acesso a evidência. Por estar integrado ao Open Stack o arcabouço depende de cooperação do provedor de serviços de nuvem onde ele 
+esta rodando, isso é considerado problemático pela comunidade pois a prioridade do mesmo é manter o serviço funcionando e não coletar evidencias forenses. Como está na
+mesma camada do hypervisor não conhece o que está rodando dentro da máquina. Depende da existência da máquina virtual para realização da coleta.
 
-Quando comparado a este trabalho, a presente proposta tem por vantagens a utilização de container para associar a evidência de memória a sua origem tornando o processo 
-independente de máquina e a janela de x dias antes da detecção do ataque para conseguir descrever o sistema antes do mesmo. Esta abordagem não depende de cooperação do 
-provedor do serviço de nuvem. Tem também a vantagem de conhecer o que esta rodando dentro da máquina e assim conseguir mais eficiência na coleta.\\
+Quando comparado a este trabalho, a presente proposta tem por vantagens a utilização de container para associar a evidência a sua origem tornando o processo 
+independente de máquina e permitindo que seja repetido mesmo se a máquina de onde originaram os dados não existir mais. Coma implementação de uma janela 
+de x dias de coleta antes da detecção do ataque é possível descrever, através da evidência, como era o sistema antes do mesmo. Não depende de cooperação do provedor 
+do serviço de nuvem. A presente proposta também consegue realizar uma coleta onde os dados já são úteis para análise e pode direcionar a mesma pois tem o conhecimento 
+do que esta rodando na máquina. \\
   
-\item \textbf{Automated Forensic Data Acquisition in the Cloud \cite{Reichert2015} }: Propõe um modelo que tira snapshots de máquinas virtuais atrelado a algum mecanismo de
+\item \textbf{Automated Forensic Data Acquisition in the Cloud \cite{Reichert2015} }: Propõe um modelo que tira instantâneos de máquinas virtuais atrelado a algum mecanismo de
 detecção de ameaça baseado no hypervisor. Usa o Google Rapid Response para salvar as informações coletadas fora da núvem de forma a driblar os problemas de multi-jurisdição e 
-multi-inquilino. Descreve satisfatóriamente a cadeia de custódia da evidência.
+multi-inquilino. Descreve satisfatóriamente como evita que a evidência seja alterada ou destruída no transporte até o armazenamento e como controla o acesso a evidência.
 
-O modelo proposto só começa a coletar evidência após a detecção da ameaça e toma um snapshot da máquina toda o que já foi julgado pela comunidade como um processo custoso em
-termos de espaco em disco pois piora o problema do volume de dados a ser analisado. Pessoalmente acho ariscado depender de snapshots pois caso precise, repetir o processo de coleta
-pode não ser possível. Um exemplo é editar um HD virtual que esta atrelado a uma máquina virtual da qual se gerou snapshots, tal ação pode levar a perda de dados.
+O modelo proposto só começa a coletar evidência após a detecção da ameaça e toma um instantâneo da máquina toda o que já foi julgado pela comunidade como um processo custoso em
+termos de espaco em disco e piora o problema do volume de dados a ser analisado. Pessoalmente acho arriscado depender de instantâneos pois caso precise, repetir o processo de coleta
+pode não ser possível. Um exemplo é editar um disco virtual que estava atrelado a uma máquina virtual da qual se gerou os instantâneos, tal ação pode levar a perda de dados.
 
 Quando comparado a este trabalho, a presente proposta tem por vantagens coletar apenas a informações de memória e usar a janela de coleta de x dias antes do ataque para 
-manter sob controle a quantidade de informação que precisa ser analisada. Propondo a autilização de container para associar a evidência a sua origem, torna o processo 
+manter sob controle a quantidade de informação que precisa ser analisada. Propondo a autilização de container para associar a evidência a sua origem, tornamos o processo 
 independente de máquina. \\
  
-\item \textbf{A log based approach to make digital forensics easier on cloud computing \cite{Sang2013} }: Método que sugere salvar a informação coletada fora da núvem de modo 
+\item \textbf{A log based approach to make digital forensics easier on cloud computing \cite{Sang2013} }: Método sugere salvar a informação coletada fora da núvem de modo 
 a driblar os problemas de multi-inquilinato e multi-jurisdição, usa um mecanismo de hash para garantir a autenticidade e integridade da informação mas não dá detalhes da 
 implementação e não descreve como controla o acesso a evidência armazenada. Segundo o próprio autor, o método não funciona em IaaS. Precisa da cooperação do provedor de 
 nuvem pois depende das informações que este último decidiu adicionar ao log. O método não é aplicável a coleta de informações de memória.
 
-A proposta não coleta dados de memória por decisão do autor, esta proposta entrou na lista pela abordagem baseada em log. Neste quesito, a presente proposta é melhor quando 
-garante todos os pontos da cadeia de custódia, a evidência não foi alterada ou destruida no transporte e o acesso a mesma é controlado. No âmbito da informação coletada 
-a atual proposta não depende das decisões do provedor de nuvem sobre o que guardar no log para conseguir a evidência. \\
+A proposta não coleta dados de memória por decisão do autor, esta proposta entrou na lista pela abordagem baseada em log. Neste quesito, a presente proposta é a melhor pois 
+garante que a evidência não foi alterada ou destruida no transporte e o acesso a mesma é controlado. No âmbito da informação coletada, a presente proposta não depende das 
+decisões do provedor de nuvem sobre o que guardar no log para conseguir a evidência. \\
 
 \item \textbf{Volatile memory acquisition using backup for forensic investigation \cite{Dezfouli2012} }: Técnica desenvolvida para dispositivos móveis que sugere a utilização
 do próprio como repositório das evidências coletadas da memória. Para manter a utilização de espaço ao mínimo sugere manter apenas o último estado conhecido da memória.
@@ -310,26 +313,27 @@ dados de baixo nível em informação de alto nível. Depende de cooperação do
 descreve como resolve a cadeia de custódia. Tem a vantagem de ser imune a técnicas anti-forenses.
 
 Quando comparado a este trabalho, a presente proposta tem por vantagens ser arcabouço de coleta e armazenamento de evidências não apenas um método de coleta. Empregando a
-estratégia de realizar a coleta diretamente na máquina não tem o problema do gap semântico próprio das soluções baseadas em introspecção e como conhece o contexto do que 
-esta rodando dentro da máquina virtual consegue ser mais eficiênte na coleta.\\
+estratégia de realizar a coleta diretamente na máquina não tem o problema do gap semântico próprio das soluções baseadas em introspecção. Como conhece o contexto do que 
+esta rodando dentro da máquina virtual podemos direcionar a coleta de modo que seja mais eficiênte além do que a evidência coletada já é útil para análise.\\
 
 \item \textbf{Digital Forensics as a Service: A game changer \cite{VanBaar2014} }: Esta proposta é focada em uma mudança no armazenamento e forma de trabalho dos peritos forenses.
-Propoe que a forense seja oferecida como um serviço e que as evidências sejam armazenadas em um local centralizado com o devido controle de acesso e garantia de integridade da 
+Propõe que a forense seja oferecida como um serviço e que as evidências sejam armazenadas em um local centralizado com o devido controle de acesso e garantia de integridade da 
 evidência. Descreve a arquitetura de armazenamento, qual o perfil que deve ter acesso a evidência e como é este acesso. Esta proposta não é focada apenas em incidentes na nuvem
 mas em qualquer outro incidente.
 
-Embora seja uma ótima proposta de armazenamento de evidências e controle de acesso a elas, ele não descreve o processo de coleta nem de transporte. É uma proposta focada mais na 
-solução de problemas relacionados a manipulação da informação após a coleta, transporte e armazenamento. Não toca no assunto de coleta qualquer que seja, em nuvem ou fisica.\\
+Embora seja uma ótima proposta de armazenamento de evidências e controle de acesso a elas, ele não descreve o processo de coleta nem de transporte. É uma proposta focada 
+mais na solução de problemas relacionados a manipulação da informação após a coleta, transporte e armazenamento. Não toca no assunto de coleta qualquer que seja, em nuvem
+ou fisica.\\
 
-\item \textbf{Live Digital Forensics in a Virtual Machine \cite{Zhang2010} }: Proposta para coletar informações de memória de máquinas virtuais através de snapshots das mesmas.
-O metodo de coleta envolve tomar o snapshot da máquina, no diretório onde o snapshot foi armazenado pegar o arquivo referente a memória e abri-lo / analisá-lo usando um programa de
-leitura de memória de mercado. O autor não trás detalhes do transporte, armazenamento ou cadeia de custódia. Precisa que a máquina exista para conseguir coletar a informação e 
-o processo é dependente de intervenção humana. Analisando com mais cuidado é possível repetir a coleta mesmo sem a máquina existir uma vez que temos o snapshot mas o autor não
+\item \textbf{Live Digital Forensics in a Virtual Machine \cite{Zhang2010} }: Proposta para coletar informações de memória de máquinas virtuais através de instantâneos das mesmas.
+O metodo de coleta envolve tomar o instantâneo da máquina, no diretório onde o mesmo foi armazenado pegar o arquivo referente a memória e abri-lo / analisá-lo usando um programa de
+leitura de memória de mercado. O autor não trás detalhes do transporte, armazenamento ou controle de acesso. Precisa que a máquina exista para conseguir coletar a informação e 
+o processo é dependente de intervenção humana. Analisando com mais cuidado é possível repetir a coleta mesmo sem a máquina existir uma vez que temos o instantâneo mas o autor não
 dá detalhes do caso.
 
 Quando comparado a este trabalho, a presente proposta tem por vantagens a menor quantidade de informação necessária à investigação através da implementação da janela de x
 dias antes do incidente. Como o processo é automático, uma vez disparado não requer intervenção humana. A presente proposta descreve como garante a cadeia de custódia da 
-evidência e consigue reproduzir o processo de coleta mesmo se a máquina não existir mais pois a evidência esta atrelada ao container.
+evidência e consigue reproduzir o processo de coleta mesmo se a máquina não existir  mais pois a evidência esta atrelada ao container.
 
 
  \end{itemize}
