@@ -258,26 +258,26 @@ automaticamente integrado a um sistema de detecção de ameaça mas também supo
 
 A técnica descrita cobre apenas o processo de coleta de informações, não explica onde ou como elas serão armazenadas. No que tange as informações de memória, como os 
 endereços de memória são os do host, estes precisam ser traduzidos para que a análise forense seja feita. Segundo a comunidade, tal estratégia é imune a técnicas anti-
-forenses empregadas por usuários maliciosos pois esta localizada fora da máquina virtual. Como a abordagem não tem conhecimento do que esta rodando dentro da máquina 
+forenses empregadas por usuários maliciosos pois está localizada fora da máquina virtual. Como a abordagem não tem conhecimento do que está rodando dentro da máquina 
 precisa de uma copia bit a bit da evidência. Embora pareça possível, não descreve como lida com o cenário onde uma máquina é despejada do pool e os recursos liberados. 
 
 Quando comparado a este trabalho, a presente proposta tem por vantagens ser um arcabouço para coleta e armazenamento de evidências. Usa-se uma estratégia 
 diferente pois coleta-se a memória diretamente de dentro da máquina virtual onde se evita o problema do gap semântico próprio das soluções por introspecção. 
 Como não precisa realizar tradução de endereços, a presente proposta consegue realizar uma coleta onde os dados já são úteis para análise e pode direcionar a mesma
-pois tem o conhecimento do que esta rodando na máquina. De acordo com a comunidade é mais sucetível a técnicas anti-forenses.\\
+pois tem o conhecimento do que está rodando na máquina. De acordo com a comunidade é mais sucetível a técnicas anti-forenses.\\
 
 \item \textbf{Design and implementation of FROST: FoRensic tools for Open STack \cite{Dykstra2013} }: Arcabouço para coleta de dados de máquinas virtuais através da API do
 hypervisor. Isola a máquina virtual afetada do pool original para realização da coleta. Precisa ser acionado quando uma ameaça é detectada. É o mais bem acabado arcabouço de
 todas as propostas encontradas até agora mas ao detalhar o processo de armazenamento não explica como garante que a evidência não será destruida ou alterada no transporte
 até o armazenamento nem como controla o acesso a evidência. Por estar integrado ao Open Stack o arcabouço depende de cooperação do provedor de serviços de nuvem onde ele 
-esta rodando, isso é considerado problemático pela comunidade pois a prioridade do mesmo é manter o serviço funcionando e não coletar evidencias forenses. Como está na
+está rodando, isso é considerado problemático pela comunidade pois a prioridade do mesmo é manter o serviço funcionando e não coletar evidencias forenses. Como está na
 mesma camada do hypervisor não conhece o que está rodando dentro da máquina. Depende da existência da máquina virtual para realização da coleta.
 
 Quando comparado a este trabalho, a presente proposta tem por vantagens a utilização de container para associar a evidência a sua origem tornando o processo 
 independente de máquina e permitindo que seja repetido mesmo se a máquina de onde originaram os dados não existir mais. Coma implementação de uma janela 
 de x dias de coleta antes da detecção do ataque é possível descrever, através da evidência, como era o sistema antes do mesmo. Não depende de cooperação do provedor 
 do serviço de nuvem. A presente proposta também consegue realizar uma coleta onde os dados já são úteis para análise e pode direcionar a mesma pois tem o conhecimento 
-do que esta rodando na máquina. \\
+do que está rodando na máquina. \\
   
 \item \textbf{Automated Forensic Data Acquisition in the Cloud \cite{Reichert2015} }: Propõe um modelo que tira instantâneos de máquinas virtuais atrelado a algum mecanismo de
 detecção de ameaça baseado no hypervisor. Usa o Google Rapid Response para salvar as informações coletadas fora da núvem de forma a driblar os problemas de multi-jurisdição e 
@@ -314,7 +314,7 @@ descreve como resolve a cadeia de custódia. Tem a vantagem de ser imune a técn
 
 Quando comparado a este trabalho, a presente proposta tem por vantagens ser arcabouço de coleta e armazenamento de evidências não apenas um método de coleta. Empregando a
 estratégia de realizar a coleta diretamente na máquina não tem o problema do gap semântico próprio das soluções baseadas em introspecção. Como conhece o contexto do que 
-esta rodando dentro da máquina virtual podemos direcionar a coleta de modo que seja mais eficiênte além do que a evidência coletada já é útil para análise.\\
+está rodando dentro da máquina virtual podemos direcionar a coleta de modo que seja mais eficiênte além do que a evidência coletada já é útil para análise.\\
 
 \item \textbf{Digital Forensics as a Service: A game changer \cite{VanBaar2014} }: Esta proposta é focada em uma mudança no armazenamento e forma de trabalho dos peritos forenses.
 Propõe que a forense seja oferecida como um serviço e que as evidências sejam armazenadas em um local centralizado com o devido controle de acesso e garantia de integridade da 
@@ -333,7 +333,7 @@ dá detalhes do caso.
 
 Quando comparado a este trabalho, a presente proposta tem por vantagens a menor quantidade de informação necessária à investigação através da implementação da janela de x
 dias antes do incidente. Como o processo é automático, uma vez disparado não requer intervenção humana. A presente proposta descreve como garante a cadeia de custódia da 
-evidência e consigue reproduzir o processo de coleta mesmo se a máquina não existir  mais pois a evidência esta atrelada ao container.
+evidência e consigue reproduzir o processo de coleta mesmo se a máquina não existir  mais pois a evidência está atrelada ao container.
 
 
  \end{itemize}
