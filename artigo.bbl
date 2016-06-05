@@ -5,6 +5,13 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{v-1.9.2 }
 
+\bibitem[Aljaedi et al. 2011]{Aljaedi2011}
+\abntrefinfo{Aljaedi et al.}{ALJAEDI et al.}{2011}
+{ALJAEDI, A. et al. {Comparative Analysis of Volatile Memory Forensics}.
+\emph{IEEE International Conference on Privacy, Security, Risk and Trust
+  (PASSAT) and IEEE International Conference on Social Computing (SocialCom)},
+  p. 1253--1258, 2011.}
+
 \bibitem[Baar, Beek e Eijk 2014]{VanBaar2014}
 \abntrefinfo{Baar, Beek e Eijk}{BAAR; BEEK; EIJK}{2014}
 {BAAR, R.~B. van; BEEK, H. M.~A. van; EIJK, E.~J. van. {Digital Forensics as a

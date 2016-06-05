@@ -335,8 +335,64 @@ Quando comparado a este trabalho, a presente proposta tem por vantagens a menor 
 dias antes do incidente. Como o processo é automático, uma vez disparado não requer intervenção humana. A presente proposta descreve como garante a cadeia de custódia da 
 evidência e consigue reproduzir o processo de coleta mesmo se a máquina não existir  mais pois a evidência está atrelada ao container.
 
+\item \textbf{Comparative Analisys of volatile memory forensics \cite{Aljaedi2011} }: Levantamento sobre o impacto da realização de forense de memória ao vivo nas máquinas
+virtuais na nuvem. Mostra que a quantidade de informações referentes a processos não alocados e página de memória perdida é um ponto a considerar quando se inicia uma
+ferramente para análise de memória em uma máquina já funcionando.
+
+Quando comparado a este trabalho a presente proposta tem por vantagem estar sempre rodando na máquina virtual, sujeitando-se aos efeitos de escalonamento do processo e swap e
+assim não provoca as perdas de informações de processos não alocados e páginas de memória referentes ao rearranjo que o kernel faz quando uma nova aplicação é iniciada.
 
  \end{itemize}
+ 
+ >>>> Colocar isso aqui em uma tabela <<<<
+ 
+ Solução: Automated forensic data acquisition in the cloud -> tempo para gerar o snapshot da instância de uma VM de 20 GB de tamanho x tamanho da memória alocada na VM: 
+ 
+ 512Mb -> 15 Seg\\
+ 1Gb   -> 20 Seg\\
+ 4Gb   -> 36 Seg\\
+ 
+ >>>> comparar com a quantidade de memória que eu salvo para viabilizar análise <<<<
+ 
+ Solução: Virtuoso, narrowing the semantic gap in virtual machine introspection -> comparativo do tamanho da evidência após a coleta, após a primeira filtragem e após a segunda x S.O.
+ 
+ Windows -> varios programas -> original [302082] -> primeira filtragem [230366] -> final [75141] \\
+ Linux   -> varios programas -> original [6107214]-> primeira filtragem [2265667]-> final [1095963]\\
+ Haiku   -> varios programas -> original [850363] -> primeira filtragem [702277] -> final [423438]\\
+ 
+ >>>> como métrica pensar em colocar isso focado em diminuição da quantidade de dados a serem analisados <<<<
+ 
+ Solução: Virtuoso, narrowing the semantic gap in virtual machine introspection -> análise da confiabilidade da evidência após o processos de filtragem x tamanho original da mesma
+ 
+ 2 traces (???) -> 67\% de confiança\\
+ 12 traces(???) -> 85\% de confiança\\
+ 
+ 
+ Solução: Virtuoso, narrowing the semantic gap in virtual machine introspection -> Tempo para coleta dos dados para cada um dos programas utilizados como caso de investigação.
+
+ 
+ Windows -> varios programas -> tempo [751.9]\\
+ Linux   -> varios programas -> tempo [20723.9]\\
+ Haiku   -> varios programas -> tempo [1901.0]\\
+ 
+ >>>> vários programas utilizados para mensurar tempo, pegar uma media? <<<<
+ >>>> comparar com o tempo que levo para gerar evidências <<<<
+ 
+ Solução: Comparative analisys of live memory forensics -> Quantidade média de processos que permaneceram na memória antes e depois de carrregar a ferramenta x tamanho da memória alocada em uam VM
+
+ 1Gb -> antes [78,33\%] -> depois [61,66\%]\\
+ 512Mb -> antes[73,33\%] -> depois [46,66\%]\\
+ 256Mg -> antes [50,55\%] -> depois [35,00\%]\\
+  
+ >>>> comparar com a quantidade de memória alterada no meu caso <<<< 
+  
+ Solução: Comparative analisys of live memory forensics -> Quantidade média de página de memória alterada nos métodos de live analisis x memory imaging x tamanho da memória alocada em uam VM
+
+,Gb -> live [7,99\%] -> imaging [5,95]\\
+ 512Mb -> live[32,53\%] -> imaging [8,75]\\
+ 256Mg -> live [52,37\%] -> imaging [25,46]\\
+ 
+ >>>> Compara com a quantidade de memória alterada no meu caso <<<<
  
 % ----------------------------------------------------------
 % Análise dos resultados

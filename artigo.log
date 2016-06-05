@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  21 MAY 2016 09:49
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  5 JUN 2016 11:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1126,41 +1126,71 @@ Underfull \hbox (badness 10000) in paragraph at lines 324--327
 
  []
 
-[10] [11] (./artigo.bbl (./artigo.brf)
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 351--354
+
+ []
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 359--362
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 367--369
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 374--377
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 383--386
+
+ []
+
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 391--394
+
+ []
+
+[13] (./artigo.bbl (./artigo.brf)
 \tf@brf=\write5
 \openout5 = `artigo.brf'.
 
- [12
+ [14
 
 ]
 bibitemlist
 )
 No file artigo.ind.
-[13
+[15
 
 ]
 \tf@toc=\write6
 \openout6 = `artigo.toc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 374.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 374.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 430.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 430.
  (./artigo.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 374.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 374.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 430.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 430.
 Package rerunfilecheck Info: File `artigo.brf' has not changed.
-(rerunfilecheck)             Checksum: 60F4DB73632D37F9E71821DD4DEE2FC9;392.
+(rerunfilecheck)             Checksum: DB68F8A3A50E934A5FEFE52F8E9FC6D7;436.
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 374.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 430.
  ) 
 Here is how much of TeX's memory you used:
- 13605 strings out of 493304
- 202012 string characters out of 6139871
- 451193 words of memory out of 5000000
- 16743 multiletter control sequences out of 15000+600000
- 60884 words of font info for 89 fonts, out of 8000000 for 9000
+ 13624 strings out of 493304
+ 202274 string characters out of 6139871
+ 451368 words of memory out of 5000000
+ 16753 multiletter control sequences out of 15000+600000
+ 61195 words of font info for 92 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  42i,12n,36p,259b,517s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
@@ -1171,10 +1201,10 @@ xmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lm
 ss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/f
 onts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy1
 0.pfb>
-Output written on artigo.pdf (14 pages, 216103 bytes).
+Output written on artigo.pdf (16 pages, 221068 bytes).
 PDF statistics:
- 209 PDF objects out of 1000 (max. 8388607)
- 182 compressed objects within 2 object streams
- 37 named destinations out of 1000 (max. 500000)
+ 221 PDF objects out of 1000 (max. 8388607)
+ 192 compressed objects within 2 object streams
+ 40 named destinations out of 1000 (max. 500000)
  20553 words of extra memory for PDF output out of 20736 (max. 10000000)
 
