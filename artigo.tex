@@ -60,6 +60,7 @@
 \usepackage{color}				% Controle das cores
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage{microtype} 			% para melhorias de justificação
+\usepackage{multirow}			% para tabelas com celulas mergeadas
 % ---
 
 % ---
@@ -287,9 +288,25 @@ O modelo proposto só começa a coletar evidência após a detecção da ameaça
 termos de espaco em disco e piora o problema do volume de dados a ser analisado. Pessoalmente acho arriscado depender de instantâneos pois caso precise, repetir o processo de coleta
 pode não ser possível. Um exemplo é editar um disco virtual que estava atrelado a uma máquina virtual da qual se gerou os instantâneos, tal ação pode levar a perda de dados.
 
-Quando comparado a este trabalho, a presente proposta tem por vantagens coletar apenas a informações de memória e usar a janela de coleta de x dias antes do ataque para 
-manter sob controle a quantidade de informação que precisa ser analisada. Propondo a autilização de container para associar a evidência a sua origem, tornamos o processo 
-independente de máquina. \\
+Como métrica, o autor relaciona o tamanho da memória alocada na máquina virtual com o tempo necessário para gerar o instantâneo de acordo com a tabela 1 abaixo
+
+\begin{table}[h!]
+\centering
+\caption{Memória alocada X Tempo de captação}
+\label{my-label}
+\begin{tabular}{c|c}
+\hline
+\textbf{Memória alocada na VM} & \textbf{Tempo geração snapshot} \\ \hline
+512 Mb                         & 15 segundos                     \\ \hline
+1 Gb                           & 20 segundos                     \\ \hline
+4 Gb                           & 36 segundos                     \\ \hline
+\end{tabular}
+\end{table}
+
+Quando comparado a este trabalho, a presente proposta tem por vantagens coletar apenas a informações de memória e usar a janela de coleta de \textbf{x} dias antes do ataque para 
+manter sob controle a quantidade de informação que precisa ser analisada. Tomando como referência a tabela acima, conseguiremos um menor tempo de coleta da informação de 
+memória pertinente a investigação, permitindo um menor espaço de tempo entre as coletas, gerando menos impacto na performance da aplicação e mais dados para a investigação.
+Propondo a autilização de container para associar a evidência a sua origem, tornamos o processo independente de máquina. \\
  
 \item \textbf{A log based approach to make digital forensics easier on cloud computing \cite{Sang2013} }: Método sugere salvar a informação coletada fora da núvem de modo 
 a driblar os problemas de multi-inquilinato e multi-jurisdição, usa um mecanismo de hash para garantir a autenticidade e integridade da informação mas não dá detalhes da 
@@ -312,9 +329,40 @@ e a integração com a API do hypervisor. O principal objetivo é diminuir o gap
 dados de baixo nível em informação de alto nível. Depende de cooperação do provedor de serviço de nuvem, não tem conhecimento da máquina hospedada e não vai além da coleta, não 
 descreve como resolve a cadeia de custódia. Tem a vantagem de ser imune a técnicas anti-forenses.
 
+Como métrica o autor relaciona o tamanho médio do trace gerado a partir da uma evidência de memória coletada de alguns processos em vários sistemas operacionais de acordo 
+com a tabela 2 abaixo. Essa métrica pode se relacionar a presente proposta como o volume de informação extraida de uma evidência.
+
+\begin{table}[]
+\centering
+\caption{Tamanho do trace coletado de vários programas}
+\label{my-label}
+\begin{tabular}{l|c|c}
+\hline
+\textbf{Sistema Operacional}		&\textbf{Programa}	      & \textbf{Tamanho do Trace}\\ \hline
+\multirow{6}{*}{Windows}                & getpid                      & 3549			 \\
+                                        & gettime                     & 7715    		 \\
+                                        & pslist                      & 302082  		 \\
+                                        & lsmod                       & 195488   		 \\
+                                        & getpsfile                   & 49588   		 \\
+                                        & getdrvfile                  & 194765  		 \\
+\multirow{5}{*}{Linux}                  & getpid                      & 133047                   \\ \hline
+                                        & gettime                     & 75074                    \\
+                                        & pslist                      & 6107214                  \\
+                                        & lsmod                       & 1936439                  \\
+                                        & getpsfile                   & 14752561                 \\
+\multirow{6}{*}{Haiku}                  & getpid                      & 18242                    \\ \hline
+                                        & gettime                     & 9982                     \\
+                                        & pslist                      & 362127                   \\
+                                        & lsmod                       & 850363                   \\
+                                        & getpsfile                   & 249663                   \\
+                                        & getdrvfile                  & 522299                   \\ 
+\end{tabular}
+\end{table}
+
 Quando comparado a este trabalho, a presente proposta tem por vantagens ser arcabouço de coleta e armazenamento de evidências não apenas um método de coleta. Empregando a
 estratégia de realizar a coleta diretamente na máquina não tem o problema do gap semântico próprio das soluções baseadas em introspecção. Como conhece o contexto do que 
-está rodando dentro da máquina virtual podemos direcionar a coleta de modo que seja mais eficiênte além do que a evidência coletada já é útil para análise.\\
+está rodando dentro da máquina virtual podemos direcionar a coleta de modo que seja mais eficiênte. O autor usa outras métricas voltadas ao processamento da evidência antes
+de sua análise para diminuir a quantidade de informação a se analisar mas não dá detalhes de como esse processamento.\\
 
 \item \textbf{Digital Forensics as a Service: A game changer \cite{VanBaar2014} }: Esta proposta é focada em uma mudança no armazenamento e forma de trabalho dos peritos forenses.
 Propõe que a forense seja oferecida como um serviço e que as evidências sejam armazenadas em um local centralizado com o devido controle de acesso e garantia de integridade da 
@@ -337,63 +385,48 @@ evidência e consigue reproduzir o processo de coleta mesmo se a máquina não e
 
 \item \textbf{Comparative Analisys of volatile memory forensics \cite{Aljaedi2011} }: Levantamento sobre o impacto da realização de forense de memória ao vivo nas máquinas
 virtuais na nuvem. Mostra que a quantidade de informações referentes a processos não alocados e página de memória perdida é um ponto a considerar quando se inicia uma
-ferramente para análise de memória em uma máquina já funcionando.
+ferramente para análise de memória em uma máquina já funcionando como.
 
-Quando comparado a este trabalho a presente proposta tem por vantagem estar sempre rodando na máquina virtual, sujeitando-se aos efeitos de escalonamento do processo e swap e
-assim não provoca as perdas de informações de processos não alocados e páginas de memória referentes ao rearranjo que o kernel faz quando uma nova aplicação é iniciada.
+Como métrica o autor relaciona a porcentagem média de processos que permanecem na memória antes e depois que a ferramenta de coleta foi disparada com a quantidade de memória
+alocada na VM de acordo com a tabela 3 abaixo.
+
+\begin{table}[h!]
+\centering
+\caption{Média de processos que permaneceram na memória}
+\label{my-label}
+\begin{tabular}{c|c|c}
+\hline
+\textbf{Memória alocada a VM} & \textbf{\% antes da ativação} 			  & \textbf{\% depois da ativação} \\ \hline
+1 Gb                          & 78,33                                             & 61,66                          \\ \hline
+512 Mb                        & 73,33                                             & 46,66                          \\ \hline
+256 Mb                        & 50,55                                             & 35,00                                                          
+\end{tabular}
+\end{table}
+
+Em outra métrica o autor relaciona a porcentagem média de páginas de memória alterada nos métodos de \textbf{\% análise ao vivo}, onde a coleta é realizada com o sistema rodando e 
+\textbf{\% cópia de memória} onde a máquina virtual é pausada para a realização de coleta de informação com a quantidade de memória alocada de acordo com a tabela abaixo. Em ambos
+os casos as duas métricas são comparações entre o estado da memória antes e depois da inicialização da ferramenta de coleta.
+
+\begin{table}[h!]
+\centering
+\caption{Média de página de memória alterada}
+\label{my-label}
+\begin{tabular}{c|c|c}
+\hline
+\textbf{Memória alocada a VM} & \textbf{\% análise ao vivo} 			  & \textbf{\% cópia de memória} \\ \hline
+1 Gb                          & 7,99                                              & 5,95                         \\ \hline
+512 Mb                        & 32,53                                             & 8,75                         \\ \hline
+256 Mb                        & 52,37                                             & 25,46                                                         
+\end{tabular}
+\end{table}
+
+Quando comparado a este trabalho a presente proposta tem por vantagem estar sempre em execução, sujeitando-se aos efeitos de escalonamento do processo e 
+gerenciamento de páginas de memória pelo sistema operacional, assim não gera as perdas de informação de processos não alocados e páginas de memória referentes ao 
+rearranjo que o kernel faz quando uma nova aplicação é iniciada.
 
  \end{itemize}
  
- >>>> Colocar isso aqui em uma tabela <<<<
- 
- Solução: Automated forensic data acquisition in the cloud -> tempo para gerar o snapshot da instância de uma VM de 20 GB de tamanho x tamanho da memória alocada na VM: 
- 
- 512Mb -> 15 Seg\\
- 1Gb   -> 20 Seg\\
- 4Gb   -> 36 Seg\\
- 
- >>>> comparar com a quantidade de memória que eu salvo para viabilizar análise <<<<
- 
- Solução: Virtuoso, narrowing the semantic gap in virtual machine introspection -> comparativo do tamanho da evidência após a coleta, após a primeira filtragem e após a segunda x S.O.
- 
- Windows -> varios programas -> original [302082] -> primeira filtragem [230366] -> final [75141] \\
- Linux   -> varios programas -> original [6107214]-> primeira filtragem [2265667]-> final [1095963]\\
- Haiku   -> varios programas -> original [850363] -> primeira filtragem [702277] -> final [423438]\\
- 
- >>>> como métrica pensar em colocar isso focado em diminuição da quantidade de dados a serem analisados <<<<
- 
- Solução: Virtuoso, narrowing the semantic gap in virtual machine introspection -> análise da confiabilidade da evidência após o processos de filtragem x tamanho original da mesma
- 
- 2 traces (???) -> 67\% de confiança\\
- 12 traces(???) -> 85\% de confiança\\
- 
- 
- Solução: Virtuoso, narrowing the semantic gap in virtual machine introspection -> Tempo para coleta dos dados para cada um dos programas utilizados como caso de investigação.
 
- 
- Windows -> varios programas -> tempo [751.9]\\
- Linux   -> varios programas -> tempo [20723.9]\\
- Haiku   -> varios programas -> tempo [1901.0]\\
- 
- >>>> vários programas utilizados para mensurar tempo, pegar uma media? <<<<
- >>>> comparar com o tempo que levo para gerar evidências <<<<
- 
- Solução: Comparative analisys of live memory forensics -> Quantidade média de processos que permaneceram na memória antes e depois de carrregar a ferramenta x tamanho da memória alocada em uam VM
-
- 1Gb -> antes [78,33\%] -> depois [61,66\%]\\
- 512Mb -> antes[73,33\%] -> depois [46,66\%]\\
- 256Mg -> antes [50,55\%] -> depois [35,00\%]\\
-  
- >>>> comparar com a quantidade de memória alterada no meu caso <<<< 
-  
- Solução: Comparative analisys of live memory forensics -> Quantidade média de página de memória alterada nos métodos de live analisis x memory imaging x tamanho da memória alocada em uam VM
-
-,Gb -> live [7,99\%] -> imaging [5,95]\\
- 512Mb -> live[32,53\%] -> imaging [8,75]\\
- 256Mg -> live [52,37\%] -> imaging [25,46]\\
- 
- >>>> Compara com a quantidade de memória alterada no meu caso <<<<
- 
 % ----------------------------------------------------------
 % Análise dos resultados
 % ----------------------------------------------------------
