@@ -61,7 +61,12 @@
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage{microtype} 			% para melhorias de justificação
 \usepackage{multirow}			% para tabelas com celulas mergeadas
+\usepackage{array}			% para multilinhas nas celulas
+
 % ---
+
+\newcolumntype{L}{>{\centering\arraybackslash}m{3cm}}
+\newcolumntype{A}{>{\centering\arraybackslash}m{1cm}}
 
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
@@ -424,7 +429,43 @@ Quando comparado a este trabalho a presente proposta tem por vantagem estar semp
 gerenciamento de páginas de memória pelo sistema operacional, assim não gera as perdas de informação de processos não alocados e páginas de memória referentes ao 
 rearranjo que o kernel faz quando uma nova aplicação é iniciada.
 
- \end{itemize}
+\end{itemize}
+ 
+\textbf{Tabela comparativa das soluções}
+ 
+\begin{itemize}
+ \item Digital forensic framework for a cloud environment - \textbf{A}
+ \item Evidence and cloud computing. The virtual machine introspection approach - \textbf{B}
+ \item Design and implementation of FROST: Digital forensic tools for Open Stack cloud computing platform - \textbf{C}
+ \item Desafios da perícia forense em um ambiente de computação em núvem - \textbf{D}
+ \item Automated data forensic acquisition in the cloud - \textbf{E}
+ \item A log based approach to make digital forensics easier on cloud computing - \textbf{F}
+ \item Narrowing the semantic gap in virtual machine introspection - \textbf{G}
+ \item Comparative analisys of volatile memory forensics - \textbf{H}
+ \item Volatile memory acquisition using backup for forensic investigation - \textbf{I}
+ \item Digital forensics as a service, a game changer - \textbf{J}
+\end{itemize}
+
+ 
+\begin{table}[h!]
+\centering
+\caption{Comparativo de soluções}
+\label{my-label}
+\begin{tabular}{A|L|L|L|L|L|L|L}
+\hline
+\textbf{}	& \textbf{Coleta  é continua?}                      & \textbf{Considera as pectos legais?}                      & \textbf{Precisa de tradução de endereços para análise?}                      & \textbf{É independente de VM?}                      & \textbf{Conhece o que esta rodando na VM?}                      & \textbf{Garante cadeia de custódia?}                      & \textbf{Preserva evidência de memória volátil?}                      \\ \hline
+\textbf{A}	& Não                                               & Sim                                                       & Não                                                                          & Não                                                 & Sim                                                             & Não                                                       & Não                                                                  \\ \hline
+\textbf{B}	& Não                                               & Não                                                       & Sim                                                                          & Não                                                 & Não                                                             & Não                                                       & Sim                                                                  \\ \hline
+\textbf{C}	& Não                                               & Não                                                       & Não                                                                          & Não                                                 & Não                                                             & Não                                                       & Não                                                                  \\ \hline
+\textbf{D}	& Não                                               & Sim                                                       & Não                                                                          & Não                                                 & Não                                                             & Não                                                       & Não                                                                  \\ \hline
+\textbf{E}	& Não                                               & Sim                                                       & Não                                                                          & Não                                                 & Sim                                                             & Sim                                                       & Não                                                                  \\ \hline
+\textbf{F}	& Sim                                               & Sim                                                       & Não                                                                          & Sim                                                 & Sim                                                             & Não                                                       & Não                                                                  \\ \hline
+\textbf{G}	& Não                                               & Não                                                       & Não                                                                          & Não                                                 & Não                                                             & Não                                                       & Sim                                                                  \\ \hline
+\textbf{H}	& Não                                               & Não                                                       & Não                                                                          & Não                                                 & Sim                                                             & Não                                                       & Sim                                                                  \\ \hline
+\textbf{I}	& Sim                                               & Não                                                       & Não                                                                          & Não                                                 & Sim                                                             & Não                                                       & Sim                                                                  \\ \hline
+\textbf{J}	& Sim                                               & Sim                                                       & Não                                                                          & Não                                                 & Não                                                             & Sim                                                       & Não                                                                  \\ \hline
+\end{tabular}
+\end{table}
  
 
 % ----------------------------------------------------------
