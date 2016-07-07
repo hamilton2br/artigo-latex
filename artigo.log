@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  29 JUN 2016 21:56
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  6 JUL 2016 23:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1091,106 +1091,108 @@ l.189
 
 ] [6
 
+] [7] [8
+
 ]
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 244.
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 286.
 
 
 (/usr/share/texmf/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 244.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 286.
 
-Underfull \hbox (badness 10000) in paragraph at lines 254--259
+Underfull \hbox (badness 10000) in paragraph at lines 296--301
 
  []
 
-[7
+[9
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 269--273
+Underfull \hbox (badness 10000) in paragraph at lines 311--315
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 281--286
+Underfull \hbox (badness 10000) in paragraph at lines 323--328
 
  []
 
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 310--314
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 352--356
 
  []
 
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 320--323
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 362--365
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 327--330
+Underfull \hbox (badness 10000) in paragraph at lines 369--372
 
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 339.
+               Default added (so using `tbp') on input line 381.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 366--370
-
- []
-
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 376--379
+Underfull \hbox (badness 10000) in paragraph at lines 408--412
 
  []
-
-[11]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [12]
+Underfull \hbox (badness 10000) in paragraph at lines 418--421
+
+ []
+
+[13]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[13] [14] (./artigo.bbl (./artigo.brf)
+[14]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[15] [16] (./artigo.bbl (./artigo.brf)
 \tf@brf=\write5
 \openout5 = `artigo.brf'.
 
- [15
+ [17
 
 ]
 bibitemlist
 )
 No file artigo.ind.
-[16
+[18
 
 ]
 \tf@toc=\write6
 \openout6 = `artigo.toc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 503.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 503.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 545.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 545.
  (./artigo.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 503.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 503.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 545.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 545.
 Package rerunfilecheck Info: File `artigo.brf' has not changed.
-(rerunfilecheck)             Checksum: BC49D78F2B2A5009CC5C1ADD01E737A4;436.
+(rerunfilecheck)             Checksum: 1910161EE4BC95AC3681232DC14E9A8C;439.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 503.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 545.
  ) 
 Here is how much of TeX's memory you used:
- 13655 strings out of 493304
- 202767 string characters out of 6139871
+ 13665 strings out of 493304
+ 202856 string characters out of 6139871
  459715 words of memory out of 5000000
- 16774 multiletter control sequences out of 15000+600000
- 61195 words of font info for 92 fonts, out of 8000000 for 9000
+ 16775 multiletter control sequences out of 15000+600000
+ 61468 words of font info for 95 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 42i,12n,36p,448b,517s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,12n,35p,448b,517s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
 ips/lm/lm-mathsy.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/s
 hare/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public
@@ -1199,10 +1201,10 @@ xmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lm
 ss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/f
 onts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy1
 0.pfb>
-Output written on artigo.pdf (17 pages, 226750 bytes).
+Output written on artigo.pdf (19 pages, 232696 bytes).
 PDF statistics:
- 232 PDF objects out of 1000 (max. 8388607)
- 201 compressed objects within 3 object streams
- 46 named destinations out of 1000 (max. 500000)
- 20553 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 247 PDF objects out of 1000 (max. 8388607)
+ 214 compressed objects within 3 object streams
+ 49 named destinations out of 1000 (max. 500000)
+ 20561 words of extra memory for PDF output out of 20736 (max. 10000000)
 

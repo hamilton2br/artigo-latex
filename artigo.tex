@@ -228,6 +228,50 @@ Aqui vai a justificativa
 Aqui vão os objetivos
 
 % ----------------------------------------------------------
+% Capitulo de Minha solução 
+% ----------------------------------------------------------
+\chapter{Minha Solução}
+
+Ainda estou escrevendo Marcos :)
+
+Motivadores da solução
+
+- Maquinas são voláteis: 
+Aumento do uso de soluções de virtualização e arquiteturas em nuvem que escalam automáticamente trouxe o problema da volatilidade das máquinas. Um pool sobre carga aumenta o número de máquinas, passada a carga o número de máquinas diminui
+
+- Crescimento do tipo de ameaça que esta presente apenas na memória e não deixa evidências em disco
+Tem crescido muito a quantidade de ameaças que não deixa rastro no disco, isso em conjunto com as máquinas virtuais e pools elásticos levam a um problema de que a evidência de um ataque pode ser totalmente perdida quando a máquina for despejada do pool e seus recursos desalocados pois não deixa rastros em disco ou log, toda a evidência estava na memória desalocada.
+
+- Volume de dados para análise só tende a crescer.
+Uma alternativa é o de salvar snapshots de memória durante a vida útil da máquina virtual porem, salvar snapshots de memória simplesmente contribuí apenas para piorar o quadro do crescente quantidade de evidências que os investigadores precisam analisar.
+
+- Dificuldade em reproduzir uma evidência de memória de máquina em nuvem.
+Mesmo que se consiga salvar a memória da máquina não conseguir associa-la a uma origem pode trazer problemas para sua aceitação em um processo legal pois a origem não pode ser descoberta.
+
+- Processos de coleta existentes hoje tem pouca consideração por integridade e confidencialidade da evidência.
+Das várias soluções presentes hoje poucas fazem alguma consideração sobre a forma de armazenamento da evidência a grande maioria é apenas um processo de coleta.
+
+- Problemas relacionados a multi-inquilinato e multi-juridição da evidência.
+Em casos de soluções apenas em nuvem pública há de se armazena-la fora da mesma para não incorrer em problemas de multi-jurisdição e multi-inquilino.
+
+Objetivos da solução
+	- Conseguir armazenar evidência de memória de uma máquina virtual de modo a conseguir viabilizar análise forense
+	- Conseguir armazenar evidência de memória de uma máquina virtual de modo a conseguir identificar sua fonte.
+	- Armazenar evidência o suficiente para viabilizar a análise (conceito de antes e depois do incidente)
+	- Armazenar a evidência de modo a garantir sua integridade e confidencialidade, sem violar jurisdição ou 
+
+A Solução
+	- Identificação da fonte: Implementação através de containers. Evidência de memória é associada ao hash de um conteiner e/ou ao hash de uma imagem
+	- Viabilização da análise só com memória do conteiner: Implementação deve ser capaz de identificar os seguintes tipos de ataque: Remote DLL Injection, Remote Code Injection, Reflexive DLL Injection, Hollow process Injection, Fragmented Code Injection
+	- Armazenar evidência o suficiente: Implementar o conceito de janela deslizante acionada por Intrusion Detection.
+	- Aspector jurídicos: Armazenamento fora da nuvem via TLS para um local com acesso controlado.
+
+Limitações da solução
+	- IDS dentro da máquina é sucetível a técnicas de ocultação usados por ameaças
+	- Associação de memória é possível apenas ao processos
+	- Evidência não suporta investigação de rootkits
+
+% ----------------------------------------------------------
 % Plano de Trabalho 
 % ----------------------------------------------------------
 \chapter{Métodos}
