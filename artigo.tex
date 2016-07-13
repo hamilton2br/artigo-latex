@@ -234,13 +234,23 @@ Aqui vão os objetivos
 
 Ainda estou escrevendo Marcos :)
 
-Motivadores da solução
+Aumento do uso de soluções de virtualização e arquiteturas em nuvem que escalam automáticamente \cite{Amazon2016} trouxe o problema da volatilidade das máquinas virtuais. 
+Como exemplo, uma aplicação hospedada na nuvem sob um pico de uso pode clonar máquinas e adiciona-las ao pool para atender a demanda, passada este pico as máquinas que foram
+clonadas são despejadas e seus recursos liberados e o conjunto de máquinas retorna ao número inicial. Com as ameaças que atuam diretamente na memória sem deixar rastros 
+no disco da máquina afetada, se essas máquinas foram usadas para algum evento ilícito, as evidências do acontecimento contidas nela são perdidas.
 
-- Maquinas são voláteis: 
-Aumento do uso de soluções de virtualização e arquiteturas em nuvem que escalam automáticamente trouxe o problema da volatilidade das máquinas. Um pool sobre carga aumenta o número de máquinas, passada a carga o número de máquinas diminui
+São 4 os principais tipos de ataques realizados diretamente na memória e que não deixam rastros no disco da máquina, todos baseados em injeção de código.
 
-- Crescimento do tipo de ameaça que esta presente apenas na memória e não deixa evidências em disco
-Tem crescido muito a quantidade de ameaças que não deixa rastro no disco, isso em conjunto com as máquinas virtuais e pools elásticos levam a um problema de que a evidência de um ataque pode ser totalmente perdida quando a máquina for despejada do pool e seus recursos desalocados pois não deixa rastros em disco ou log, toda a evidência estava na memória desalocada.
+\begin{itemize}
+ \item \textbf{Injeção remota de bibliotecas} - Um processo malicioso força o processo alvo a carregar uma biblioteca em seu espaço de memória através de comandos do sistema operacional.
+ A biblioteca existe fisicamente em alguma localização remota.
+ \item \textbf{Injeção remota de código} - Um processo malicioso escreve código como uma sequência de bytes diretamente no espaço de memória de um processo alvo e força este 
+ último a executa-lo. O código pode por exemplo ser um script de shell
+ \item \textbf{Injeção reflexiva de biblioteca} - Um processo malicioso escreve diretamente na memória de um processo alvo, como uma sequência de bytes, o código de uma biblioteca
+ e força o processo alvo a executa-la. Nesta forma de ataque a biblioteca não existe fisicamente.
+ \item \textbf{Injeção de processo vazio} - Um processo malicioso dispara uma instância de um processo legítimo no estado suspenso, a área do executável é liberada e realocada com 
+ código malicioso.
+\end{itemize}
 
 - Volume de dados para análise só tende a crescer.
 Uma alternativa é o de salvar snapshots de memória durante a vida útil da máquina virtual porem, salvar snapshots de memória simplesmente contribuí apenas para piorar o quadro do crescente quantidade de evidências que os investigadores precisam analisar.
@@ -262,7 +272,7 @@ Objetivos da solução
 
 A Solução
 	- Identificação da fonte: Implementação através de containers. Evidência de memória é associada ao hash de um conteiner e/ou ao hash de uma imagem
-	- Viabilização da análise só com memória do conteiner: Implementação deve ser capaz de identificar os seguintes tipos de ataque: Remote DLL Injection, Remote Code Injection, Reflexive DLL Injection, Hollow process Injection, Fragmented Code Injection
+	- Viabilização da análise só com memória do conteiner: Implementação deve ser capaz de identificar os seguintes tipos de ataque: Remote DLL Injection, Remote Code Injection, Reflexive DLL Injection, Hollow process Injection
 	- Armazenar evidência o suficiente: Implementar o conceito de janela deslizante acionada por Intrusion Detection.
 	- Aspector jurídicos: Armazenamento fora da nuvem via TLS para um local com acesso controlado.
 
