@@ -234,12 +234,14 @@ Aqui vão os objetivos
 
 Ainda estou escrevendo Marcos :)
 
+\textbf{Motivações}
+
 Aumento do uso de soluções de virtualização e arquiteturas em nuvem que escalam automáticamente \cite{Amazon2016} trouxe o problema da volatilidade das máquinas virtuais. 
 Como exemplo, uma aplicação hospedada na nuvem sob um pico de uso pode clonar máquinas e adiciona-las ao pool para atender a demanda, passada este pico as máquinas que foram
 clonadas são despejadas e seus recursos liberados e o conjunto de máquinas retorna ao número inicial. Com as ameaças que atuam diretamente na memória sem deixar rastros 
 no disco da máquina afetada, se essas máquinas foram usadas para algum evento ilícito, as evidências do acontecimento contidas nela são perdidas.
 
-São 4 os principais tipos de ataques realizados diretamente na memória e que não deixam rastros no disco da máquina, todos baseados em injeção de código.
+São 4 os principais tipos de ataques realizados diretamente na memória e que não deixam rastros no disco da máquina, todos baseados em injeção de código \cite{Case2014}.
 
 \begin{itemize}
  \item \textbf{Injeção remota de bibliotecas} - Um processo malicioso força o processo alvo a carregar uma biblioteca em seu espaço de memória através de comandos do sistema operacional.
@@ -252,17 +254,14 @@ São 4 os principais tipos de ataques realizados diretamente na memória e que n
  código malicioso.
 \end{itemize}
 
-- Volume de dados para análise só tende a crescer.
-Uma alternativa é o de salvar snapshots de memória durante a vida útil da máquina virtual porem, salvar snapshots de memória simplesmente contribuí apenas para piorar o quadro do crescente quantidade de evidências que os investigadores precisam analisar.
+Do ponto de vista forense, praticantes e pesquisadores concordam que o crescente volume de dados e aspectos de multi-inquilinato e multi-jurisdição próprios soluções em
+nuvem figuram entre suas principais dificuldades \cite{Bash2015a}. A maioria das técnicas são da era pré-nuvem e as caracteristicas citadas anteriormente estão inviabilizando
+tais práticas. O aspecto multi-inquilino impede a remoção do hardware pois como ele é compartilhado com vários usuários, removê-los seria uma violação de privacidade de usuários não relacionados
+a investigação. Por fim a característica distribuída pode alocar informação relevante a investigação em vários países dificultando a obtenção da mesma \cite{Dykstra2012a}.
 
-- Dificuldade em reproduzir uma evidência de memória de máquina em nuvem.
-Mesmo que se consiga salvar a memória da máquina não conseguir associa-la a uma origem pode trazer problemas para sua aceitação em um processo legal pois a origem não pode ser descoberta.
-
-- Processos de coleta existentes hoje tem pouca consideração por integridade e confidencialidade da evidência.
-Das várias soluções presentes hoje poucas fazem alguma consideração sobre a forma de armazenamento da evidência a grande maioria é apenas um processo de coleta.
-
-- Problemas relacionados a multi-inquilinato e multi-juridição da evidência.
-Em casos de soluções apenas em nuvem pública há de se armazena-la fora da mesma para não incorrer em problemas de multi-jurisdição e multi-inquilino.
+O crescente volume de dados das aplicações atuais deram aos investigadores em média de 6 a 12 meses de backlog de dados para investigar \cite{Quick2014}, download de terabytes
+de dados leva horas para se realizar e requer a colaboração do provedor de nuvem. Mudar o paradigma de coleta tem sido proposto por pesquisadores e praticantes já há alguns
+anos \cite{Birk2011}\cite{Sang2013} mas estas práticas precisam se submeter a legislação para que seja aceita em um processo legal.
 
 Objetivos da solução
 	- Conseguir armazenar evidência de memória de uma máquina virtual de modo a conseguir viabilizar análise forense
