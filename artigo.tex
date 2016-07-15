@@ -261,15 +261,19 @@ a investigação. Por fim a característica distribuída pode alocar informaçã
 
 O crescente volume de dados das aplicações atuais deram aos investigadores em média de 6 a 12 meses de backlog de dados para investigar \cite{Quick2014}, download de terabytes
 de dados leva horas para se realizar e requer a colaboração do provedor de nuvem. Mudar o paradigma de coleta tem sido proposto por pesquisadores e praticantes já há alguns
-anos \cite{Birk2011}\cite{Sang2013} mas estas práticas precisam se submeter a legislação para que seja aceita em um processo legal.
+anos \cite{Birk2011}\cite{Sang2013} mas estas práticas precisam se submeter a legislação para que seja aceita em um processo legal.\\
 
-Objetivos da solução
-	- Conseguir armazenar evidência de memória de uma máquina virtual de modo a conseguir viabilizar análise forense
-	- Conseguir armazenar evidência de memória de uma máquina virtual de modo a conseguir identificar sua fonte.
-	- Armazenar evidência o suficiente para viabilizar a análise (conceito de antes e depois do incidente)
-	- Armazenar a evidência de modo a garantir sua integridade e confidencialidade, sem violar jurisdição ou 
+\textbf{Objetivos da solução}
 
-A Solução
+\begin{itemize}
+ \item Conseguir armazenar evidência de memória de uma máquina virtual de modo a conseguir viabilizar uma análise forense.
+ \item Conseguir armazenar evidência de memória de uma máquina virtual de modo a conseguir identificar sua fonte.
+ \item Armazenar evidência de memória suficiente para conseguir descrever o sistema antes e depois do incidente
+ \item Armazenar a evidência de modo a gaarantir sua integridade, confidencialidade, não violar jurisdição e não violar privacidade.\\
+\end{itemize}
+
+\textbf{Descrição da solução}
+
 	- Identificação da fonte: Implementação através de containers. Evidência de memória é associada ao hash de um conteiner e/ou ao hash de uma imagem
 	- Viabilização da análise só com memória do conteiner: Implementação deve ser capaz de identificar os seguintes tipos de ataque: Remote DLL Injection, Remote Code Injection, Reflexive DLL Injection, Hollow process Injection
 	- Armazenar evidência o suficiente: Implementar o conceito de janela deslizante acionada por Intrusion Detection.
