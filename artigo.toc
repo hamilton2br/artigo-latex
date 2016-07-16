@@ -11,13 +11,13 @@
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Minha Solu\IeC {\c c}\IeC {\~a}o}}{6}{chapter.4}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {M\IeC {\'e}todos}}{8}{chapter.5}
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {M\IeC {\'e}todos}}{9}{chapter.5}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase {Revis\IeC {\~a}o Bibliogr\IeC {\'a}fica}}{9}{chapter.6}
+\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase {Revis\IeC {\~a}o Bibliogr\IeC {\'a}fica}}{10}{chapter.6}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase {An\IeC {\'a}lise dos Resultados}}{17}{chapter.7}
+\contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase {An\IeC {\'a}lise dos Resultados}}{18}{chapter.7}
 \vspace {\cftbeforechapterskip }
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{Refer\^encias}{18}{section*.6}
+\contentsline {chapter}{Refer\^encias}{19}{section*.6}
 \vspace {\cftbeforechapterskip }

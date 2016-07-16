@@ -274,12 +274,41 @@ anos \cite{Birk2011}\cite{Sang2013} mas estas práticas precisam se submeter a l
 
 \textbf{Descrição da solução}
 
-	- Identificação da fonte: Implementação através de containers. Evidência de memória é associada ao hash de um conteiner e/ou ao hash de uma imagem
-	- Viabilização da análise só com memória do conteiner: Implementação deve ser capaz de identificar os seguintes tipos de ataque: Remote DLL Injection, Remote Code Injection, Reflexive DLL Injection, Hollow process Injection
-	- Armazenar evidência o suficiente: Implementar o conceito de janela deslizante acionada por Intrusion Detection.
-	- Aspector jurídicos: Armazenamento fora da nuvem via TLS para um local com acesso controlado.
+Nas soluções com infra-estrutura física a máquina é persistente portanto associar uma copia da memória, a imagem de um disco e pacotes trafegando na rede é tarefa simples.
+Com as soluções de infra virtual, em especial as auto-escaláveis a máquina deixou de ser persistente e tornou-se volátil. Para resolver o problema da identificação da fonte
+precisamos encontrar outra forma de identificar a fonte da evidência coletada e para isto usamos containeres. Embora o container seja uma peça de software e por consequência
+também é volátil, a imagem compilada e sua execução na forma de container estão atrelados a um hash que os identificam. 
 
-Limitações da solução
+<imagem explicando o container>
+
+A solução, em intervalos conhecidos pausa a execução
+do container para tirar um instantâneo da memória dos processos sob sua execução. Em um sistema derivado do linux (Ubuntu 14.04) isso foi atingido via cópia do diretório
+``\\proc'' relacionado aos processos sob o ``cgroup'' associado ao container e salvo em disco. Usamos como nome do arquivo contendo o instantâneo da memória a combinação 
+do hash da imagem e o hash do container.
+
+<imagem do arquivo salvo>
+
+As técnicas forenses praticadas hoje estão voltadas para a obtenção da informação em sua totalidade, seja via cópia bit a bit, seja por remoção do hardware \cite{Simou2014}
+\cite{Bem2008}. Tais práticas hoje são repsonsáveis pelo crescente volume de dados que os investigadores tem que processar. Há uma vertente na comunidade chamada ``sniper 
+forensics'' onde se coleta e armazena o suficiente para a investigação. No âmbito desta solução, a questão foi definir o quão seria o ``suficiente''. Decidiu-se que `
+``suficiente'' seria a quantidade necessária para descrever o sistema antes e depois do ataque. A idéia é implementar um log rotativo de instantâneos de memória cobrindo
+uma quantidade de tempo configurável, integrar a solução com algum sistema de detecção de ameaça de modo que, ao detectar um ataque, o log passa de rotativo a completo assim
+permitindo que se conheça o sistema antes e depois do ataque. Caso a ameaça não seja detectável ainda há a possibilidade de ativação humana.
+
+<imagem do log rotativo, manual e automágico>
+
+De modo a não violar a jurisdição de outros países ou a privacidade de outros usuários por causa do caráter multi-inquilino e multi-jurisdição das soluções em núvem pública,
+a solução foi o de armazenar a evidência em um local físico e realizar o transporte utilizando conexão segura. Outro ponto importante é o de garantir a cadeia de custódia
+da evidência ou seja, garantir que a evidência não foi destruida ou alterada por qualquer pessoa, assim a solução usará de armazenamento físico fora da nuvem, o transporte
+será feito por TLS e o acesso a evidência será controlado.
+
+<imagem do transporte e armazenamento externo.>
+
+Tendo a implementação sido bem sucedida conseguiremos analisar e identificar os seguintes formas de ataque: Injeção remota de biblioteca, injeção remota de código, injeção
+reflexiva de biblioteca e injeção em processo vazio.\\
+
+\textbf{Limitações da solução}
+
 	- IDS dentro da máquina é sucetível a técnicas de ocultação usados por ameaças
 	- Associação de memória é possível apenas ao processos
 	- Evidência não suporta investigação de rootkits

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  14 JUL 2016 21:48
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  16 JUL 2016 18:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1110,97 +1110,102 @@ Underfull \hbox (badness 10000) in paragraph at lines 272--273
 
  []
 
-[7] [8
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 307--309
+
+ []
+
+[8] [9
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 311--316
+Underfull \hbox (badness 10000) in paragraph at lines 340--345
 
  []
 
-[9
+[10
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 326--330
+Underfull \hbox (badness 10000) in paragraph at lines 355--359
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 338--343
-
- []
-
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 367--371
+Underfull \hbox (badness 10000) in paragraph at lines 367--372
 
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 377--380
+Underfull \hbox (badness 10000) in paragraph at lines 396--400
+
+ []
+
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 406--409
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 384--387
+Underfull \hbox (badness 10000) in paragraph at lines 413--416
 
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 396.
+               Default added (so using `tbp') on input line 425.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 423--427
-
- []
-
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 433--436
+Underfull \hbox (badness 10000) in paragraph at lines 452--456
 
  []
 
 [13]
+Underfull \hbox (badness 10000) in paragraph at lines 462--465
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+ []
 
 [14]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[15] [16] (./artigo.bbl (./artigo.brf)
+[15]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[16] [17] (./artigo.bbl (./artigo.brf)
 \tf@brf=\write5
 \openout5 = `artigo.brf'.
 
- [17
+ [18
 
 ]
 bibitemlist
-[18
+[19
 
 ])
 No file artigo.ind.
-[19]
+[20]
 \tf@toc=\write6
 \openout6 = `artigo.toc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 560.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 560.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 589.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 589.
  (./artigo.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 560.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 560.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 589.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 589.
 Package rerunfilecheck Info: File `artigo.brf' has not changed.
-(rerunfilecheck)             Checksum: 6B7DDB36FFB1889B88BB29580BD6D951;727.
+(rerunfilecheck)             Checksum: BFE7396FDFE554099923ED030C846C55;809.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 560.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 589.
  ) 
 Here is how much of TeX's memory you used:
- 13734 strings out of 493304
- 203881 string characters out of 6139871
- 460686 words of memory out of 5000000
- 16835 multiletter control sequences out of 15000+600000
- 61559 words of font info for 96 fonts, out of 8000000 for 9000
+ 13761 strings out of 493304
+ 204236 string characters out of 6139871
+ 460994 words of memory out of 5000000
+ 16855 multiletter control sequences out of 15000+600000
+ 61817 words of font info for 98 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  42i,12n,35p,448b,639s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
@@ -1211,10 +1216,10 @@ xmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lm
 ss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/f
 onts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy1
 0.pfb>
-Output written on artigo.pdf (20 pages, 239415 bytes).
+Output written on artigo.pdf (21 pages, 243478 bytes).
 PDF statistics:
- 282 PDF objects out of 1000 (max. 8388607)
- 248 compressed objects within 3 object streams
- 56 named destinations out of 1000 (max. 500000)
+ 294 PDF objects out of 1000 (max. 8388607)
+ 259 compressed objects within 3 object streams
+ 59 named destinations out of 1000 (max. 500000)
  20561 words of extra memory for PDF output out of 20736 (max. 10000000)
 

@@ -25,6 +25,12 @@
 ISSN 17422876.
 Dispon{\'\i}vel em: \url{http://dx.doi.org/10.1016/j.diin.2014.03.007}.}
 
+\bibitem[Bem et al. 2008]{Bem2008}
+\abntrefinfo{Bem et al.}{BEM et al.}{2008}
+{BEM, D. et al. {Computer Forensics - Past , Present and Future}.
+\emph{Journal of Information Science and Technology}, v.~5, n.~3, p. 43--59,
+  2008.}
+
 \bibitem[Birk e Wegener 2011]{Birk2011}
 \abntrefinfo{Birk e Wegener}{BIRK; WEGENER}{2011}
 {BIRK, D.; WEGENER, C. {Technical Issues of Forensic Investigations in Cloud
@@ -115,6 +121,15 @@ Dispon{\'\i}vel em: \url{http://dx.doi.org/10.1016/j.diin.2014.09.002}.}
   computing}.
 \emph{Proceedings of the 2013 3rd International Conference on Intelligent
   System Design and Engineering Applications, ISDEA 2013}, p. 91--94, 2013.}
+
+\bibitem[Simou et al. 2014]{Simou2014}
+\abntrefinfo{Simou et al.}{SIMOU et al.}{2014}
+{SIMOU, S. et al. {Cloud forensics: Identifying the major issues and
+  challenges}.
+\emph{Lecture Notes in Computer Science (including subseries Lecture Notes in
+  Artificial Intelligence and Lecture Notes in Bioinformatics)}, v. 8484 LNCS,
+  p. 271--284, 2014.
+ISSN 16113349.}
 
 \bibitem[Zhang, Zhang e Wang 2010]{Zhang2010}
 \abntrefinfo{Zhang, Zhang e Wang}{ZHANG; ZHANG; WANG}{2010}
