@@ -309,9 +309,13 @@ reflexiva de biblioteca e injeção em processo vazio.\\
 
 \textbf{Limitações da solução}
 
-	- IDS dentro da máquina é sucetível a técnicas de ocultação usados por ameaças
-	- Associação de memória é possível apenas ao processos
-	- Evidência não suporta investigação de rootkits
+Ameaças das quais estamos focando neste trabalho usam técnicas que permitem passar desapercebidas pelo processo de detecção de ameaças algumas delas estão na forma de, 
+adulteração da lista de processos ativos em uma máquina, se fazer passar por um processo válido ou se fazer passar por uma biblioteca válida \cite{Case2014}. Por isso, 
+mesmo que haja uma integração com alguma forma de detecção de ameaça para a mudança do armazenamento de janela para o armazenamento total, acreditamos que ainda é 
+necessária a capacidade de acionamento manual.
+
+A solução esta focada em coletar informações de memória do espaço de memória do usuário assim, ela não ajuda na investigação de ameaças que realizem manipulação direta
+dos objetos do Kernel ( \textit{D.K.O.M. - Direct Kernel Object Manipulation} ).
 
 % ----------------------------------------------------------
 % Plano de Trabalho 
