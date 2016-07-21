@@ -233,7 +233,7 @@ Aqui vão os objetivos
 % ----------------------------------------------------------
 \chapter{Minha Solução}
 
-Ainda estou escrevendo Marcos :)
+Ainda tenho que revisar e colocar em português adequado Marcos :)
 
 \textbf{Motivações}
 
@@ -281,7 +281,7 @@ precisamos encontrar outra forma de identificar a fonte da evidência coletada e
 também é volátil, a imagem compilada e sua execução na forma de container estão atrelados a um hash que os identificam, a pilha de um container pode ser visto na Figura 1. 
 
 \begin{figure}[h]
-\caption{Evidência salva - hash do container e imagem}
+\caption{Pilha monstrando funcionamento de container}
 \includegraphics[scale=0.5]{docker.jpg}
 \centering
 \label{fig:instantaneo}
@@ -318,8 +318,6 @@ a solução foi o de armazenar a evidência em um local físico e realizar o tra
 da evidência ou seja, garantir que a evidência não foi destruida ou alterada por qualquer pessoa, assim a solução usará de armazenamento físico fora da nuvem, o transporte
 será feito por TLS e o acesso a evidência será controlado.
 
-<imagem do transporte e armazenamento externo.>
-
 Tendo a implementação sido bem sucedida conseguiremos analisar e identificar os seguintes formas de ataque: Injeção remota de biblioteca, injeção remota de código, injeção
 reflexiva de biblioteca e injeção em processo vazio.\\
 
@@ -335,7 +333,14 @@ dos objetos do Kernel ( \textit{D.K.O.M. - Direct Kernel Object Manipulation} ).
 
 \textbf{Esquema da solução}
 
-<imagem completa da solução>
+A solução completa com todos os elementos descritos anteriormente pode ser visto na figura 4
+
+\begin{figure}[h]
+\caption{Solução completa}
+\includegraphics[scale=0.5]{solucao.jpg}
+\centering
+\label{fig:Solucao}
+\end{figure}
 
 % ----------------------------------------------------------
 % Plano de Trabalho 
