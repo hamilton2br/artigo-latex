@@ -233,16 +233,16 @@ Aqui vão os objetivos
 % ----------------------------------------------------------
 \chapter{Minha Solução}
 
-Ainda tenho que revisar e colocar em português adequado Marcos :)
-
 \textbf{Motivações}
 
-Aumento do uso de soluções de virtualização e arquiteturas em nuvem que escalam automáticamente \cite{Amazon2016} trouxe o problema da volatilidade das máquinas virtuais. 
-Como exemplo, uma aplicação hospedada na nuvem sob um pico de uso pode clonar máquinas e adiciona-las ao pool para atender a demanda, passada este pico as máquinas que foram
-clonadas são despejadas e seus recursos liberados e o conjunto de máquinas retorna ao número inicial. Com as ameaças que atuam diretamente na memória sem deixar rastros 
-no disco da máquina afetada, se essas máquinas foram usadas para algum evento ilícito, as evidências do acontecimento contidas nela são perdidas.
+Aumento do uso de soluções de virtualização e a implementação de arquiteturas em nuvem que escalam automáticamente \cite{Amazon2016} trouxe a questão da volatilidade 
+das máquinas virtuais. Uma aplicação hospedada na nuvem sob um pico de uso pode clonar máquinas e adiciona-las ao grupo para atender a demanda. Passado 
+este pico, as máquinas que foram clonadas são despejadas, seus recursos liberados e o conjunto de retorna ao tamanho inicial. Com as ameaças que atuam diretamente 
+na memória sem deixar rastros no disco da máquina afetada, se essas máquinas forem usadas para algum evento ilícito, as evidências do acontecimento contidas nelas 
+serão para sempre perdidas.
 
-São 4 os principais tipos de ataques realizados diretamente na memória e que não deixam rastros no disco da máquina, todos baseados em injeção de código \cite{Case2014}.
+Para o escopo deste trabalho estamos considerando 4 tipos de ataques realizados diretamente na memória e que não deixam rastros no disco da máquina, todos baseados 
+em injeção de código \cite{Case2014}.
 
 \begin{itemize}
  \item \textbf{Injeção remota de bibliotecas} - Um processo malicioso força o processo alvo a carregar uma biblioteca em seu espaço de memória através de comandos do sistema operacional.
@@ -255,30 +255,31 @@ São 4 os principais tipos de ataques realizados diretamente na memória e que n
  código malicioso.
 \end{itemize}
 
-Do ponto de vista forense, praticantes e pesquisadores concordam que o crescente volume de dados e aspectos de multi-inquilinato e multi-jurisdição próprios soluções em
-nuvem figuram entre suas principais dificuldades \cite{Bash2015a}. A maioria das técnicas são da era pré-nuvem e as caracteristicas citadas anteriormente estão inviabilizando
-tais práticas. O aspecto multi-inquilino impede a remoção do hardware pois como ele é compartilhado com vários usuários, removê-los seria uma violação de privacidade de usuários não relacionados
-a investigação. Por fim a característica distribuída pode alocar informação relevante a investigação em vários países dificultando a obtenção da mesma \cite{Dykstra2012a}.
+Do ponto de vista forense, praticantes e pesquisadores concordam aspectos de multi-inquilino e multi-jurisdição próprios soluções em nuvem figuram entre as principais 
+dificuldades para coleta de evidência \cite{Bash2015a}. O aspecto multi-inquilino impede a remoção do hardware pois como ele é compartilhado com vários usuários, 
+removê-los seria uma violação de privacidade de usuários não relacionados a investigação. Por fim a característica distribuída pode alocar informação relevante a 
+investigação em vários países dificultando a obtenção da mesma \cite{Dykstra2012a}.
 
-O crescente volume de dados das aplicações atuais deram aos investigadores em média de 6 a 12 meses de backlog de dados para investigar \cite{Quick2014}, download de terabytes
+O crescente volume de dados das aplicações atuais deram aos investigadores em média de 6 a 12 meses de backlog para investigar \cite{Quick2014}, download de terabytes
 de dados leva horas para se realizar e requer a colaboração do provedor de nuvem. Mudar o paradigma de coleta tem sido proposto por pesquisadores e praticantes já há alguns
-anos \cite{Birk2011}\cite{Sang2013} mas estas práticas precisam se submeter a legislação para que seja aceita em um processo legal.\\
+anos \cite{Birk2011}\cite{Sang2013} mas estas práticas precisam garantir a cadeia de custódia para que as evidências produzidas por ela sejam aceita em um processo legal.\\
 
 \textbf{Objetivos da solução}
 
 \begin{itemize}
- \item Conseguir armazenar evidência de memória de uma máquina virtual de modo a conseguir viabilizar uma análise forense.
- \item Conseguir armazenar evidência de memória de uma máquina virtual de modo a conseguir identificar sua fonte.
- \item Armazenar evidência de memória suficiente para conseguir descrever o sistema antes e depois do incidente
- \item Armazenar a evidência de modo a gaarantir sua integridade, confidencialidade, não violar jurisdição e não violar privacidade.\\
+ \item Coletar memória de uma máquina virtual de modo a conseguir identificar os 4 tipos de ataque listados anteriormente.
+ \item Coletar memória de uma máquina virtual de modo a conseguir identificar sua fonte mesmo se a máquina virtual não existir mais.
+ \item Coletar memória suficiente para conseguir descrever o sistema antes e depois do incidente.
+ \item Armazenar a memória coletada de modo a garantir sua integridade, confidencialidade, não violar jurisdição e não violar privacidade de outros usuários no host.\\
 \end{itemize}
 
 \textbf{Descrição da solução}
 
-Nas soluções com infra-estrutura física a máquina é persistente portanto associar uma copia da memória, a imagem de um disco e pacotes trafegando na rede é tarefa simples.
-Com as soluções de infra virtual, em especial as auto-escaláveis a máquina deixou de ser persistente e tornou-se volátil. Para resolver o problema da identificação da fonte
-precisamos encontrar outra forma de identificar a fonte da evidência coletada e para isto usamos containeres. Embora o container seja uma peça de software e por consequência
-também é volátil, a imagem compilada e sua execução na forma de container estão atrelados a um hash que os identificam, a pilha de um container pode ser visto na Figura 1. 
+Nas soluções com infra-estrutura física a máquina é persistente. Associar uma copia da memória, a imagem de um disco ou pacotes trafegando na rede a uma máquina é tarefa simples.
+Com as soluções de infra virtual, em especial as auto-escaláveis, a máquina deixou de ser persistente e tornou-se volátil. Para resolver o problema da identificação da fonte
+precisamos encontrar outra forma persistente para identificar a fonte da evidência coletada. Para isto usamos containeres. Embora o container seja uma peça de software e 
+por consequência também é volátil, a imagem compilada e sua execução na forma de container estão atrelados a um hash que os identificam, a pilha de um container pode ser 
+visto na Figura 1. 
 
 \begin{figure}[h]
 \caption{Pilha monstrando funcionamento de container}
@@ -287,10 +288,11 @@ também é volátil, a imagem compilada e sua execução na forma de container e
 \label{fig:instantaneo}
 \end{figure}
 
-A solução, em intervalos conhecidos pausa a execução
-do container para tirar um instantâneo da memória dos processos sob sua execução. Em um sistema derivado do linux (Ubuntu 14.04) isso foi atingido via cópia do diretório
-``\\proc'' relacionado aos processos sob o ``cgroup'' associado ao container e salvo em disco. Usamos como nome do arquivo contendo o instantâneo da memória a combinação 
-do hash da imagem e o hash do container como mostrado na Figura 2.
+A solução proposta por este trabalho, para resolver o problema de associação da evidência a sua origem de modo que o processo seja reprodutível, pausa a execução
+do container e coleta um instantâneo da memória dos processos sob sua execução. Este processo é executado em intervalos de tempo conhecidos de modo a se ter uma
+evolução da história da memória dos processos. Em um sistema derivado do linux (Ubuntu 14.04) isso foi atingido via cópia do diretório ``\\proc'' relacionado 
+aos processos sob o ``cgroup'' associado ao container e salvo em disco. Para relacionar o instantâneo a sua origem, usamos como nome do arquivo contendo o instantâneo 
+da memória a combinação do hash da imagem e o hash do container como mostrado na Figura 2.
 
 \begin{figure}[h!]
 \caption{Evidência salva - hash do container e imagem}
@@ -300,11 +302,11 @@ do hash da imagem e o hash do container como mostrado na Figura 2.
 \end{figure}
 
 As técnicas forenses praticadas hoje estão voltadas para a obtenção da informação em sua totalidade, seja via cópia bit a bit, seja por remoção do hardware \cite{Simou2014}
-\cite{Bem2008}. Tais práticas hoje são repsonsáveis pelo crescente volume de dados que os investigadores tem que processar. Há uma vertente na comunidade chamada ``sniper 
-forensics'' onde se coleta e armazena o suficiente para a investigação. No âmbito desta solução, a questão foi definir o quão seria o ``suficiente''. Decidiu-se que `
-``suficiente'' seria a quantidade necessária para descrever o sistema antes e depois do ataque. A idéia é implementar um log rotativo de instantâneos de memória cobrindo
-uma quantidade de tempo configurável, integrar a solução com algum sistema de detecção de ameaça de modo que, ao detectar um ataque, o log passa de rotativo a completo assim
-permitindo que se conheça o sistema antes e depois do ataque como mostrado na Figura 3. Caso a ameaça não seja detectável ainda há a possibilidade de ativação humana.
+\cite{Bem2008}. Tais práticas tem levado ao crescente volume de dados que os investigadores tem que analisar. Há uma vertente na comunidade chamada ``sniper 
+forensics'' onde se coleta e armazena o suficiente para a investigação. A solução proposta por este trabalho acompanha esta tendência, a questão foi definir a quantidade 
+de dados ``suficiente'' para uma investigação. Decidimos que ``suficiente'' seria a quantidade necessária para descrever o sistema antes e depois do ataque. A idéia é 
+implementar um log rotativo de instantâneos de memória cobrindo uma quantidade de tempo configurável, integrar a solução com algum sistema de detecção de ameaça de modo
+que, ao detectar um ataque, o log passa de rotativo a completo assim permitindo que se conheça o sistema antes e depois do ataque como mostrado na Figura 3. 
 
 \begin{figure}[h!]
 \caption{Janela deslizante de coleta de evidência}
@@ -313,23 +315,22 @@ permitindo que se conheça o sistema antes e depois do ataque como mostrado na F
 \label{fig:janela}
 \end{figure}
 
-De modo a não violar a jurisdição de outros países ou a privacidade de outros usuários por causa do caráter multi-inquilino e multi-jurisdição das soluções em núvem pública,
-a solução foi o de armazenar a evidência em um local físico e realizar o transporte utilizando conexão segura. Outro ponto importante é o de garantir a cadeia de custódia
-da evidência ou seja, garantir que a evidência não foi destruida ou alterada por qualquer pessoa, assim a solução usará de armazenamento físico fora da nuvem, o transporte
-será feito por TLS e o acesso a evidência será controlado.
+De modo a não violar a jurisdição de outros países ou a privacidade de outros usuários por causa do caráter multi-inquilino e multi-jurisdição das arquiteturas em núvem pública,
+a solução proposta por este trabalho foi o de armazenar a evidência em um local físico fora da nuvem utilizando como transporte conexão segura. Outro ponto importante é 
+garantir a cadeia de custódia da evidência ou seja, garantir que a evidência não foi destruída, alterada ou acessada por qualquer pessoa. Assim a solução proposta por este 
+trabalho usará de armazenamento físico fora da nuvem, o transporte será feito por TLS e o acesso a evidência será controlado.
 
-Tendo a implementação sido bem sucedida conseguiremos analisar e identificar os seguintes formas de ataque: Injeção remota de biblioteca, injeção remota de código, injeção
-reflexiva de biblioteca e injeção em processo vazio.\\
+Tendo a implementação sido bem sucedida conseguiremos analisar e identificar as formas de ataque enumeradas nos objetivos.\\
 
 \textbf{Limitações da solução}
 
-Ameaças das quais estamos focando neste trabalho usam técnicas que permitem passar desapercebidas pelo processo de detecção de ameaças algumas delas estão na forma de, 
+Ameaças das quais estamos focando neste trabalho usam técnicas que permitem passar desapercebidas pelo processo de detecção de ameaças. Algumas delas são, 
 adulteração da lista de processos ativos em uma máquina, se fazer passar por um processo válido ou se fazer passar por uma biblioteca válida \cite{Case2014}. Por isso, 
 mesmo que haja uma integração com alguma forma de detecção de ameaça para a mudança do armazenamento de janela para o armazenamento total, acreditamos que ainda é 
 necessária a capacidade de acionamento manual.
 
-A solução esta focada em coletar informações de memória do espaço de memória do usuário assim, ela não ajuda na investigação de ameaças que realizem manipulação direta
-dos objetos do Kernel ( \textit{D.K.O.M. - Direct Kernel Object Manipulation} ).\\
+A solução esta focada em coletar informações de memória do espaço de memória do usuário assim, mesmo que ela ajude na investigação de ameaças que realizem manipulação direta
+dos objetos do Kernel ( \textit{D.K.O.M. - Direct Kernel Object Manipulation} ) Kernel space no host não se beneficia da associação com o container.\\
 
 \textbf{Esquema da solução}
 
