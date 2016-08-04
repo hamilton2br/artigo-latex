@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  21 JUL 2016 22:20
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  4 AUG 2016 06:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -918,8 +918,8 @@ LaTeX Info: Redefining \newblock on input line 675.
 LaTeX Info: Redefining \cite on input line 702.
 \ABCItoken=\toks28
 )
-Package color Info: Redefining color blue on input line 129.
-Package hyperref Info: Option `colorlinks' set `true' on input line 146.
+Package color Info: Redefining color blue on input line 130.
+Package hyperref Info: Option `colorlinks' set `true' on input line 147.
 \artigo@idxfile=\write4
 \openout4 = `artigo.idx'.
 
@@ -944,26 +944,26 @@ LaTeX Warning: Label `my-label' multiply defined.
 )
 \openout1 = `artigo.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 169.
-LaTeX Font Info:    ... okay on input line 169.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 169.
-LaTeX Font Info:    ... okay on input line 169.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 169.
-LaTeX Font Info:    ... okay on input line 169.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 169.
-LaTeX Font Info:    ... okay on input line 169.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 169.
-LaTeX Font Info:    ... okay on input line 169.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 169.
-LaTeX Font Info:    ... okay on input line 169.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 169.
-LaTeX Font Info:    ... okay on input line 169.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 169.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 170.
+LaTeX Font Info:    ... okay on input line 170.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 170.
  (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 \AtBeginShipoutBox=\box30
-Package hyperref Info: Link coloring ON on input line 169.
+Package hyperref Info: Link coloring ON on input line 170.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -975,18 +975,18 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 Redoing nameref's sectioning
 Redoing nameref's label
-LaTeX Info: Redefining \nameref on input line 169.
-LaTeX Info: Redefining \ref on input line 169.
-LaTeX Info: Redefining \pageref on input line 169.
-LaTeX Info: Redefining \nameref on input line 169.
-LaTeX Info: Redefining \degres on input line 169.
+LaTeX Info: Redefining \nameref on input line 170.
+LaTeX Info: Redefining \ref on input line 170.
+LaTeX Info: Redefining \pageref on input line 170.
+LaTeX Info: Redefining \nameref on input line 170.
+LaTeX Info: Redefining \degres on input line 170.
 
 Package frenchb.ldf Warning: The definition of \@makecaption has been changed,
 (frenchb.ldf)                frenchb will NOT customise it;
-(frenchb.ldf)                reported on input line 169.
+(frenchb.ldf)                reported on input line 170.
 
-LaTeX Info: Redefining \dots on input line 169.
-LaTeX Info: Redefining \up on input line 169.
+LaTeX Info: Redefining \dots on input line 170.
+LaTeX Info: Redefining \up on input line 170.
 \myptabbox=\box31
 \myptabboxwidth=\skip203
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
@@ -1017,7 +1017,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Info: Redefining \microtypecontext on input line 169.
+LaTeX Info: Redefining \microtypecontext on input line 170.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1032,7 +1032,7 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 182.
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 183.
 
 
 (/usr/share/texmf/tex/latex/lm/t1lmss.fd
@@ -1045,40 +1045,40 @@ Package microtype Info: Loading generic settings for font family
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 190.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 191.
 
  (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 190.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 191.
 
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 190
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 191
 .
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 190
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 191
 .
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 190.
+(Font)              <12> on input line 191.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 190.
+(Font)              <8> on input line 191.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 190.
+(Font)              <6> on input line 191.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.190 
+l.191 
        [1
 
 
@@ -1093,30 +1093,30 @@ l.190
 ] [5
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 248.
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 249.
 
 
 (/usr/share/texmf/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 248.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 249.
 
-Underfull \hbox (badness 10000) in paragraph at lines 263--266
+Underfull \hbox (badness 10000) in paragraph at lines 264--267
 
  []
 
 [6
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 273--274
+Underfull \hbox (badness 10000) in paragraph at lines 274--275
 
  []
 
 <docker.jpg, id=78, 304.13625pt x 220.825pt>
 File: docker.jpg Graphic file (type jpg)
  <use docker.jpg>
-Package pdftex.def Info: docker.jpg used on input line 286.
+Package pdftex.def Info: docker.jpg used on input line 287.
 (pdftex.def)             Requested size: 152.06775pt x 110.41222pt.
 
 
@@ -1125,32 +1125,32 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [7] <snapshot.jpg, id=87, 1292.83pt x 216.81pt>
 File: snapshot.jpg Graphic file (type jpg)
  <use snapshot.jpg>
-Package pdftex.def Info: snapshot.jpg used on input line 299.
+Package pdftex.def Info: snapshot.jpg used on input line 300.
 (pdftex.def)             Requested size: 387.85199pt x 65.04349pt.
 
 <janela.jpg, id=92, 614.295pt x 447.92343pt>
 File: janela.jpg Graphic file (type jpg)
  <use janela.jpg>
-Package pdftex.def Info: janela.jpg used on input line 313.
+Package pdftex.def Info: janela.jpg used on input line 314.
 (pdftex.def)             Requested size: 307.14674pt x 223.96117pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 323--324
+Underfull \hbox (badness 10000) in paragraph at lines 324--325
 
  []
 
 [8 <./docker.jpg> <./snapshot.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 332--334
+Underfull \hbox (badness 10000) in paragraph at lines 333--335
 
  []
 
 <solucao.jpg, id=103, 864.98157pt x 507.39563pt>
 File: solucao.jpg Graphic file (type jpg)
  <use solucao.jpg>
-Package pdftex.def Info: solucao.jpg used on input line 341.
+Package pdftex.def Info: solucao.jpg used on input line 342.
 (pdftex.def)             Requested size: 432.48973pt x 253.69719pt.
 
 
@@ -1159,48 +1159,48 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [9 <./janela.jpg>] [10 <./solucao.jpg>] [11
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 370--375
+Underfull \hbox (badness 10000) in paragraph at lines 371--376
 
  []
 
 [12
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 385--389
+Underfull \hbox (badness 10000) in paragraph at lines 386--390
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 397--402
+Underfull \hbox (badness 10000) in paragraph at lines 398--403
 
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 426--430
+Underfull \hbox (badness 10000) in paragraph at lines 427--431
 
  []
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 436--439
+Underfull \hbox (badness 10000) in paragraph at lines 437--440
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 443--446
+Underfull \hbox (badness 10000) in paragraph at lines 444--447
 
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 455.
+               Default added (so using `tbp') on input line 456.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 482--486
+Underfull \hbox (badness 10000) in paragraph at lines 483--487
 
  []
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 492--495
+Underfull \hbox (badness 10000) in paragraph at lines 493--496
 
  []
 
@@ -1212,7 +1212,11 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[18] [19] (./artigo.bbl (./artigo.brf)
+[18]
+
+LaTeX Warning: Text page 19 contains only floats.
+
+[19] (./artigo.bbl (./artigo.brf)
 \tf@brf=\write5
 \openout5 = `artigo.brf'.
 
@@ -1228,27 +1232,27 @@ No file artigo.ind.
 \tf@toc=\write6
 \openout6 = `artigo.toc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 619.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 619.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 606.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 606.
  (./artigo.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 619.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 619.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 606.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 606.
 Package rerunfilecheck Info: File `artigo.brf' has not changed.
-(rerunfilecheck)             Checksum: 73D30BC68CC387E8C76819A332DF4795;852.
+(rerunfilecheck)             Checksum: 49718AB24990CFAFB1E3D998FF562F8B;1290.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 619.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 606.
  ) 
 Here is how much of TeX's memory you used:
- 13800 strings out of 493304
- 204731 string characters out of 6139871
- 461310 words of memory out of 5000000
- 16877 multiletter control sequences out of 15000+600000
- 62128 words of font info for 101 fonts, out of 8000000 for 9000
+ 13817 strings out of 493304
+ 204927 string characters out of 6139871
+ 460468 words of memory out of 5000000
+ 16889 multiletter control sequences out of 15000+600000
+ 62386 words of font info for 103 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 42i,12n,35p,448b,639s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,12n,35p,460b,637s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
 ips/lm/lm-mathsy.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/s
 hare/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public
@@ -1257,10 +1261,10 @@ xmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lm
 ss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/f
 onts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy1
 0.pfb>
-Output written on artigo.pdf (23 pages, 571903 bytes).
+Output written on artigo.pdf (23 pages, 574074 bytes).
 PDF statistics:
- 314 PDF objects out of 1000 (max. 8388607)
- 273 compressed objects within 3 object streams
- 65 named destinations out of 1000 (max. 500000)
+ 357 PDF objects out of 1000 (max. 8388607)
+ 315 compressed objects within 4 object streams
+ 66 named destinations out of 1000 (max. 500000)
  20581 words of extra memory for PDF output out of 20736 (max. 10000000)
 
