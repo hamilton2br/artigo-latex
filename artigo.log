@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  4 AUG 2016 06:52
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  20 AUG 2016 16:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1232,18 +1232,18 @@ No file artigo.ind.
 \tf@toc=\write6
 \openout6 = `artigo.toc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 606.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 606.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 605.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 605.
  (./artigo.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 606.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 606.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 605.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 605.
 Package rerunfilecheck Info: File `artigo.brf' has not changed.
 (rerunfilecheck)             Checksum: 49718AB24990CFAFB1E3D998FF562F8B;1290.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 606.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 605.
  ) 
 Here is how much of TeX's memory you used:
  13817 strings out of 493304
