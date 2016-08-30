@@ -316,6 +316,18 @@
 %*** para suportar acentuação ***
 \usepackage[utf8]{inputenc}
 
+%*** para suportar tabelas com colunas mergeadas ***
+\usepackage{multirow}
+
+%*** Para inclusão de imagens e permitir rotacionar texto ***
+\usepackage{graphicx}			% Inclusão de gráficos
+\graphicspath{ {./} }			% localizando as imagens
+
+%*** Para ajustar a largura das colunas e para multilinhas nas células ***
+\usepackage{array}
+\newcolumntype{L}{>{\centering\arraybackslash}m{1cm}}
+\newcolumntype{M}{>{\centering\arraybackslash}m{3cm}}
+
 % *** Do not adjust lengths that control margins, column widths, etc. ***
 % *** Do not use packages that alter fonts (such as pslatex).         ***
 % There should be no need to do such things with IEEEtran.cls V1.6 and later.
@@ -527,21 +539,218 @@ I wish you the best of success.
 
 \section{Trabalhos relacionados}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, 
-nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet 
-nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.
-Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, 
-viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper 
-ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam 
-nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. 
-Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, 
-augue velit cursus nunc, 
+\begin{itemize}
 
-I wish you the best of success.
+\item \textbf{Digital forensics framework for a cloud environment \cite{George2012} }: Arcabouço para coleta de dados de máquinas virtuais. Possui duas formas de 
+acionamento, a manual e a automática, integrada com algum sistema de detecção de ameaça. Quando acionado, escuta a rede, determina qual máquina é objeto de investigação, 
+coleta informações de log e tráfego de rede e associa ao usuário da respectiva máquina. Propõe o armazenamento das evidências em local fora da núvem para escapar de 
+problemas de jurisdição e multi-inquilino mas tem inteligência para usar a própria nuvem como armazenamento caso o espaço fora acabe.
 
-\hfill mds
+A proposta dá a entender que é aplicável apenas a um sistema virtual estático, onde o número e organização das máquinas é constante. De informação volátil coleta apenas 
+tráfego de rede, não coleta memória. Com a forma de acionamento descrito ele não consegue descrever, com as evidências, como era o sistema antes do ataque. Apesar de armazenar 
+a evidência fora da nuvem, não da detalhes de como garante que a evidência não foi alterada ou destruída no transporte até o local de armazenamento nem como controla o 
+acesso a evidência.
+
+Quando comparado a este trabalho, a presente proposta tem por vantagens a utilização de container para associar a evidência a sua origem tornando o processo independente 
+de máquina e permitindo que seja repetido mesmo se a máquina de onde se originaram os dados não existir mais. Com a implementação de uma janela de x dias de coleta antes da
+detecção do ataque é possível descrever, através de evidência, como era o sistema antes do mesmo. Com isso a solução apresentada consegue evidências em um cenário de
+infra-estrutura dinâmica. São tomadas precauções para garantir que os dados não foram alterados ou destruídos no transporte via TLS os para um local fora da nuvem e 
+o acesso a mesma é controlado.\\
+
+\item \textbf{Evidence and cloud computing the virtual machine introspection approach \cite{Poisel2013} }: Descreve um método de coleta de informações de máquinas
+em nuvem através da técnica de introspecção em máquina virtual, onde se acessa os dados das máquinas virtuais através do hypervisor. Propõe que o processo seja disparado
+automaticamente integrado a um sistema de detecção de ameaça mas também suporta acionamento manual.
+
+A técnica descrita cobre apenas o processo de coleta de informações, não explica onde ou como elas serão armazenadas. No que tange as informações de memória, como os 
+endereços de memória são os do host, estes precisam ser traduzidos para que a análise forense seja feita. Segundo a comunidade, tal estratégia é imune a técnicas anti-
+forenses empregadas por usuários maliciosos pois está localizada fora da máquina virtual. Como a abordagem não tem conhecimento do que está rodando dentro da máquina 
+precisa de uma copia bit a bit da evidência. Embora pareça possível, não descreve como lida com o cenário onde uma máquina é despejada do pool e os recursos liberados. 
+
+Quando comparado a este trabalho, a presente proposta tem por vantagens ser um arcabouço para coleta e armazenamento de evidências. Usa-se uma estratégia 
+diferente pois coleta-se a memória diretamente de dentro da máquina virtual onde se evita o problema do gap semântico próprio das soluções por introspecção. 
+Como não precisa realizar tradução de endereços, a presente proposta consegue realizar uma coleta onde os dados já são úteis para análise e pode direcionar a mesma
+pois tem o conhecimento do que está rodando na máquina. De acordo com a comunidade é mais sucetível a técnicas anti-forenses.\\
+
+\item \textbf{Design and implementation of FROST: FoRensic tools for Open STack \cite{Dykstra2013} }: Arcabouço para coleta de dados de máquinas virtuais através da API do
+hypervisor. Isola a máquina virtual afetada do pool original para realização da coleta. Precisa ser acionado quando uma ameaça é detectada. É o mais bem acabado arcabouço de
+todas as propostas encontradas até agora mas ao detalhar o processo de armazenamento não explica como garante que a evidência não será destruida ou alterada no transporte
+até o armazenamento nem como controla o acesso a evidência. Por estar integrado ao Open Stack o arcabouço depende de cooperação do provedor de serviços de nuvem onde ele 
+está rodando, isso é considerado problemático pela comunidade pois a prioridade do mesmo é manter o serviço funcionando e não coletar evidencias forenses. Como está na
+mesma camada do hypervisor não conhece o que está rodando dentro da máquina. Depende da existência da máquina virtual para realização da coleta.
+
+Quando comparado a este trabalho, a presente proposta tem por vantagens a utilização de container para associar a evidência a sua origem tornando o processo 
+independente de máquina e permitindo que seja repetido mesmo se a máquina de onde originaram os dados não existir mais. Coma implementação de uma janela 
+de x dias de coleta antes da detecção do ataque é possível descrever, através da evidência, como era o sistema antes do mesmo. Não depende de cooperação do provedor 
+do serviço de nuvem. A presente proposta também consegue realizar uma coleta onde os dados já são úteis para análise e pode direcionar a mesma pois tem o conhecimento 
+do que está rodando na máquina. \\
+
+\item \textbf{Automated Forensic Data Acquisition in the Cloud \cite{Reichert2015} }: Propõe um modelo que tira instantâneos de máquinas virtuais atrelado a algum mecanismo de
+detecção de ameaça baseado no hypervisor. Usa o Google Rapid Response para salvar as informações coletadas fora da núvem de forma a driblar os problemas de multi-jurisdição e 
+multi-inquilino. Descreve satisfatóriamente como evita que a evidência seja alterada ou destruída no transporte até o armazenamento e como controla o acesso a evidência.
+
+O modelo proposto só começa a coletar evidência após a detecção da ameaça e toma um instantâneo da máquina toda o que já foi julgado pela comunidade como um processo custoso em
+termos de espaco em disco e piora o problema do volume de dados a ser analisado. Pessoalmente acho arriscado depender de instantâneos pois caso precise, repetir o processo de coleta
+pode não ser possível. Um exemplo é editar um disco virtual que estava atrelado a uma máquina virtual da qual se gerou os instantâneos, tal ação pode levar a perda de dados.
+
+Como métrica, o autor relaciona o tamanho da memória alocada na máquina virtual com o tempo necessário para gerar o instantâneo de acordo com a tabela 1 abaixo
+
+\begin{table}[h!]
+\centering
+\caption{Memória alocada X Tempo de captação}
+\label{my-label}
+\begin{tabular}{c|c}
+\hline
+\textbf{Memória alocada na VM} & \textbf{Tempo geração snapshot} \\ \hline
+512 Mb                         & 15 segundos                     \\ \hline
+1 Gb                           & 20 segundos                     \\ \hline
+4 Gb                           & 36 segundos                     \\ \hline
+\end{tabular}
+\end{table}
+
+Quando comparado a este trabalho, a presente proposta tem por vantagens coletar apenas a informações de memória e usar a janela de coleta de \textbf{x} dias antes do ataque para 
+manter sob controle a quantidade de informação que precisa ser analisada. Tomando como referência a tabela acima, conseguiremos um menor tempo de coleta da informação de 
+memória pertinente a investigação, permitindo um menor espaço de tempo entre as coletas, gerando menos impacto na performance da aplicação e mais dados para a investigação.
+Propondo a autilização de container para associar a evidência a sua origem, tornamos o processo independente de máquina. \\
+
+\item \textbf{A log based approach to make digital forensics easier on cloud computing \cite{Sang2013} }: Método sugere salvar a informação coletada fora da núvem de modo 
+a driblar os problemas de multi-inquilinato e multi-jurisdição, usa um mecanismo de hash para garantir a autenticidade e integridade da informação mas não dá detalhes da 
+implementação e não descreve como controla o acesso a evidência armazenada. Segundo o próprio autor, o método não funciona em IaaS. Precisa da cooperação do provedor de 
+nuvem pois depende das informações que este último decidiu adicionar ao log. O método não é aplicável a coleta de informações de memória.
+
+A proposta não coleta dados de memória por decisão do autor, esta proposta entrou na lista pela abordagem baseada em log. Neste quesito, a presente proposta é a melhor pois 
+garante que a evidência não foi alterada ou destruida no transporte e o acesso a mesma é controlado. No âmbito da informação coletada, a presente proposta não depende das 
+decisões do provedor de nuvem sobre o que guardar no log para conseguir a evidência. \\
+
+\item \textbf{Volatile memory acquisition using backup for forensic investigation \cite{Dezfouli2012} }: Técnica desenvolvida para dispositivos móveis que sugere a utilização
+do próprio como repositório das evidências coletadas da memória. Para manter a utilização de espaço ao mínimo sugere manter apenas o último estado conhecido da memória.
  
-\hfill December 27, 2012
+É uma técnica interessante do ponto de vista de estratégia de armazenamento quando guarda apenas o último estado da memória. Essa abordagem porém perde a informação do momento 
+do ataque e não consegue descrever o sistema antes do mesmo. Do resto da proposta não é aplicável para este projeto pois, armazenando a evidência na máquina a mesma seria perdida
+quando a máquina fosse despejada do pool e seus recursos liberados. A cadeia de custódia não é abordada na proposta.\\
+
+\item \textbf{Narrowing the semantic gap in virtual machine introspection \cite{Dolan-Gavitt2011a} }: Esta proposta é uma combinação da técnica de introspecção em máquina virtual
+e a integração com a API do hypervisor. O principal objetivo é diminuir o gap semântico para facilitar a análise da evidência. Para isso o autor implementa um API para transformar
+dados de baixo nível em informação de alto nível. Depende de cooperação do provedor de serviço de nuvem, não tem conhecimento da máquina hospedada e não vai além da coleta, não 
+descreve como resolve a cadeia de custódia. Tem a vantagem de ser imune a técnicas anti-forenses.
+
+Como métrica o autor relaciona o tamanho médio do trace gerado a partir da uma evidência de memória coletada de alguns processos em vários sistemas operacionais de acordo 
+com a tabela 2 abaixo. Essa métrica pode se relacionar a presente proposta como o volume de informação extraida de uma evidência.
+
+\begin{table}[]
+\centering
+\caption{Tamanho do trace coletado de vários programas}
+\label{my-label}
+\begin{tabular}{l|c|c}
+\hline
+\textbf{Sistema Operacional}		&\textbf{Programa}	      & \textbf{Tamanho do Trace}\\ \hline
+\multirow{6}{*}{Windows}                & getpid                      & 3549			 \\
+                                        & gettime                     & 7715    		 \\
+                                        & pslist                      & 302082  		 \\
+                                        & lsmod                       & 195488   		 \\
+                                        & getpsfile                   & 49588   		 \\
+                                        & getdrvfile                  & 194765  		 \\
+\multirow{5}{*}{Linux}                  & getpid                      & 133047                   \\ \hline
+                                        & gettime                     & 75074                    \\
+                                        & pslist                      & 6107214                  \\
+                                        & lsmod                       & 1936439                  \\
+                                        & getpsfile                   & 14752561                 \\
+\multirow{6}{*}{Haiku}                  & getpid                      & 18242                    \\ \hline
+                                        & gettime                     & 9982                     \\
+                                        & pslist                      & 362127                   \\
+                                        & lsmod                       & 850363                   \\
+                                        & getpsfile                   & 249663                   \\
+                                        & getdrvfile                  & 522299                   \\ 
+\end{tabular}
+\end{table}
+
+Quando comparado a este trabalho, a presente proposta tem por vantagens ser arcabouço de coleta e armazenamento de evidências não apenas um método de coleta. Empregando a
+estratégia de realizar a coleta diretamente na máquina não tem o problema do gap semântico próprio das soluções baseadas em introspecção. Como conhece o contexto do que 
+está rodando dentro da máquina virtual podemos direcionar a coleta de modo que seja mais eficiênte. O autor usa outras métricas voltadas ao processamento da evidência antes
+de sua análise para diminuir a quantidade de informação a se analisar mas não dá detalhes de como esse processamento.\\
+
+\item \textbf{Digital Forensics as a Service: A game changer \cite{VanBaar2014} }: Esta proposta é focada em uma mudança no armazenamento e forma de trabalho dos peritos forenses.
+Propõe que a forense seja oferecida como um serviço e que as evidências sejam armazenadas em um local centralizado com o devido controle de acesso e garantia de integridade da 
+evidência. Descreve a arquitetura de armazenamento, qual o perfil que deve ter acesso a evidência e como é este acesso. Esta proposta não é focada apenas em incidentes na nuvem
+mas em qualquer outro incidente.
+
+Embora seja uma ótima proposta de armazenamento de evidências e controle de acesso a elas, ele não descreve o processo de coleta nem de transporte. É uma proposta focada 
+mais na solução de problemas relacionados a manipulação da informação após a coleta, transporte e armazenamento. Não toca no assunto de coleta qualquer que seja, em nuvem
+ou fisica.\\
+
+\item \textbf{Live Digital Forensics in a Virtual Machine \cite{Zhang2010} }: Proposta para coletar informações de memória de máquinas virtuais através de instantâneos das mesmas.
+O metodo de coleta envolve tomar o instantâneo da máquina, no diretório onde o mesmo foi armazenado pegar o arquivo referente a memória e abri-lo / analisá-lo usando um programa de
+leitura de memória de mercado. O autor não trás detalhes do transporte, armazenamento ou controle de acesso. Precisa que a máquina exista para conseguir coletar a informação e 
+o processo é dependente de intervenção humana. Analisando com mais cuidado é possível repetir a coleta mesmo sem a máquina existir uma vez que temos o instantâneo mas o autor não
+dá detalhes do caso.
+
+Quando comparado a este trabalho, a presente proposta tem por vantagens a menor quantidade de informação necessária à investigação através da implementação da janela de x
+dias antes do incidente. Como o processo é automático, uma vez disparado não requer intervenção humana. A presente proposta descreve como garante a cadeia de custódia da 
+evidência e consigue reproduzir o processo de coleta mesmo se a máquina não existir  mais pois a evidência está atrelada ao container. \\
+
+\item \textbf{Comparative Analisys of volatile memory forensics \cite{Aljaedi2011} }: Levantamento sobre o impacto da realização de forense de memória ao vivo nas máquinas
+virtuais na nuvem. Mostra que a quantidade de informações referentes a processos não alocados e página de memória perdida é um ponto a considerar quando se inicia uma
+ferramente para análise de memória em uma máquina já funcionando como.
+
+Como métrica o autor relaciona a porcentagem média de processos que permanecem na memória antes e depois que a ferramenta de coleta foi disparada com a quantidade de memória
+alocada na VM de acordo com a tabela 3 abaixo.
+
+\begin{table}[h!]
+\centering
+\caption{Média de processos que permaneceram na memória}
+\label{my-label}
+\begin{tabular}{c|c|c}
+\hline
+\textbf{Memória alocada a VM} & \textbf{\% antes ativação} 			  & \textbf{\% depois ativação} \\ \hline
+1 Gb                          & 78,33                                             & 61,66                       \\ \hline
+512 Mb                        & 73,33                                             & 46,66                       \\ \hline
+256 Mb                        & 50,55                                             & 35,00                                                          
+\end{tabular}
+\end{table}
+
+Em outra métrica o autor relaciona a porcentagem média de páginas de memória alterada nos métodos de \textbf{\% análise ao vivo}, onde a coleta é realizada com o sistema rodando e 
+\textbf{\% cópia de memória} onde a máquina virtual é pausada para a realização de coleta de informação com a quantidade de memória alocada de acordo com a tabela abaixo. Em ambos
+os casos as duas métricas são comparações entre o estado da memória antes e depois da inicialização da ferramenta de coleta.
+
+\begin{table}[h!]
+\centering
+\caption{Média de página de memória alterada}
+\label{my-label}
+\begin{tabular}{c|c|c}
+\hline
+\textbf{Memória alocada a VM} & \textbf{\% análise ao vivo} 			  & \textbf{\% cópia de memória} \\ \hline
+1 Gb                          & 7,99                                              & 5,95                         \\ \hline
+512 Mb                        & 32,53                                             & 8,75                         \\ \hline
+256 Mb                        & 52,37                                             & 25,46                                                         
+\end{tabular}
+\end{table}
+
+Quando comparado a este trabalho a presente proposta tem por vantagem estar sempre em execução, sujeitando-se aos efeitos de escalonamento do processo e 
+gerenciamento de páginas de memória pelo sistema operacional, assim não gera as perdas de informação de processos não alocados e páginas de memória referentes ao 
+rearranjo que o kernel faz quando uma nova aplicação é iniciada.
+
+\end{itemize}
+
+\textbf{Tabela comparativa das soluções}
+
+\begin{table}[h!]
+\centering
+\caption{Comparativo de soluções}
+\label{my-label}
+\begin{tabular}{L|L|L|L|L|L|L}
+\hline
+\textbf{}			& \rotatebox{90}{\textbf{Coleta  é continua?}}      & \rotatebox{90}{\textbf{Precisa de tradução de endereços para análise?}}      & \rotatebox{90}{\textbf{É independente de VM?}}      & \rotatebox{90}{\textbf{Conhece o que esta rodando na VM?}}      & \rotatebox{90}{\textbf{Garante cadeia de custódia?}}      & \rotatebox{90}{\textbf{Preserva evidência de memória volátil?}}      \\ \hline
+\cite{George2012}		& Não                                               & Não                                                                          & Não                                                 & Sim                                                             & Não                                                       & Não                                                                  \\ \hline
+\cite{Poisel2013}		& Não                                               & Sim                                                                          & Não                                                 & Não                                                             & Não                                                       & Sim                                                                  \\ \hline
+\cite{Dykstra2013}		& Não                                               & Não                                                                          & Não                                                 & Não                                                             & Não                                                       & Não                                                                  \\ \hline
+\cite{Do2014}			& Não                                               & Não                                                                          & Não                                                 & Não                                                             & Não                                                       & Não                                                                  \\ \hline
+\cite{Reichert2015}		& Não                                               & Não                                                                          & Não                                                 & Sim                                                             & Sim                                                       & Não                                                                  \\ \hline
+\cite{Sang2013}			& Sim                                               & Não                                                                          & Sim                                                 & Sim                                                             & Não                                                       & Não                                                                  \\ \hline
+\cite{Dolan-Gavitt2011a}	& Não                                               & Não                                                                          & Não                                                 & Não                                                             & Não                                                       & Sim                                                                  \\ \hline
+\cite{Aljaedi2011}		& Não                                               & Não                                                                          & Não                                                 & Sim                                                             & Não                                                       & Sim                                                                  \\ \hline
+\cite{Dezfouli2012}		& Sim                                               & Não                                                                          & Não                                                 & Sim                                                             & Não                                                       & Sim                                                                  \\ \hline
+\cite{VanBaar2014}		& Sim                                               & Não                                                                          & Não                                                 & Não                                                             & Sim                                                       & Não                                                                  \\
+\end{tabular}
+\end{table}
 
 \section{Solução proposta}
 
@@ -752,21 +961,77 @@ augue velit cursus nunc,
 % set second argument of \begin to the number of references
 % (used to reserve space for the reference number labels box)
 \begin{thebibliography}{1}
-
-\bibitem{IEEEhowto:kopka}
-H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
   
+\bibitem{George2012}
+GEORGE, S.; VENTER, H.; THOMAS, F. {Digital Forensic Framework for a Cloud
+  Environment. In:  CUNNINGHAM, P.; CUNNINGHAM, M. (Ed.). \emph{IST Africa
+  2012}. Tanzania: Internation Information Management Corporation, 2012.
+  p.~1--8.
+  ISBN 9781905824342.}
+  
+\bibitem{Poisel2013}
+{POISEL, R.; MALZER, E.; TJOA, S. {Evidence and cloud computing: The virtual
+  machine introspection approach}.
+\emph{Journal of Wireless Mobile Networks, Ubiquitous Computing, and Dependable
+  Applications}, v.~4, n.~1, p. 135--152, 2013.
+ISSN 20935374 (ISSN).}
+
+\bibitem{Dykstra2013}
+{DYKSTRA, J.; SHERMAN, A.~T. {Design and implementation of FROST: Digital
+  forensic tools for the OpenStack cloud computing platform}.
+\emph{Digital Investigation}, Elsevier Ltd, v.~10, n. SUPPL., p. S87--S95,
+  2013.
+ISSN 17422876.}
+
+\bibitem{Reichert2015}
+{REICHERT, Z.; RICHARDS, K.; YOSHIGOE, K. {Automated forensic data acquisition
+  in the cloud}.
+\emph{Proceedings - 11th IEEE International Conference on Mobile Ad Hoc and
+  Sensor Systems, MASS 2014}, p. 725--730, 2015.}
+
+\bibitem{Sang2013}
+{SANG, T. {A log-based approach to make digital forensics easier on cloud
+  computing}.
+\emph{Proceedings of the 2013 3rd International Conference on Intelligent
+  System Design and Engineering Applications, ISDEA 2013}, p. 91--94, 2013.}
+  
+\bibitem{Dezfouli2012}
+{DEZFOULI, F.~N. et al. {Volatile memory acquisition using backup for forensic
+  investigation}.
+\emph{Proceedings 2012 International Conference on Cyber Security, Cyber
+  Warfare and Digital Forensic, CyberSec 2012}, p. 186--189, 2012.}
+  
+\bibitem{Dolan-Gavitt2011a}
+{DOLAN-GAVITT, B. et al. {Virtuoso: Narrowing the semantic gap in virtual
+  machine introspection}.
+\emph{Proceedings - IEEE Symposium on Security and Privacy}, p. 297--312, 2011.
+ISSN 10816011.}
+
+\bibitem{VanBaar2014}
+{BAAR, R.~B. van; BEEK, H. M.~A. van; EIJK, E.~J. van. {Digital Forensics as a
+  Service: A game changer}.
+\emph{Digital Investigation}, Elsevier Ltd, v.~11, p. S54--S62, 2014.
+ISSN 17422876.}
+
 \bibitem{Zhang2010}
-ZHANG, L.; ZHANG, D.; WANG, L. {Live Digital Forensics in a Virtual Machine.
+{ZHANG, L.; ZHANG, D.; WANG, L. {Live Digital Forensics in a Virtual Machine}.
   In:  \emph{2010 Internation Conference on Computer Application and System
   Modelling (ICCASM 2010)}. [S.l.: s.n.], 2010. v.~6, p. 328--332.}
+  
+\bibitem{Aljaedi2011}
+{ALJAEDI, A. et al. {Comparative Analysis of Volatile Memory Forensics}.
+\emph{IEEE International Conference on Privacy, Security, Risk and Trust
+  (PASSAT) and IEEE International Conference on Social Computing (SocialCom)},
+  p. 1253--1258, 2011.}
+  
+\bibitem{Do2014}
+{BARBARA, D. \emph{{Desafios da per{\'{i}}cia forense em um ambiente de
+  computa{\c{c}}{\~{a}}o nas nuvens}}.
+[S.l.], 2014.}
+
 
 
 \end{thebibliography}
-
-
-
 
 % that's all folks
 \end{document}

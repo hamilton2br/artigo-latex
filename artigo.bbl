@@ -86,8 +86,10 @@ Dispon{\'\i}vel em: \url{http://dx.doi.org/10.1016/j.diin.2013.06.010}.}
 \bibitem[George, Venter e Thomas 2012]{George2012}
 \abntrefinfo{George, Venter e Thomas}{GEORGE; VENTER; THOMAS}{2012}
 {GEORGE, S.; VENTER, H.; THOMAS, F. {Digital Forensic Framework for a Cloud
-  Environment}.
-p.~1--8, 2012.}
+  Environment}. In:  CUNNINGHAM, P.; CUNNINGHAM, M. (Ed.). \emph{IST Africa
+  2012}. Tanzania: Internation Information Management Corporation, 2012.
+  p.~1--8.
+ISBN 9781905824342.}
 
 \bibitem[Keyun et al. 2011]{Bash2015a}
 \abntrefinfo{Keyun et al.}{KEYUN et al.}{2011}
