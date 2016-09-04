@@ -425,117 +425,42 @@ nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vit
 
 
 \section{Introdução}
-% no \IEEEPARstart
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, 
-nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet 
-nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.
-Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, 
-viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper 
-ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam 
-nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. 
-Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, 
-augue velit cursus nunc, 
-% You must have at least 2 lines in the paragraph with the drop letter
-% (should never be an issue)
-I wish you the best of success.
+Aumento do uso de soluções de virtualização e a implementação de arquiteturas em nuvem que escalam automáticamente \cite{Amazon2016} trouxe a questão da volatilidade 
+das máquinas virtuais. Uma aplicação hospedada na nuvem sob um pico de uso pode clonar máquinas e adiciona-las ao grupo para atender a demanda. Passado 
+este pico, as máquinas que foram clonadas são despejadas, seus recursos liberados e o conjunto de retorna ao tamanho inicial. Com as ameaças que atuam diretamente 
+na memória sem deixar rastros no disco da máquina afetada, se essas máquinas forem usadas para algum evento ilícito, as evidências do acontecimento contidas nelas 
+serão para sempre perdidas.
 
-\hfill mds
- 
-\hfill December 27, 2012
+Do ponto de vista forense, praticantes e pesquisadores concordam que aspectos de multi-inquilino e multi-jurisdição próprios soluções em nuvem figuram entre as principais 
+dificuldades para coleta de evidência \cite{Bash2015a}. O aspecto multi-inquilino impede a remoção do hardware pois como ele é compartilhado com vários usuários, 
+removê-los seria uma violação de privacidade de usuários não relacionados a investigação. Por fim a característica distribuída pode alocar informação relevante a 
+investigação em vários países dificultando por razões jurídicas a obtenção da mesma \cite{Dykstra2012a}.
 
 \section{Computação em nuvem}
 
 \subsection{Virtualização}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, 
-nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet 
-nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.
-Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, 
-viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper 
-ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam 
-nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. 
-Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, 
-augue velit cursus nunc, 
-
-I wish you the best of success.
-
-\hfill mds
- 
-\hfill December 27, 2012
+Falar da crescente demanda por virtualização e os problemas que sã trazidos por tal solução, multi-inquilino e multi-jurisdição.
 
 \subsection{Containerização}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, 
-nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet 
-nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.
-Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, 
-viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper 
-ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam 
-nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. 
-Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, 
-augue velit cursus nunc, 
-
-I wish you the best of success.
-
-\hfill mds
- 
-\hfill December 27, 2012
+Falar da técnica de containerização como implementação em núvem.
 
 \section{Forense de memória em Nuvem}
 
 \subsection{Volatilidade das máquinas}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, 
-nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet 
-nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.
-Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, 
-viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper 
-ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam 
-nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. 
-Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, 
-augue velit cursus nunc, 
-
-I wish you the best of success.
-
-\hfill mds
- 
-\hfill December 27, 2012
+Falar do novo nível de volatilidade das soluções em núvem  pública a das máquinas.
 
 \subsection{Coleta dos dados}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, 
-nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet 
-nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.
-Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, 
-viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper 
-ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam 
-nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. 
-Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, 
-augue velit cursus nunc, 
-
-I wish you the best of success.
-
-\hfill mds
- 
-\hfill December 27, 2012
+Falar sobre a herança que a forense digital trouxe da forense tradicional e a necessidade de completude da coleta. Falar sobre a recente tendência para o sniper forensics
+onde se coleta apenas aquilo que realmente importa e a dificultade em se definir o que realmente importa.
 
 \subsection{Cadeia de custódia}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, 
-nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet 
-nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.
-Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, 
-viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper 
-ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam 
-nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. 
-Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, 
-augue velit cursus nunc, 
-
-I wish you the best of success.
-
-\hfill mds
- 
-\hfill December 27, 2012
+Falar do processo de controle da evidência, garantindo a integridade e confidencialidade da evidência. E relacionar com os gaps nos trabalhos relacionados e como este
+trabalho intenciona resolver este problema.
 
 \section{Trabalhos relacionados}
 
@@ -739,16 +664,16 @@ rearranjo que o kernel faz quando uma nova aplicação é iniciada.
 \begin{tabular}{L|L|L|L|L|L|L}
 \hline
 \textbf{}			& \rotatebox{90}{\textbf{Coleta  é continua?}}      & \rotatebox{90}{\textbf{Precisa de tradução de endereços para análise?}}      & \rotatebox{90}{\textbf{É independente de VM?}}      & \rotatebox{90}{\textbf{Conhece o que esta rodando na VM?}}      & \rotatebox{90}{\textbf{Garante cadeia de custódia?}}      & \rotatebox{90}{\textbf{Preserva evidência de memória volátil?}}      \\ \hline
-\cite{George2012}		& Não                                               & Não                                                                          & Não                                                 & Sim                                                             & Não                                                       & Não                                                                  \\ \hline
-\cite{Poisel2013}		& Não                                               & Sim                                                                          & Não                                                 & Não                                                             & Não                                                       & Sim                                                                  \\ \hline
-\cite{Dykstra2013}		& Não                                               & Não                                                                          & Não                                                 & Não                                                             & Não                                                       & Não                                                                  \\ \hline
-\cite{Do2014}			& Não                                               & Não                                                                          & Não                                                 & Não                                                             & Não                                                       & Não                                                                  \\ \hline
-\cite{Reichert2015}		& Não                                               & Não                                                                          & Não                                                 & Sim                                                             & Sim                                                       & Não                                                                  \\ \hline
-\cite{Sang2013}			& Sim                                               & Não                                                                          & Sim                                                 & Sim                                                             & Não                                                       & Não                                                                  \\ \hline
-\cite{Dolan-Gavitt2011a}	& Não                                               & Não                                                                          & Não                                                 & Não                                                             & Não                                                       & Sim                                                                  \\ \hline
-\cite{Aljaedi2011}		& Não                                               & Não                                                                          & Não                                                 & Sim                                                             & Não                                                       & Sim                                                                  \\ \hline
-\cite{Dezfouli2012}		& Sim                                               & Não                                                                          & Não                                                 & Sim                                                             & Não                                                       & Sim                                                                  \\ \hline
-\cite{VanBaar2014}		& Sim                                               & Não                                                                          & Não                                                 & Não                                                             & Sim                                                       & Não                                                                  \\
+\cite{George2012}		& \includegraphics[scale=0.007]{x.png}		    & \includegraphics[scale=0.007]{x.png}                                         & \includegraphics[scale=0.007]{x.png}                & \includegraphics[scale=0.015]{check.png}                        & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.007]{x.png}                                 \\ \hline
+\cite{Poisel2013}		& \includegraphics[scale=0.007]{x.png}              & \includegraphics[scale=0.015]{check.png}                                     & \includegraphics[scale=0.007]{x.png}                & \includegraphics[scale=0.007]{x.png}                            & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.015]{check.png}                             \\ \hline
+\cite{Dykstra2013}		& \includegraphics[scale=0.007]{x.png}              & \includegraphics[scale=0.007]{x.png}                                         & \includegraphics[scale=0.007]{x.png}                & \includegraphics[scale=0.007]{x.png}                            & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.007]{x.png}                                 \\ \hline
+\cite{Do2014}			& \includegraphics[scale=0.007]{x.png}              & \includegraphics[scale=0.007]{x.png}                                         & \includegraphics[scale=0.007]{x.png}                & \includegraphics[scale=0.007]{x.png}                            & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.007]{x.png}                                 \\ \hline
+\cite{Reichert2015}		& \includegraphics[scale=0.007]{x.png}              & \includegraphics[scale=0.007]{x.png}                                         & \includegraphics[scale=0.007]{x.png}                & \includegraphics[scale=0.015]{check.png}                        & \includegraphics[scale=0.015]{check.png}                  & \includegraphics[scale=0.007]{x.png}                                 \\ \hline
+\cite{Sang2013}			& \includegraphics[scale=0.015]{check.png}          & \includegraphics[scale=0.007]{x.png}                                         & \includegraphics[scale=0.015]{check.png}            & \includegraphics[scale=0.015]{check.png}                        & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.007]{x.png}                                 \\ \hline
+\cite{Dolan-Gavitt2011a}	& \includegraphics[scale=0.007]{x.png}              & \includegraphics[scale=0.007]{x.png}                                         & \includegraphics[scale=0.007]{x.png}                & \includegraphics[scale=0.007]{x.png}                            & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.015]{check.png}                             \\ \hline
+\cite{Aljaedi2011}		& \includegraphics[scale=0.007]{x.png}              & \includegraphics[scale=0.007]{x.png}                                         & \includegraphics[scale=0.007]{x.png}                & \includegraphics[scale=0.015]{check.png}                        & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.015]{check.png}                             \\ \hline
+\cite{Dezfouli2012}		& \includegraphics[scale=0.015]{check.png}          & \includegraphics[scale=0.007]{x.png}                                         & \includegraphics[scale=0.007]{x.png}                & \includegraphics[scale=0.015]{check.png}                        & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.015]{check.png}                             \\ \hline
+\cite{VanBaar2014}		& \includegraphics[scale=0.015]{check.png}          & \includegraphics[scale=0.007]{x.png}                                         & \includegraphics[scale=0.007]{x.png}                & \includegraphics[scale=0.007]{x.png}                            & \includegraphics[scale=0.015]{check.png}                  & \includegraphics[scale=0.007]{x.png}                                 \\
 \end{tabular}
 \end{table}
 
@@ -835,21 +760,8 @@ A solução completa com todos os elementos descritos anteriormente pode ser vis
 
 \subsection{Trabalhos futuros}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, 
-nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet 
-nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.
-Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, 
-viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper 
-ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam 
-nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. 
-Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, 
-augue velit cursus nunc, 
-
-I wish you the best of success.
-
-\hfill mds
- 
-\hfill December 27, 2012
+Falar da tentativa de realizar uma análise forense para reconstruir os eventos relacionados aos tipos de ataques descritos no início do artigo apenas com as informações
+coletada das memórias dos containeres.
 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
@@ -986,6 +898,23 @@ augue velit cursus nunc,
 % set second argument of \begin to the number of references
 % (used to reserve space for the reference number labels box)
 \begin{thebibliography}{1}
+
+\bibitem{Amazon2016}
+{AMAZON. \emph{{Amazon Media Room Press Release}}.
+[S.l.], 2016. 2~p.}
+
+\bibitem{Bash2015a}
+{KEYUN, R. et al. \emph{{Advances in Digital Forensics IV}}. 7. ed. Orlando:
+  [s.n.], 2011. 35--46~p.
+ISSN 1098-6596.
+ISBN 9788578110796.}
+
+\bibitem{Dykstra2012a}
+{DYKSTRA, J.; SHERMAN, A.~T. {Acquiring forensic evidence from
+  infrastructure-as-a-service cloud computing: Exploring and evaluating tools,
+  trust, and techniques}.
+\emph{Digital Investigation}, Elsevier Ltd, v.~9, n. SUPPL., p. S90--S98, 2012.
+ISSN 17422876.}
   
 \bibitem{George2012}
 GEORGE, S.; VENTER, H.; THOMAS, F. {Digital Forensic Framework for a Cloud
