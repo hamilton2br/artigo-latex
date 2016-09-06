@@ -436,31 +436,18 @@ dificuldades para coleta de evidência \cite{Bash2015a}. O aspecto multi-inquili
 removê-los seria uma violação de privacidade de usuários não relacionados a investigação. Por fim a característica distribuída pode alocar informação relevante a 
 investigação em vários países dificultando por razões jurídicas a obtenção da mesma \cite{Dykstra2012a}.
 
-\section{Computação em nuvem}
+\section{Containerização}
 
-\subsection{Virtualização}
-
-Falar da crescente demanda por virtualização e os problemas que sã trazidos por tal solução, multi-inquilino e multi-jurisdição.
-
-\subsection{Containerização}
-
-Falar da técnica de containerização como implementação em núvem.
+Tecnica de isolamento via cgroups, chroot que facilita a instalação de software em uma vm ou nao vm. Container é criado a partir de uma imagem. Imagens e containers
+possuem um hash identificando-as. Maiores provedores de container: Docker, rkt, Microsoft
 
 \section{Forense de memória em Nuvem}
 
-\subsection{Volatilidade das máquinas}
-
-Falar do novo nível de volatilidade das soluções em núvem  pública a das máquinas.
-
-\subsection{Coleta dos dados}
-
-Falar sobre a herança que a forense digital trouxe da forense tradicional e a necessidade de completude da coleta. Falar sobre a recente tendência para o sniper forensics
+Falar sobre a herança que a forense digital trouxe da forense tradicional e a necessidade de completude da coleta. Processo de amadurecimento da forense digital e suas
+fases. Relacionar os problemas que esta herança trouxe na forma de volume de dados e tempo de análise, jurisdição relacionada ao carater multi-jurisdição e multi-
+inquilino e do problema de cadeia de custódia quando relacionado a evidências coletadas da nuvem. Mencionar o problema de reprodutibilidade da evidência caso coletada
+por outro investigador não ser possível por causa do caratér elástico da nuvem. Falar sobre a recente tendência para o sniper forensics
 onde se coleta apenas aquilo que realmente importa e a dificultade em se definir o que realmente importa.
-
-\subsection{Cadeia de custódia}
-
-Falar do processo de controle da evidência, garantindo a integridade e confidencialidade da evidência. E relacionar com os gaps nos trabalhos relacionados e como este
-trabalho intenciona resolver este problema.
 
 \section{Trabalhos relacionados}
 
@@ -760,8 +747,9 @@ A solução completa com todos os elementos descritos anteriormente pode ser vis
 
 \subsection{Trabalhos futuros}
 
-Falar da tentativa de realizar uma análise forense para reconstruir os eventos relacionados aos tipos de ataques descritos no início do artigo apenas com as informações
-coletada das memórias dos containeres.
+Apesar de conseguirmos relacionar a evidência a sua fonte e reproduzir o processo, ainda precisamos verificar se coletar apenas a memória do container é o suficiente
+realizar uma análise e/ou encontrar uma forma segura de associar a memória do container com a do kernel da máquina hospedeira. Acreditamos estarmos no caminho certo pois,
+para a detecção das ameaças declaradas no inicio do documento, uma das premissas é a existência de uma cópia saudável da memória de um processo.
 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
