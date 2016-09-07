@@ -427,7 +427,7 @@ nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vit
 \section{Introdução}
 Aumento do uso de soluções de virtualização e a implementação de arquiteturas em nuvem que escalam automáticamente \cite{Amazon2016} trouxe a questão da volatilidade 
 das máquinas virtuais. Uma aplicação hospedada na nuvem sob um pico de uso pode clonar máquinas e adiciona-las ao grupo para atender a demanda. Passado 
-este pico, as máquinas que foram clonadas são despejadas, seus recursos liberados e o conjunto de retorna ao tamanho inicial. Com as ameaças que atuam diretamente 
+este pico, as máquinas que foram clonadas são despejadas, seus recursos liberados e o conjunto retorna ao tamanho inicial. Com as ameaças que atuam diretamente 
 na memória sem deixar rastros no disco da máquina afetada, se essas máquinas forem usadas para algum evento ilícito, as evidências do acontecimento contidas nelas 
 serão para sempre perdidas.
 
@@ -436,18 +436,26 @@ dificuldades para coleta de evidência \cite{Bash2015a}. O aspecto multi-inquili
 removê-los seria uma violação de privacidade de usuários não relacionados a investigação. Por fim a característica distribuída pode alocar informação relevante a 
 investigação em vários países dificultando por razões jurídicas a obtenção da mesma \cite{Dykstra2012a}.
 
-\section{Containerização}
+Este documento esta organizado da seguinte forma: Na seção II falamos brevemente sobre soluções em nuvem, na seção III falamos sobre a evolução da forense e os desafios
+que as soluções em nuvem trouxeram para a forense, na seção IV analisamos os trabalhos na área de forense de memória, na seção V descrevemos a solução proposta para 
+resolver os problemas descritos em III, na VI expomos nossas conclusões e na VII elencamos os trabalhos futuros.
 
-Tecnica de isolamento via cgroups, chroot que facilita a instalação de software em uma vm ou nao vm. Container é criado a partir de uma imagem. Imagens e containers
-possuem um hash identificando-as. Maiores provedores de container: Docker, rkt, Microsoft
+\section{Arquiteturas em nuvem}
 
-\section{Forense de memória em Nuvem}
+O que é uma solução em nuvem, o que é uma arquitetura de container, como esta a adoção de soluções em nuvem no mundo, como esta a adoção das arquiteturas em container
+no mundo.
 
-Falar sobre a herança que a forense digital trouxe da forense tradicional e a necessidade de completude da coleta. Processo de amadurecimento da forense digital e suas
-fases. Relacionar os problemas que esta herança trouxe na forma de volume de dados e tempo de análise, jurisdição relacionada ao carater multi-jurisdição e multi-
-inquilino e do problema de cadeia de custódia quando relacionado a evidências coletadas da nuvem. Mencionar o problema de reprodutibilidade da evidência caso coletada
-por outro investigador não ser possível por causa do caratér elástico da nuvem. Falar sobre a recente tendência para o sniper forensics
-onde se coleta apenas aquilo que realmente importa e a dificultade em se definir o que realmente importa.
+\section{Forense de memória em nuvem}
+
+Falar sobre a evolução da forense. A fase ad-hoc, a fase estruturada, a fase empresarial e a evolução dos métodos, o primeiro modelo introduzido em 2001 com as vantagens
+de... , adição de mais passos em 2002 para esclarecer o processo com a vantagem de... , em 2003 mudou-se o paradigma e simplificou-se o processo forense com a vantagem de...
+2011 surge o modelo de investigação atual com a vantagem de...
+
+as dificuldades que as soluções em núvem trouxeram para a forense. A herança da coleta total de evidência vinda da forense tradicional, as primeiras investigações removia-se
+a mídia ou a máquina, O carater multi inquilino não permite que a midia seja removida pois contem dados de clientes que não estão envolvidos na investigação, removê-las
+seria violação de privacidade. Dados não são exatamente escritos no mesmo pais que é contratado o serviço, a midia onde o dado esta armazenado pode ficar em qualquer lugar
+trazendo problemas de jurisdição. inicio com poucos dados era fácil agora com vários dados esta mais difícil analisar e sequer coletar os dados em media os investigadores 
+estão com 3 a 6 meses de backlog. 
 
 \section{Trabalhos relacionados}
 
@@ -727,6 +735,11 @@ trabalho usará de armazenamento físico fora da nuvem, o transporte será feito
 
 Tendo a implementação sido bem sucedida conseguiremos analisar e identificar as formas de ataque enumeradas nos objetivos.\\
 
+\subsection{Implementação}
+
+Usando qual máquina, qual versão do virtual box, qual versão do docker, implementando qual container, como usei para identificar o id do processo ao container e assim,
+como associei o conteúdo da memória ao container e a imagem. Como implementei a janela deslizante.
+
 \subsection{Limitações}
 
 Ameaças das quais estamos focando neste trabalho usam técnicas que permitem passar desapercebidas pelo processo de detecção de ameaças. Algumas delas são, 
@@ -744,12 +757,6 @@ A solução completa com todos os elementos descritos anteriormente pode ser vis
 \includegraphics[scale=0.25]{solucao.jpg}
 \label{fig:Solucao}
 \end{figure}
-
-\subsection{Trabalhos futuros}
-
-Apesar de conseguirmos relacionar a evidência a sua fonte e reproduzir o processo, ainda precisamos verificar se coletar apenas a memória do container é o suficiente
-realizar uma análise e/ou encontrar uma forma segura de associar a memória do container com a do kernel da máquina hospedeira. Acreditamos estarmos no caminho certo pois,
-para a detecção das ameaças declaradas no inicio do documento, uma das premissas é a existência de uma cópia saudável da memória de um processo.
 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
@@ -836,31 +843,20 @@ para a detecção das ameaças declaradas no inicio do documento, uma das premis
 
 \section{Conclusion}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, 
-nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet 
-nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.
-Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, 
-viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper 
-ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam 
-nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. 
-Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, 
-augue velit cursus nunc, 
+Dado que o identificador de uma imagem e de um container são únicos, é possível associar o conteúdo da memória de um container a seu identificador de container e imagem,
+assim mesmo que as máquinas sejan instanciadas e deletadas a imagem que gerou aquela print de memória existe e pode ser reproduzido. Por causa da organização da memória,
+as posições absolutas não podem ser mantidas mas o conteúdo sim.
 
-% conference papers do not normally have an appendix
+\section{Trabalhos futuros}
 
+Apesar de conseguirmos relacionar a evidência a sua fonte e reproduzir o processo, ainda precisamos verificar se coletar apenas a memória do container é o suficiente
+realizar uma análise e/ou encontrar uma forma segura de associar a memória do container com a do kernel da máquina hospedeira. Acreditamos estarmos no caminho certo pois,
+para a detecção das ameaças declaradas no inicio do documento, uma das premissas é a existência de uma cópia saudável da memória de um processo.
 
 % use section* for acknowledgement
 \section*{Acknowledgment}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, 
-nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet 
-nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.
-Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, 
-viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper 
-ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam 
-nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. 
-Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, 
-augue velit cursus nunc, 
+Beijo para a minha mae, meu pai e para a xuxa.
 
 
 % trigger a \newpage just before the given reference
