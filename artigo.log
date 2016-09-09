@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  31 AUG 2016 21:54
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  8 SEP 2016 21:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1220,7 +1220,11 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: Text page 19 contains only floats.
 
-[19] (./artigo.bbl (./artigo.brf)
+[19]
+
+LaTeX Warning: Citation `Sousa2009' on page 20 undefined on input line 577.
+
+(./artigo.bbl (./artigo.brf)
 \tf@brf=\write5
 \openout5 = `artigo.brf'.
 
@@ -1242,7 +1246,10 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 605.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 605.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 605.
 Package rerunfilecheck Info: File `artigo.brf' has not changed.
-(rerunfilecheck)             Checksum: 49718AB24990CFAFB1E3D998FF562F8B;1290.
+(rerunfilecheck)             Checksum: E769B7632F186E2EB70CF46CE1146A5F;1332.
+
+
+LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -1250,10 +1257,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 605.
  ) 
 Here is how much of TeX's memory you used:
- 13817 strings out of 493304
- 204927 string characters out of 6139871
+ 13828 strings out of 493304
+ 205089 string characters out of 6139871
  460468 words of memory out of 5000000
- 16889 multiletter control sequences out of 15000+600000
+ 16899 multiletter control sequences out of 15000+600000
  62386 words of font info for 103 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  42i,12n,35p,460b,636s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1265,10 +1272,10 @@ xmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lm
 ss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/f
 onts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy1
 0.pfb>
-Output written on artigo.pdf (23 pages, 574240 bytes).
+Output written on artigo.pdf (23 pages, 575326 bytes).
 PDF statistics:
- 357 PDF objects out of 1000 (max. 8388607)
- 315 compressed objects within 4 object streams
- 66 named destinations out of 1000 (max. 500000)
+ 361 PDF objects out of 1000 (max. 8388607)
+ 319 compressed objects within 4 object streams
+ 67 named destinations out of 1000 (max. 500000)
  20581 words of extra memory for PDF output out of 20736 (max. 10000000)
 

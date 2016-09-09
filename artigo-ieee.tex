@@ -325,7 +325,7 @@
 
 %*** Para ajustar a largura das colunas e para multilinhas nas células ***
 \usepackage{array}
-\newcolumntype{L}{>{\centering\arraybackslash}m{1cm}}
+\newcolumntype{L}{>{\centering\arraybackslash}m{0,75cm}}
 \newcolumntype{M}{>{\centering\arraybackslash}m{3cm}}
 
 % *** Do not adjust lengths that control margins, column widths, etc. ***
@@ -440,10 +440,17 @@ Este documento esta organizado da seguinte forma: Na seção II falamos brevemen
 que as soluções em nuvem trouxeram para a forense, na seção IV analisamos os trabalhos na área de forense de memória, na seção V descrevemos a solução proposta para 
 resolver os problemas descritos em III, na VI expomos nossas conclusões e na VII elencamos os trabalhos futuros.
 
-\section{Arquiteturas em nuvem}
+\section{Adoção de arquiteturas em nuvem}
 
-O que é uma solução em nuvem, o que é uma arquitetura de container, como esta a adoção de soluções em nuvem no mundo, como esta a adoção das arquiteturas em container
-no mundo.
+A nuvem é um sistema em que recursos computacionais são oferecidos como serviço onde os usuários são cobrados pelo seu uso. A infra-estrutura é composta de máquinas fisicas
+contendo cada uma um número variável de máquinas virtuais que implementam este serviço \cite{Sousa2009}. Há três modelos de comercialização de uso da nuvem, plataforma como serviço (PAAS), 
+software como serviço(SAAS) e pertinente e este trabalho Infraestrutura como serviço (IAAS). O uso de soluções baseadas em nuvem tem crescido muito ultimamente. Por exemplo, 
+de janeiro de 2016 a maio de 2016 mais de 1000 bases de dados foram migradas para a AWS. \cite{Amazon2016}.
+
+Uma forma mais recente de arquitetura em nuvem, introduzido em 2008, os Containers Linux (LXC) proveram uma série de ferramentas para tirar vantagens das funcionalidades 
+de cgroups e namespacing do kernel do Linux. Este conceito foi evoluindo e várias soluções de containerização sugiram como IMCTFY, Rocket e Docker. Container é uma forma 
+de isolamento entre processos onde os containers partilham o mesmo kernel e tem sido usado para desenvolver serviços baseado em vitualização. A adoção de container tem 
+crescido muito, segundo o "Container Market Adoption Survey 2016", das 235 empresas que responderam o survey 76\% delas utilizam containers em ambiente de produção.
 
 \section{Forense de memória em nuvem}
 
@@ -983,6 +990,13 @@ ISSN 16113349.}
 \bibitem{Case2014}
 {CASE, A. et al. \emph{{The Art of Memory Forensics: Detecting malware abd
   threats in Windows, LInux and Mac memory}}. Kindle edi. [S.l.]: Wiley, 2014.}
+  
+\bibitem{Sousa2009}
+{SOUSA, F. R.~C.; MOREIRA, L.~O.; MACHADO, J.~C. {Computa{\c{c}}{\~{a}}o em
+  Nuvem: Conceitos, Tecnologias, Aplica{\c{c}}{\~{o}}es e Desafios}.
+\emph{II Escola Regional de Computa{\c{c}}{\~{a}}o, Ceara, Maranh{\~{a}}o,
+  Piau{\'{i}} (ERCEMAPI)}, v.~1, n. EDUFPI, p. 150--175, 2009.}
+
 
 \end{thebibliography}
 
