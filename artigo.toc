@@ -15,9 +15,9 @@
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase {Revis\IeC {\~a}o Bibliogr\IeC {\'a}fica}}{12}{chapter.6}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase {An\IeC {\'a}lise dos Resultados}}{20}{chapter.7}
+\contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase {An\IeC {\'a}lise dos Resultados}}{19}{chapter.7}
 \vspace {\cftbeforechapterskip }
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{Refer\^encias}{21}{section*.6}
+\contentsline {chapter}{Refer\^encias}{20}{section*.6}
 \vspace {\cftbeforechapterskip }

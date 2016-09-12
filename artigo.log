@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  8 SEP 2016 21:36
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  11 SEP 2016 21:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1093,14 +1093,35 @@ l.191
 ] [5
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 249.
 
+LaTeX Warning: Citation `Amazon2016' on page 6 undefined on input line 239.
+
+
+LaTeX Warning: Citation `Case2014' on page 6 undefined on input line 246.
+
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 249.
 
 (/usr/share/texmf/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 249.
+
+
+LaTeX Warning: Citation `Bash2015a' on page 6 undefined on input line 260.
+
+
+LaTeX Warning: Citation `Dykstra2012a' on page 6 undefined on input line 262.
+
+
+LaTeX Warning: Citation `Quick2014' on page 6 undefined on input line 264.
+
+
+LaTeX Warning: Citation `Birk2011' on page 6 undefined on input line 266.
+
+
+LaTeX Warning: Citation `Sang2013' on page 6 undefined on input line 266.
+
 
 Underfull \hbox (badness 10000) in paragraph at lines 264--267
 
@@ -1113,22 +1134,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 274--275
 
  []
 
-<docker.jpg, id=78, 304.13625pt x 220.825pt>
+<docker.jpg, id=58, 304.13625pt x 220.825pt>
 File: docker.jpg Graphic file (type jpg)
  <use docker.jpg>
 Package pdftex.def Info: docker.jpg used on input line 287.
 (pdftex.def)             Requested size: 152.06775pt x 110.41222pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[7] <snapshot.jpg, id=87, 1292.83pt x 216.81pt>
+ [7 <./docker.jpg>] <snapshot.jpg, id=65, 1292.83pt x 216.81pt>
 File: snapshot.jpg Graphic file (type jpg)
  <use snapshot.jpg>
 Package pdftex.def Info: snapshot.jpg used on input line 300.
 (pdftex.def)             Requested size: 387.85199pt x 65.04349pt.
 
-<janela.jpg, id=92, 614.295pt x 447.92343pt>
+
+LaTeX Warning: Citation `Simou2014' on page 8 undefined on input line 305.
+
+
+LaTeX Warning: Citation `Bem2008' on page 8 undefined on input line 306.
+
+<janela.jpg, id=66, 614.295pt x 447.92343pt>
 File: janela.jpg Graphic file (type jpg)
  <use janela.jpg>
 Package pdftex.def Info: janela.jpg used on input line 314.
@@ -1142,12 +1165,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 324--325
 
  []
 
-[8 <./docker.jpg> <./snapshot.jpg>]
+[8 <./snapshot.jpg>]
+
+LaTeX Warning: Citation `Case2014' on page 9 undefined on input line 329.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 333--335
 
  []
 
-<solucao.jpg, id=103, 864.98157pt x 507.39563pt>
+<solucao.jpg, id=72, 864.98157pt x 507.39563pt>
 File: solucao.jpg Graphic file (type jpg)
  <use solucao.jpg>
 Package pdftex.def Info: solucao.jpg used on input line 342.
@@ -1159,9 +1186,16 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [9 <./janela.jpg>] [10 <./solucao.jpg>] [11
 
 ]
+
+LaTeX Warning: Citation `George2012' on page 12 undefined on input line 361.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 371--376
 
  []
+
+
+LaTeX Warning: Citation `Poisel2013' on page 12 undefined on input line 377.
 
 [12
 
@@ -1171,24 +1205,41 @@ Underfull \hbox (badness 10000) in paragraph at lines 386--390
  []
 
 
+LaTeX Warning: Citation `Dykstra2013' on page 13 undefined on input line 391.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 398--403
 
  []
+
+
+LaTeX Warning: Citation `Reichert2015' on page 13 undefined on input line 404.
 
 [13]
 Underfull \hbox (badness 10000) in paragraph at lines 427--431
 
  []
 
-[14]
+
+LaTeX Warning: Citation `Sang2013' on page 14 undefined on input line 432.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 437--440
 
  []
+
+[14]
+
+LaTeX Warning: Citation `Dezfouli2012' on page 15 undefined on input line 441.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 444--447
 
  []
+
+
+LaTeX Warning: Citation `Dolan-Gavitt2011a' on page 15 undefined on input line 
+448.
 
 
 LaTeX Warning: No positions in optional float specifier.
@@ -1200,9 +1251,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 483--487
  []
 
 [15]
+
+LaTeX Warning: Citation `VanBaar2014' on page 16 undefined on input line 488.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 493--496
 
  []
+
+
+LaTeX Warning: Citation `Zhang2010' on page 16 undefined on input line 497.
 
 [16]
 Underfull \hbox (badness 10000) in paragraph at lines 503--506
@@ -1210,33 +1268,57 @@ Underfull \hbox (badness 10000) in paragraph at lines 503--506
  []
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+LaTeX Warning: Citation `Aljaedi2011' on page 17 undefined on input line 507.
 
 [17]
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+LaTeX Warning: Citation `George2012' on page 18 undefined on input line 559.
+
+
+LaTeX Warning: Citation `Poisel2013' on page 18 undefined on input line 560.
+
+
+LaTeX Warning: Citation `Dykstra2013' on page 18 undefined on input line 561.
+
+
+LaTeX Warning: Citation `Do2014' on page 18 undefined on input line 562.
+
+
+LaTeX Warning: Citation `Reichert2015' on page 18 undefined on input line 563.
+
+
+LaTeX Warning: Citation `Sang2013' on page 18 undefined on input line 564.
+
+
+LaTeX Warning: Citation `Dolan-Gavitt2011a' on page 18 undefined on input line 
+565.
+
+
+LaTeX Warning: Citation `Aljaedi2011' on page 18 undefined on input line 566.
+
+
+LaTeX Warning: Citation `Dezfouli2012' on page 18 undefined on input line 567.
+
+
+LaTeX Warning: Citation `VanBaar2014' on page 18 undefined on input line 568.
 
 [18]
 
-LaTeX Warning: Text page 19 contains only floats.
-
-[19]
-
-LaTeX Warning: Citation `Sousa2009' on page 20 undefined on input line 577.
+LaTeX Warning: Citation `Quick2014' on page 19 undefined on input line 577.
 
 (./artigo.bbl (./artigo.brf)
 \tf@brf=\write5
 \openout5 = `artigo.brf'.
 
- [20
+ [19
 
 ]
 bibitemlist
-[21
+[20
 
 ])
 No file artigo.ind.
-[22]
+[21]
 \tf@toc=\write6
 \openout6 = `artigo.toc'.
 
@@ -1245,9 +1327,14 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 605.
  (./artigo.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 605.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 605.
-Package rerunfilecheck Info: File `artigo.brf' has not changed.
-(rerunfilecheck)             Checksum: E769B7632F186E2EB70CF46CE1146A5F;1332.
 
+
+Package rerunfilecheck Warning: File `artigo.brf' has changed.
+(rerunfilecheck)                Rerun to get bibliographical references right.
+
+Package rerunfilecheck Info: Checksums for `artigo.brf':
+(rerunfilecheck)             Before: 18650963DDA709F462B40BE19E6DCFE1;1334
+(rerunfilecheck)             After:  EBC7718F1B85B745C45AE59B5FD4483D;1332.
 
 LaTeX Warning: There were undefined references.
 
@@ -1257,13 +1344,13 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 605.
  ) 
 Here is how much of TeX's memory you used:
- 13828 strings out of 493304
- 205089 string characters out of 6139871
- 460468 words of memory out of 5000000
- 16899 multiletter control sequences out of 15000+600000
- 62386 words of font info for 103 fonts, out of 8000000 for 9000
+ 13823 strings out of 493304
+ 205018 string characters out of 6139871
+ 455193 words of memory out of 5000000
+ 16894 multiletter control sequences out of 15000+600000
+ 62477 words of font info for 104 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 42i,12n,35p,460b,636s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,13n,35p,460b,636s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
 ips/lm/lm-mathsy.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/s
 hare/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public
@@ -1272,10 +1359,10 @@ xmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lm
 ss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/f
 onts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy1
 0.pfb>
-Output written on artigo.pdf (23 pages, 575326 bytes).
+Output written on artigo.pdf (22 pages, 567134 bytes).
 PDF statistics:
- 361 PDF objects out of 1000 (max. 8388607)
- 319 compressed objects within 4 object streams
- 67 named destinations out of 1000 (max. 500000)
+ 276 PDF objects out of 1000 (max. 8388607)
+ 236 compressed objects within 3 object streams
+ 65 named destinations out of 1000 (max. 500000)
  20581 words of extra memory for PDF output out of 20736 (max. 10000000)
 

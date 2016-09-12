@@ -454,15 +454,36 @@ crescido muito, segundo o "Container Market Adoption Survey 2016", das 235 empre
 
 \section{Forense de memória em nuvem}
 
-Falar sobre a evolução da forense. A fase ad-hoc, a fase estruturada, a fase empresarial e a evolução dos métodos, o primeiro modelo introduzido em 2001 com as vantagens
-de... , adição de mais passos em 2002 para esclarecer o processo com a vantagem de... , em 2003 mudou-se o paradigma e simplificou-se o processo forense com a vantagem de...
-2011 surge o modelo de investigação atual com a vantagem de...
+A evolução da forense digital pode ser descrita em 3 fases \cite{Charters2008} A primeira ad-hoc se caracteriza pela falta de estrutura, processos, ferramental e 
+objetivos. Nesta fase evidências apresentadas em processos legais eram descartadas com base em erros procedurais e falta de garantias de acurácia ou cadeia de custódia. 
+A segunda fase começa a estruturação da forense, nesta surgem as primeiras políticas e processos de coleta, armazenamento, transpórte e análise da evidência. O primeiro
+processo proposto por Palmer G. em 2001 na primeira Digital Forensics Research Conference ficou conhecido como DIP, o próprio Palmer julgava o modelo incompleto. Em 2002 
+Reith M. propôs o Abstract Digital Forensics Model que adicionava ao DIP estágios que faltava a este. Em 2003 Carrier e Spafford propuseram o Integrated Digital Investigation 
+Process. Baseado nas técnicas e teorias da forense física e finalmente em 2004 Baryamureeba e Tushabe propuseram o Enhanced Digital Investigation Process Model, uma evolução
+de Carrier e Spafford. Importante notar que esses modelos foram todos propostos antes que a forma atual de computação em nuvem estivesse disponível as massas. \cite{Grispos2012}
 
-as dificuldades que as soluções em núvem trouxeram para a forense. A herança da coleta total de evidência vinda da forense tradicional, as primeiras investigações removia-se
-a mídia ou a máquina, O carater multi inquilino não permite que a midia seja removida pois contem dados de clientes que não estão envolvidos na investigação, removê-las
-seria violação de privacidade. Dados não são exatamente escritos no mesmo pais que é contratado o serviço, a midia onde o dado esta armazenado pode ficar em qualquer lugar
-trazendo problemas de jurisdição. inicio com poucos dados era fácil agora com vários dados esta mais difícil analisar e sequer coletar os dados em media os investigadores 
-estão com 3 a 6 meses de backlog. 
+Nesta fase surgiram as ferramentas que tinham por objetivo principal coletar evidências de forma que fossem legalmente aceitáveis, para isso alguns requisitos precisam 
+ser atendidos:
+
+\begin{enumerate}
+ \item O processo de coleta precisa ser repetível.
+ \item O processo de coleta precisa ser confiável.
+ \item O processo de coleta precisa preservar a evidência.
+\end{enumerate}
+
+A terceira fase se caracteriza pela migração do ferramental de soluções pontuais para soluções empresariais. Conceitos como coleta em tempo real e Forense como serviço emergem
+nesta fase.
+
+A utilização crescente de virtualização, ferramentas online e hospedagem em nuvem \cite{Amazon2016}, está criando dificuldades para a coleta de informações, análise e 
+utilização em processos legais \cite{Sharma2012}. A funcionalidade de elasticidade de carga ofertada pelos provedores de nuvem por meio da qual infraestrutura pode ser
+alocada e desalocada dinamicamente, trouxe o problema da volatilidade dos dados nas máquinas virtuais. Com algumas ameaças que não deixam evidências em disco \cite{Rafique2013},
+a memória de uma máquina virtual despejada de um pool e seus recursos liberados seria para sempre perdida e com ela evidências importantes. O simples armazenamento do 
+conteúdo da memória não satisfaz o requisito jurídico de se repetir o processo e conseguir os mesmos resultados. A abordagem de armazenar constantemente todas as 
+alterações da memória não contribui para a solução do crescente backlog de dados que os investigadores tem para analizar \cite{Quick2014}.
+
+O ferramental forense disponível hoje está pouco adaptado a desafios trazidos pela nuvem \cite{Dykstra2012a}, focam em completude e poucos geram evidências aceitáveis em
+um processo jurídico \cite{Reichert2015}. A cadeia de custódia, um processo de coleta e armazenamento de evidências que visa garantir que a evidência não foi alterada, 
+destruída ou manipulada por pessoas não autorizadas, é pouco abordada nas soluções existentes hoje.
 
 \section{Trabalhos relacionados}
 
@@ -996,7 +1017,35 @@ ISSN 16113349.}
   Nuvem: Conceitos, Tecnologias, Aplica{\c{c}}{\~{o}}es e Desafios}.
 \emph{II Escola Regional de Computa{\c{c}}{\~{a}}o, Ceara, Maranh{\~{a}}o,
   Piau{\'{i}} (ERCEMAPI)}, v.~1, n. EDUFPI, p. 150--175, 2009.}
+  
+\bibitem{Charters2008}
+{CHARTERS, I.; SMITH, M.; MCKEE, G. {The Evolution of Digital Forensics}. In:
+  \emph{Techno Forensics 2008 Conference}. [S.l.: s.n.], 2008. p. 1--39.}
 
+\bibitem{Grispos2012}
+{GRISPOS, G.; STORER, T.; GLISSON, W. {Calm before the storm: the challenges of
+  cloud computing in digital forensics}.
+\emph{International Journal of Digital Crime and Forensics}, v.~4, n.~2, p.
+  28--48, 2012.
+ISSN 1466640073.}
+
+\bibitem{Sharma2012}
+{SHARMA, H.; SABHARWAL, N. {Investigating the Implications of Virtual
+  Forensics}.
+\emph{Advances in Engineering, Science and Management (ICAESM), 2012
+  International Conference on}, p. 617--620, 2012.}
+  
+\bibitem{Rafique2013}
+{RAFIQUE, M.; KHAN, M. N.~A. {Exploring Static and Live Digital Forensics:
+  Methods, Practices and Tools}.
+\emph{International Journal of Scientific {\&} Engineering Research}, v.~4,
+  n.~10, p. 1048--1056, 2013.}
+  
+\bibitem{Quick2014}
+{QUICK, D.; CHOO, K. K.~R. {Impacts of increasing volume of digital forensic
+  data: A survey and future research challenges}.
+\emph{Digital Investigation}, Elsevier Ltd, v.~11, n.~4, p. 273--294, 2014.
+ISSN 17422876.}
 
 \end{thebibliography}
 
