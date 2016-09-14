@@ -527,7 +527,7 @@ está rodando, isso é considerado problemático pela comunidade pois a priorida
 mesma camada do hypervisor não conhece o que está rodando dentro da máquina. Depende da existência da máquina virtual para realização da coleta.
 
 Quando comparado a este trabalho, a presente proposta tem por vantagens a utilização de container para associar a evidência a sua origem tornando o processo 
-independente de máquina e permitindo que seja repetido mesmo se a máquina de onde originaram os dados não existir mais. Coma implementação de uma janela 
+independente de máquina e permitindo que seja repetido mesmo se a máquina de onde originaram os dados não existir mais. Com a implementação de uma janela 
 de x dias de coleta antes da detecção do ataque é possível descrever, através da evidência, como era o sistema antes do mesmo. Não depende de cooperação do provedor 
 do serviço de nuvem. A presente proposta também consegue realizar uma coleta onde os dados já são úteis para análise e pode direcionar a mesma pois tem o conhecimento 
 do que está rodando na máquina. \\
@@ -765,8 +765,14 @@ Tendo a implementação sido bem sucedida conseguiremos analisar e identificar a
 
 \subsection{Implementação}
 
-Usando qual máquina, qual versão do virtual box, qual versão do docker, implementando qual container, como usei para identificar o id do processo ao container e assim,
-como associei o conteúdo da memória ao container e a imagem. Como implementei a janela deslizante.
+A implementação da solução foi realizada em um notebook intel I5 de 2.30Mhz e 4Gb de RAM com sistema operacional de 64 bits. Nele, usando Oracle Virtual Box 5.0 criamos uma
+máquina virtual com 2 Gb de memória RAM emulando apenas 1 processador.
+
+Na máquina virtual instalamos a versão 1.9.1 do Docker engine e 1.21 da API, criamos 3 containers, cada um rodando um nginx 1.0 em diferentes portas. Foi escrita uma
+aplicação em JAVA que descobre qual o PID associado a cada container e salva o \textbf{/proc/pid/numa\_maps} em um arquivo cujo nome é \textbf{container\_id-imagem\_id-hora-minuto.mem}
+
+A cópia e gravação do arquivo acontece da seguinte forma, a cada minuto a aplicação pausa o container em questão, tira uma cópia do numa\_maps e a salva em um arquivo .mem.
+Em seguida verifica qual o arquivo .mem mais antigo em disco, se for mais velho que o tempo 't', o arquivo é descartado.
 
 \subsection{Limitações}
 
