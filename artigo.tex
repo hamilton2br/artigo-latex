@@ -41,8 +41,8 @@
 	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
 	% -- opções do pacote babel --
 	english,			% idioma adicional para hifenização
-	french,				% idioma adicional para hifenização
-	spanish,			% idioma adicional para hifenização
+	%french,				% idioma adicional para hifenização
+	%spanish,			% idioma adicional para hifenização
 	brazil,				% o último idioma é o principal do documento
 	]{abntex2}
 
@@ -59,7 +59,7 @@
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
 \usepackage{color}				% Controle das cores
 \usepackage{graphicx}			% Inclusão de gráficos
-\graphicspath{ {./} }			% localizando as imagens
+\graphicspath{ {./} }
 \usepackage{microtype} 			% para melhorias de justificação
 \usepackage{multirow}			% para tabelas com celulas mergeadas
 \usepackage{array}			% para multilinhas nas celulas
@@ -68,6 +68,8 @@
 
 \newcolumntype{L}{>{\centering\arraybackslash}m{1cm}}
 \newcolumntype{M}{>{\centering\arraybackslash}m{3cm}}
+
+\newcommand{\marcos}[1]{{\color{blue}{MARCOS: #1}}}
 
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
@@ -212,29 +214,14 @@ Científica em Engenharia de Computação.}
 % Introdução
 % ----------------------------------------------------------
 \chapter{Introdução}
+\label{chp:intro}
 
-Aqui vai a introdução
+\marcos{Apresente aqui o contexto em que se insere o seu trabalho, sem se preocupar muito com o problema exato a ser resolvido ou como você irá fazê-lo.}
 
-% ----------------------------------------------------------
-% Capitulo de justificativa 
-% ----------------------------------------------------------
-\chapter{Justificativa}
+\section{Motivação}
+\label{chp:intro-objetivos}
 
-Aqui vai a justificativa
-
-% ----------------------------------------------------------
-% Capitulo de Objetivos 
-% ----------------------------------------------------------
-\chapter{Objetivos}
-
-Aqui vão os objetivos
-
-% ----------------------------------------------------------
-% Capitulo de Minha solução 
-% ----------------------------------------------------------
-\chapter{Minha Solução}
-
-\textbf{Motivações}
+\marcos{Apresente aqui as motivações do seu trabalho, deixando claro qual o problema que aparece no contexto em questão e o porquê dele ser importante, sem ainda se preocupar em como você pretende resolvê-lo.}
 
 Aumento do uso de soluções de virtualização e a implementação de arquiteturas em nuvem que escalam automáticamente \cite{Amazon2016} trouxe a questão da volatilidade 
 das máquinas virtuais. Uma aplicação hospedada na nuvem sob um pico de uso pode clonar máquinas e adiciona-las ao grupo para atender a demanda. Passado 
@@ -265,7 +252,14 @@ O crescente volume de dados das aplicações atuais deram aos investigadores em 
 de dados leva horas para se realizar e requer a colaboração do provedor de nuvem. Mudar o paradigma de coleta tem sido proposto por pesquisadores e praticantes já há alguns
 anos \cite{Birk2011}\cite{Sang2013} mas estas práticas precisam garantir a cadeia de custódia para que as evidências produzidas por ela sejam aceita em um processo legal.\\
 
-\textbf{Objetivos da solução}
+
+% ----------------------------------------------------------
+% Seção de Objetivos 
+% ----------------------------------------------------------
+\section{Objetivos}
+\label{chp:intro-objetivos}
+
+\marcos{Apresente aqui quais são os seus objetivos, ou seja, como você irá resolver o problema em questão.}
 
 \begin{itemize}
  \item Coletar memória de uma máquina virtual de modo a conseguir identificar os 4 tipos de ataque listados anteriormente.
@@ -274,87 +268,98 @@ anos \cite{Birk2011}\cite{Sang2013} mas estas práticas precisam garantir a cade
  \item Armazenar a memória coletada de modo a garantir sua integridade, confidencialidade, não violar jurisdição e não violar privacidade de outros usuários no host.\\
 \end{itemize}
 
-\textbf{Descrição da solução}
+% ----------------------------------------------------------
+% Capitulo de justificativa 
+% ----------------------------------------------------------
+\section{Justificativa}
+\label{chp:intro-justificativa}
 
-Nas soluções com infra-estrutura física a máquina é persistente. Associar uma copia da memória, a imagem de um disco ou pacotes trafegando na rede a uma máquina é tarefa simples.
-Com as soluções de infra virtual, em especial as auto-escaláveis, a máquina deixou de ser persistente e tornou-se volátil. Para resolver o problema da identificação da fonte
-precisamos encontrar outra forma persistente para identificar a fonte da evidência coletada. Para isto usamos containeres. Embora o container seja uma peça de software e 
-por consequência também é volátil, a imagem compilada e sua execução na forma de container estão atrelados a um hash que os identificam, a pilha de um container pode ser 
-visto na Figura 1. 
+\marcos{Apresente aqui o porquê da forma como você vai resolver o problema ser interessante, bem como possíveis alternativas e o porquê das alternativas não serem tão interessantes quanto a sua abordagem.}
 
-\begin{figure}[h]
-\caption{Pilha monstrando funcionamento de container}
-\includegraphics[scale=0.5]{docker.jpg}
-\centering
-\label{fig:instantaneo}
-\end{figure}
+falar da tendência para o sniper forensics, falar não só de coleta mas de toda a cadeia de coleta e preservação da evidência
 
-A solução proposta por este trabalho, para resolver o problema de associação da evidência a sua origem de modo que o processo seja reprodutível, pausa a execução
-do container e coleta um instantâneo da memória dos processos sob sua execução. Este processo é executado em intervalos de tempo conhecidos de modo a se ter uma
-evolução da história da memória dos processos. Em um sistema derivado do linux (Ubuntu 14.04) isso foi atingido via cópia do diretório ``\\proc'' relacionado 
-aos processos sob o ``cgroup'' associado ao container e salvo em disco. Para relacionar o instantâneo a sua origem, usamos como nome do arquivo contendo o instantâneo 
-da memória a combinação do hash da imagem e o hash do container como mostrado na Figura 2.
+\section{Organização do documento}
+\label{chp:intro-organizacao}
 
-\begin{figure}[h!]
-\caption{Evidência salva - hash do container e imagem}
-\includegraphics[scale=0.3]{snapshot.jpg}
-\centering
-\label{fig:instantaneo}
-\end{figure}
-
-As técnicas forenses praticadas hoje estão voltadas para a obtenção da informação em sua totalidade, seja via cópia bit a bit, seja por remoção do hardware \cite{Simou2014}
-\cite{Bem2008}. Tais práticas tem levado ao crescente volume de dados que os investigadores tem que analisar. Há uma vertente na comunidade chamada ``sniper 
-forensics'' onde se coleta e armazena o suficiente para a investigação. A solução proposta por este trabalho acompanha esta tendência, a questão foi definir a quantidade 
-de dados ``suficiente'' para uma investigação. Decidimos que ``suficiente'' seria a quantidade necessária para descrever o sistema antes e depois do ataque. A idéia é 
-implementar um log rotativo de instantâneos de memória cobrindo uma quantidade de tempo configurável, integrar a solução com algum sistema de detecção de ameaça de modo
-que, ao detectar um ataque, o log passa de rotativo a completo assim permitindo que se conheça o sistema antes e depois do ataque como mostrado na Figura 3. 
-
-\begin{figure}[h!]
-\caption{Janela deslizante de coleta de evidência}
-\includegraphics[scale=0.5]{janela.jpg}
-\centering
-\label{fig:janela}
-\end{figure}
-
-De modo a não violar a jurisdição de outros países ou a privacidade de outros usuários por causa do caráter multi-inquilino e multi-jurisdição das arquiteturas em núvem pública,
-a solução proposta por este trabalho foi o de armazenar a evidência em um local físico fora da nuvem utilizando como transporte conexão segura. Outro ponto importante é 
-garantir a cadeia de custódia da evidência ou seja, garantir que a evidência não foi destruída, alterada ou acessada por qualquer pessoa. Assim a solução proposta por este 
-trabalho usará de armazenamento físico fora da nuvem, o transporte será feito por TLS e o acesso a evidência será controlado.
-
-Tendo a implementação sido bem sucedida conseguiremos analisar e identificar as formas de ataque enumeradas nos objetivos.\\
-
-\textbf{Limitações da solução}
-
-Ameaças das quais estamos focando neste trabalho usam técnicas que permitem passar desapercebidas pelo processo de detecção de ameaças. Algumas delas são, 
-adulteração da lista de processos ativos em uma máquina, se fazer passar por um processo válido ou se fazer passar por uma biblioteca válida \cite{Case2014}. Por isso, 
-mesmo que haja uma integração com alguma forma de detecção de ameaça para a mudança do armazenamento de janela para o armazenamento total, acreditamos que ainda é 
-necessária a capacidade de acionamento manual.
-
-A solução esta focada em coletar informações de memória do espaço de memória do usuário assim, mesmo que ela ajude na investigação de ameaças que realizem manipulação direta
-dos objetos do Kernel ( \textit{D.K.O.M. - Direct Kernel Object Manipulation} ) Kernel space no host não se beneficia da associação com o container.\\
-
-\textbf{Esquema da solução}
-
-A solução completa com todos os elementos descritos anteriormente pode ser visto na figura 4
-
-\begin{figure}[h]
-\caption{Solução completa}
-\includegraphics[scale=0.5]{solucao.jpg}
-\centering
-\label{fig:Solucao}
-\end{figure}
+O presente documento está organizado em capítulos, da seguinte forma.
+%
+O capítulo \ref{chp:contexto} apresenta ...
 
 % ----------------------------------------------------------
-% Plano de Trabalho 
+% Capitulo de Minha solução 
 % ----------------------------------------------------------
-\chapter{Métodos}
+\chapter{Fundamentação Teórica}
 
-Aqui vão os métodos
+\marcos{Discuta aqui os conceitos básicos necessários para entender sua solução e os trabalhos relacionados}
+
+A prática forense esta relacionado fundamentalmente ao controle da evidência
+
+Conceito de isolamento da área e coleta da evidência.
+
+Conceito de reprodutibilidade da coleta
+
+Concento da cadeia de custódia e a garantia da idoneidade da prova https://qperito.com/2013/11/04/queira-o-sr-perito-explicar-o-que-e-cadeia-de-custodia/
 
 % ----------------------------------------------------------
-% Material e métodos
+% Capitulo de Minha solução 
 % ----------------------------------------------------------
-\chapter{Revisão Bibliográfica}
+\chapter{Análise forense na nuvem: requisitos e trabalhos relacionados}
+\label{chp:contexto}
+
+\marcos{Precisa de um texto introdutório aqui. Estou deixando uma sugestão inicial}
+
+Neste capítulo são discutidos os principais requisitos para soluções de análise forense na nuvem.
+%
+Com base nesses requisitos, são então apresentadas algumas das principais soluções relacionadas à presente proposta, bem como suas limitações.
+
+\section{Requisitos}
+\label{chp:contexto-requisitos}
+
+\marcos{Discuta aqui as métricas que você vai utilizar para a comparação e o porquê delas serem relevantes. Isso define os requisitos para soluções relacionadas, e permite você analisá-las e justificar a sua solução.}
+Até o momento não encontrei principais requisitos, há requisitos da forense mas eles conflitam com as pectos da núvem.
+
+Coleta contínua, presevação da evidência volátil, independência de VM, conhece o contexto, cadeia de custódia
+
+\section{Revisão da literatura}
+\label{chp:contexto-revisao}
+
+\marcos{Eu particularmente não gosto muito de uma discussão tão cheia de ``bullets'' (e muitas bancas concordam comigo...). Seria melhor se você conseguisse dividir em ``classes'' de soluções, e aí discutir elas juntas, ou pelo menos colocar sub-seções como estou fazendo agora.}
+
+
+A literatura voltada a análise forense na nuvem \marcos{coloque aqui um bla bla bla inicial}
+
+\subsection{\textit{Digital forensics framework for a cloud environment}}
+
+\marcos{Maus hábitos detectados na sua forma de escrita: excesso de sujeito oculto (veja os ``quem?'' e ``o que'' abaixo para perceber que há o uso de sujeito oculto reduz a clareza nesses pontos); uso incorreto de ``esse vs este'' (sempre que você falar ``este'', é o *seu* trabalho; se quiser se referir ao trabalho que acaba de ser mencionado, diga *esse*)}
+
+O trabalho realizado em \cite{George2012} apresenta um arcabouço para coleta de dados de máquinas virtuais. 
+%
+A solução possui duas formas de acionamento, manual ou automática, ambas integradas com algum sistema de detecção de ameaça \marcos{não seria detecção de intrusão? É IDS?}. 
+%
+Quando acionado, \marcos{quem? a solução? um módulo de análise forense?} escuta a rede, determina qual máquina deve ser objeto de investigação, coleta informações de log e tráfego de rede, e associa \marcos{o que? essas informações?} ao usuário da respectiva máquina. 
+%
+As evidências coletadas são então armazenadas em local fora da nuvem, com o objetivo de evitar problemas de jurisdição e compartilhamento multi-inquilino da nuvem, embora permita também possível usar a própria nuvem como local armazenamento caso desejado (e.g., se não houver espaço disponível em ambiente externo).
+
+
+\marcos{Antes de criticar, é recomendado salientar os pontos positivos, para fazer um contraponto (e porque você não sabe se o seu revisor é o proponente da solução que você está criticando...), ou pelo menos deixar claro que ``uma limitação da solução é...''. Usei a primeira abordagem aqui} 
+Embora interessante e bastante completa, a descrição da proposta indica que ela é aplicável apenas a um sistema virtual estático, no qual o número e a organização das máquinas sejam constantes \marcos{por que? Me parece que você explica isso no próximo parágrafo...}.
+%
+\marcos{Ligação com a frase anterior está ruim... Se isso é um exemplo da frase anterior, diga ``por exemplo''. Se for algo não relacionado, diga ``Além disso''. Enfim, USE CONECTIVOS entre as frases para facilitar a vida do leitor...} De informação volátil, coleta apenas tráfego de rede, mas não coleta memória. 
+%
+Com a forma de acionamento \marcos{o que você quer dizer com ``forma de acionamento''?} descrito \marcos{que é qual?} ele não consegue descrever, com as evidências, como era o sistema antes do ataque \marcos{por que não? não fica claro...}.
+%
+Apesar de armazenar evidências fora da nuvem, não são apresentados detalhes de como pode-se garantir que as evidências não foram alteradas ou destruída no transporte até o local de armazenamento, nem discute-se como controlar o acesso a essas evidências \marcos{isso é realmente uma limitação da solução? Pode até ser, mas você precisaria discutir que isso é importante quando estiver discutindo requisitos...}.
+
+
+\marcos{Este trecho faz sentido se você colocar a sua solução antes dos trabalhos relacionados, mas isso é incomum porque é MUITO difícil você vender o seu trabalho sem apresentar para o leitor o que já existe antes (e as limitações). Para consertar: deixe o texto mais genérico, sem dizer exatamente *como* você faz, mas apenas *o que* você faz. Pelo que li aqui, o mais fácil parece ser mover a parte relevante dessa discussão para o parágrafo anterior.}
+
+Quando comparado a esse trabalho, a presente proposta tem por vantagens a utilização de container para associar a evidência a sua origem tornando o processo independente de máquina e permitindo que seja repetido mesmo se a máquina de onde se originaram os dados não existir mais \marcos{discutindo muito o ``como''... melhor discutir apenas o ``o que'' como sendo limitação no parágrafo anterior (pode ser através de um exemplo inspirado nesta frase, mas precisa ser um pouco mais genérico, sem depender do conhecimento de como funciona a sua solução)}. 
+%
+Com a implementação de uma janela de $d$ dias de coleta antes da detecção do ataque é possível descrever, através de evidência, como era o sistema antes do mesmo \marcos{me parece que isso pode ser discutido para responder uma pergunta minha no parágrafo anterior}. 
+%
+Com isso, a solução apresentada consegue evidências em um cenário de infraestrutura dinâmica. 
+%
+São tomadas precauções para garantir que os dados não foram alterados ou destruídos no transporte via TLS para um local fora da nuvem e o acesso a mesma é controlado \marcos{frase redundante: já ficou clara que essa é uma limitação no parágrafo anterior}.
 
 \begin{itemize}
 
@@ -568,6 +573,79 @@ rearranjo que o kernel faz quando uma nova aplicação é iniciada.
 \cite{VanBaar2014}		& Sim                                               & Não                                                                          & Não                                                 & Não                                                             & Sim                                                       & Não                                                                  \\
 \end{tabular}
 \end{table}
+
+% ----------------------------------------------------------
+% Plano de Trabalho 
+% ----------------------------------------------------------
+\chapter{Descrição da Solução}
+
+Nas soluções com infra-estrutura física a máquina é persistente. Associar uma copia da memória, a imagem de um disco ou pacotes trafegando na rede a uma máquina é tarefa simples.
+Com as soluções de infra virtual, em especial as auto-escaláveis, a máquina deixou de ser persistente e tornou-se volátil. Para resolver o problema da identificação da fonte
+precisamos encontrar outra forma persistente para identificar a fonte da evidência coletada. Para isto usamos containeres. Embora o container seja uma peça de software e 
+por consequência também é volátil, a imagem compilada e sua execução na forma de container estão atrelados a um hash que os identificam, a pilha de um container pode ser 
+visto na Figura 1. 
+
+\begin{figure}[h]
+\caption{Pilha monstrando funcionamento de container}
+\includegraphics[scale=0.5]{docker.jpg}
+\centering
+\label{fig:instantaneo}
+\end{figure}
+
+A solução proposta por este trabalho, para resolver o problema de associação da evidência a sua origem de modo que o processo seja reprodutível, pausa a execução
+do container e coleta um instantâneo da memória dos processos sob sua execução. Este processo é executado em intervalos de tempo conhecidos de modo a se ter uma
+evolução da história da memória dos processos. Em um sistema derivado do linux (Ubuntu 14.04) isso foi atingido via cópia do diretório ``\\proc'' relacionado 
+aos processos sob o ``cgroup'' associado ao container e salvo em disco. Para relacionar o instantâneo a sua origem, usamos como nome do arquivo contendo o instantâneo 
+da memória a combinação do hash da imagem e o hash do container como mostrado na Figura 2.
+
+\begin{figure}[h!]
+\caption{Evidência salva - hash do container e imagem}
+\includegraphics[scale=0.3]{snapshot.jpg}
+\centering
+\label{fig:instantaneo}
+\end{figure}
+
+As técnicas forenses praticadas hoje estão voltadas para a obtenção da informação em sua totalidade, seja via cópia bit a bit, seja por remoção do hardware \cite{Simou2014}
+\cite{Bem2008}. Tais práticas tem levado ao crescente volume de dados que os investigadores tem que analisar. Há uma vertente na comunidade chamada ``sniper 
+forensics'' onde se coleta e armazena o suficiente para a investigação. A solução proposta por este trabalho acompanha esta tendência, a questão foi definir a quantidade 
+de dados ``suficiente'' para uma investigação. Decidimos que ``suficiente'' seria a quantidade necessária para descrever o sistema antes e depois do ataque. A idéia é 
+implementar um log rotativo de instantâneos de memória cobrindo uma quantidade de tempo configurável, integrar a solução com algum sistema de detecção de ameaça de modo
+que, ao detectar um ataque, o log passa de rotativo a completo assim permitindo que se conheça o sistema antes e depois do ataque como mostrado na Figura 3. 
+
+\begin{figure}[h!]
+\caption{Janela deslizante de coleta de evidência}
+\includegraphics[scale=0.5]{janela.jpg}
+\centering
+\label{fig:janela}
+\end{figure}
+
+De modo a não violar a jurisdição de outros países ou a privacidade de outros usuários por causa do caráter multi-inquilino e multi-jurisdição das arquiteturas em núvem pública,
+a solução proposta por este trabalho foi o de armazenar a evidência em um local físico fora da nuvem utilizando como transporte conexão segura. Outro ponto importante é 
+garantir a cadeia de custódia da evidência ou seja, garantir que a evidência não foi destruída, alterada ou acessada por qualquer pessoa. Assim a solução proposta por este 
+trabalho usará de armazenamento físico fora da nuvem, o transporte será feito por TLS e o acesso a evidência será controlado.
+
+Tendo a implementação sido bem sucedida conseguiremos analisar e identificar as formas de ataque enumeradas nos objetivos.\\
+
+\textbf{Limitações da solução}
+
+Ameaças das quais estamos focando neste trabalho usam técnicas que permitem passar desapercebidas pelo processo de detecção de ameaças. Algumas delas são, 
+adulteração da lista de processos ativos em uma máquina, se fazer passar por um processo válido ou se fazer passar por uma biblioteca válida \cite{Case2014}. Por isso, 
+mesmo que haja uma integração com alguma forma de detecção de ameaça para a mudança do armazenamento de janela para o armazenamento total, acreditamos que ainda é 
+necessária a capacidade de acionamento manual.
+
+A solução esta focada em coletar informações de memória do espaço de memória do usuário assim, mesmo que ela ajude na investigação de ameaças que realizem manipulação direta
+dos objetos do Kernel ( \textit{D.K.O.M. - Direct Kernel Object Manipulation} ) Kernel space no host não se beneficia da associação com o container.\\
+
+\textbf{Esquema da solução}
+
+A solução completa com todos os elementos descritos anteriormente pode ser visto na figura 4
+
+\begin{figure}[h]
+\caption{Solução completa}
+\includegraphics[scale=0.5]{solucao.jpg}
+\centering
+\label{fig:Solucao}
+\end{figure}
 
 % ----------------------------------------------------------
 % Análise dos resultados
