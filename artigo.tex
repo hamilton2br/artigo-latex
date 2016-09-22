@@ -325,59 +325,62 @@ Coleta contínua, presevação da evidência volátil, independência de VM, con
 
 \marcos{Eu particularmente não gosto muito de uma discussão tão cheia de ``bullets'' (e muitas bancas concordam comigo...). Seria melhor se você conseguisse dividir em ``classes'' de soluções, e aí discutir elas juntas, ou pelo menos colocar sub-seções como estou fazendo agora.}
 
+A literatura voltada a análise forense na nuvem foi analisada a luz dos seguintes conceitos pertinentes a este trabalho. 
 
-A literatura voltada a análise forense na nuvem \marcos{coloque aqui um bla bla bla inicial}
+\begin{itemize}
+ \item Acessar e coletar as informações de memória das máquinas virtuais em nuvem. 
+ \item Reproduzir o processo com os mesmos resultados e conhecer a taxa de erro.
+ \item Não violar privacidade ou jurisdição das partes não envolvidas na investigação.
+ \item Garantir a cadeia de custódia da evidência.
 
-\subsection{\textit{Digital forensics framework for a cloud environment}}
+\end{itemize}
 
 \marcos{Maus hábitos detectados na sua forma de escrita: excesso de sujeito oculto (veja os ``quem?'' e ``o que'' abaixo para perceber que há o uso de sujeito oculto reduz a clareza nesses pontos); uso incorreto de ``esse vs este'' (sempre que você falar ``este'', é o *seu* trabalho; se quiser se referir ao trabalho que acaba de ser mencionado, diga *esse*)}
 
-O trabalho realizado em \cite{George2012} apresenta um arcabouço para coleta de dados de máquinas virtuais. 
-%
-A solução possui duas formas de acionamento, manual ou automática, ambas integradas com algum sistema de detecção de ameaça \marcos{não seria detecção de intrusão? É IDS?}. 
-%
-Quando acionado, \marcos{quem? a solução? um módulo de análise forense?} escuta a rede, determina qual máquina deve ser objeto de investigação, coleta informações de log e tráfego de rede, e associa \marcos{o que? essas informações?} ao usuário da respectiva máquina. 
-%
-As evidências coletadas são então armazenadas em local fora da nuvem, com o objetivo de evitar problemas de jurisdição e compartilhamento multi-inquilino da nuvem, embora permita também possível usar a própria nuvem como local armazenamento caso desejado (e.g., se não houver espaço disponível em ambiente externo).
+Com a revisão constatou-se que referente a coleta de informações, a maioria dos trabalhos mais importantes na área \cite{Reichert2015}, \cite{Poisel2013}, \cite{Dykstra2013}, 
+\cite{George2012} e \cite{Sang2013} focam em coleta reativa, isto é, ela acontece apenas após a ameaça ser detectada. Podem acontecer por acionamento manual ou integrada a um 
+mecanismo de detecção de intrusão. Em casos de memória volátil, esta forma de coleta de informação não consegue descrever como era a memória antes do ataque. Esta capacidade é
+descrita por alguns autores como \cite{Case2014} como necessária para viabilizar a abordagem de coletar o mínimo necessário para realizar a investigação. A única proposta 
+encontrada que leva esta necessidade em consideração é \cite{Dezfouli2012} mas propõe que o dado seja armazenado no próprio dispositivo o que pode levar a perda de 
+informações importantes caso a máquina virtual seja despejada do pool e seus recursos liberados.
 
+Ainda na coleta de informações, \cite{Reichert2015}, \cite{George2012} sugerem a abordagem de forense ao vivo onde os dados são coletados com o sistema rodando enquanto 
+\cite{Poisel2013}, \cite{Dykstra2013}, \cite{Sang2013} adotam a estratégia de isolar e/ou parar a máquina virtual e em seguida executar o processo de coleta. Nos dois casos, 
+nenhum dos autores cobre o cenário onde a máquina virtual é despejada do pool e os recursos são liberados. Atender este cenário é importante pois com as soluções que escalam
+automaticamente, as evidências de uma máquina vítima de um ataque que foi despejada de um pool com a diminuição da demanda será para sempre perdida. Analisando cuidadosamente
+as propostas de \cite{Poisel2013}, parece que é possível cobrir o cenário mencionado anteriormente mas ele não dá detalhes da implementação suficientes para termos certeza.
 
-\marcos{Antes de criticar, é recomendado salientar os pontos positivos, para fazer um contraponto (e porque você não sabe se o seu revisor é o proponente da solução que você está criticando...), ou pelo menos deixar claro que ``uma limitação da solução é...''. Usei a primeira abordagem aqui} 
-Embora interessante e bastante completa, a descrição da proposta indica que ela é aplicável apenas a um sistema virtual estático, no qual o número e a organização das máquinas sejam constantes \marcos{por que? Me parece que você explica isso no próximo parágrafo...}.
-%
-\marcos{Ligação com a frase anterior está ruim... Se isso é um exemplo da frase anterior, diga ``por exemplo''. Se for algo não relacionado, diga ``Além disso''. Enfim, USE CONECTIVOS entre as frases para facilitar a vida do leitor...} De informação volátil, coleta apenas tráfego de rede, mas não coleta memória. 
-%
-Com a forma de acionamento \marcos{o que você quer dizer com ``forma de acionamento''?} descrito \marcos{que é qual?} ele não consegue descrever, com as evidências, como era o sistema antes do ataque \marcos{por que não? não fica claro...}.
-%
-Apesar de armazenar evidências fora da nuvem, não são apresentados detalhes de como pode-se garantir que as evidências não foram alteradas ou destruída no transporte até o local de armazenamento, nem discute-se como controlar o acesso a essas evidências \marcos{isso é realmente uma limitação da solução? Pode até ser, mas você precisaria discutir que isso é importante quando estiver discutindo requisitos...}.
+Referente aos requisitos legais, nenhuma das propostas consegue reproduzir os mesmos resultados ao repetir o processo no cenário em que uma máquina virtual é despejada da nuvem e seus 
+recursos liberados. Analisando cuidadosamente a proposta de \cite{George2012} parece que é possível mas o autor não dá detalhes de implementação suficientes para termos certeza.
 
+No armazenamento das informações coletadas, \cite{Reichert2015}, \cite{George2012}, \cite{Poisel2013} e \cite{Dykstra2013} usam estratégia de armazenamento fora da nuvem para 
+resolver o problema de jurisdição e violação de privacidade de outros usuários no processo da coleta \cite{Sang2013} e um caso específico de \cite{George2012} dependem de 
+cooperação do provedor de serviços de nuvem para conseguir as informações necessárias à investigação. Depender do provedor de serviços de nuvem é uma estratégia fraca pois o foco
+deles é garantir a continuidade do serviço não a coleta de evidências. 
 
-\marcos{Este trecho faz sentido se você colocar a sua solução antes dos trabalhos relacionados, mas isso é incomum porque é MUITO difícil você vender o seu trabalho sem apresentar para o leitor o que já existe antes (e as limitações). Para consertar: deixe o texto mais genérico, sem dizer exatamente *como* você faz, mas apenas *o que* você faz. Pelo que li aqui, o mais fácil parece ser mover a parte relevante dessa discussão para o parágrafo anterior.}
+Na garantia da cadeia de custódia apenas \cite{Sang2013} tenta resolver a questão mas toma cuidados apenas para  garantir que a evidência não foi destruída ou alterada. 
+Ele faz isso através de cálculo de hashing mas não explica como impede o acesso não autorizado à evidência. As propostas dos outros autores estão focadas apenas no 
+aspecto técnico da coleta.
 
-Quando comparado a esse trabalho, a presente proposta tem por vantagens a utilização de container para associar a evidência a sua origem tornando o processo independente de máquina e permitindo que seja repetido mesmo se a máquina de onde se originaram os dados não existir mais \marcos{discutindo muito o ``como''... melhor discutir apenas o ``o que'' como sendo limitação no parágrafo anterior (pode ser através de um exemplo inspirado nesta frase, mas precisa ser um pouco mais genérico, sem depender do conhecimento de como funciona a sua solução)}. 
-%
-Com a implementação de uma janela de $d$ dias de coleta antes da detecção do ataque é possível descrever, através de evidência, como era o sistema antes do mesmo \marcos{me parece que isso pode ser discutido para responder uma pergunta minha no parágrafo anterior}. 
-%
-Com isso, a solução apresentada consegue evidências em um cenário de infraestrutura dinâmica. 
-%
-São tomadas precauções para garantir que os dados não foram alterados ou destruídos no transporte via TLS para um local fora da nuvem e o acesso a mesma é controlado \marcos{frase redundante: já ficou clara que essa é uma limitação no parágrafo anterior}.
+%%%%%%%%%%%%%%%%%%%%%%%
 
+O trabalho realizado em \cite{George2012} apresenta um arcabouço para coleta de dados de máquinas virtuais. A solução possui duas formas de acionamento, manual ou 
+automática, ambas integradas com algum sistema de detecção de intrusão. O autor sugere que o sistema seja utilizado como um serviço a ser descoberto e acionado sob 
+demanda. Quando acionado, escuta a rede, determina qual máquina deve ser objeto de investigação, coleta informações de arquivos de log em localizações pré-determinada, 
+tráfego de rede e associa as infomações coletadas ao usuário da respectiva máquina. As evidências coletadas são então armazenadas em local fora da nuvem, com o 
+objetivo de evitar problemas de jurisdição e compartilhamento multi-inquilino. Permite usar a própria nuvem como local armazenamento caso desejado (e.g., se não houver 
+espaço disponível em ambiente externo).
+
+Das características positivas da proposta temos, a implementação como serviço a ser ofertado pelo provedor de nuvem, o que vai ao encontro da tendêcia de forense como 
+serviço (FaaS - Forensics as a Service). A preocupação com a quantidade de dados coletados abordando o problema do crescente volume de dados para análise. Por último a 
+capacidade de relacionar ações com o usuário do cliente de nuvem que executou as ações suspeitas.
+
+No que tange limitações, de informação volátil, coleta apenas tráfego de rede, mas não coleta memória. Com a estratégia de acionamento após a detecção da intrusão ele não
+consegue descrever, com as evidências, como era o sistema antes do ataque pois não guarda informações deste tempo. Apesar de armazenar evidências fora da nuvem, não são 
+apresentados detalhes de como ou se garante que as evidências não foram alteradas ou destruídas no transporte até o local de armazenamento, nem discute-se como controlar 
+o acesso a essas evidências. Descuidos nos detalhes de transporte, acesso e armazenamento de evidências podem invalidar o uso da evidência em um processo legal.
+    
 \begin{itemize}
-
-\item \textbf{Digital forensics framework for a cloud environment \cite{George2012} }: Arcabouço para coleta de dados de máquinas virtuais. Possui duas formas de 
-acionamento, a manual e a automática, integrada com algum sistema de detecção de ameaça. Quando acionado, escuta a rede, determina qual máquina é objeto de investigação, 
-coleta informações de log e tráfego de rede e associa ao usuário da respectiva máquina. Propõe o armazenamento das evidências em local fora da núvem para escapar de 
-problemas de jurisdição e multi-inquilino mas tem inteligência para usar a própria nuvem como armazenamento caso o espaço fora acabe.
-
-A proposta dá a entender que é aplicável apenas a um sistema virtual estático, onde o número e organização das máquinas é constante. De informação volátil coleta apenas 
-tráfego de rede, não coleta memória. Com a forma de acionamento descrito ele não consegue descrever, com as evidências, como era o sistema antes do ataque. Apesar de armazenar 
-a evidência fora da nuvem, não da detalhes de como garante que a evidência não foi alterada ou destruída no transporte até o local de armazenamento nem como controla o 
-acesso a evidência.
-
-Quando comparado a este trabalho, a presente proposta tem por vantagens a utilização de container para associar a evidência a sua origem tornando o processo independente 
-de máquina e permitindo que seja repetido mesmo se a máquina de onde se originaram os dados não existir mais. Com a implementação de uma janela de x dias de coleta antes da
-detecção do ataque é possível descrever, através de evidência, como era o sistema antes do mesmo. Com isso a solução apresentada consegue evidências em um cenário de
-infra-estrutura dinâmica. São tomadas precauções para garantir que os dados não foram alterados ou destruídos no transporte via TLS os para um local fora da nuvem e 
-o acesso a mesma é controlado.\\
  
 \item \textbf{Evidence and cloud computing the virtual machine introspection approach \cite{Poisel2013} }: Descreve um método de coleta de informações de máquinas
 em nuvem através da técnica de introspecção em máquina virtual, onde se acessa os dados das máquinas virtuais através do hypervisor. Propõe que o processo seja disparado
