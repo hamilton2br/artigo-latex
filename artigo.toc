@@ -14,12 +14,16 @@
 \contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {An\IeC {\'a}lise forense na nuvem: requisitos e trabalhos relacionados}}{7}{chapter.3}
 \contentsline {section}{\numberline {3.1}Requisitos}{7}{section.3.1}
 \contentsline {section}{\numberline {3.2}Revis\IeC {\~a}o da literatura}{7}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Acessar e coletar as informa\IeC {\c c}\IeC {\~o}es de mem\IeC {\'o}ria das m\IeC {\'a}quinas virtuais em nuvem.}{7}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Capacidade de reproduzir o processo e obter os mesmos resultados.}{8}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}N\IeC {\~a}o violar privacidade ou jurisdi\IeC {\c c}\IeC {\~a}o das partes n\IeC {\~a}o envolvidas na investiga\IeC {\c c}\IeC {\~a}o.}{8}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}Garantir a cadeia de cust\IeC {\'o}dia da evid\IeC {\^e}ncia.}{9}{subsection.3.2.4}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Descri\IeC {\c c}\IeC {\~a}o da Solu\IeC {\c c}\IeC {\~a}o}}{17}{chapter.4}
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Descri\IeC {\c c}\IeC {\~a}o da Solu\IeC {\c c}\IeC {\~a}o}}{11}{chapter.4}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {An\IeC {\'a}lise dos Resultados}}{20}{chapter.5}
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {An\IeC {\'a}lise dos Resultados}}{14}{chapter.5}
 \vspace {\cftbeforechapterskip }
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{Refer\^encias}{21}{section*.6}
+\contentsline {chapter}{Refer\^encias}{15}{section*.6}
 \vspace {\cftbeforechapterskip }

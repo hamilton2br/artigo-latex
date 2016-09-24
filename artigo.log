@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  21 SEP 2016 23:07
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  23 SEP 2016 22:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -905,18 +905,6 @@ Writing index file artigo.idx
 LaTeX Warning: Label `chp:intro-objetivos' multiply defined.
 
 
-LaTeX Warning: Label `my-label' multiply defined.
-
-
-LaTeX Warning: Label `my-label' multiply defined.
-
-
-LaTeX Warning: Label `my-label' multiply defined.
-
-
-LaTeX Warning: Label `my-label' multiply defined.
-
-
 LaTeX Warning: Label `fig:instantaneo' multiply defined.
 
 )
@@ -1087,129 +1075,252 @@ nei-dade da prova https://qperito.com/2013/11/04/queira-
 
 ] [7
 
-] [8] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 394--398
+] [8] <x.png, id=162, 1027.84pt x 1027.84pt>
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 378.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 378.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
 
- []
+<use x.png>
+Package pdftex.def Info: x.png used on input line 378.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+ <check.png, id=164, 602.25pt x 602.25pt>
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 378.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: x.png Graphic file (type png)
 
+<use x.png>
+Package pdftex.def Info: x.png used on input line 379.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 379.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 379.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 379.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 380.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 380.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
 
-Underfull \hbox (badness 10000) in paragraph at lines 406--411
+<use x.png>
+Package pdftex.def Info: x.png used on input line 380.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 380.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 381.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 381.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 381.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: check.png Graphic file (type png)
 
- []
+<use check.png>
+Package pdftex.def Info: check.png used on input line 381.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 382.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 382.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 382.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 382.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: check.png Graphic file (type png)
 
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 435--439
+<use check.png>
+Package pdftex.def Info: check.png used on input line 383.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 383.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 383.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 383.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 384.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
 
- []
+<use x.png>
+Package pdftex.def Info: x.png used on input line 384.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 384.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 384.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 385.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 385.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 385.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: check.png Graphic file (type png)
 
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 445--448
+<use check.png>
+Package pdftex.def Info: check.png used on input line 385.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 386.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 386.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 386.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 386.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: check.png Graphic file (type png)
 
- []
+<use check.png>
+Package pdftex.def Info: check.png used on input line 387.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 387.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 387.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 387.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 452--455
-
- []
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 464.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 491--495
-
- []
-
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 501--504
-
- []
-
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 511--514
-
- []
-
-[14]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[15]
-
-LaTeX Warning: Text page 16 contains only floats.
-
-[16] <docker.jpg, id=248, 304.13625pt x 220.825pt>
+[9] [10 <./x.png> <./check.png>] <docker.jpg, id=209, 304.13625pt x 220.825pt>
 File: docker.jpg Graphic file (type jpg)
- <use docker.jpg>
-Package pdftex.def Info: docker.jpg used on input line 593.
+
+<use docker.jpg>
+Package pdftex.def Info: docker.jpg used on input line 404.
 (pdftex.def)             Requested size: 152.06775pt x 110.41222pt.
-
-<snapshot.jpg, id=249, 1292.83pt x 216.81pt>
+ <snapshot.jpg, id=210, 1292.83pt x 216.81pt>
 File: snapshot.jpg Graphic file (type jpg)
- <use snapshot.jpg>
-Package pdftex.def Info: snapshot.jpg used on input line 606.
+
+<use snapshot.jpg>
+Package pdftex.def Info: snapshot.jpg used on input line 417.
 (pdftex.def)             Requested size: 387.85199pt x 65.04349pt.
- [17
+ [11
 
- <./docker.jpg> <./snapshot.jpg>] <janela.jpg, id=262, 614.295pt x 447.92343pt>
+ <./docker.jpg> <./snapshot.jpg>]
+<janela.jpg, id=222, 614.295pt x 447.92343pt>
 File: janela.jpg Graphic file (type jpg)
-
-<use janela.jpg>
-Package pdftex.def Info: janela.jpg used on input line 620.
+ <use janela.jpg>
+Package pdftex.def Info: janela.jpg used on input line 431.
 (pdftex.def)             Requested size: 307.14674pt x 223.96117pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 630--631
+Underfull \hbox (badness 10000) in paragraph at lines 441--442
 
  []
 
-[18 <./janela.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 639--641
+[12 <./janela.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 450--452
 
  []
 
-<solucao.jpg, id=272, 864.98157pt x 507.39563pt>
+<solucao.jpg, id=232, 864.98157pt x 507.39563pt>
 File: solucao.jpg Graphic file (type jpg)
  <use solucao.jpg>
-Package pdftex.def Info: solucao.jpg used on input line 648.
+Package pdftex.def Info: solucao.jpg used on input line 459.
 (pdftex.def)             Requested size: 432.48973pt x 253.69719pt.
- [19 <./solucao.jpg>] (./artigo.bbl (./artigo.brf)
+ [13 <./solucao.jpg>] (./artigo.bbl (./artigo.brf)
 \tf@brf=\write5
 \openout5 = `artigo.brf'.
 
- [20
+ [14
 
 ]
 bibitemlist
-[21
+[15
 
 ])
 No file artigo.ind.
-[22]
+[16]
 \tf@toc=\write6
 \openout6 = `artigo.toc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 686.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 686.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 497.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 497.
  (./artigo.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 686.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 686.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 497.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 497.
 Package rerunfilecheck Info: File `artigo.brf' has not changed.
-(rerunfilecheck)             Checksum: 8BDBFAE9BA33C7E17952270BF4ED2F81;2356.
+(rerunfilecheck)             Checksum: C88A136096649BB8E27C26055CBB7DE6;2036.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 686.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 497.
  ) 
 Here is how much of TeX's memory you used:
- 13083 strings out of 493304
- 193902 string characters out of 6139871
- 445995 words of memory out of 5000000
- 16159 multiletter control sequences out of 15000+600000
- 65319 words of font info for 106 fonts, out of 8000000 for 9000
+ 13088 strings out of 493304
+ 194017 string characters out of 6139871
+ 446550 words of memory out of 5000000
+ 16173 multiletter control sequences out of 15000+600000
+ 65149 words of font info for 104 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 40i,12n,41p,460b,593s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 40i,16n,41p,389b,591s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
 ips/lm/lm-mathsy.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/s
 hare/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public
@@ -1218,10 +1329,10 @@ xmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lm
 ss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/f
 onts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy1
 0.pfb>
-Output written on artigo.pdf (23 pages, 585777 bytes).
+Output written on artigo.pdf (17 pages, 595303 bytes).
 PDF statistics:
- 435 PDF objects out of 1000 (max. 8388607)
- 393 compressed objects within 4 object streams
- 70 named destinations out of 1000 (max. 500000)
- 21125 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 402 PDF objects out of 1000 (max. 8388607)
+ 362 compressed objects within 4 object streams
+ 63 named destinations out of 1000 (max. 500000)
+ 21167 words of extra memory for PDF output out of 24883 (max. 10000000)
 
