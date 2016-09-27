@@ -491,38 +491,44 @@ A literatura voltada a análise forense na nuvem foi analisada a luz dos seguint
 
 \subsection{Acessar e coletar as informações de memória das máquinas virtuais em nuvem.}
 
-Com a revisão constatou-se que referente a coleta de informações, a maioria dos trabalhos mais importantes na área como \cite{Reichert2015}, \cite{Poisel2013}, \cite{Dykstra2013}, 
-\cite{George2012} e \cite{Sang2013} focam em coleta reativa pois ela acontece apenas após a ameaça ser detectada. Os processos de coleta descritos no trabalho são iniciados 
-manual ou integrada a um mecanismo de detecção de intrusão. Em casos de memória volátil, tal forma de coleta de informação não consegue descrever como era a memória antes do ataque
-pois o processo só é acionado depois do ataque. A capacidade de saber como era a memória antes do ataque é descrita por autores como \cite{Case2014} como necessária para viabilizar 
-a abordagem de coletar o mínimo necessário para realizar a investigação. A única proposta encontrada que leva tal necessidade em consideração é \cite{Dezfouli2012} mas propõe que o 
-dado seja armazenado no próprio dispositivoo que pode levar a perda de informações importantes caso a máquina virtual seja despejada do pool e seus recursos liberados.
+Referente a coleta de informações, os autores \cite{Reichert2015}, \cite{Poisel2013}, \cite{Dykstra2013}, \cite{George2012} e \cite{Sang2013}
+focam em coleta "após o fato" pois ela acontece apenas após a intrusão ser detectada. Os processos de coleta descritos nos trabalhos são iniciados de forma manual ou 
+automaticamente via integração com um mecanismo de detecção de intrusão. No caso específico de memória volátil, tal forma de coleta não consegue descrever como era 
+a memória antes da intrusão pois o processo só é acionado depois. A capacidade de saber como era a memória antes do fato é descrita por \cite{Case2014} como necessária 
+para viabilizar a abordagem de coletar o suficiente para realizar a investigação pois permite comparar dois instantâneos de memória e minimizar o volume coletado antes 
+do fato. A única proposta encontrada que leva tal necessidade em consideração é \cite{Dezfouli2012} mas propõe que o dado seja armazenado no próprio dispositivo porém 
+essa abordagem não é aplicavel ao cenário em nuvem pois leva a perda de informações importantes caso a máquina virtual seja despejada e seus recursos liberados.
 
-Ainda na coleta de informações, os autores \cite{Reichert2015}, \cite{George2012} sugerem a abordagem de forense ao vivo onde os dados são constantemente coletados. Os 
-autores \cite{Poisel2013}, \cite{Dykstra2013}, \cite{Sang2013} adotam a estratégia de isolar e parar a máquina virtual para em seguida realizar o processo de coleta. 
-Nos casos citados anteriomente, nenhum dos autores cobre o cenário onde é necessário evidências de uma máquina virtual que já foi despejada do pool e os recursos 
-liberados. Atender este cenário é importante pois com as soluções em nuvem que escalam automaticamente, as evidências de uma máquina vítima de um ataque que foi despejada de um 
-pool com a diminuição da demanda serão para sempre perdidas. Analisando a proposta de \cite{Poisel2013}, parece ser possível cobrir o cenário mencionado anteriormente mas
-ele não dá detalhes da implementação suficientes para termos certeza.
+Ainda na coleta de informações, os autores \cite{Reichert2015}, \cite{George2012} sugerem a abordagem de forense ao vivo onde os dados são constantemente coletados sem 
+distinção do antes ou depois do fato e os autores \cite{Poisel2013}, \cite{Dykstra2013}, \cite{Sang2013} adotam a estratégia de isolar e parar a máquina virtual para 
+em seguida realizar o processo de coleta. Nas duas estratégias citadas anteriormente, o problema do grande volume de informações coletadas não é abordado pelo autores 
+nem o cenário onde é necessário coletar evidências de uma máquina virtual que já foi despejada do pool e os recursos liberados. Atender este último cenário é importante pois 
+com as soluções em nuvem que escalam automaticamente, as evidências de uma máquina vítima de um ataque que foi despejada de um pool com a diminuição da demanda serão 
+para sempre perdidas. Analisando a proposta de \cite{Poisel2013}, parece ser possível cobrir o cenário mencionado mas ele não dá detalhes da implementação suficientes
+para termos certeza.
 
 \subsection{Capacidade de reproduzir o processo e obter os mesmos resultados.}
 
-Referente a capacidade dos trabalhos de reproduzir o processo de coleta, nenhuma das propostas consegue reproduzir os mesmos resultados ao repetir o processo no cenário 
-em que uma máquina virtual é despejada da nuvem e seus recursos liberados pois todas elas dependem da existência da máquina virtual para a realização da coleta. Analisando 
-cuidadosamente a proposta de \cite{George2012} parece que é possível mas o autor não dá detalhes de implementação suficientes para termos certeza.
+A reprodutibilidade do processo de coleta é uma dos requisitos para garantir a cadeia de custódia da evidência. Cadeia de custódia esta relacionado a credibilidade e 
+ter dois analistas reproduzindo o processo de coleta de memória chegando ao mesmo conjunto de evidências tem um peso muito forte em termos de credibilidade. Neste
+tópico, nenhuma das propostas consegue reproduzir os mesmos resultados ao repetir o processo no cenário em que uma máquina virtual é despejada da nuvem e seus recursos 
+liberados pois todas elas dependem da existência da máquina virtual para a realização da coleta. Analisando a proposta de \cite{George2012} parece que é possível mas 
+o autor não dá detalhes de implementação suficientes para termos certeza.
 
 \subsection{Não violar privacidade ou jurisdição das partes não envolvidas na investigação.}
 
-No armazenamento das informações coletadas, \cite{Reichert2015}, \cite{George2012}, \cite{Poisel2013} e \cite{Dykstra2013} usam estratégia de armazenamento fora da nuvem para 
-evitar o problema de jurisdição e violação de privacidade de outros usuários no processo da coleta. No trabalho de \cite{Sang2013} e um caso específico de \cite{George2012} 
-há uma dependência da cooperação do provedor de serviços de nuvem para conseguir as informações necessárias à investigação. Depender do provedor de serviços de nuvem é considerada
-uma estratégia fraca pela comunidade forense pois o foco do provedor de núvem é garantir a continuidade do serviço não a coleta de evidências. 
+No caso das soluções em nuvem, não é possível remover o hardware para análise pois ele contem informações de vários usuários, alguns dos quais não estão envovidos na 
+investigação em curso, fazê-lo levaria a violações de privacidade o que diminui a credibilidade da evidência. A maioria dos autores resolve este problema adequadamente 
+e podemos listar duas estratégias usadas. Os autores \cite{Reichert2015}, \cite{George2012}, \cite{Poisel2013} e \cite{Dykstra2013} usam estratégia de coletar dados 
+pertinentes a investigação e armazena-los fora da nuvem enquanto que \cite{Sang2013} e um caso específico de \cite{George2012} dependem da cooperação do provedor de 
+serviços de nuvem para conseguir as informações necessárias à investigação. Depender do provedor de serviços de nuvem é considerada uma estratégia fraca pela comunidade 
+forense pois o foco do provedor de núvem é garantir a continuidade do serviço não a coleta de evidências.
 
 \subsection{Garantir a cadeia de custódia da evidência.}
 
-Na garantia da cadeia de custódia apenas \cite{Sang2013} tenta resolver a questão mas toma cuidados apenas para  garantir que a evidência não foi destruída ou alterada. 
-Ele faz isso através de cálculo de hashing mas não explica como impede o acesso não autorizado à evidência. As propostas dos outros autores estão focadas apenas no 
-aspecto técnico da coleta, nenhum deles menciona garantia de custódia apenas que as evidências são coletadas de forma "forensicamente aceitável".
+Na garantia da cadeia de custódia apenas \cite{Sang2013} aborda a questão mas toma cuidados somente para  garantir que a evidência não foi destruída ou alterada
+através do cálculo de hashing da mesma mas não explica como impede o acesso não autorizado. As propostas dos outros autores estão focadas apenas no aspecto técnico 
+da coleta, nenhum deles menciona garantia de custódia apenas que as evidências são coletadas de forma "forensicamente aceitável".
 
 \textbf{Tabela comparativa das soluções}
 

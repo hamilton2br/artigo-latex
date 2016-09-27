@@ -16,7 +16,7 @@
 \contentsline {section}{\numberline {3.2}Revis\IeC {\~a}o da literatura}{7}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Acessar e coletar as informa\IeC {\c c}\IeC {\~o}es de mem\IeC {\'o}ria das m\IeC {\'a}quinas virtuais em nuvem.}{7}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}Capacidade de reproduzir o processo e obter os mesmos resultados.}{8}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}N\IeC {\~a}o violar privacidade ou jurisdi\IeC {\c c}\IeC {\~a}o das partes n\IeC {\~a}o envolvidas na investiga\IeC {\c c}\IeC {\~a}o.}{8}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.3}N\IeC {\~a}o violar privacidade ou jurisdi\IeC {\c c}\IeC {\~a}o das partes n\IeC {\~a}o envolvidas na investiga\IeC {\c c}\IeC {\~a}o.}{9}{subsection.3.2.3}
 \contentsline {subsection}{\numberline {3.2.4}Garantir a cadeia de cust\IeC {\'o}dia da evid\IeC {\^e}ncia.}{9}{subsection.3.2.4}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Descri\IeC {\c c}\IeC {\~a}o da Solu\IeC {\c c}\IeC {\~a}o}}{11}{chapter.4}
