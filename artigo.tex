@@ -221,8 +221,6 @@ Científica em Engenharia de Computação.}
 \section{Motivação}
 \label{chp:intro-objetivos}
 
-\marcos{Apresente aqui as motivações do seu trabalho, deixando claro qual o problema que aparece no contexto em questão e o porquê dele ser importante, sem ainda se preocupar em como você pretende resolvê-lo.}
-
 Aumento do uso de soluções de virtualização e a implementação de arquiteturas em nuvem que escalam automáticamente \cite{Amazon2016} trouxe a questão da volatilidade 
 das máquinas virtuais. Uma aplicação hospedada na nuvem sob um pico de uso pode clonar máquinas e adiciona-las ao grupo para atender a demanda. Passado 
 este pico, as máquinas que foram clonadas são despejadas, seus recursos liberados e o conjunto de retorna ao tamanho inicial. Com as ameaças que atuam diretamente 
@@ -276,7 +274,9 @@ anos \cite{Birk2011}\cite{Sang2013} mas estas práticas precisam garantir a cade
 
 \marcos{Apresente aqui o porquê da forma como você vai resolver o problema ser interessante, bem como possíveis alternativas e o porquê das alternativas não serem tão interessantes quanto a sua abordagem.}
 
-falar da tendência para o sniper forensics, falar não só de coleta mas de toda a cadeia de coleta e preservação da evidência
+falar da tendência para o sniper forensics, falar não só de coleta mas de toda a cadeia de coleta e preservação da evidência. 
+
+Apenas realizar análise são necessários apenas os dados, para se responsabilizar alguem pelo ocorrido é necessário seguir algumas regras para a geração de evidência.
 
 \section{Organização do documento}
 \label{chp:intro-organizacao}
@@ -298,7 +298,7 @@ Conceito de isolamento da área e coleta da evidência.
 
 Conceito de reprodutibilidade da coleta
 
-Concento da cadeia de custódia e a garantia da idoneidade da prova https://qperito.com/2013/11/04/queira-o-sr-perito-explicar-o-que-e-cadeia-de-custodia/
+Conceito da cadeia de custódia e a garantia da idoneidade da prova https://qperito.com/2013/11/04/queira-o-sr-perito-explicar-o-que-e-cadeia-de-custodia/
 
 % ----------------------------------------------------------
 % Capitulo de Minha solução 
@@ -316,7 +316,8 @@ Com base nesses requisitos, são então apresentadas algumas das principais solu
 \label{chp:contexto-requisitos}
 
 \marcos{Discuta aqui as métricas que você vai utilizar para a comparação e o porquê delas serem relevantes. Isso define os requisitos para soluções relacionadas, e permite você analisá-las e justificar a sua solução.}
-Até o momento não encontrei principais requisitos, há requisitos da forense mas eles conflitam com as pectos da núvem.
+Até o momento não encontrei principais requisitos da forense em núvem, há requisitos da forense que conflitam com aspectos da núvem com isolamento da cena do crime, catalogar
+todas as evidências, garantir a custôdia da evidência.
 
 Coleta contínua, presevação da evidência volátil, independência de VM, conhece o contexto, cadeia de custódia
 
@@ -324,8 +325,6 @@ Coleta contínua, presevação da evidência volátil, independência de VM, con
 \label{chp:contexto-revisao}
 
 A literatura voltada a análise forense na nuvem foi analisada a luz dos seguintes conceitos pertinentes a este trabalho. 
-
-\marcos{Maus hábitos detectados na sua forma de escrita: excesso de sujeito oculto (veja os ``quem?'' e ``o que'' abaixo para perceber que há o uso de sujeito oculto reduz a clareza nesses pontos); uso incorreto de ``esse vs este'' (sempre que você falar ``este'', é o *seu* trabalho; se quiser se referir ao trabalho que acaba de ser mencionado, diga *esse*)}
 
 \subsection{Acessar e coletar as informações de memória das máquinas virtuais em nuvem.}
 \label{chp:coleta-revisao}
@@ -349,11 +348,11 @@ para termos certeza.
 \subsection{Capacidade de reproduzir o processo e obter os mesmos resultados.}
 \label{chp:reproduz-revisao}
 
-A reprodutibilidade do processo de coleta é uma dos requisitos para garantir a cadeia de custódia da evidência. Cadeia de custódia esta relacionado a credibilidade e 
-ter dois analistas reproduzindo o processo de coleta de memória chegando ao mesmo conjunto de evidências tem um peso muito forte em termos de credibilidade. Neste
-tópico, nenhuma das propostas consegue reproduzir os mesmos resultados ao repetir o processo no cenário em que uma máquina virtual é despejada da nuvem e seus recursos 
-liberados pois todas elas dependem da existência da máquina virtual para a realização da coleta. Analisando a proposta de \cite{George2012} parece que é possível mas 
-o autor não dá detalhes de implementação suficientes para termos certeza.
+A reprodutibilidade do processo de coleta é uma necessidade jurídica para que a evidência seja aceita em um processo legal. Dois analistas reproduzindo o processo de 
+coleta de memória chegando ao mesmo conjunto de evidências tem um peso muito forte na credibilidade da evidência, evidências que não sobrevivem a este teste são
+consideradas fracas. Neste tópico, nenhuma das propostas consegue reproduzir os mesmos resultados ao repetir o processo no cenário em que uma máquina virtual é despejada 
+da nuvem e seus recursos liberados pois todas elas dependem da existência da máquina virtual para a realização da coleta. Analisando a proposta de \cite{George2012} 
+parece que é possível mas o autor não dá detalhes de implementação suficientes para termos certeza.
 
 \subsection{Não violar privacidade ou jurisdição das partes não envolvidas na investigação.}
 \label{chp:privacidade-revisao}
@@ -368,9 +367,11 @@ forense pois o foco do provedor de núvem é garantir a continuidade do serviço
 \subsection{Garantir a cadeia de custódia da evidência.}
 \label{chp:custodia-revisao}
 
-Na garantia da cadeia de custódia apenas \cite{Sang2013} aborda a questão mas toma cuidados somente para  garantir que a evidência não foi destruída ou alterada
-através do cálculo de hashing da mesma mas não explica como impede o acesso não autorizado. As propostas dos outros autores estão focadas apenas no aspecto técnico 
-da coleta, nenhum deles menciona garantia de custódia apenas que as evidências são coletadas de forma "forensicamente aceitável".
+Cadeia de custódia é um processo que visa garantir a credibilidade da evidência. Seu objetivo é, além da reprodutibilidade do processo, garantir que a evidência não 
+foi alterada ou acessada por pessoas não autorizadas. Na garantia da cadeia de custódia apenas \cite{Sang2013} aborda a questão mas toma cuidados somente para  
+garantir que a evidência não foi destruída ou alterada através do cálculo de hashing da mesma mas não explica como impede o acesso não autorizado. 
+As propostas dos outros autores estão focadas apenas no aspecto técnico da coleta, nenhum deles menciona detalhes de como a custódia é garantida, apenas que as 
+evidências são coletadas de forma "forensicamente aceitável".
 
 \textbf{Tabela comparativa das soluções}
 
