@@ -278,6 +278,9 @@ falar da tendência para o sniper forensics, falar não só de coleta mas de tod
 
 Apenas realizar análise são necessários apenas os dados, para se responsabilizar alguem pelo ocorrido é necessário seguir algumas regras para a geração de evidência.
 
+% ----------------------------------------------------------
+% Organização do documento 
+% ----------------------------------------------------------
 \section{Organização do documento}
 \label{chp:intro-organizacao}
 
@@ -286,22 +289,35 @@ O presente documento está organizado em capítulos, da seguinte forma.
 O capítulo \ref{chp:contexto} apresenta ...
 
 % ----------------------------------------------------------
-% Capitulo de Minha solução 
+% Funcamentação teórica
 % ----------------------------------------------------------
 \chapter{Fundamentação Teórica}
 
 \marcos{Discuta aqui os conceitos básicos necessários para entender sua solução e os trabalhos relacionados}
 
-A prática forense esta relacionado fundamentalmente ao controle da evidência
+De acordo com Wegener e Birk \cite{Birk2011} a prática forense esta relacionado ao controle da evidência cujo objetivo é o de dar credibilidade a evidência.
+Coletar dados para realização de análises não representa grandes desafios mas coletar daods e realizar análises com o objetivo de levar os responsáveis a prisão requer
+o comprometimento com requisitos legais. 
 
-Conceito de isolamento da área e coleta da evidência.
+De acordo com Garrie e Morrissy \cite{Garrie2014}, na prática forense tradicional este controle se dá através da 2 requisitos principais:
 
-Conceito de reprodutibilidade da coleta
+\begin{itemize}
+ \item O processo de coleta deve permitir que diferentes analistas cheguem as mesmas conclusões a analisar a evidência.
+ \item Preservação da cadeia de custódia da evidência.
+\end{itemize}
 
-Conceito da cadeia de custódia e a garantia da idoneidade da prova https://qperito.com/2013/11/04/queira-o-sr-perito-explicar-o-que-e-cadeia-de-custodia/
+O primeiro pré-requisito era atingido na era pré-nuvem através da cópia bit a bit ou remoção da mídia / máquina envolvida na investigação. O fato dos mesmos serem físicos,
+tornava a reprodução do processo de coleta relativamente fácil. Com o advento da computação e as soluções de virtualização, a mídia não pode mais ser removida pois a 
+mesma é dividida com outros clientes, remove-la seria uma violação de privacidade. Nas arquiteturas que escalam automaticamente não há como recuperar evidências ou reproduzir
+um processo de coleta se a máquina virtual não existe mais. 
+
+De acordo com Dykstra e Sherman \cite{Dykstra2012a}, cadeia de custódia é um processo que documenta principalmente como a evidência foi transportada, armazenada e quem teve
+acesso a mesma. Cadeia de custódia visa garantir que a evidência não foi alterada ou destruida depois da coleta. Na era pré nuvem a garantia da cadeia de custódia se dava
+principalmente através da remoção e controle de quem tinha acesso ao hardware removido. Na era de computação em nuvem, com as máquinas tornando-se elementos voláteis, faz-se
+necessário armazenar os dados fora da nuvem daí surgindo novos desafios para garantir a cadeia de custódia.
 
 % ----------------------------------------------------------
-% Capitulo de Minha solução 
+% Análise forense na núvem, requisitos e trabalhos relacionados
 % ----------------------------------------------------------
 \chapter{Análise forense na nuvem: requisitos e trabalhos relacionados}
 \label{chp:contexto}
@@ -396,7 +412,7 @@ evidências são coletadas de forma "forensicamente aceitável".
 \end{table}
 
 % ----------------------------------------------------------
-% Plano de Trabalho 
+% Descrição da solução
 % ----------------------------------------------------------
 \chapter{Descrição da Solução}
 
