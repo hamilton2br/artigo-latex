@@ -216,16 +216,11 @@ Científica em Engenharia de Computação.}
 \chapter{Introdução}
 \label{chp:intro}
 
-\marcos{Apresente aqui o contexto em que se insere o seu trabalho, sem se preocupar muito com o problema exato a ser resolvido ou como você irá fazê-lo.}
-
-\section{Motivação}
-\label{chp:intro-objetivos}
-
-Aumento do uso de soluções de virtualização e a implementação de arquiteturas em nuvem que escalam automáticamente \cite{Amazon2016} trouxe a questão da volatilidade 
+O aumento do uso de soluções de virtualização e a implementação de arquiteturas em nuvem que escalam automáticamente \cite{Amazon2016} trouxe a questão da volatilidade 
 das máquinas virtuais. Uma aplicação hospedada na nuvem sob um pico de uso pode clonar máquinas e adiciona-las ao grupo para atender a demanda. Passado 
 este pico, as máquinas que foram clonadas são despejadas, seus recursos liberados e o conjunto de retorna ao tamanho inicial. Com as ameaças que atuam diretamente 
-na memória sem deixar rastros no disco da máquina afetada, se essas máquinas forem usadas para algum evento ilícito, as evidências do acontecimento contidas nelas 
-serão para sempre perdidas.
+na memória sem deixar rastros no disco da máquina afetada, se as máquinas temporárias do pool forem usadas para algum evento ilícito, as evidências do acontecimento 
+contidas nelas serão para sempre perdidas.
 
 Para o escopo deste trabalho estamos considerando 4 tipos de ataques realizados diretamente na memória e que não deixam rastros no disco da máquina, todos baseados 
 em injeção de código \cite{Case2014}.
@@ -241,14 +236,16 @@ em injeção de código \cite{Case2014}.
  código malicioso.
 \end{itemize}
 
-Do ponto de vista forense, praticantes e pesquisadores concordam aspectos de multi-inquilino e multi-jurisdição próprios soluções em nuvem figuram entre as principais 
+Do ponto de vista forense, praticantes e pesquisadores concordam que aspectos multi-inquilino e multi-jurisdição próprios das soluções em nuvem figuram entre as principais 
 dificuldades para coleta de evidência \cite{Bash2015a}. O aspecto multi-inquilino impede a remoção do hardware pois como ele é compartilhado com vários usuários, 
 removê-los seria uma violação de privacidade de usuários não relacionados a investigação. Por fim a característica distribuída pode alocar informação relevante a 
-investigação em vários países dificultando a obtenção da mesma \cite{Dykstra2012a}.
+investigação em vários países dificultando a obtenção da mesma \cite{Dykstra2012a} por práticos pois requer um trabalho manual para localiza-lo e coletá-los e motívos
+jurídicos pois as empresas hospedando a midia pode não ter obrigação em cooperar.
 
-O crescente volume de dados das aplicações atuais deram aos investigadores em média de 6 a 12 meses de backlog para investigar \cite{Quick2014}, download de terabytes
+O crescente volume de dados das aplicações atuais deram aos investigadores em média de 6 a 12 meses de backlog para investigar \cite{Quick2014}. Download de terabytes
 de dados leva horas para se realizar e requer a colaboração do provedor de nuvem. Mudar o paradigma de coleta tem sido proposto por pesquisadores e praticantes já há alguns
-anos \cite{Birk2011}\cite{Sang2013} mas estas práticas precisam garantir a cadeia de custódia para que as evidências produzidas por ela sejam aceita em um processo legal.\\
+anos \cite{Birk2011}\cite{Sang2013} mas estas práticas precisam garantir a cadeia de custódia para que as evidências produzidas por ela sejam aceita em um processo legal
+o que não tem acontecido nestas propostas.\\
 
 
 % ----------------------------------------------------------
@@ -257,7 +254,7 @@ anos \cite{Birk2011}\cite{Sang2013} mas estas práticas precisam garantir a cade
 \section{Objetivos}
 \label{chp:intro-objetivos}
 
-\marcos{Apresente aqui quais são os seus objetivos, ou seja, como você irá resolver o problema em questão.}
+A presente proposta os seguintes itens como objetivo.
 
 \begin{itemize}
  \item Coletar memória de uma máquina virtual de modo a conseguir identificar os 4 tipos de ataque listados anteriormente.
@@ -272,11 +269,11 @@ anos \cite{Birk2011}\cite{Sang2013} mas estas práticas precisam garantir a cade
 \section{Justificativa}
 \label{chp:intro-justificativa}
 
-\marcos{Apresente aqui o porquê da forma como você vai resolver o problema ser interessante, bem como possíveis alternativas e o porquê das alternativas não serem tão interessantes quanto a sua abordagem.}
-
-falar da tendência para o sniper forensics, falar não só de coleta mas de toda a cadeia de coleta e preservação da evidência. 
-
-Apenas realizar análise são necessários apenas os dados, para se responsabilizar alguem pelo ocorrido é necessário seguir algumas regras para a geração de evidência.
+A presente proposta tem 3 vantágens em relação as quais ela foi comparada. A primeira é o fato de ser uma solução que vai desde a coletá até a garntia de custódia no armazenamento, 
+nenhuma das propostas analisadas tem proposta com esta abrangência, todas lidam apenas com uma parte da solução. A segunda é a utilização de alguma estratégia para 
+diminuir a quantidade de informação coletada para análise pois como veremos a seguir, todas as propostas tem uma abordagem de completude na coleta. Manter a quantidade 
+de dados para análise sob controle faz parte uma tentência na comunidade forense, a "sniper forensics", que foca na coleta de informação pertinente a investigação 
+\cite{Quick2014}. Por fim, a presente proposta leva em consideração o aspecto elástico das soluções em nuvem na solução do problema de coleta.
 
 % ----------------------------------------------------------
 % Organização do documento 
@@ -293,10 +290,8 @@ O capítulo \ref{chp:contexto} apresenta ...
 % ----------------------------------------------------------
 \chapter{Fundamentação Teórica}
 
-\marcos{Discuta aqui os conceitos básicos necessários para entender sua solução e os trabalhos relacionados}
-
-De acordo com Wegener e Birk \cite{Birk2011} a prática forense esta relacionado ao controle da evidência cujo objetivo é o de dar credibilidade a evidência.
-Coletar dados para realização de análises não representa grandes desafios mas coletar daods e realizar análises com o objetivo de levar os responsáveis a prisão requer
+De acordo com Wegener e Birk \cite{Birk2011} a prática forense esta relacionada ao controle da evidência cujo objetivo é o de dar credibilidade a mesma.
+Coletar dados para realização de análises não representa grandes desafios mas coletar dados e realizar análises com o objetivo de levar os responsáveis a prisão requer
 o comprometimento com requisitos legais. 
 
 De acordo com Garrie e Morrissy \cite{Garrie2014}, na prática forense tradicional este controle se dá através da 2 requisitos principais:
@@ -306,33 +301,30 @@ De acordo com Garrie e Morrissy \cite{Garrie2014}, na prática forense tradicion
  \item Preservação da cadeia de custódia da evidência.
 \end{itemize}
 
-O primeiro pré-requisito era atingido na era pré-nuvem através da cópia bit a bit ou remoção da mídia / máquina envolvida na investigação. O fato dos mesmos serem físicos,
-tornava a reprodução do processo de coleta relativamente fácil. Com o advento da computação e as soluções de virtualização, a mídia não pode mais ser removida pois a 
-mesma é dividida com outros clientes, remove-la seria uma violação de privacidade. Nas arquiteturas que escalam automaticamente não há como recuperar evidências ou reproduzir
-um processo de coleta se a máquina virtual não existe mais. 
+O primeiro pré-requisito era atingido na era pré-nuvem através da cópia bit a bit ou remoção da mídia / máquina para investigação. O fato dos mesmos serem físicos,
+tornava a reprodução do processo de coleta relativamente fácil. Com o advento da computação em nuvem e as soluções de virtualização, a mídia não pode mais ser removida 
+pois a mesma é compartilhada com outros clientes, remove-la seria uma violação de privacidade. Nas arquiteturas que escalam automaticamente não há como recuperar evidências 
+ou reproduzir um processo de coleta se a máquina virtual não existe mais. 
 
 De acordo com Dykstra e Sherman \cite{Dykstra2012a}, cadeia de custódia é um processo que documenta principalmente como a evidência foi transportada, armazenada e quem teve
-acesso a mesma. Cadeia de custódia visa garantir que a evidência não foi alterada ou destruida depois da coleta. Na era pré nuvem a garantia da cadeia de custódia se dava
+acesso a mesma. A cadeia de custódia visa garantir que a evidência não foi alterada ou destruida depois da coleta. Na era pré nuvem a garantia da cadeia de custódia se dava
 principalmente através da remoção e controle de quem tinha acesso ao hardware removido. Na era de computação em nuvem, com as máquinas tornando-se elementos voláteis, faz-se
 necessário armazenar os dados fora da nuvem daí surgindo novos desafios para garantir a cadeia de custódia.
 
 % ----------------------------------------------------------
-% Análise forense na núvem, requisitos e trabalhos relacionados
+% Análise forense na nuvem, requisitos e trabalhos relacionados
 % ----------------------------------------------------------
 \chapter{Análise forense na nuvem: requisitos e trabalhos relacionados}
 \label{chp:contexto}
 
-\marcos{Precisa de um texto introdutório aqui. Estou deixando uma sugestão inicial}
-
 Neste capítulo são discutidos os principais requisitos para soluções de análise forense na nuvem.
-%
 Com base nesses requisitos, são então apresentadas algumas das principais soluções relacionadas à presente proposta, bem como suas limitações.
 
 \section{Requisitos}
 \label{chp:contexto-requisitos}
 
 \marcos{Discuta aqui as métricas que você vai utilizar para a comparação e o porquê delas serem relevantes. Isso define os requisitos para soluções relacionadas, e permite você analisá-las e justificar a sua solução.}
-Até o momento não encontrei principais requisitos da forense em núvem, há requisitos da forense que conflitam com aspectos da núvem com isolamento da cena do crime, catalogar
+Até o momento não encontrei principais requisitos da forense em nuvem, há requisitos da forense que conflitam com aspectos da nuvem com isolamento da cena do crime, catalogar
 todas as evidências, garantir a custôdia da evidência.
 
 Coleta contínua, presevação da evidência volátil, independência de VM, conhece o contexto, cadeia de custódia
@@ -378,7 +370,7 @@ investigação em curso, fazê-lo levaria a violações de privacidade o que dim
 e podemos listar duas estratégias usadas. Os autores \cite{Reichert2015}, \cite{George2012}, \cite{Poisel2013} e \cite{Dykstra2013} usam estratégia de coletar dados 
 pertinentes a investigação e armazena-los fora da nuvem enquanto que \cite{Sang2013} e um caso específico de \cite{George2012} dependem da cooperação do provedor de 
 serviços de nuvem para conseguir as informações necessárias à investigação. Depender do provedor de serviços de nuvem é considerada uma estratégia fraca pela comunidade 
-forense pois o foco do provedor de núvem é garantir a continuidade do serviço não a coleta de evidências.
+forense pois o foco do provedor de nuvem é garantir a continuidade do serviço não a coleta de evidências.
 
 \subsection{Garantir a cadeia de custódia da evidência.}
 \label{chp:custodia-revisao}
@@ -456,7 +448,7 @@ que, ao detectar um ataque, o log passa de rotativo a completo assim permitindo 
 \label{fig:janela}
 \end{figure}
 
-De modo a não violar a jurisdição de outros países ou a privacidade de outros usuários por causa do caráter multi-inquilino e multi-jurisdição das arquiteturas em núvem pública,
+De modo a não violar a jurisdição de outros países ou a privacidade de outros usuários por causa do caráter multi-inquilino e multi-jurisdição das arquiteturas em nuvem pública,
 a solução proposta por este trabalho foi o de armazenar a evidência em um local físico fora da nuvem utilizando como transporte conexão segura. Outro ponto importante é 
 garantir a cadeia de custódia da evidência ou seja, garantir que a evidência não foi destruída, alterada ou acessada por qualquer pessoa. Assim a solução proposta por este 
 trabalho usará de armazenamento físico fora da nuvem, o transporte será feito por TLS e o acesso a evidência será controlado.

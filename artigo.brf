@@ -1,10 +1,11 @@
-\backcite {Amazon2016}{{3}{1.1}{section.1.1}}
-\backcite {Case2014}{{3}{1.1}{section.1.1}}
-\backcite {Bash2015a}{{3}{1.1}{section.1.1}}
-\backcite {Dykstra2012a}{{4}{1.1}{section.1.1}}
-\backcite {Quick2014}{{4}{1.1}{section.1.1}}
-\backcite {Birk2011}{{4}{1.1}{section.1.1}}
-\backcite {Sang2013}{{4}{1.1}{section.1.1}}
+\backcite {Amazon2016}{{3}{1}{chapter.1}}
+\backcite {Case2014}{{3}{1}{chapter.1}}
+\backcite {Bash2015a}{{3}{1}{chapter.1}}
+\backcite {Dykstra2012a}{{3}{1}{chapter.1}}
+\backcite {Quick2014}{{4}{1}{chapter.1}}
+\backcite {Birk2011}{{4}{1}{chapter.1}}
+\backcite {Sang2013}{{4}{1}{chapter.1}}
+\backcite {Quick2014}{{4}{1.2}{section.1.2}}
 \backcite {Birk2011}{{6}{2}{chapter.2}}
 \backcite {Garrie2014}{{6}{2}{chapter.2}}
 \backcite {Dykstra2012a}{{6}{2}{chapter.2}}
@@ -13,7 +14,7 @@
 \backcite {Dykstra2013}{{7}{3.2.1}{subsection.3.2.1}}
 \backcite {George2012}{{7}{3.2.1}{subsection.3.2.1}}
 \backcite {Sang2013}{{7}{3.2.1}{subsection.3.2.1}}
-\backcite {Case2014}{{8}{3.2.1}{subsection.3.2.1}}
+\backcite {Case2014}{{7}{3.2.1}{subsection.3.2.1}}
 \backcite {Dezfouli2012}{{8}{3.2.1}{subsection.3.2.1}}
 \backcite {Reichert2015}{{8}{3.2.1}{subsection.3.2.1}}
 \backcite {George2012}{{8}{3.2.1}{subsection.3.2.1}}
