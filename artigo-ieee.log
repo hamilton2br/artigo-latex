@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  26 SEP 2016 22:22
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  31 OCT 2016 22:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -443,49 +443,32 @@ Underfull \hbox (badness 1655) in paragraph at lines 428--433
 
 
 ]
-Underfull \hbox (badness 2894) in paragraph at lines 492--492
+Underfull \hbox (badness 2894) in paragraph at lines 493--493
  \OT1/ptm/m/it/10 A. Aces-sar e co-le-tar as informa[][]oes de mem[]oria das
  []
 
 [2]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 539.
+(Font)              <8> on input line 540.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 539.
+(Font)              <6> on input line 540.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 539.
+(Font)              <5> on input line 540.
  <x.png, id=13, 1027.84pt x 1027.84pt>
 File: x.png Graphic file (type png)
  <use x.png>
-Package pdftex.def Info: x.png used on input line 542.
+Package pdftex.def Info: x.png used on input line 543.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: x.png Graphic file (type png)
  <use x.png>
-Package pdftex.def Info: x.png used on input line 542.
+Package pdftex.def Info: x.png used on input line 543.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: x.png Graphic file (type png)
  <use x.png>
-Package pdftex.def Info: x.png used on input line 542.
+Package pdftex.def Info: x.png used on input line 543.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 
 <check.png, id=15, 602.25pt x 602.25pt>
-File: check.png Graphic file (type png)
- <use check.png>
-Package pdftex.def Info: check.png used on input line 542.
-(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
-File: x.png Graphic file (type png)
- <use x.png>
-Package pdftex.def Info: x.png used on input line 543.
-(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
-File: x.png Graphic file (type png)
-
-<use x.png>
-Package pdftex.def Info: x.png used on input line 543.
-(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
-File: x.png Graphic file (type png)
- <use x.png>
-Package pdftex.def Info: x.png used on input line 543.
-(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: check.png Graphic file (type png)
  <use check.png>
 Package pdftex.def Info: check.png used on input line 543.
@@ -495,7 +478,8 @@ File: x.png Graphic file (type png)
 Package pdftex.def Info: x.png used on input line 544.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: x.png Graphic file (type png)
- <use x.png>
+
+<use x.png>
 Package pdftex.def Info: x.png used on input line 544.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: x.png Graphic file (type png)
@@ -503,8 +487,7 @@ File: x.png Graphic file (type png)
 Package pdftex.def Info: x.png used on input line 544.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: check.png Graphic file (type png)
-
-<use check.png>
+ <use check.png>
 Package pdftex.def Info: check.png used on input line 544.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 File: x.png Graphic file (type png)
@@ -520,12 +503,16 @@ File: x.png Graphic file (type png)
 Package pdftex.def Info: x.png used on input line 545.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: check.png Graphic file (type png)
- <use check.png>
+
+<use check.png>
 Package pdftex.def Info: check.png used on input line 545.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 File: x.png Graphic file (type png)
-
-<use x.png>
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 546.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
 Package pdftex.def Info: x.png used on input line 546.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: x.png Graphic file (type png)
@@ -536,19 +523,11 @@ File: check.png Graphic file (type png)
  <use check.png>
 Package pdftex.def Info: check.png used on input line 546.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
-File: check.png Graphic file (type png)
- <use check.png>
-Package pdftex.def Info: check.png used on input line 546.
-(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
-File: check.png Graphic file (type png)
- <use check.png>
-Package pdftex.def Info: check.png used on input line 547.
-(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
-File: check.png Graphic file (type png)
+File: x.png Graphic file (type png)
 
-<use check.png>
-Package pdftex.def Info: check.png used on input line 547.
-(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+<use x.png>
+Package pdftex.def Info: x.png used on input line 547.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: x.png Graphic file (type png)
  <use x.png>
 Package pdftex.def Info: x.png used on input line 547.
@@ -557,17 +536,21 @@ File: check.png Graphic file (type png)
  <use check.png>
 Package pdftex.def Info: check.png used on input line 547.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
-File: x.png Graphic file (type png)
- <use x.png>
-Package pdftex.def Info: x.png used on input line 548.
-(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
-File: x.png Graphic file (type png)
- <use x.png>
-Package pdftex.def Info: x.png used on input line 548.
-(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
-File: x.png Graphic file (type png)
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 547.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 548.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: check.png Graphic file (type png)
 
-<use x.png>
+<use check.png>
+Package pdftex.def Info: check.png used on input line 548.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: x.png Graphic file (type png)
+ <use x.png>
 Package pdftex.def Info: x.png used on input line 548.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: check.png Graphic file (type png)
@@ -583,18 +566,14 @@ File: x.png Graphic file (type png)
 Package pdftex.def Info: x.png used on input line 549.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: x.png Graphic file (type png)
- <use x.png>
+
+<use x.png>
 Package pdftex.def Info: x.png used on input line 549.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: check.png Graphic file (type png)
-
-<use check.png>
+ <use check.png>
 Package pdftex.def Info: check.png used on input line 549.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
-File: check.png Graphic file (type png)
- <use check.png>
-Package pdftex.def Info: check.png used on input line 550.
-(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 File: x.png Graphic file (type png)
  <use x.png>
 Package pdftex.def Info: x.png used on input line 550.
@@ -603,15 +582,23 @@ File: x.png Graphic file (type png)
  <use x.png>
 Package pdftex.def Info: x.png used on input line 550.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
-File: check.png Graphic file (type png)
- <use check.png>
-Package pdftex.def Info: check.png used on input line 550.
-(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 550.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: check.png Graphic file (type png)
 
 <use check.png>
+Package pdftex.def Info: check.png used on input line 550.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: check.png Graphic file (type png)
+ <use check.png>
 Package pdftex.def Info: check.png used on input line 551.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 551.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: x.png Graphic file (type png)
  <use x.png>
 Package pdftex.def Info: x.png used on input line 551.
@@ -621,55 +608,68 @@ File: check.png Graphic file (type png)
 Package pdftex.def Info: check.png used on input line 551.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 File: check.png Graphic file (type png)
+
+<use check.png>
+Package pdftex.def Info: check.png used on input line 552.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 552.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: check.png Graphic file (type png)
  <use check.png>
-Package pdftex.def Info: check.png used on input line 551.
+Package pdftex.def Info: check.png used on input line 552.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 552.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 562.
+(Font)              <7> on input line 563.
 
-Underfull \hbox (badness 10000) in paragraph at lines 565--566
+Underfull \hbox (badness 10000) in paragraph at lines 566--567
 
  []
 
 
-Underfull \hbox (badness 1917) in paragraph at lines 571--576
+Underfull \hbox (badness 1917) in paragraph at lines 572--577
 []\OT1/ptm/m/n/10 Nas solu[][]oes com infra-estrutura f[]^^Psica a m[]aquina []
 e
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 571--576
+Underfull \hbox (badness 10000) in paragraph at lines 572--577
 
  []
 
 <docker.jpg, id=16, 304.13625pt x 220.825pt>
 File: docker.jpg Graphic file (type jpg)
  <use docker.jpg>
-Package pdftex.def Info: docker.jpg used on input line 579.
+Package pdftex.def Info: docker.jpg used on input line 580.
 (pdftex.def)             Requested size: 152.06775pt x 110.41222pt.
 
-Underfull \hbox (badness 1360) in paragraph at lines 584--589
+Underfull \hbox (badness 1360) in paragraph at lines 585--590
 \OT1/ptm/m/n/10 que o pro-cesso seja re-pro-dut[]^^Pvel, pausa a execu[][]ao do
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 584--589
+Underfull \hbox (badness 10000) in paragraph at lines 585--590
 
  []
 
 <snapshot.jpg, id=17, 1292.83pt x 216.81pt>
 File: snapshot.jpg Graphic file (type jpg)
  <use snapshot.jpg>
-Package pdftex.def Info: snapshot.jpg used on input line 592.
+Package pdftex.def Info: snapshot.jpg used on input line 593.
 (pdftex.def)             Requested size: 258.56142pt x 43.36122pt.
 
-Overfull \hbox (6.56142pt too wide) in paragraph at lines 592--595
+Overfull \hbox (6.56142pt too wide) in paragraph at lines 593--596
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 597--603
+Underfull \hbox (badness 10000) in paragraph at lines 598--604
 
  []
 
@@ -677,22 +677,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 597--603
 <janela.jpg, id=24, 614.295pt x 447.92343pt>
 File: janela.jpg Graphic file (type jpg)
  <use janela.jpg>
-Package pdftex.def Info: janela.jpg used on input line 606.
+Package pdftex.def Info: janela.jpg used on input line 607.
 (pdftex.def)             Requested size: 245.71364pt x 179.1662pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 616--617
+Underfull \hbox (badness 10000) in paragraph at lines 617--618
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 636--638
+Underfull \hbox (badness 10000) in paragraph at lines 637--639
 
  []
 
 <solucao.jpg, id=25, 864.98157pt x 507.39563pt>
 File: solucao.jpg Graphic file (type jpg)
  <use solucao.jpg>
-Package pdftex.def Info: solucao.jpg used on input line 643.
+Package pdftex.def Info: solucao.jpg used on input line 644.
 (pdftex.def)             Requested size: 216.24486pt x 126.84859pt.
  [4 <./janela.jpg> <./solucao.jpg>]
 
@@ -724,7 +724,7 @@ e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
 tmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on artigo-ieee.pdf (5 pages, 445646 bytes).
+Output written on artigo-ieee.pdf (5 pages, 445693 bytes).
 PDF statistics:
  50 PDF objects out of 1000 (max. 8388607)
  29 compressed objects within 1 object stream

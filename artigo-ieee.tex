@@ -426,8 +426,8 @@ nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vit
 
 \section{Introdução}
 Aumento do uso de soluções de virtualização e a implementação de arquiteturas em nuvem que escalam automáticamente \cite{Amazon2016} trouxe a questão da volatilidade 
-das máquinas virtuais. Uma aplicação hospedada na nuvem sob um pico de uso pode clonar máquinas e adiciona-las ao grupo para atender a demanda. Passado 
-este pico, as máquinas que foram clonadas são despejadas, seus recursos liberados e o conjunto retorna ao tamanho inicial. Com as ameaças que atuam diretamente 
+das máquinas virtuais. Uma aplicação hospedada na nuvem sob um pico de uso e configurada para tal, pode clonar máquinas e adiciona-las ao grupo para atender a demanda. 
+Passado este pico, as máquinas que foram clonadas são despejadas, seus recursos liberados e o conjunto retorna ao tamanho inicial. Com as ameaças que atuam diretamente 
 na memória sem deixar rastros no disco da máquina afetada, se essas máquinas forem usadas para algum evento ilícito, as evidências do acontecimento contidas nelas 
 serão para sempre perdidas.
 
@@ -444,10 +444,10 @@ resolver os problemas descritos em III, na VI expomos nossas conclusões e na VI
 
 A nuvem é um sistema em que recursos computacionais são oferecidos como serviço onde os usuários são cobrados pelo seu uso. A infra-estrutura é composta de máquinas fisicas
 contendo cada uma um número variável de máquinas virtuais que implementam este serviço \cite{Sousa2009}. Há três modelos de comercialização de uso da nuvem, plataforma como serviço (PAAS), 
-software como serviço(SAAS) e pertinente e este trabalho Infraestrutura como serviço (IAAS). O uso de soluções baseadas em nuvem tem crescido muito ultimamente. Por exemplo, 
-de janeiro de 2016 a maio de 2016 mais de 1000 bases de dados foram migradas para a AWS. \cite{Amazon2016}.
+software como serviço(SAAS) e pertinente e este trabalho Infraestrutura como serviço (IAAS). O uso de soluções baseadas em nuvem tem crescido muito ultimamente, de janeiro 
+de 2016 a maio de 2016 mais de 1000 bases de dados foram migradas para a AWS. \cite{Amazon2016}.
 
-Uma forma mais recente de arquitetura em nuvem, introduzido em 2008, os Containers Linux (LXC) proveram uma série de ferramentas para tirar vantagens das funcionalidades 
+Uma forma mais recente de arquitetura em nuvem introduzida em 2008, os Containers Linux (LXC), proveram uma série de ferramentas para tirar vantagens das funcionalidades 
 de cgroups e namespacing do kernel do Linux. Este conceito foi evoluindo e várias soluções de containerização sugiram como IMCTFY, Rocket e Docker. Container é uma forma 
 de isolamento entre processos onde os containers partilham o mesmo kernel e tem sido usado para desenvolver serviços baseado em vitualização. A adoção de container tem 
 crescido muito, segundo o "Container Market Adoption Survey 2016", das 235 empresas que responderam o survey 76\% delas utilizam containers em ambiente de produção.
@@ -460,7 +460,7 @@ A segunda fase começa a estruturação da forense, nesta surgem as primeiras po
 processo proposto por Palmer G. em 2001 na primeira Digital Forensics Research Conference ficou conhecido como DIP, o próprio Palmer julgava o modelo incompleto. Em 2002 
 Reith M. propôs o Abstract Digital Forensics Model que adicionava ao DIP estágios que faltava a este. Em 2003 Carrier e Spafford propuseram o Integrated Digital Investigation 
 Process. Baseado nas técnicas e teorias da forense física e finalmente em 2004 Baryamureeba e Tushabe propuseram o Enhanced Digital Investigation Process Model, uma evolução
-de Carrier e Spafford. Importante notar que esses modelos foram todos propostos antes que a forma atual de computação em nuvem estivesse disponível as massas. \cite{Grispos2012}
+de Carrier e Spafford. Importante notar que esses modelos foram todos propostos antes que a forma atual de computação em nuvem estivesse disponível. \cite{Grispos2012}
 
 Nesta fase surgiram as ferramentas que tinham por objetivo principal coletar evidências de forma que fossem legalmente aceitáveis, para isso alguns requisitos precisam 
 ser atendidos:
@@ -477,13 +477,14 @@ nesta fase.
 A utilização crescente de virtualização, ferramentas online e hospedagem em nuvem \cite{Amazon2016}, está criando dificuldades para a coleta de informações, análise e 
 utilização em processos legais \cite{Sharma2012}. A funcionalidade de elasticidade de carga ofertada pelos provedores de nuvem por meio da qual infraestrutura pode ser
 alocada e desalocada dinamicamente, trouxe o problema da volatilidade dos dados nas máquinas virtuais. Com algumas ameaças que não deixam evidências em disco \cite{Rafique2013},
-a memória de uma máquina virtual despejada de um pool e seus recursos liberados seria para sempre perdida e com ela evidências importantes. O simples armazenamento do 
-conteúdo da memória não satisfaz o requisito jurídico de se repetir o processo e conseguir os mesmos resultados. A abordagem de armazenar constantemente todas as 
-alterações da memória não contribui para a solução do crescente backlog de dados que os investigadores tem para analizar \cite{Quick2014}.
+a memória de uma máquina virtual despejada de um pool e seus recursos liberados seria para sempre perdida e com ela evidências importantes. Neste cenário, o simples 
+armazenamento do conteúdo da memória não satisfaz o requisito de reprodutibilidade do processo pois a máquina virtual não existe mais. Tentou-se a abordagem de armazenar 
+constantemente todas as alterações da memória para não perder informações importântes mas tal abordagem agravou o problema do crescente backlog de dados que os investigadores 
+tem para analizar \cite{Quick2014}.
 
 O ferramental forense disponível hoje está pouco adaptado a desafios trazidos pela nuvem \cite{Dykstra2012a}, focam em completude e poucos geram evidências aceitáveis em
-um processo jurídico \cite{Reichert2015}. A cadeia de custódia, um processo de coleta e armazenamento de evidências que visa garantir que a evidência não foi alterada, 
-destruída ou manipulada por pessoas não autorizadas, é pouco abordada nas soluções existentes hoje.
+um processo jurídico \cite{Reichert2015} pois não satisfazem os 3 requisitos citados anteriormente. A cadeia de custódia, um processo de coleta e armazenamento de evidências
+que visa garantir que a evidência não foi alterada, destruída ou manipulada por pessoas não autorizadas, é pouco abordada nas soluções existentes hoje.
 
 \section{Trabalhos relacionados}
 
