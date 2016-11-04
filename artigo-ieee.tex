@@ -402,9 +402,10 @@ São Paulo, SP, Brasil}
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
 \begin{abstract}
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, 
-nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet 
-nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
+A adoção de arquiteturas em nuvem aumenta a cada dia e com ele também os casos de uso dessas arquiteturas para fins ilícitos. Por sua natureza volátil, coletar evidências
+para análise forense neste ambiente tem esbarrado em desafios práticos e legais. Este trabalho analisa as soluções propostas para resolver os principais problemas isolados
+e propõe uma solução fim a fim para a coleta de evidências em núvem. A pesquisa é focada na reprodutibilidade do processo de coleta e na garantia de custódia da evidência
+onde conseguimos uma forma de relacionar a evidência a sua origem virtual, transportar e armazenar mantendo sua credibilidade.
 \end{abstract}
 
 % no keywords
@@ -435,6 +436,20 @@ Do ponto de vista forense, praticantes e pesquisadores concordam que aspectos de
 dificuldades para coleta de evidência \cite{Bash2015a}. O aspecto multi-inquilino impede a remoção do hardware pois como ele é compartilhado com vários usuários, 
 removê-los seria uma violação de privacidade de usuários não relacionados a investigação. Por fim a característica distribuída pode alocar informação relevante a 
 investigação em vários países dificultando por razões jurídicas a obtenção da mesma \cite{Dykstra2012a}.
+
+Para o escopo deste trabalho estamos considerando 4 tipos de ataques realizados diretamente na memória e que não deixam rastros no disco da máquina, todos baseados 
+em injeção de código \cite{Case2014}.
+
+\begin{itemize}
+ \item \textbf{Injeção remota de bibliotecas} - Um processo malicioso força o processo alvo a carregar uma biblioteca em seu espaço de memória através de comandos do sistema operacional.
+ A biblioteca existe fisicamente em alguma localização remota.
+ \item \textbf{Injeção remota de código} - Um processo malicioso escreve código como uma sequência de bytes diretamente no espaço de memória de um processo alvo e força este 
+ último a executa-lo. O código pode por exemplo ser um script de shell
+ \item \textbf{Injeção reflexiva de biblioteca} - Um processo malicioso escreve diretamente na memória de um processo alvo, como uma sequência de bytes, o código de uma biblioteca
+ e força o processo alvo a executa-la. Nesta forma de ataque a biblioteca não existe fisicamente.
+ \item \textbf{Injeção de processo vazio} - Um processo malicioso dispara uma instância de um processo legítimo no estado suspenso, a área do executável é liberada e realocada com 
+ código malicioso.
+\end{itemize}
 
 Este documento esta organizado da seguinte forma: Na seção II falamos brevemente sobre soluções em nuvem, na seção III falamos sobre a evolução da forense e os desafios
 que as soluções em nuvem trouxeram para a forense, na seção IV analisamos os trabalhos na área de forense de memória, na seção V descrevemos a solução proposta para 
@@ -500,8 +515,8 @@ para viabilizar a abordagem de coletar o suficiente para realizar a investigaç�
 do fato. A única proposta encontrada que leva tal necessidade em consideração é \cite{Dezfouli2012} mas propõe que o dado seja armazenado no próprio dispositivo porém 
 essa abordagem não é aplicavel ao cenário em nuvem pois leva a perda de informações importantes caso a máquina virtual seja despejada e seus recursos liberados.
 
-Ainda na coleta de informações, os autores \cite{Reichert2015}, \cite{George2012} sugerem a abordagem de forense ao vivo onde os dados são constantemente coletados sem 
-distinção do antes ou depois do fato e os autores \cite{Poisel2013}, \cite{Dykstra2013}, \cite{Sang2013} adotam a estratégia de isolar e parar a máquina virtual para 
+Ainda na coleta de informações, os autores \cite{Reichert2015} e \cite{George2012} sugerem a abordagem de forense ao vivo onde os dados são constantemente coletados sem 
+distinção do antes ou depois do fato e os autores \cite{Poisel2013}, \cite{Dykstra2013} e \cite{Sang2013} adotam a estratégia de isolar e parar a máquina virtual para 
 em seguida realizar o processo de coleta. Nas duas estratégias citadas anteriormente, o problema do grande volume de informações coletadas não é abordado pelo autores 
 nem o cenário onde é necessário coletar evidências de uma máquina virtual que já foi despejada do pool e os recursos liberados. Atender este último cenário é importante pois 
 com as soluções em nuvem que escalam automaticamente, as evidências de uma máquina vítima de um ataque que foi despejada de um pool com a diminuição da demanda serão 
@@ -510,11 +525,11 @@ para termos certeza.
 
 \subsection{Capacidade de reproduzir o processo e obter os mesmos resultados.}
 
-A reprodutibilidade do processo de coleta é uma dos requisitos para garantir a cadeia de custódia da evidência. Cadeia de custódia esta relacionado a credibilidade e 
-ter dois analistas reproduzindo o processo de coleta de memória chegando ao mesmo conjunto de evidências tem um peso muito forte em termos de credibilidade. Neste
-tópico, nenhuma das propostas consegue reproduzir os mesmos resultados ao repetir o processo no cenário em que uma máquina virtual é despejada da nuvem e seus recursos 
-liberados pois todas elas dependem da existência da máquina virtual para a realização da coleta. Analisando a proposta de \cite{George2012} parece que é possível mas 
-o autor não dá detalhes de implementação suficientes para termos certeza.
+A reprodutibilidade do processo de coleta é uma dos requisitos para garantir a cadeia de custódia da evidência e sua aceitação em um processo legal. Cadeia de custódia 
+esta relacionado a credibilidade e ter dois analistas reproduzindo o processo de coleta de memória chegando ao mesmo conjunto de evidências tem um peso muito forte em 
+termos de credibilidade. Neste tópico, nenhuma das propostas consegue reproduzir os mesmos resultados ao repetir o processo no cenário em que uma máquina virtual é 
+despejada da nuvem e seus recursos liberados pois todas elas dependem da existência da máquina virtual para a realização da coleta. Analisando a proposta de 
+\cite{George2012} parece que é possível mas o autor não dá detalhes de implementação suficientes para termos certeza.
 
 \subsection{Não violar privacidade ou jurisdição das partes não envolvidas na investigação.}
 
@@ -531,12 +546,11 @@ Na garantia da cadeia de custódia apenas \cite{Sang2013} aborda a questão mas 
 através do cálculo de hashing da mesma mas não explica como impede o acesso não autorizado. As propostas dos outros autores estão focadas apenas no aspecto técnico 
 da coleta, nenhum deles menciona garantia de custódia apenas que as evidências são coletadas de forma "forensicamente aceitável".
 
-\textbf{Tabela comparativa das soluções}
+A Tabela 1 mostra um comparativo das soluções estudadas.
 
 \begin{table}[h!]
 \centering
 \caption{Comparativo de soluções}
-\label{my-label}
 \begin{tabular}{L|L|L|L|L}
 \hline
 \textbf{}			& \rotatebox{90}{\textbf{Coleta  é contínua?}}      & \rotatebox{90}{\textbf{Reproduz o processo sem a VM?}} & \rotatebox{90}{\textbf{Garante cadeia de custódia?}}     & \rotatebox{90}{\textbf{Preserva jurisdição e privacidade?}}          \\ \hline
@@ -569,9 +583,9 @@ O presente proposta tem os seguintes objetivos:
 
 \subsection{Descrição}
 
-Nas soluções com infra-estrutura física a máquina é persistente. Associar uma copia da memória, a imagem de um disco ou pacotes trafegando na rede a uma máquina é tarefa simples.
+Nas soluções com infra-estrutura física a máquina é persistente. Associar uma copia da memória, a imagem de um disco ou pacotes trafegando na rede a uma máquina é uma associação direta.
 Com as soluções de infra virtual, em especial as auto-escaláveis, a máquina deixou de ser persistente e tornou-se volátil. Para resolver o problema da identificação da fonte
-precisamos encontrar outra forma persistente para identificar a fonte da evidência coletada. Para isto usamos containeres. Embora o container seja uma peça de software e 
+precisamos encontrar outra forma, persistente, para identificar a fonte da evidência coletada. Para isto usaremos containeres. Embora o container seja uma peça de software e 
 por consequência também é volátil, a imagem compilada e sua execução na forma de container estão atrelados a um hash que os identificam, a pilha de um container pode ser 
 visto na Figura 1.\\
 
@@ -585,8 +599,8 @@ visto na Figura 1.\\
 A solução proposta por este trabalho, para resolver o problema de associação da evidência a sua origem de modo que o processo seja reprodutível, pausa a execução
 do container e coleta um instantâneo da memória dos processos sob sua execução. Este processo é executado em intervalos de tempo conhecidos de modo a se ter uma
 evolução da história da memória dos processos. Em um sistema derivado do linux (Ubuntu 14.04) isso foi atingido via cópia do diretório ``\\proc'' relacionado 
-aos processos sob o ``cgroup'' associado ao container e salvo em disco. Para relacionar o instantâneo a sua origem, usamos como nome do arquivo contendo o instantâneo 
-da memória a combinação do hash da imagem e o hash do container como mostrado na Figura 2.\\
+aos processos sob o ``cgroup'' associado ao container e salvo em disco. Para relacionar o instantâneo a sua origem, assinamos o arquivo em que salvamos o instantâneo
+da memória com o hash da imagem como mostrado na Figura 2.\\
 
 \begin{figure}[h!]
 \caption{Evidência salva - hash do container e imagem}
@@ -624,8 +638,8 @@ máquina virtual com 2 Gb de memória RAM emulando apenas 1 processador.
 Na máquina virtual instalamos a versão 1.9.1 do Docker engine e 1.21 da API, criamos 3 containers, cada um rodando um nginx 1.0 em diferentes portas. Foi escrita uma
 aplicação em JAVA que descobre qual o PID associado a cada container e salva o \textbf{/proc/pid/numa\_maps} em um arquivo cujo nome é \textbf{container\_id-imagem\_id-hora-minuto.mem}
 
-A cópia e gravação do arquivo acontece da seguinte forma, a cada minuto a aplicação pausa o container em questão, tira uma cópia do numa\_maps e a salva em um arquivo .mem.
-Em seguida verifica qual o arquivo .mem mais antigo em disco, se for mais velho que o tempo 't', o arquivo é descartado.
+A cópia e gravação do arquivo acontece da seguinte forma, a cada minuto a aplicação pausa o container em questão, tira uma cópia do numa\_maps, salva em um arquivo .mem, assina o
+mesmo usando o hash de identificação da imagem. Em seguida verifica qual o arquivo .mem mais antigo em disco, se for mais velho que o tempo 't', o arquivo é descartado.
 
 \subsection{Limitações}
 
@@ -728,22 +742,17 @@ A solução completa com todos os elementos descritos anteriormente pode ser vis
 % footnotes above bottom floats. This can be corrected via the \fnbelowfloat
 % command of the stfloats package.
 
-\section{Conclusion}
+\section{Conclusão}
 
-Dado que o identificador de uma imagem e de um container são únicos, é possível associar o conteúdo da memória de um container a seu identificador de container e imagem,
-assim mesmo que as máquinas sejan instanciadas e deletadas a imagem que gerou aquela print de memória existe e pode ser reproduzido. Por causa da organização da memória,
-as posições absolutas não podem ser mantidas mas o conteúdo sim.
+Dado que o identificador de uma imagem e de um container são únicos, é possível associar o conteúdo da memória de um container a seu identificador de container e imagem.
+Mesmo que as máquinas sejam instanciadas e deletadas a imagem que gerou aquela print de memória existe, pode ter um container criado e a coleta reproduzida. Por causa da
+organização da memória, as posições absolutas não podem ser mantidas mas o conteúdo sim.
 
 \section{Trabalhos futuros}
 
-Apesar de conseguirmos relacionar a evidência a sua fonte e reproduzir o processo, ainda precisamos verificar se coletar apenas a memória do container é o suficiente
-realizar uma análise e/ou encontrar uma forma segura de associar a memória do container com a do kernel da máquina hospedeira. Acreditamos estarmos no caminho certo pois,
-para a detecção das ameaças declaradas no inicio do documento, uma das premissas é a existência de uma cópia saudável da memória de um processo.
-
-% use section* for acknowledgement
-\section*{Acknowledgment}
-
-Beijo para a minha mae, meu pai e para a xuxa.
+Apesar do sucesso em salvar a memória relacionadas ao container e sua associação com a origem, não foi possível até o momento relizar a análise. As ferramentas de 
+leitura de memória disponíveis no mercado até o momento dependem que todo o conteúdo da memória da máquina esteja disponível para realização da análise. Como coletamos 
+apenas a memória relacionada aos processos o ferramental não funciona. É necessário um desenvolvimento de uma ferramenta que trabalhe sem a memória completa da máquina.
 
 
 % trigger a \newpage just before the given reference
