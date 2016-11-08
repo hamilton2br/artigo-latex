@@ -405,7 +405,7 @@ São Paulo, SP, Brasil}
 A adoção de arquiteturas em nuvem aumenta a cada dia e com ele também os casos de uso dessas arquiteturas para fins ilícitos. Por sua natureza volátil, coletar evidências
 para análise forense neste ambiente tem esbarrado em desafios práticos e legais. Este trabalho analisa as soluções propostas para resolver os principais problemas isolados
 e propõe uma solução fim a fim para a coleta de evidências em núvem. A pesquisa é focada na reprodutibilidade do processo de coleta e na garantia de custódia da evidência
-onde conseguimos uma forma de relacionar a evidência a sua origem virtual, transportar e armazenar mantendo sua credibilidade.
+onde propomos uma forma de relacionar a evidência a sua origem virtual, transportar e armazenar mantendo sua credibilidade.
 \end{abstract}
 
 % no keywords
@@ -429,24 +429,28 @@ onde conseguimos uma forma de relacionar a evidência a sua origem virtual, tran
 Aumento do uso de soluções de virtualização e a implementação de arquiteturas em nuvem que escalam automáticamente \cite{Amazon2016} trouxe a questão da volatilidade 
 das máquinas virtuais. Uma aplicação hospedada na nuvem sob um pico de uso e configurada para tal, pode clonar máquinas e adiciona-las ao grupo para atender a demanda. 
 Passado este pico, as máquinas que foram clonadas são despejadas, seus recursos liberados e o conjunto retorna ao tamanho inicial. Com as ameaças que atuam diretamente 
-na memória sem deixar rastros no disco da máquina afetada, se essas máquinas forem usadas para algum evento ilícito, as evidências do acontecimento contidas nelas 
+na memória sem deixar rastros no disco da máquina afetada, se estas forem usadas para algum evento ilícito, as evidências do acontecimento contidas nelas 
 serão para sempre perdidas.
 
 Do ponto de vista forense, praticantes e pesquisadores concordam que aspectos de multi-inquilino e multi-jurisdição próprios soluções em nuvem figuram entre as principais 
 dificuldades para coleta de evidência \cite{Bash2015a}. O aspecto multi-inquilino impede a remoção do hardware pois como ele é compartilhado com vários usuários, 
 removê-los seria uma violação de privacidade de usuários não relacionados a investigação. Por fim a característica distribuída pode alocar informação relevante a 
-investigação em vários países dificultando por razões jurídicas a obtenção da mesma \cite{Dykstra2012a}.
+investigação em vários países dificultando por razões jurídicas a obtenção da mesma \cite{Dykstra2012a} pois não é garantida a cooperação de instituições de outros países a investigações
+em curso além de suas fronteiras.
 
 Para o escopo deste trabalho estamos considerando 4 tipos de ataques realizados diretamente na memória e que não deixam rastros no disco da máquina, todos baseados 
 em injeção de código \cite{Case2014}.
 
 \begin{itemize}
- \item \textbf{Injeção remota de bibliotecas} - Um processo malicioso força o processo alvo a carregar uma biblioteca em seu espaço de memória através de comandos do sistema operacional.
- A biblioteca existe fisicamente em alguma localização remota.
+ \item \textbf{Injeção remota de bibliotecas} - Um processo malicioso força o processo alvo a carregar uma biblioteca em seu espaço de memória. Uma vez carregada seus símbolos
+ podem ser resolvidos pelo processo de resolução do sistema operacional e tem os mesmos privilégios do executável em que ela foi injetada. A biblioteca existe fisicamente em 
+ alguma localização remota. Este processo de infecção é usado para o deployment de worms e rootkits. Uma estratégia usada é a de espalhar a biblioteca em vários processos
+ de uma mesma máquina dificultando sua desinfecção \cite{Miller2004}.
  \item \textbf{Injeção remota de código} - Um processo malicioso escreve código como uma sequência de bytes diretamente no espaço de memória de um processo alvo e força este 
  último a executa-lo. O código pode por exemplo ser um script de shell
  \item \textbf{Injeção reflexiva de biblioteca} - Um processo malicioso escreve diretamente na memória de um processo alvo, como uma sequência de bytes, o código de uma biblioteca
- e força o processo alvo a executa-la. Nesta forma de ataque a biblioteca não existe fisicamente.
+ e força o processo alvo a executa-la. Nesta forma de ataque a biblioteca não existe fisicamente, é o método preferido de injeção de código uma vez que seu carregamento não
+ é registrado no sistema operacional tornando-o assim, mais difícil de detectar \cite{Fewer2008}.
  \item \textbf{Injeção de processo vazio} - Um processo malicioso dispara uma instância de um processo legítimo no estado suspenso, a área do executável é liberada e realocada com 
  código malicioso.
 \end{itemize}
@@ -471,7 +475,8 @@ crescido muito, segundo o "Container Market Adoption Survey 2016", das 235 empre
 
 A evolução da forense digital pode ser descrita em 3 fases \cite{Charters2008} A primeira ad-hoc se caracteriza pela falta de estrutura, processos, ferramental e 
 objetivos. Nesta fase evidências apresentadas em processos legais eram descartadas com base em erros procedurais e falta de garantias de acurácia ou cadeia de custódia. 
-A segunda fase começa a estruturação da forense, nesta surgem as primeiras políticas e processos de coleta, armazenamento, transpórte e análise da evidência. O primeiro
+Foi nesta fase que acusados de crimes usando um computador eram solto sob justificativa de terem tido sua privacidade violada pelos investigadores. 
+Na segunda fase começa a estruturação da forense, surgem as primeiras políticas e processos de coleta, armazenamento, transpórte e análise da evidência. O primeiro
 processo proposto por Palmer G. em 2001 na primeira Digital Forensics Research Conference ficou conhecido como DIP, o próprio Palmer julgava o modelo incompleto. Em 2002 
 Reith M. propôs o Abstract Digital Forensics Model que adicionava ao DIP estágios que faltava a este. Em 2003 Carrier e Spafford propuseram o Integrated Digital Investigation 
 Process. Baseado nas técnicas e teorias da forense física e finalmente em 2004 Baryamureeba e Tushabe propuseram o Enhanced Digital Investigation Process Model, uma evolução
@@ -745,8 +750,8 @@ A solução completa com todos os elementos descritos anteriormente pode ser vis
 \section{Conclusão}
 
 Dado que o identificador de uma imagem e de um container são únicos, é possível associar o conteúdo da memória de um container a seu identificador de container e imagem.
-Mesmo que as máquinas sejam instanciadas e deletadas a imagem que gerou aquela print de memória existe, pode ter um container criado e a coleta reproduzida. Por causa da
-organização da memória, as posições absolutas não podem ser mantidas mas o conteúdo sim.
+Mesmo que as máquinas sejam instanciadas e deletadas a imagem que gerou aquela print de memória existe, pode-se recriar o contaíner a partir da imagem e reproduzir o processo
+de coleta.. Por causa de estratégias de organização da memória como ASLR, as posições absolutas não podem ser mantidas mas o conteúdo sim.
 
 \section{Trabalhos futuros}
 
@@ -914,6 +919,14 @@ ISSN 1466640073.}
   data: A survey and future research challenges}.
 \emph{Digital Investigation}, Elsevier Ltd, v.~11, n.~4, p. 273--294, 2014.
 ISSN 17422876.}
+
+\bibitem{Miller2004}
+{Miller, M. and Turkulainen, J. {Remote Library Injection}.
+\emph{www.nologin.org}, 2004. }
+
+\bibitem{Fewer2008}
+{Fewer, Stephen {Reflective DLL Injection}.
+\emph{harmonysecurity.com}, 2008. }
 
 \end{thebibliography}
 
