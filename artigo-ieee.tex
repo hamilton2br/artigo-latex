@@ -475,7 +475,7 @@ crescido muito, segundo o "Container Market Adoption Survey 2016", das 235 empre
 
 A evolução da forense digital pode ser descrita em 3 fases \cite{Charters2008} A primeira ad-hoc se caracteriza pela falta de estrutura, processos, ferramental e 
 objetivos. Nesta fase evidências apresentadas em processos legais eram descartadas com base em erros procedurais e falta de garantias de acurácia ou cadeia de custódia. 
-Foi nesta fase que acusados de crimes usando um computador eram solto sob justificativa de terem tido sua privacidade violada pelos investigadores. 
+Foi nesta fase que acusados de crimes usando um computador eram soltos sob justificativa de terem tido sua privacidade violada pelos investigadores. 
 Na segunda fase começa a estruturação da forense, surgem as primeiras políticas e processos de coleta, armazenamento, transpórte e análise da evidência. O primeiro
 processo proposto por Palmer G. em 2001 na primeira Digital Forensics Research Conference ficou conhecido como DIP, o próprio Palmer julgava o modelo incompleto. Em 2002 
 Reith M. propôs o Abstract Digital Forensics Model que adicionava ao DIP estágios que faltava a este. Em 2003 Carrier e Spafford propuseram o Integrated Digital Investigation 
@@ -533,7 +533,7 @@ para termos certeza.
 A reprodutibilidade do processo de coleta é uma dos requisitos para garantir a cadeia de custódia da evidência e sua aceitação em um processo legal. Cadeia de custódia 
 esta relacionado a credibilidade e ter dois analistas reproduzindo o processo de coleta de memória chegando ao mesmo conjunto de evidências tem um peso muito forte em 
 termos de credibilidade. Neste tópico, nenhuma das propostas consegue reproduzir os mesmos resultados ao repetir o processo no cenário em que uma máquina virtual é 
-despejada da nuvem e seus recursos liberados pois todas elas dependem da existência da máquina virtual para a realização da coleta. Analisando a proposta de 
+despejada da nuvem e seus recursos liberados pois todas elas dependem da existência da máquina virtual para a repetilção da coleta. Analisando a proposta de 
 \cite{George2012} parece que é possível mas o autor não dá detalhes de implementação suficientes para termos certeza.
 
 \subsection{Não violar privacidade ou jurisdição das partes não envolvidas na investigação.}
@@ -588,9 +588,9 @@ O presente proposta tem os seguintes objetivos:
 
 \subsection{Descrição}
 
-Nas soluções com infra-estrutura física a máquina é persistente. Associar uma copia da memória, a imagem de um disco ou pacotes trafegando na rede a uma máquina é uma associação direta.
+Nas soluções com infra-estrutura física a máquina é persistente, associar uma copia da memória, a imagem de um disco ou pacotes trafegando na rede a sua origem é uma tarefa simples.
 Com as soluções de infra virtual, em especial as auto-escaláveis, a máquina deixou de ser persistente e tornou-se volátil. Para resolver o problema da identificação da fonte
-precisamos encontrar outra forma, persistente, para identificar a fonte da evidência coletada. Para isto usaremos containeres. Embora o container seja uma peça de software e 
+precisamos encontrar outra forma, persistente, para identificar a fonte da evidência coletada, para isto usaremos containeres. Embora o container seja uma peça de software e 
 por consequência também é volátil, a imagem compilada e sua execução na forma de container estão atrelados a um hash que os identificam, a pilha de um container pode ser 
 visto na Figura 1.\\
 
@@ -617,7 +617,8 @@ da memória com o hash da imagem como mostrado na Figura 2.\\
 As técnicas forenses praticadas hoje estão voltadas para a obtenção da informação em sua totalidade, seja via cópia bit a bit, seja por remoção do hardware \cite{Simou2014}
 \cite{Bem2008}. Tais práticas tem levado ao crescente volume de dados que os investigadores tem que analisar. Há uma vertente na comunidade chamada ``sniper 
 forensics'' onde se coleta e armazena o suficiente para a investigação. A solução proposta por este trabalho acompanha esta tendência, a questão foi definir a quantidade 
-de dados ``suficiente'' para uma investigação. Decidimos que ``suficiente'' seria a quantidade necessária para descrever o sistema antes e depois do ataque. A idéia é 
+de dados ``suficiente'' para uma investigação. De acordo com \cite{Case2014}, detectar intrusões na memória de processos depende de termos uma descrição da memória antes
+e depois da intrusão. Com base nisso decidimos que ``suficiente'' seria a quantidade necessária para descrever o sistema antes e depois do ataque. A idéia é 
 implementar um log rotativo de instantâneos de memória cobrindo uma quantidade de tempo configurável, integrar a solução com algum sistema de detecção de ameaça de modo
 que, ao detectar um ataque, o log passa de rotativo a completo assim permitindo que se conheça o sistema antes e depois do ataque como mostrado na Figura 3. \\
 
@@ -631,7 +632,8 @@ que, ao detectar um ataque, o log passa de rotativo a completo assim permitindo 
 De modo a não violar a jurisdição de outros países ou a privacidade de outros usuários por causa do caráter multi-inquilino e multi-jurisdição das arquiteturas em núvem pública,
 a solução proposta por este trabalho foi o de armazenar a evidência em um local físico fora da nuvem utilizando como transporte conexão segura. Outro ponto importante é 
 garantir a cadeia de custódia da evidência ou seja, garantir que a evidência não foi destruída, alterada ou acessada por qualquer pessoa. Assim a solução proposta por este 
-trabalho usará de armazenamento físico fora da nuvem, o transporte será feito por TLS e o acesso a evidência será controlado.
+trabalho usará de armazenamento físico fora da nuvem, o transporte será feito por TLS, no momento do armazenamento calcularemos o hash da evidência e o acesso ao mesmo 
+será controlado.
 
 Tendo a implementação sido bem sucedida conseguiremos analisar e identificar as formas de ataque enumeradas nos objetivos.\\
 
@@ -640,21 +642,18 @@ Tendo a implementação sido bem sucedida conseguiremos analisar e identificar a
 A implementação da solução foi realizada em um notebook intel I5 de 2.30Mhz e 4Gb de RAM com sistema operacional de 64 bits. Nele, usando Oracle Virtual Box 5.0 criamos uma
 máquina virtual com 2 Gb de memória RAM emulando apenas 1 processador.
 
-Na máquina virtual instalamos a versão 1.9.1 do Docker engine e 1.21 da API, criamos 3 containers, cada um rodando um nginx 1.0 em diferentes portas. Foi escrita uma
-aplicação em JAVA que descobre qual o PID associado a cada container e salva o \textbf{/proc/pid/numa\_maps} em um arquivo cujo nome é \textbf{container\_id-imagem\_id-hora-minuto.mem}
+Na máquina virtual instalamos a versão 1.10 do Docker engine e 1.21 da API, criamos 3 containers, cada um rodando um nginx 1.0 em diferentes portas. Foi escrita uma
+aplicação em JAVA que descobre qual o PID associado a cada container e salva o \textbf{/proc/pid/numa\_maps} em um arquivo.
 
-A cópia e gravação do arquivo acontece da seguinte forma, a cada minuto a aplicação pausa o container em questão, tira uma cópia do numa\_maps, salva em um arquivo .mem, assina o
-mesmo usando o hash de identificação da imagem. Em seguida verifica qual o arquivo .mem mais antigo em disco, se for mais velho que o tempo 't', o arquivo é descartado.
+A cópia e gravação do arquivo acontece da seguinte forma, a cada minuto a aplicação pausa o container em questão, tira uma cópia do numa\_maps, salva em um arquivo .mem
+e concatenavcom o hash de identificação da imagem. Em seguida verifica qual o arquivo .mem mais antigo em disco, se for mais velho que o tempo 't', o arquivo é descartado.
 
 \subsection{Limitações}
 
-Ameaças das quais estamos focando neste trabalho usam técnicas que permitem passar desapercebidas pelo processo de detecção de ameaças. Algumas delas são, 
-adulteração da lista de processos ativos em uma máquina, se fazer passar por um processo válido ou se fazer passar por uma biblioteca válida \cite{Case2014}. Por isso, 
-mesmo que haja uma integração com alguma forma de detecção de ameaça para a mudança do armazenamento de janela para o armazenamento total, acreditamos que ainda é 
-necessária a capacidade de acionamento manual.
-
-A solução esta focada em coletar informações de memória do espaço de memória do usuário assim, mesmo que ela ajude na investigação de ameaças que realizem manipulação direta
-dos objetos do Kernel ( \textit{D.K.O.M. - Direct Kernel Object Manipulation} ) Kernel space no host não se beneficia da associação com o container.\\
+A solução esta focada em coletar informações de memória do user space, ela não enxerga o kernel space. Técnicas de investigação de malware que se baseam em informações
+do kernel space como por exemplo a comparação de informações do Process Environment Block (PEB) que ficam no user space com informações do Virtual Address Descriptor (VAD)
+que fica no Kernel space não são possíveis. Outro exemplo é a análise de ameaças que realizam manipulação direta dos objetos do kernel ( \textit{D.K.O.M. - Direct Kernel Object Manipulation} )
+também não se beneficiam de associação com o container.
 
 A solução completa com todos os elementos descritos anteriormente pode ser visto na figura 4
 
@@ -747,17 +746,12 @@ A solução completa com todos os elementos descritos anteriormente pode ser vis
 % footnotes above bottom floats. This can be corrected via the \fnbelowfloat
 % command of the stfloats package.
 
-\section{Conclusão}
-
-Dado que o identificador de uma imagem e de um container são únicos, é possível associar o conteúdo da memória de um container a seu identificador de container e imagem.
-Mesmo que as máquinas sejam instanciadas e deletadas a imagem que gerou aquela print de memória existe, pode-se recriar o contaíner a partir da imagem e reproduzir o processo
-de coleta.. Por causa de estratégias de organização da memória como ASLR, as posições absolutas não podem ser mantidas mas o conteúdo sim.
-
 \section{Trabalhos futuros}
 
 Apesar do sucesso em salvar a memória relacionadas ao container e sua associação com a origem, não foi possível até o momento relizar a análise. As ferramentas de 
 leitura de memória disponíveis no mercado até o momento dependem que todo o conteúdo da memória da máquina esteja disponível para realização da análise. Como coletamos 
-apenas a memória relacionada aos processos o ferramental não funciona. É necessário um desenvolvimento de uma ferramenta que trabalhe sem a memória completa da máquina.
+apenas a memória relacionada aos processos o ferramental não funciona. É necessário um desenvolvimento de uma ferramenta que trabalhe sem a memória completa da máquina,
+ou no caso da ferramenta \textit{Volatility} é necessário a criação de um profile para a memória do processo.
 
 
 % trigger a \newpage just before the given reference
