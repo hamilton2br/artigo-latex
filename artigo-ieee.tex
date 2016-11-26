@@ -446,7 +446,7 @@ em injeção de código \cite{Case2014}.
  podem ser resolvidos pelo processo de resolução do sistema operacional e tem os mesmos privilégios do executável em que ela foi injetada. A biblioteca existe fisicamente em 
  alguma localização remota. Este processo de infecção é usado para o deployment de worms e rootkits. Uma estratégia usada é a de espalhar a biblioteca em vários processos
  de uma mesma máquina dificultando sua desinfecção \cite{Miller2004}.
- \item \textbf{Injeção remota de código} - Um processo malicioso escreve código como uma sequência de bytes diretamente no espaço de memória de um processo alvo e força este 
+ \item \textbf{Inline Hooking} - Um processo malicioso escreve código como uma sequência de bytes diretamente no espaço de memória de um processo alvo e força este 
  último a executa-lo. O código pode por exemplo ser um script de shell
  \item \textbf{Injeção reflexiva de biblioteca} - Um processo malicioso escreve diretamente na memória de um processo alvo, como uma sequência de bytes, o código de uma biblioteca
  e força o processo alvo a executa-la. Nesta forma de ataque a biblioteca não existe fisicamente, é o método preferido de injeção de código uma vez que seu carregamento não
@@ -746,10 +746,14 @@ A solução completa com todos os elementos descritos anteriormente pode ser vis
 % footnotes above bottom floats. This can be corrected via the \fnbelowfloat
 % command of the stfloats package.
 
-\section{Trabalhos futuros}
+\section{Onde estamos e Trabalhos futuros}
+
+Atpe o momento a presente proposta teve sucesso em relacionar o instantâneo de memória a sua origem através do hash de identificação da imagem, usou-se a versão 1.10 do 
+Docker para tal fim. A versão é importante pois até a versão 1.9.x o identificador da imagem era apenas um randômico, na versão 1.10 ele passou a ser um hash calculado a
+partir da imagem.
 
 Apesar do sucesso em salvar a memória relacionadas ao container e sua associação com a origem, não foi possível até o momento relizar a análise. As ferramentas de 
-leitura de memória disponíveis no mercado até o momento dependem que todo o conteúdo da memória da máquina esteja disponível para realização da análise. Como coletamos 
+leitura de memória disponíveis no mercado dependem que todo o conteúdo da memória da máquina esteja disponível para realização da análise. Como coletamos 
 apenas a memória relacionada aos processos o ferramental não funciona. É necessário um desenvolvimento de uma ferramenta que trabalhe sem a memória completa da máquina,
 ou no caso da ferramenta \textit{Volatility} é necessário a criação de um profile para a memória do processo.
 
