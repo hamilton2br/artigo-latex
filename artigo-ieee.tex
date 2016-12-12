@@ -334,6 +334,9 @@
 % (Unless specifically asked to do so by the journal or conference you plan
 % to submit to, of course. )
 
+\usepackage{xcolor}
+\newcommand{\marcos}[1]{{\color{blue}{MARCOS: #1}}}
+
 
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
@@ -350,19 +353,17 @@
 % author names and affiliations
 % use a multiple column layout for up to three different
 % affiliations
-\author{\IEEEauthorblockN{Hamilton Fonte II}
-\IEEEauthorblockA{Universidade de São Paulo (USP)\\
-Escola Politécnica - Engenharia de Computação\\
-Programa de Pós Graduação em Engenharia Elétrica\\
+\author{\IEEEauthorblockN{Hamilton J. S. Fonte II}
+\IEEEauthorblockA{
+Escola Politécnica -- Universidade de São Paulo (USP)\\
 São Paulo, SP, Brasil\\
-Email: hamiltonii@gmail.com}
+Email: hamiltonii@gmail.com \marcos{melhor usar um e-mail institucional... não tem um @usp?}}
 \and
-\IEEEauthorblockN{Marcus Simplício Jr.}
-\IEEEauthorblockA{Orientador \\
-Universidade de São Paulo (USP)\\
-Escola Politécnica - Engenharia de Computação\\
-Programa de Pós Graduação em Engenharia Elétrica\\
-São Paulo, SP, Brasil}
+\IEEEauthorblockN{Marcos A. Simplicio Jr.}
+\IEEEauthorblockA{
+Escola Politécnica -- Universidade de São Paulo (USP)\\
+São Paulo, SP, Brasil\\
+Email: mjunior@larc.usp.br}
 }
 
 % conference papers do not typically use \thanks and this command
@@ -402,9 +403,14 @@ São Paulo, SP, Brasil}
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
 \begin{abstract}
-A adoção de arquiteturas em nuvem aumenta a cada dia e com ele também os casos de uso dessas arquiteturas para fins ilícitos. Por sua natureza volátil, coletar evidências
-para análise forense neste ambiente tem esbarrado em desafios práticos e legais. Este trabalho analisa as soluções propostas para resolver os principais problemas isolados
-e propõe uma solução fim a fim para a coleta de evidências em nuvem. A pesquisa é focada na reprodutibilidade do processo de coleta e na garantia de custódia da evidência
+\marcos{Considere fortemente reescrever em inglês... português tem visibilidade zero. Mesmo se o alvo for uma conferência no Brasil, inglês é sempre aceito...}
+A adoção de arquiteturas em nuvem aumenta a cada dia, e com ela também o número de casos em que ela é usada para fins ilícitos. 
+%
+Infelizmente, devido à natureza volátil da nuvem, a tarefa de coletar evidências para análise forense nesse ambiente tem esbarrado em desafios práticos e legais.
+%
+Este trabalho analisa as soluções existentes para resolver os principais desafios isolados \marcos{??? identificados na literatura?}, discutindo suas limitações, e então propõe uma solução fim a fim \marcos{o que você quer dizer com fim-a-fim aqui?} que visa a coleta eficaz de evidências em nuvem. 
+%
+A pesquisa é focada na reprodutibilidade do processo de coleta e na garantia de custódia da evidência
 onde propomos uma forma de relacionar a evidência a sua origem virtual, transportar e armazenar mantendo sua credibilidade.
 \end{abstract}
 
@@ -426,40 +432,71 @@ onde propomos uma forma de relacionar a evidência a sua origem virtual, transpo
 
 
 \section{Introdução}
-Aumento do uso de soluções de virtualização e a implementação de arquiteturas em nuvem que escalam automaticamente \cite{Amazon2016} trouxe a questão da volatilidade 
-das máquinas virtuais. Uma aplicação hospedada na nuvem sob um pico de uso e configurada para tal, pode clonar máquinas e adicioná-las ao grupo para atender a demanda. 
-Passado este pico, as máquinas que foram clonadas são despejadas, seus recursos liberados e o conjunto retorna ao tamanho inicial. Com as ameaças que atuam diretamente 
-na memória sem deixar rastros no disco da máquina afetada, se estas forem usadas para algum evento ilícito, as evidências do acontecimento contidas nelas 
-serão para sempre perdidas.
 
-Do ponto de vista forense, praticantes e pesquisadores concordam que aspectos de multi-inquilino e multi-jurisdição próprios soluções em nuvem figuram entre as principais 
-dificuldades para coleta de evidência \cite{Bash2015a}. O aspecto multi-inquilino impede a remoção do hardware pois como ele é compartilhado com vários usuários, 
-removê-los seria uma violação de privacidade de usuários não relacionados a investigação. Por fim a característica distribuída pode alocar informação relevante a 
-investigação em vários países dificultando por razões jurídicas a obtenção da mesma \cite{Dykstra2012a} pois não é garantida a cooperação de instituições de outros países a investigações
-em curso além de suas fronteiras.
+\marcos{A estrutura ``padrão'' de uma Introdução, por parágrafo, é: (1) Contexto Geral, em que se discutem as tecnologias envolvidas (no seu caso, nuvens computacionais); (2) Contexto específico, onde dá-se foco no contexto do seu trabalho (no seu caso, pode-se dizer que é a ``volatilidade das informações na nuvem''); (3) Problema, que discute o que você vai tratar (no seu caso, ``forense com foco em ataques de injeção de código'' me parece o problema em questão); (4) Limitações da literatura, em que você deixa claro o porquê do que já existir não ser suficiente (no seu caso, discutir brevemente as limitações de ferramentas forenses existentes); (5) O que você faz, em que você deixa claro como o seu trabalho contribui para resolver o problema do contexto específico, trazendo algo de novo com relação à literatura, dando uma visão geral da solução sem dar os detalhes; e (6) Estrutura do documento, que é de praxe mas pode ser suprimido se faltar espaço. Seu texto está estruturado como: (2 com um pouco de 3), (3 sem dar o foco necessário em injeção de código), (5 com um detalhamento que poderia estar no 3 e sem dizer como vai resolver o problema) e (6). Melhor revisar... Não precisa necessariamente incluir o (1), mas o adicionar o (4) e melhorar o (3) e talvez o (5) me parece importante.}
 
-Para o escopo deste trabalho estamos considerando 4 tipos de ataques realizados diretamente na memória e que não deixam rastros no disco da máquina, todos baseados 
-em injeção de código \cite{Case2014}.
+\marcos{No fonte você vai ver frases separadas por um \%. Sugiro fortemente adotar esse estilo ao escrever em LaTeX: facilita para ver o tamanho das frases, o que te ajuda a evitar frases longas (mais do que 2 linhas em uma tela de 20'', por exemplo, é longo demais...)}
+
+Técnicas de virtualização, replicação de serviços e compartilhamento de recursos entre múltiplos usuários proveem a nuvens computacionais uma elevada escalabilidade \cite{Amazon2016} \marcos{Existem muitas boas referências que discutem escalabilidade da nuvem... Escolher uma empresa que vende nuvem (e, portanto, não isenta) para isso é uma escolha bem ruim... Para questão técnicas, faça referência a órgãos técnicos (e.g., NIST) ou acadêmicos (artigos); deixe para citar empresas *apenas* quando não existir outra fonte de informação além da própria empresa (e.g., quando estiver falando de um detalhe sobre o AWS que nenhum terceiro analisou em um trabalho científico, aí sim faz sentido citar o manual/site da Amazon que discute isso)}.
+%
+Por outro lado, tais mecanismos também criam uma elevada volatilidade das máquinas virtuais.
+%
+Afinal, uma aplicação hospedada na nuvem, quando submetida a um pico de uso, pode criar clones das máquinas virtuais que a hospedam para atender à demanda. 
+%
+Passado esse pico, as máquinas que foram clonadas são desativadas, seus recursos liberados e o conjunto retorna ao tamanho inicial. 
+%
+Caso um dos clones seja alvo de ameaças que atuam diretamente na memória, sem deixar rastros nos discos da máquina afetada ou em arquivos de log, as evidências desse evento podem ser completamente perdidas.
+
+
+Do ponto de vista forense, muitos praticantes e pesquisadores concordam que aspectos de multi-inquilino e multi-jurisdição próprios de soluções em nuvem figuram entre as principais dificuldades para coleta de evidências \cite{Bash2015a}. 
+%
+Especificamente, o aspecto multi-inquilino dificulta a obtenção do hardware que executa as aplicações de interesse, pois, como ele é compartilhado por vários usuários, removê-los para análise poderia levar a uma violação de privacidade de usuários não relacionados à investigação. 
+%
+Já a característica distribuída da nuvem pode levar à alocação de informações relevante à investigação em vários países, dificultando a obtenção das mesmas em especial quando não existem acordos de cooperação entre as instituições e/ou países envolvidos \cite{Dykstra2012a}.
+
+
+%Para o escopo deste trabalho estamos \marcos{NUNCA, JAMAIS E EM HIPÓTESE ALGUMA use primeira pessoa em textos formais em português} considerando 4 tipos de ataques realizados diretamente na memória e que não deixam rastros no disco da máquina, todos baseados em injeção de código \cite{Case2014}.
+%
+Para o escopo deste trabalho são considerados quatro tipos de ataques que podem ser realizados diretamente na memória de máquinas virtuais, não deixando rastros em seus discos, todos baseados em técnicas de injeção de código \cite{Case2014}:
 
 \begin{itemize}
- \item \textbf{Injeção remota de bibliotecas} - Um processo malicioso força o processo alvo a carregar uma biblioteca em seu espaço de memória. Uma vez carregada seus símbolos
- podem ser resolvidos pelo processo de resolução do sistema operacional e tem os mesmos privilégios do executável em que ela foi injetada. A biblioteca existe fisicamente em 
- alguma localização remota. Este processo de infecção é usado para o deployment de worms e rootkits. Uma estratégia usada é a de espalhar a biblioteca em vários processos
- de uma mesma máquina dificultando sua desinfecção \cite{Miller2004}.
- \item \textbf{Inline Hooking} - Um processo malicioso escreve código como uma sequência de bytes diretamente no espaço de memória de um processo alvo e força este 
- último a executá-lo. O código pode por exemplo ser um script de shell
- \item \textbf{Injeção reflexiva de biblioteca} - Um processo malicioso escreve diretamente na memória de um processo alvo, como uma sequência de bytes, o código de uma biblioteca
- e força o processo alvo a executá-la. Nesta forma de ataque a biblioteca não existe fisicamente, é o método preferido de injeção de código uma vez que seu carregamento não
- é registrado no sistema operacional tornando-o assim, mais difícil de detectar \cite{Fewer2008}.
- \item \textbf{Injeção de processo vazio} - Um processo malicioso dispara uma instância de um processo legítimo no estado suspenso, a área do executável é liberada e realocada com 
- código malicioso.
+ \item \textbf{Injeção remota de bibliotecas}: Um processo malicioso força o processo alvo a carregar uma biblioteca em seu espaço de memória. 
+	%
+	Como resultado 
+	%, os símbolos da biblioteca carregada podem ser resolvidos pelo processo de resolução do sistema operacional \marcos{Me parece ser um fato que você não usa... se de fato não for usar, melhor suprimir (informação demais confunde, não ajuda)} 
+	o código da biblioteca carregada executa com os mesmos privilégios do executável em que ela foi injetada. 
+	%
+	%A biblioteca existe fisicamente em alguma localização remota. \marcos{Como uma frase separada, me soa como um detalhe meio óbvio (a biblioteca necessariamente deve existir para poder ser carregada!). Juntei a informação na frase seguinte}
+	%
+	Esta estratégia, comumente usada para instalar malwares, pode levar ao espalhamento de uma biblioteca maliciosa armazenada no sistema por vários processos de uma mesma máquina, dificultando sua remoção \cite{Miller2004}.
+ 
+\item \textbf{Inline Hooking}: Um processo malicioso escreve código como uma sequência de bytes diretamente no espaço de memória de um processo alvo, forçando este último a executá-lo. 
+	%
+	O código em si pode ser, por exemplo, um script para invocação do shell (\textit{shell code}).
+	
+ \item \textbf{Injeção reflexiva de biblioteca}: Um processo malicioso escreve diretamente na memória de um processo alvo o código de uma biblioteca, na forma de uma sequência de bytes, e força o processo alvo a executá-la. 
+	%
+	Nesta forma de ataque, a biblioteca maliciosa não existe fisicamente; isso torna esta estratégia de injeção de código potencialmente mais atrativa, pois o carregamento da biblioteca não é registrado no sistema operacional e, portanto, o ataque é mais difícil de detectar \cite{Fewer2008}.
+	
+	
+ \item \textbf{Injeção de processo vazio}: Um processo malicioso dispara uma instância de um processo legítimo no estado ``suspenso''; a área do executável é então liberada e realocada com código malicioso.
 \end{itemize}
 
-Este documento está organizado da seguinte forma: Na seção II falamos brevemente sobre soluções em nuvem, na seção III falamos sobre a evolução da forense e os desafios
-que as soluções em nuvem trouxeram para a forense, na seção IV analisamos os trabalhos na área de forense de memória, na seção V descrevemos a solução proposta para 
-resolver os problemas descritos em III, na VI expomos nossas conclusões e na VII elencamos os trabalhos futuros.
+Este documento está organizado da seguinte forma.
+%
+%Na seção II \marcos{NUNCA faça referência direta: para isso serve o ``\ref{}'' do LaTeX...} falamos \marcos{texto não fala...} brevemente sobre soluções em nuvem, \marcos{você queria ``;'' aqui... melhor ainda usar ``.'' mesmo.} na seção III falamos sobre a evolução da forense e os desafios que as soluções em nuvem trouxeram para a forense, na seção IV analisamos os trabalhos na área de forense de memória, na seção V descrevemos a solução proposta para  resolver os problemas descritos em III, na VI expomos nossas conclusões e na VII elencamos os trabalhos futuros.
+A Seção \ref{sec:cloud} discute brevemente soluções em nuvem e suas características.
+%
+A Seção \ref{sec:forensics} apresenta a evolução da computação forense e os desafios que soluções em nuvem trouxeram para a área.
+%
+A Seção \ref{sec:related} analisa os trabalhos relacionados na área de forense de memória.
+%
+A Seção \ref{sec:proposal} detalha a solução proposta e avalia como ela trata os desafios descritos na Seção \ref{sec:forensics}.
+%
+Finalmente, a Seção \ref{sec:conclusion} apresenta algumas considerações finais e discute ideias para trabalhos futuros.
 
 \section{Adoção de arquiteturas em nuvem}
+\label{sec:cloud}
 
 A nuvem é um sistema em que recursos computacionais são oferecidos como serviço onde os usuários são cobrados pelo seu uso. A infra-estrutura é composta de máquinas físicas
 contendo cada uma um número variável de máquinas virtuais que implementam este serviço \cite{Sousa2009}. Há três modelos de comercialização de uso da nuvem: plataforma como serviço (PAAS), 
@@ -472,6 +509,7 @@ de isolamento entre processos em que partilham o mesmo kernel e tem sido usado p
 crescido muito. Segundo o "Container Market Adoption Survey 2016", das 235 empresas que responderam o survey, 76\% delas utilizam containers em ambiente de produção.
 
 \section{Forense de memória em nuvem}
+\label{sec:forensics}
 
 A evolução da forense digital pode ser descrita em 3 fases \cite{Charters2008}. A primeira ad-hoc se caracteriza pela falta de estrutura, processos, ferramental e 
 objetivos. Nesta fase, evidências apresentadas em processos legais eram descartadas com base em erros procedurais e falta de garantias de acurácia ou cadeia de custódia. 
@@ -507,6 +545,7 @@ um processo jurídico \cite{Reichert2015} já que não satisfazem os 3 requisito
 que visa garantir que a evidência não foi alterada, destruída ou manipulada por pessoas não autorizadas, é pouco abordada nas soluções existentes hoje.
 
 \section{Trabalhos relacionados}
+\label{sec:related}
 
 A literatura voltada a análise forense na nuvem foi analisada a luz dos seguintes conceitos pertinentes a este trabalho. 
 
@@ -572,18 +611,26 @@ A Tabela 1 mostra um comparativo das soluções estudadas.
 \end{tabular}
 \end{table}
 
-\section{Solução proposta}
+\section{Solução proposta: DÊ_UM_NOME}
+\ref{sec:proposal}
 
-\subsection{Objetivos}
+%\subsection{Objetivos}\marcos{Não inicie uma sub-seção sem que haja texto na seção pai... Pra que separar esse pedaço de texto de... nenhum outro texto?! ;-) }
 
-O presente proposta tem os seguintes objetivos:
+O presente proposta tem como objetivo principal coletar memória de uma máquina virtual de modo a conseguir: 
+(1) identificar os quatro tipos de ataque listados anteriormente; 
+(2) identificar sua fonte, mesmo se a máquina virtual não existir mais; 
+(3) descrever o sistema antes e depois do incidente.
+%
+Além disso, deve-se armazenar a memória coletada de modo a garantir sua integridade e confidencialidade, sem violar a jurisdição cabível ou a privacidade de outros usuários no mesmo servidor físico.
 
-\begin{itemize}
- \item Coletar memória de uma máquina virtual de modo a conseguir identificar os 4 tipos de ataque listados anteriormente.
- \item Coletar memória de uma máquina virtual de modo a conseguir identificar sua fonte mesmo se a máquina virtual não existir mais.
- \item Coletar memória suficiente para conseguir descrever o sistema antes e depois do incidente.
- \item Armazenar a memória coletada de modo a garantir sua integridade, confidencialidade, não violar jurisdição e não violar privacidade de outros usuários no host.\\
-\end{itemize}
+
+%\marcos{Evite bullets quando o texto for curto: você apenas perde espaço precioso, que pode faltar em conferências com limite de páginas... Bullets são bons, por exemplo, quando tiver que descrever conceitos específicos, caso em que a estrutura adotada é ``\item \textbf{Conceito}: descrição do conceito''. Se é simplesmente texto, melhor usar ``(numeral) texto;'', como fiz aqui. É questão de estilo, mas garanto que é um ``estilo que economiza espaço'', então sugiro adotar.}
+%\begin{itemize}
+ %\item Coletar memória de uma máquina virtual de modo a conseguir identificar os 4 tipos de ataque listados anteriormente.
+ %\item Coletar memória de uma máquina virtual de modo a conseguir identificar sua fonte mesmo se a máquina virtual não existir mais. \marcos{Muito copiar+colar... junte as duas frases em uma: ``Coletar memória de uma máquina virtual de modo a conseguir identificar (1) os quatro tipos de ataque listados anteriormente e (2) sua fonte, mesmo se a máquina virtual não existir mais''}
+ %\item Coletar memória suficiente para conseguir descrever o sistema antes e depois do incidente.
+ %\item armazenar a memória coletada de modo a garantir sua integridade, confidencialidade, não violar jurisdição e não violar privacidade de outros usuários no host.\\
+%\end{itemize}
 
 
 \subsection{Descrição}
@@ -746,7 +793,8 @@ A solução completa com todos os elementos descritos anteriormente pode ser vis
 % footnotes above bottom floats. This can be corrected via the \fnbelowfloat
 % command of the stfloats package.
 
-\section{Onde estamos e Trabalhos futuros}
+\section{Considerações finais}
+\label{sec:conclusion}
 
 Até o momento a presente proposta teve sucesso em relacionar o instantâneo de memória a sua origem através do hash de identificação da imagem, usou-se a versão 1.10 do 
 Docker para tal fim. A versão é importante pois até a 1.9.x, o identificador da imagem era apenas um randômico. Na versão 1.10 ele passou a ser um hash calculado a
