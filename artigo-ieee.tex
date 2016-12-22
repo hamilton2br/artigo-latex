@@ -433,11 +433,22 @@ Técnicas de virtualização, replicação de serviços e compartilhamento de re
 %
 Por outro lado, tais mecanismos também criam uma elevada volatilidade das máquinas virtuais.
 %
-As técnicas de virtualização mais usadas são a máquina virtual, onde recursos de disco, memória, processamento e rede de uma máquina hospedeira são alocados exclusivamente para a virtual e o container, que divide as funções do kernel do hospedeiro com outros containers.
+Duas características das nuvens computacionais, importantes a este trabalho, são o multi-jurisdição e o multi inquilino.
 %
-Para garantir robustez, as máquinas físicas hospedeiras que suportam as arquiteturas de nuvem são distribuídas geograficamente e as máquinas virtuais contida nelas podem estar geograficamente distântes do usuário, até em outros países.
+Multi-jurisdição é a característica em que recursos de uma mesma máquina estão em hospedeiros alocados em jurisdições ou países diferentes.
 %
-Como as máquinas virtuais e os containers são isolados uns dos outros é possível que o disco e memória de uma máquina hospedeira física seja compartilhado por máquinas de usuários diferentes sem o conhecimento dos mesmos
+Multi-inquilino é a característica em que o disco ou memória de um hospedeito físico contem dados de vários clientes.
+
+
+Do ponto de vista forense, muitos praticantes e pesquisadores concordam que aspectos de multi-inquilino e multi-jurisdição próprios de soluções em nuvem figuram entre as principais dificuldades para coleta de evidências \cite{Bash2015a}. 
+%
+Tal coleta precisa seguir regras para que as evidências resultantes tenham credibilidade e sejam usadas em um processo legal.
+%
+Para isto é necessário respeitar questões como privacidade, jurisdição, cadeia de custódia e ser capaz de reproduzir o processo de coleta.
+%
+Especificamente, o aspecto multi-inquilino dificulta a obtenção do hardware que executa as aplicações de interesse, pois, como ele é compartilhado por vários usuários, removê-los para análise poderia levar a uma violação de privacidade de usuários não relacionados à investigação. 
+%
+Já a característica distribuída da nuvem pode levar à alocação de informações relevante à investigação em vários países, dificultando a obtenção das mesmas em especial quando não existem acordos de cooperação entre as instituições e/ou países envolvidos \cite{Dykstra2012a}.
 
 
 Uma aplicação hospedada na nuvem, quando submetida a um pico de uso, pode criar clones das máquinas virtuais que a hospedam para atender à demanda. 
@@ -445,19 +456,10 @@ Uma aplicação hospedada na nuvem, quando submetida a um pico de uso, pode cria
 Passado esse pico, as máquinas que foram clonadas são desativadas, seus recursos liberados e o conjunto retorna ao tamanho inicial. 
 %
 Caso um dos clones seja alvo de ameaças que atuam diretamente na memória, sem deixar rastros nos discos da máquina afetada ou em arquivos de log, as evidências desse evento podem ser completamente perdidas.
-
-
-A coleta de evidências tem que seguir um conjunto de regras para que tenham credibilidade para serem usadas em um processo legal, para isto é necessário respeitar questões como privacidade, jurisdição, cadeia de custódia da evidência e ser capaz de reproduzir o processo de coleta.
 %
-Do ponto de vista forense, muitos praticantes e pesquisadores concordam que aspectos de multi-inquilino e multi-jurisdição próprios de soluções em nuvem figuram entre as principais dificuldades para coleta de evidências \cite{Bash2015a}. 
+Ataques de injeção de código são exemplos de ameaças que, usadas em uma das arquitetura de nuvem descrita anteriormente, não deixam rastros quando as máquinas são despejadas e seus recursos liberados.
 %
-Especificamente, o aspecto multi-inquilino dificulta a obtenção do hardware que executa as aplicações de interesse, pois, como ele é compartilhado por vários usuários, removê-los para análise poderia levar a uma violação de privacidade de usuários não relacionados à investigação. 
-%
-Já a característica distribuída da nuvem pode levar à alocação de informações relevante à investigação em vários países, dificultando a obtenção das mesmas em especial quando não existem acordos de cooperação entre as instituições e/ou países envolvidos \cite{Dykstra2012a}.
-%
-Ataques de injeção de código que atuam diretamente na memória e não deixam rastros no disco da máquina afetada são ameaças que, usadas em uma das arquitetura de nuvem descrita anteriormente, não deixam rastros quando as máquinas são despejadas e seus recursos liberados.
-%
-Para o escopo deste trabalho estamos considerando quatro tipos de ameaças \cite{Case2014}.
+Para o escopo deste trabalho estamos considerando quatro tipos de ameaças todas baseadas em injeção de código. \cite{Case2014}.
 
 \begin{itemize}
  \item \textbf{Injeção remota de bibliotecas} - Um processo malicioso força o processo alvo a carregar uma biblioteca em seu espaço de memória.
@@ -477,13 +479,13 @@ Para o escopo deste trabalho estamos considerando quatro tipos de ameaças \cite
  \item \textbf{Injeção de processo vazio} - Um processo malicioso dispara uma instância de um processo legítimo no estado suspenso, a área do executável é liberada e realocada com código malicioso.
 \end{itemize}
 
-As soluções presentes hoje abordam os problemas descritos anteriormente de forma isolada.
+As soluções encontradas hoje na literatura abordam os problemas descritos anteriormente de forma isolada.
 %
-Alguns propõem soluções para o os fatores multi-inquilino e multi-jurisdição, outros resolvem a coleta de evidência de máquinas virtuais e por fim temos as que descrevem processos de garantia de cadeia de custodia.
+Alguns propõem soluções para o os fatores multi-inquilino e multi-jurisdição, outros abordam apenas a coleta de evidência de máquinas virtuais e por fim temos as que descrevem apenas os processos de garantia de cadeia de custodia.
 %
 Apesar disto, dois aspectos que consideramos importante não são cobertos.
 %
-Não encontramos uma proposta de solução fim a fim que descreva como o dado é coletado, armazenado observando a cadeia de custódia como também não encontramos uma proposta para garantir que, caso a máquina seja desalocada, sejamos capazes de reproduzir o processo de coleta.
+Não encontramos uma proposta de solução fim a fim que descreva como o dado é coletado e armazenado observando a cadeia de custódia como também não encontramos uma proposta para garantir que, caso a máquina seja desalocada, sejamos capazes de reproduzir o processo de coleta.
 
 
 Este documento está organizado da seguinte forma.
