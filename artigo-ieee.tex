@@ -429,33 +429,42 @@ This research is focused on the reproductibility of the collection process and o
 
 
 \section{Introdução}
-Aumento do uso de soluções de virtualização e a implementação de arquiteturas em nuvem que escalam automaticamente \cite{Amazon2016} trouxe a questão da volatilidade das máquinas virtuais. 
+Técnicas de virtualização, replicação de serviços e compartilhamento de recursos entre múltiplos usuários proveem a nuvens computacionais uma elevada escalabilidade.
 %
-Uma aplicação hospedada na nuvem sob um pico de uso e configurada para tal, pode clonar máquinas e adicioná-las ao grupo para atender a demanda. 
+Por outro lado, tais mecanismos também criam uma elevada volatilidade das máquinas virtuais.
 %
-Passado este pico, as máquinas que foram clonadas são despejadas, seus recursos liberados e o conjunto retorna ao tamanho inicial. 
+As técnicas de virtualização mais usadas são a máquina virtual, onde recursos de disco, memória, processamento e rede de uma máquina hospedeira são alocados exclusivamente para a virtual e o container, que divide as funções do kernel do hospedeiro com outros containers.
 %
-Com as ameaças que atuam diretamente na memória sem deixar rastros no disco da máquina afetada, se estas forem usadas para algum evento ilícito, as evidências do acontecimento contidas nelas serão para sempre perdidas.\\
+Para garantir robustez, as máquinas físicas hospedeiras que suportam as arquiteturas de nuvem são distribuídas geograficamente e as máquinas virtuais contida nelas podem estar geograficamente distântes do usuário, até em outros países.
+%
+Como as máquinas virtuais e os containers são isolados uns dos outros é possível que o disco e memória de uma máquina hospedeira física seja compartilhado por máquinas de usuários diferentes sem o conhecimento dos mesmos
 
 
-Do ponto de vista forense, praticantes e pesquisadores concordam que aspectos de multi-inquilino e multi-jurisdição próprios soluções em nuvem figuram entre as principais dificuldades para coleta de evidência \cite{Bash2015a}. 
+Uma aplicação hospedada na nuvem, quando submetida a um pico de uso, pode criar clones das máquinas virtuais que a hospedam para atender à demanda. 
 %
-O aspecto multi-inquilino impede a remoção do hardware pois como ele é compartilhado com vários usuários, removê-los seria uma violação de privacidade de usuários não relacionados a investigação. 
+Passado esse pico, as máquinas que foram clonadas são desativadas, seus recursos liberados e o conjunto retorna ao tamanho inicial. 
 %
-Por fim a característica distribuída pode alocar informação relevante a investigação em vários países dificultando por razões jurídicas a obtenção da mesma \cite{Dykstra2012a} pois não é garantida a cooperação de instituições de outros países a investigações em curso além de suas fronteiras.
+Caso um dos clones seja alvo de ameaças que atuam diretamente na memória, sem deixar rastros nos discos da máquina afetada ou em arquivos de log, as evidências desse evento podem ser completamente perdidas.
+
+
+A coleta de evidências tem que seguir um conjunto de regras para que tenham credibilidade para serem usadas em um processo legal, para isto é necessário respeitar questões como privacidade, jurisdição, cadeia de custódia da evidência e ser capaz de reproduzir o processo de coleta.
 %
-Para o escopo deste trabalho estamos considerando 4 tipos de ataques realizados diretamente na memória e que não deixam rastros no disco da máquina, todos baseados em injeção de código \cite{Case2014}.\\
+Do ponto de vista forense, muitos praticantes e pesquisadores concordam que aspectos de multi-inquilino e multi-jurisdição próprios de soluções em nuvem figuram entre as principais dificuldades para coleta de evidências \cite{Bash2015a}. 
+%
+Especificamente, o aspecto multi-inquilino dificulta a obtenção do hardware que executa as aplicações de interesse, pois, como ele é compartilhado por vários usuários, removê-los para análise poderia levar a uma violação de privacidade de usuários não relacionados à investigação. 
+%
+Já a característica distribuída da nuvem pode levar à alocação de informações relevante à investigação em vários países, dificultando a obtenção das mesmas em especial quando não existem acordos de cooperação entre as instituições e/ou países envolvidos \cite{Dykstra2012a}.
+%
+Ataques de injeção de código que atuam diretamente na memória e não deixam rastros no disco da máquina afetada são ameaças que, usadas em uma das arquitetura de nuvem descrita anteriormente, não deixam rastros quando as máquinas são despejadas e seus recursos liberados.
+%
+Para o escopo deste trabalho estamos considerando quatro tipos de ameaças \cite{Case2014}.
 
 \begin{itemize}
  \item \textbf{Injeção remota de bibliotecas} - Um processo malicioso força o processo alvo a carregar uma biblioteca em seu espaço de memória.
  %
- Uma vez carregada seus símbolos podem ser resolvidos pelo processo de resolução do sistema operacional e tem os mesmos privilégios do executável em que ela foi injetada.
+ Como resultado o código da biblioteca carregada executa com os mesmos privilégios do executável em que ela foi injetada. 
  %
- A biblioteca existe fisicamente em alguma localização remota. 
- %
- Este processo de infecção é usado para o deployment de worms e rootkits. 
- %
- Uma estratégia usada é a de espalhar a biblioteca em vários processos de uma mesma máquina dificultando sua desinfecção \cite{Miller2004}.
+ Esta estratégia, comumente usada para instalar malwares, pode levar ao espalhamento de uma biblioteca maliciosa armazenada no sistema por vários processos de uma mesma máquina, dificultando sua remoção \cite{Miller2004}.
  %
  \item \textbf{Inline Hooking} - Um processo malicioso escreve código como uma sequência de bytes diretamente no espaço de memória de um processo alvo e força este último a executá-lo. 
  %
@@ -468,9 +477,29 @@ Para o escopo deste trabalho estamos considerando 4 tipos de ataques realizados 
  \item \textbf{Injeção de processo vazio} - Um processo malicioso dispara uma instância de um processo legítimo no estado suspenso, a área do executável é liberada e realocada com código malicioso.
 \end{itemize}
 
-Este documento está organizado da seguinte forma: Na seção II falamos brevemente sobre soluções em nuvem, na seção III falamos sobre a evolução da forense e os desafios que as soluções em nuvem trouxeram para a forense, na seção IV analisamos os trabalhos na área de forense de memória, na seção V descrevemos a solução proposta para resolver os problemas descritos em III, na VI expomos nossas conclusões e na VII elencamos os trabalhos futuros.
+As soluções presentes hoje abordam os problemas descritos anteriormente de forma isolada.
+%
+Alguns propõem soluções para o os fatores multi-inquilino e multi-jurisdição, outros resolvem a coleta de evidência de máquinas virtuais e por fim temos as que descrevem processos de garantia de cadeia de custodia.
+%
+Apesar disto, dois aspectos que consideramos importante não são cobertos.
+%
+Não encontramos uma proposta de solução fim a fim que descreva como o dado é coletado, armazenado observando a cadeia de custódia como também não encontramos uma proposta para garantir que, caso a máquina seja desalocada, sejamos capazes de reproduzir o processo de coleta.
+
+
+Este documento está organizado da seguinte forma.
+%
+A Seção \ref{sec:cloud} discute brevemente soluções em nuvem e suas características.
+%
+A Seção \ref{sec:forensics} apresenta a evolução da computação forense e os desafios que soluções em nuvem trouxeram para a área.
+%
+A Seção \ref{sec:related} analisa os trabalhos relacionados na área de forense de memória.
+%
+A Seção \ref{sec:proposal} detalha a solução proposta e avalia como ela trata os desafios descritos na Seção \ref{sec:forensics}.
+%
+Finalmente, a Seção \ref{sec:conclusion} apresenta algumas considerações finais e discute ideias para trabalhos futuros.
 
 \section{Adoção de arquiteturas em nuvem}
+\label{sec:cloud}
 
 A nuvem é um sistema em que recursos computacionais são oferecidos como serviço onde os usuários são cobrados pelo seu uso. A infra-estrutura é composta de máquinas físicas contendo cada uma um número variável de máquinas virtuais que implementam este serviço \cite{Sousa2009}. 
 %
@@ -485,6 +514,7 @@ Este conceito foi evoluindo e várias soluções de containerização sugiram co
 A adoção de container tem crescido muito. Segundo o "Container Market Adoption Survey 2016", das 235 empresas que responderam o survey, 76\% delas utilizam containers em ambiente de produção.
 
 \section{Forense de memória em nuvem}
+\label{sec:forensics}
 
 A evolução da forense digital pode ser descrita em 3 fases \cite{Charters2008}. 
 %
@@ -533,6 +563,7 @@ O ferramental forense disponível hoje está pouco adaptado a desafios trazidos 
 A cadeia de custódia é um processo de coleta e armazenamento de evidências que visa garantir que a evidência não foi alterada, destruída ou manipulada por pessoas não autorizadas, é pouco abordada nas soluções existentes hoje.
 
 \section{Trabalhos relacionados}
+\label{sec:related}
 
 A literatura voltada a análise forense na nuvem foi analisada a luz dos seguintes conceitos pertinentes a este trabalho. 
 
@@ -604,6 +635,7 @@ A Tabela 1 mostra um comparativo das soluções estudadas.
 \end{table}
 
 \section{Solução proposta}
+\ref{sec:proposal}
 
 \subsection{Objetivos}
 
@@ -791,7 +823,8 @@ A solução completa com todos os elementos descritos anteriormente pode ser vis
 % footnotes above bottom floats. This can be corrected via the \fnbelowfloat
 % command of the stfloats package.
 
-\section{Onde estamos e Trabalhos futuros}
+\section{Conclusoes Finais}
+\label{sec:conclusion}
 
 Até o momento a presente proposta teve sucesso em relacionar o instantâneo de memória a sua origem através do hash de identificação da imagem, usou-se a versão 1.10 do Docker para tal fim. 
 %
