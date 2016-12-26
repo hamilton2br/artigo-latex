@@ -334,6 +334,8 @@
 % (Unless specifically asked to do so by the journal or conference you plan
 % to submit to, of course. )
 
+\usepackage{xcolor}
+\newcommand{\marcos}[1]{{\color{blue}{MARCOS: #1}}}
 
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
@@ -425,8 +427,6 @@ This research is focused on the reproductibility of the collection process and o
 % For peerreview papers, this IEEEtran command inserts a page break and
 % creates the second title. It will be ignored for other modes.
 \IEEEpeerreviewmaketitle
-
-
 
 \section{Introdução}
 Técnicas de virtualização, replicação de serviços e compartilhamento de recursos entre múltiplos usuários proveem a nuvens computacionais uma elevada escalabilidade.
@@ -537,15 +537,9 @@ Em 2003 Carrier e Spafford propuseram o Integrated Digital Investigation Process
 Finalmente em 2004 Baryamureeba e Tushabe propuseram o Enhanced Digital Investigation Process Model, uma evolução de Carrier e Spafford. 
 %
 Importante notar que esses modelos foram todos propostos antes que a forma atual de computação em nuvem estivesse disponível. \cite{Grispos2012}
-
-Nesta fase surgiram as ferramentas que tinham por objetivo principal coletar evidências de forma que fossem legalmente aceitáveis, para isso alguns requisitos precisam ser atendidos:
-
-\begin{enumerate}
- \item O processo de coleta precisa ser repetível.
- \item O processo de coleta precisa ser confiável.
- \item O processo de coleta precisa preservar a evidência.
-\end{enumerate}
-
+%
+Nesta fase surgiram as ferramentas que tinham por objetivo principal coletar evidências de forma que fossem legalmente aceitáveis, para isso precisavam atender requisitos de reprodutibilidade, confiabilidade e preservação da evidência
+%
 A terceira fase se caracteriza pela migração do ferramental de soluções pontuais para soluções empresariais. 
 %
 Conceitos como coleta em tempo real e forense como serviço emergem nesta fase.
@@ -636,20 +630,15 @@ A Tabela 1 mostra um comparativo das soluções estudadas.
 \end{tabular}
 \end{table}
 
-\section{Solução proposta}
-\ref{sec:proposal}
+\section{Solução proposta: Coletor de memória de container}
+\label{sec:proposal}
 
-\subsection{Objetivos}
-
-O presente proposta tem os seguintes objetivos:
-
-\begin{itemize}
- \item Coletar memória de uma máquina virtual de modo a conseguir identificar os 4 tipos de ataque listados anteriormente.
- \item Coletar memória de uma máquina virtual de modo a conseguir identificar sua fonte mesmo se a máquina virtual não existir mais.
- \item Coletar memória suficiente para conseguir descrever o sistema antes e depois do incidente.
- \item Armazenar a memória coletada de modo a garantir sua integridade, confidencialidade, não violar jurisdição e não violar privacidade de outros usuários no host.\\
-\end{itemize}
-
+O presente proposta tem como objetivo principal coletar memória de uma máquina virtual de modo a conseguir: 
+(1) identificar os quatro tipos de ataque listados anteriormente; 
+(2) identificar sua fonte, mesmo se a máquina virtual não existir mais; 
+(3) descrever o sistema antes e depois do incidente.
+%
+Além disso, deve-se armazenar a memória coletada de modo a garantir sua integridade e confidencialidade, sem violar a jurisdição cabível ou a privacidade de outros usuários no mesmo servidor físico.
 
 \subsection{Descrição}
 
