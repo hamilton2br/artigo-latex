@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  12 JAN 2017 00:59
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  12 JAN 2017 01:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -452,6 +452,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 443--452
 []\OT1/ptm/m/n/10 Do ponto de vista forense, muitos prat-i-cantes e
  []
 
+
+Underfull \hbox (badness 1939) in paragraph at lines 443--452
+\OT1/ptm/m/n/10 a obten[][]ao do hard-ware que ex-e-cuta as aplica[][]oes de
+ []
+
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 465.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -471,7 +476,7 @@ Underfull \hbox (badness 2894) in paragraph at lines 566--566
 Underfull \vbox (badness 1688) has occurred while \output is active []
 
  [2]
-Underfull \vbox (badness 3158) has occurred while \output is active []
+Underfull \vbox (badness 1303) has occurred while \output is active []
 
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 617.
@@ -749,7 +754,7 @@ e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
 tmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on artigo-ieee.pdf (6 pages, 451170 bytes).
+Output written on artigo-ieee.pdf (6 pages, 451146 bytes).
 PDF statistics:
  53 PDF objects out of 1000 (max. 8388607)
  31 compressed objects within 1 object stream

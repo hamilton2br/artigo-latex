@@ -437,18 +437,18 @@ Duas características das nuvens computacionais, importantes a este trabalho, s�
 %
 Multi-jurisdição é a característica em que recursos de uma mesma máquina estão em hospedeiros alocados em jurisdições ou países diferentes do usuário.
 %
-Multi-inquilino é a característica em que o disco ou memória de um hospedeito físico contem dados de vários clientes.
+Multi-inquilino é a característica em que recursos de um hospedeito físico contem dados de vários usuários.
 
 
 Do ponto de vista forense, muitos praticantes e pesquisadores concordam que aspectos de multi-inquilino e multi-jurisdição próprios de soluções em nuvem figuram entre as principais dificuldades para coleta de evidências \cite{Bash2015a}. 
 %
 Tal coleta precisa seguir regras para que as evidências resultantes tenham credibilidade e sejam usadas em um processo legal.
 %
-Tais regras envolvem o respeito a privacidade, jurisdição, cadeia de custódia e ser capaz de reproduzir o processo de coleta.
+Tais regras envolvem o respeito a privacidade, jurisdição, cadeia de custódia e reprodutibilidade do processo de coleta.
 %
 Especificamente, o aspecto multi-inquilino dificulta a obtenção do hardware que executa as aplicações de interesse, pois, como ele é compartilhado por vários usuários, removê-los para análise poderia levar a uma violação de privacidade dos usuários não relacionados à investigação. 
 %
-Já a característica distribuída da nuvem pode levar à alocação de informações relevante à investigação em vários países, dificultando a obtenção das mesmas em especial quando não existem acordos de cooperação entre as instituições e/ou países envolvidos \cite{Dykstra2012a}.
+Já a característica distribuída da nuvem pode levar à alocação de informações relevantes à investigação em vários países, dificultando a obtenção das mesmas em especial quando não existem acordos de cooperação entre as instituições e/ou países envolvidos \cite{Dykstra2012a}.
 
 
 Uma aplicação hospedada na nuvem, quando submetida a um pico de uso, pode criar clones das máquinas virtuais que a hospedam para atender à demanda. 
@@ -483,9 +483,9 @@ As soluções encontradas hoje na literatura abordam os problemas descritos ante
 %
 Alguns propõem soluções para o os fatores multi-inquilino e multi-jurisdição, outros abordam apenas a coleta de evidência de máquinas virtuais e por fim temos as que descrevem apenas os processos de garantia de cadeia de custodia.
 %
-Apesar disto, dois aspectos que consideramos importante não são cobertos.
+Dois aspectos que consideramos importante não foram cobertos na literatura até o momento.
 %
-Não encontramos uma proposta de solução fim a fim que descreva como o dado é coletado e armazenado observando a cadeia de custódia como também não encontramos uma proposta para garantir que, caso a máquina seja desalocada, sejamos capazes de reproduzir o processo de coleta.
+Não encontramos uma proposta de solução fim a fim que descreva como o dado é coletado e armazenado observando a cadeia de custódia nem uma proposta para garantir que, caso a máquina seja desalocada, sejamos capazes de reproduzir o processo de coleta.
 
 
 Este documento está organizado da seguinte forma.
@@ -528,7 +528,7 @@ Foi nesta fase que acusados de crimes usando um computador eram soltos sob justi
 %
 Na segunda fase começa a estruturação da forense, surgem as primeiras políticas e processos de coleta, armazenamento, transporte e análise da evidência. 
 %
-O primeiro processo nesta fase foi proposto por Palmer G. em 2001 na primeira Digital Forensics Research Conference ficou conhecido como DIP, o próprio Palmer julgava o modelo incompleto. 
+O primeiro processo nesta fase foi proposto por Palmer G. em 2001 na primeira Digital Forensics Research Conference e ficou conhecido como DIP. 
 %
 Em 2002 Reith M. propôs o Abstract Digital Forensics Model que adicionava ao DIP estágios que faltava a este. 
 %
@@ -554,14 +554,14 @@ Neste cenário, o simples armazenamento do conteúdo da memória não satisfaz o
 %
 Tentou-se a abordagem de armazenar constantemente todas as alterações da memória para não perder informações importantes mas tal abordagem agravou o problema do crescente backlog de dados que os investigadores tem para analizar \cite{Quick2014} pois salva todo o histórico de alterações da memória da máquina virtual.
 
-O ferramental forense disponível hoje está pouco adaptado a desafios trazidos pela nuvem \cite{Dykstra2012a} pois focam em completude e poucos geram evidências aceitáveis em um processo jurídico \cite{Reichert2015} já que não satisfazem os 3 requisitos citados anteriormente. 
+O ferramental forense disponível hoje está pouco adaptado a desafios trazidos pela nuvem \cite{Dykstra2012a} pois focam em completude e poucos geram evidências aceitáveis em um processo jurídico \cite{Reichert2015} já que não satisfazem os três requisitos citados anteriormente. 
 %
 A cadeia de custódia é um processo de coleta e armazenamento de evidências que visa garantir que a evidência não foi alterada, destruída ou manipulada por pessoas não autorizadas, é pouco abordada nas soluções existentes hoje.
 
 \section{Trabalhos relacionados}
 \label{sec:related}
 
-A literatura voltada a análise forense na nuvem foi analisada a luz dos seguintes conceitos pertinentes a este trabalho. 
+Analisamos a literatura voltada a analise forense na nuvem foi analisada a luz dos seguintes conceitos pertinentes a este trabalho. 
 
 \subsection{Acessar e coletar as informações de memória das máquinas virtuais em nuvem.}
 
@@ -589,7 +589,7 @@ Analisando a proposta de \cite{Poisel2013}, parece ser possível cobrir o cenár
 
 A reprodutibilidade do processo de coleta é uma dos requisitos para garantir a cadeia de custódia da evidência e sua aceitação em um processo legal. Cadeia de custódia esta relacionado a credibilidade e ter dois analistas reproduzindo o processo de coleta de memória chegando ao mesmo conjunto de evidências tem um peso muito forte em termos de credibilidade. 
 %
-Neste tópico, nenhuma das propostas consegue reproduzir os mesmos resultados ao repetir o processo no cenário em que uma máquina virtual é despejada da nuvem e seus recursos liberados pois todas elas dependem da existência da máquina virtual para a repetição da coleta. 
+Neste tópico, nenhuma das propostas encontradas até o momento consegue reproduzir os mesmos resultados ao repetir o processo no cenário em que uma máquina virtual é despejada da nuvem e seus recursos liberados pois todas elas dependem da existência da máquina virtual para a repetição da coleta. 
 %
 Analisando a proposta de \cite{George2012} parece que é possível mas o autor não dá detalhes de implementação suficientes para termos certeza.
 
