@@ -105,6 +105,14 @@ ISBN 9781905824342.}
 ISSN 1098-6596.
 ISBN 9788578110796.}
 
+\bibitem[Mell e Grance 2011]{NIST2011}
+\abntrefinfo{Mell e Grance}{MELL; GRANCE}{2011}
+{MELL, P.; GRANCE, T. {The NIST definition of cloud computing}.
+\emph{NIST Special Publication}, v.~145, p.~7, 2011.
+ISSN 00845612.
+Dispon{\'\i}vel em:
+  \url{http://www.mendeley.com/research/the-nist-definition-about-cloud-computing/}.}
+
 \bibitem[Poisel, Malzer e Tjoa 2013]{Poisel2013}
 \abntrefinfo{Poisel, Malzer e Tjoa}{POISEL; MALZER; TJOA}{2013}
 {POISEL, R.; MALZER, E.; TJOA, S. {Evidence and cloud computing: The virtual

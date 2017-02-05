@@ -18,11 +18,11 @@
 \contentsline {subsection}{\numberline {3.2.3}N\IeC {\~a}o violar privacidade ou jurisdi\IeC {\c c}\IeC {\~a}o das partes n\IeC {\~a}o envolvidas na investiga\IeC {\c c}\IeC {\~a}o.}{8}{subsection.3.2.3}
 \contentsline {subsection}{\numberline {3.2.4}Garantir a cadeia de cust\IeC {\'o}dia da evid\IeC {\^e}ncia.}{9}{subsection.3.2.4}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Descri\IeC {\c c}\IeC {\~a}o da Solu\IeC {\c c}\IeC {\~a}o}}{11}{chapter.4}
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase {Descri\IeC {\c c}\IeC {\~a}o da Solu\IeC {\c c}\IeC {\~a}o}}{10}{chapter.4}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {An\IeC {\'a}lise dos Resultados}}{14}{chapter.5}
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {An\IeC {\'a}lise dos Resultados}}{13}{chapter.5}
 \vspace {\cftbeforechapterskip }
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{Refer\^encias}{15}{section*.6}
+\contentsline {chapter}{Refer\^encias}{14}{section*.6}
 \vspace {\cftbeforechapterskip }

@@ -410,7 +410,7 @@ A adoção de arquiteturas em nuvem aumenta a cada dia, e com ela também o núm
 %
 Infelizmente, devido à natureza volátil da nuvem, a tarefa de coletar evidências para análise forense nesse ambiente tem esbarrado em desafios práticos e legais.
 %
-Este trabalho analisa propostas na literatura voltadas a resolver os principais desafios existentes na coleta evidências na nuvem, discutindo suas limitações, e então propõe uma solução fim a fim \marcos{o que você quer dizer com fim-a-fim aqui? o termo não me parece muito ``auto-explicativo''... deve ter um melhor} visando suplantá-las. 
+Este trabalho analisa propostas na literatura voltadas a resolver os principais desafios existentes na coleta evidências na nuvem, discutindo suas limitações, e então propõe uma solução que cobre coleta, transporte e armazenamento da evidência visando suplantá-las. 
 %
 A solução aqui proposta tem como focos (1) a reprodutibilidade do processo de coleta e (2) a garantia de custódia da evidência; em suma, a abordagem proposta provê uma forma de correlacionar evidências e sua origem virtual, permitindo transportar e armazenar tais dados sem afetar sua credibilidade.
 
@@ -435,7 +435,7 @@ A solução aqui proposta tem como focos (1) a reprodutibilidade do processo de 
 
 %==== CONTEXTO GERAL: Nuvem e volatilidade de VMs ====
 %
-Técnicas de virtualização, replicação de serviços e compartilhamento de recursos entre múltiplos usuários (multi-inquilinato) proveem a nuvens computacionais uma elevada escalabilidade \marcos{REFERENCIA}.
+Técnicas de virtualização, replicação de serviços e compartilhamento de recursos entre múltiplos usuários (multi-inquilinato) proveem a nuvens computacionais uma elevada escalabilidade \cite{Morsy2010}.
 %
 Ao mesmo tempo, tais mecanismos também criam uma elevada volatilidade das máquinas virtuais que executam aplicações em nuvem.
 %
@@ -456,23 +456,23 @@ Especificamente, o aspecto multi-inquilino dificulta a obtenção do hardware qu
 %
 Já a característica distribuída da nuvem pode levar à alocação de informações relevante à investigação em vários países, dificultando a obtenção das mesmas em especial quando não existem acordos de cooperação entre as instituições e/ou países envolvidos \cite{Dykstra2012a}.
 %
-Combinadas, tais características da nuvem dificultam a coleta de evidências com a credibilidade necessária para que elas possam ser usadas em processos legais,  o que costuma exigir o respeito à privacidade, à jurisdição e à cadeia de custódia, bem como a reprodutibilidade do processo de coleta \marcos{REFERENCIA SERIA MUITO BEM VINDA}.
+Combinadas, tais características da nuvem dificultam a coleta de evidências com a credibilidade necessária para que elas possam ser usadas em processos legais,  o que costuma exigir o respeito à privacidade, à jurisdição e à cadeia de custódia, bem como a reprodutibilidade do processo de coleta \cite{Rahman2015}.
 
 
 
 %==== O QUE EXISTE E PORQUE NÃO É SUFICIENTE: ??? ====
 %
-Embora existam soluções na literatura que abordam \marcos{O QUE? SEJA PRECISO! Talvez ``forense computacional em ambientes de nuvem''?}, a grande maioria o faz de forma isolada.
+Embora existam soluções na literatura que abordam a coleta de informações de nuvem com o propósito de análise forense, a grande maioria aborda a coleta, o transporte e o armazenamento o faz de forma isolada.
 %
-Por exemplo, trabalhos como \marcos{ME DÊ UMA REFERÊNCIA DE EXEMPLO!} e \marcos{ME DÊ OUTRO EXEMPLO!} tratam de fatores como multi-inquilinato e multi-jurisdição, discutindo \marcos{O QUE ELE DISCUTE?}.
+Por exemplo, trabalhos como \cite{Dykstra2013} e \cite{Reichert2015} tratam de fatores como multi-inquilinato e multi-jurisdição, discutindo formas de coleta e preservação da evidência fora da núvem.
 %
-Já estudos como \marcos{ME DÊ EXEMPLOS!} abordam apenas a coleta de evidência de máquinas virtuais, enquanto trabalhos como \marcos{ME DÊ EXEMPLOS!} tem como foco basicamente a descrição de processos de garantia de cadeia de custódia em ambientes de nuvem.
+Já estudos como \cite{George2012} focam na forense ao vivo para a coleta de evidência das máquinas virtuais, enquanto trabalhos como \cite{Sang2013} aborda a questão de processos de garantia de cadeia de custódia em ambientes de nuvem para transporte da evidência.
 %
 %abordam os problemas descritos anteriormente \marcos{QUAIS, CARA PÁLIDA? VOCÊ LISTOU 4 TIPOS DE ATAQUE E DEIXOU UM PROBLEMA GERAL: COMO O LEITOR VAI SABER QUAIS EXATAMENTE SÃO ABORDADOS? Seja mais preciso: clareza acima de tudo!!!} de forma isolada.
 %
 %Alguns propõem soluções para o os fatores multi-inquilino e multi-jurisdição, outros abordam apenas a coleta de evidência de máquinas virtuais e por fim temos as que descrevem apenas os processos de garantia de cadeia de custodia. \marcos{Er... você não me deu sequer um exemplo, então eu sou obrigado a acreditar em você sem que você apresente argumentos... lembre-se que revisores são seres amargos e cruéis, que não acreditam em nada, então melhor não arriscar e dar exemplos claros.}
 %
-Por outro lado, não foram identificados na literatura propostas de solução \marcos{``fim a fim'' (DE NOVO, ESSE TERMO NÃO ME SOA CORRETO... DEVE TER UM MELHOR...)} que (1) descrevam como o dado é coletado e armazenado observando a cadeia de custódia, e (2) permitam garantir que, mesmo que uma máquina virtual seja desalocada, haja condições de se reproduzir o processo de coleta de evidências.
+Por outro lado, não foram identificados na literatura propostas de solução que (1) descrevam como o dado é coletado e armazenado observando a cadeia de custódia, e (2) permitam garantir que, mesmo que uma máquina virtual seja desalocada, haja condições de se reproduzir o processo de coleta de evidências.
 
 
 
@@ -482,12 +482,12 @@ O presente trabalho visa suplantar tais limitações, por meio de uma proposta q
 %
 Em suma, a abordagem aqui descrita provê uma forma de correlacionar evidências e sua origem virtual, permitindo transportar e armazenar tais dados de modo a preservar sua credibilidade.
 %
-\marcos{Se a solução é voltada especificamente a containeres, deixe isso claro aqui e justifique dizendo que esta é uma tecnologia cujo uso em nuvem encontra-se em crescimento, dando referência (não precisa se alongar, dizendo números e blá, mas apenas dar a referência: o leitor se vira para ler a ref se duvidar de você). Se não for específica para containeres (embora eventualmente seja mais fácil de implementar para eles), então diga isso. Enfim, caso containeres sejam importantes, mencione-os aqui para que o leitor não tenha um ``susto'' quando eles aparecerem mais tarde.}
-%
-A solução tem como algo específico ataques de injeção de código \marcos{REFERENCIA PARA ATAQUES DE INJECAO DE CÓDIGO}, pois estes, quando usados contra uma arquitetura em nuvem, não deixam rastros quando máquinas virtuais são desativadas e seus recursos liberados \marcos{REFERENCIA DIZENDO QUE ATAQUES DE INJECAO DE CÓDIGO NÃO DEIXAM RASTROS NA MEMÓRIA (talvez \cite{Case2014}?)}.
+Esta proposta supõe que o sistema sendo monitorado é executado dentro de um container em nuvem. O foco da solução em containers se justifica pelo crescimento da adoção de containerização nos últimos anos e a previsão de que este será o mais usado modelo de implementação \cite{Piraghaj2016}.
+%g
+A solução tem como algo específico ataques de injeção de código \cite{Case2014}, pois estes, quando usados contra uma arquitetura em nuvem, não deixam rastros quando máquinas virtuais são desativadas e seus recursos liberados \cite{Vomel2013}, \cite{Case2014}.
 %
 Em particular, têm especial interesse quatro tipos específicos dessa família de ameaças \cite{Case2014}:
-\marcos{TODO: talvez seja prematuro listar aqui os tipos de ataques (pode valer a pena mover para seção posterior). Por enquanto, vamos deixar aqui mesmo.}
+\marcos{TODO: talvez seja prematuro listar aqui os tipos de ataques (pode valer a pena mover para seção posterior). Por enquanto, vamos deixar aqui mesmo.- HAMILTON: OK}
 
 \begin{itemize}
  \item \textbf{Injeção remota de bibliotecas}: Um processo malicioso força o processo alvo a carregar uma biblioteca em seu espaço de memória.
@@ -526,24 +526,17 @@ Finalmente, a Seção \ref{sec:conclusion} apresenta algumas considerações fin
 
 \marcos{Discutir a importância da nuvem faz mais sentido na Introdução, no ``Contexto Geral''. Se o leitor chegou até aqui, ou ele está convencido da importância da nuvem (=seu contexto geral) e não é necessário lembrá-lo, ou ele parou de ler lá atrás, por não ter gostado do seu contexto geral... Informações sobre modelos de nuvem (deixando claro seu foco em IaaS) e containeres são interessantes de incluir no documento, mas não acho que condizem com o título da seção... SUGESTÃO: Renomeie a seção para ``Fundamentação Teórica'' e explique nela, com sub-seções sucintas, os principais conceitos que interessam para o seu trabalho. NOTA: Isso normalmente é a última seção que se escreve, pois só no final você vai saber todos os conceitos necessários para o seu documento}
 
-Nuvens são sistema em que recursos computacionais são oferecidos como serviço onde os usuários são cobrados pelo seu uso \marcos{REFERÊNCIA. NOTA: tem um monte de gente que já definiu nuvem (e.g., NIST), então talvez valha a pena pegar a definição oficial de algum deles, não?}. 
+Nuvem computacional é um modelo de infra estrutura onde recursos compartilhados configuráveis acessíveis via rede são provisionados e descartados com esforço mínimo de gerenciamento ou recurso de um provedor de serviço. \cite{NIST2011}
 %A infra-estrutura é composta de máquinas físicas contendo cada uma um número variável de máquinas virtuais que implementam este serviço \cite{Sousa2009}. 
 %
-Há três modelos principais de comercialização de uso da nuvem \marcos{REFERÊNCIA}: plataforma como serviço (PaaS), software como serviço(SaaS) e, o tipo mais pertinente para este trabalho, Infraestrutura como serviço (IaaS). \marcos{Se vai mencionar, melhor explicar brevemente cada um.}
-%
-O uso de soluções baseadas em nuvem tem crescido muito ultimamente, sendo que de Janeiro de 2016 a Maio de 2016 mais de 1000 bases de dados foram migradas para a AWS. \cite{Amazon2016}. \marcos{OK para motivação na Introdução (embora não me pareça estritamente necessário), mas aqui acho que esses números não agregam informação} 
+Há três modelos principais de comercialização de uso da nuvem \cite{NIST2011}: plataforma como serviço (PaaS) onde se provê infra estrutura para que o cliente instale seu software, software como serviço(SaaS) onde se provê o software que será usado pelo cliente e, o tipo mais pertinente para este trabalho, Infraestrutura como serviço (IaaS) ondê se provê recursos computacionais fundamentais.
 
 
-Containers Linux (LXC), uma forma mais recente de arquitetura em nuvem \marcos{LXC $\neq$ ``arquitetura em nuvem''. É uma tecnologia para auxiliar no gerenciamento de containeres para isolamento de recursos. A frase está estranha... Aliás, acho que o termo correto em português é ``contêiner'', não?} introduzida em 2008, proveram uma série de ferramentas para tirar vantagens das funcionalidades de cgroups e namespacing do kernel do Linux. 
+Containers Linux (LXC), uma tecnologia para auxiliar no gerenciamento de containeres para isolamento de recursos \marcos{Aliás, acho que o termo correto em português é ``contêiner'', não? - HAMILTON: o dicionário tem as 2 grafias} introduzida em 2008, proveram uma série de ferramentas para tirar vantagens das funcionalidades de cgroups e namespacing do kernel do Linux. 
 %
-Este conceito foi evoluindo \marcos{Esse seu ``foi evoluindo'' soa um tanto informal} e várias soluções de containerização surgiram como IMCTFY \marcos{lmctfy (com L, não I)?} \marcos{REFERÊNCIA}, Rocket \marcos{REFERÊNCIA} e Docker \marcos{REFERÊNCIA}. 
+Este conceito tem três implementações, LMCTFY \marcos{REFERÊNCIA}, Rocket \marcos{REFERÊNCIA} e Docker \marcos{REFERÊNCIA}. 
 %
-Container é uma forma de isolamento entre processos em que partilham o mesmo kernel e tem sido usado para desenvolver serviços baseados em virtualização. \marcos{Não faz sentido explicar o que é um container ANTES de começar a discutir tecnologias que usam o conceito? Enfim, é estranho eu começar a falar sobre crepeiras sem antes explicar o que é um crepe, não...?}
-%
-A adoção de containers \marcos{em que contexto? para construção de sistemas em nuvem?} tem crescido muito \marcos{onde? mundialmente?}. Segundo o ``Container Market Adoption Survey 2016'', realizado \marcos{POR QUEM?} com 235 empresas \marcos{de que tipo? tecnologia? provedores de nuvem?}, 76\% dos respondentes utilizam containers \marcos{pra que? para isolar recursos?} em seus ambientes de produção \marcos{multi-inquilino?}.
-
-\marcos{Dica: um bom escritor técnico se pergunta a cada frase/trecho ``ao falar isso, o que o leitor pode se perguntar''; as frases/trechos seguintes são
-então basicamente respostas às potenciais perguntas que a frase/trecho original enseja, adicionando clareza ao texto. Faça esse exercício: vai melhorar bastante as frases...}
+A adoção de containers para a implantação de software tem crescido muito para nas aplicações baseadas em nuvem. Segundo o ``Container Market Adoption Survey 2016'', realizado pelas empresas DevOps.com (https://devops.com/) e ClusterHQ (https://clusterhq.com) com 235 empresas que tem desenvolvimento de software suportando ou como sua atividade fim, 76\% dos respondentes utilizam containers para melhorar a eficiência do processo de desenvolvimento e em suas arquiteturas de micro serviços em nuvem.
 
 \section{Forense de memória em nuvem}
 \label{sec:forensics}
@@ -1029,6 +1022,36 @@ ISSN 17422876.}
 \bibitem{Fewer2008}
 {Fewer, Stephen {Reflective DLL Injection}.
 \emph{harmonysecurity.com}, 2008. }
+
+\bibitem{Morsy2010}
+{MORSY, A.~M.; GRUNDY, J.; MULLER, I. An Analysis of the Cloud Computing
+  Security Problem}.
+\emph{APSEC Cloud Workshop. Sydney, Australia: [s.n.], 2010.}
+
+\bibitem{Rahman2015}
+{RAHMAN, S.; KHAN, M. N.~A. {Review of live forensic analysis techniques}.
+\emph{International Journal of Hybrid Information Technology}, v.~8, n.~2, p.
+  379--388, 2015.}
+  
+\bibitem{Piraghaj2016}
+{PIRAGHAJ, S.~F. et al. {A Framework and Algorithm for Energy Efficient
+  Container Consolidation in Cloud Data Centers}.
+\emph{Proceedings - 2015 IEEE International Conference on Data Science and Data
+  Intensive Systems; 8th IEEE International Conference Cyber, Physical and
+  Social Computing; 11th IEEE International Conference on Green Computing and
+  Communications and 8th IEEE International Conference on Internet of Things,
+  DSDIS/CPSCom/GreenCom/iThings 2015}, p. 368--375, 2016.}
+  
+\bibitem{Vomel2013}
+{V{\"{O}}MEL, S.; ST{\"{U}}TTGEN, J. {An evaluation platform for forensic
+  memory acquisition software}. In:  \emph{The Digital Forensic Research
+  Conference}. Monterey, Ca: [s.n.], 2013. v.~10, n. SUPPL., p. S30--S40.
+ISBN 1742-2876.
+ISSN 17422876.}
+
+\bibitem{NIST2011}
+{MELL, P.; GRANCE, T. {The NIST definition of cloud computing}.
+\emph{NIST Special Publication}, v.~145, p.~7, 2011. ISSN 00845612.}
 
 \end{thebibliography}
 
