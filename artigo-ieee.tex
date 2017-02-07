@@ -524,7 +524,7 @@ Finalmente, a Seção \ref{sec:conclusion} apresenta algumas considerações fin
 \section{Adoção de arquiteturas em nuvem}
 \label{sec:cloud}
 
-\marcos{Discutir a importância da nuvem faz mais sentido na Introdução, no ``Contexto Geral''. Se o leitor chegou até aqui, ou ele está convencido da importância da nuvem (=seu contexto geral) e não é necessário lembrá-lo, ou ele parou de ler lá atrás, por não ter gostado do seu contexto geral... Informações sobre modelos de nuvem (deixando claro seu foco em IaaS) e containeres são interessantes de incluir no documento, mas não acho que condizem com o título da seção... SUGESTÃO: Renomeie a seção para ``Fundamentação Teórica'' e explique nela, com sub-seções sucintas, os principais conceitos que interessam para o seu trabalho. NOTA: Isso normalmente é a última seção que se escreve, pois só no final você vai saber todos os conceitos necessários para o seu documento}
+\marcos{Discutir a importância da nuvem faz mais sentido na Introdução, no ``Contexto Geral''. Se o leitor chegou até aqui, ou ele está convencido da importância da nuvem (=seu contexto geral) e não é necessário lembrá-lo, ou ele parou de ler lá atrás, por não ter gostado do seu contexto geral... Informações sobre modelos de nuvem (deixando claro seu foco em IaaS) e containeres são interessantes de incluir no documento, mas não acho que condizem com o título da seção... SUGESTÃO: Renomeie a seção para ``Fundamentação Teórica'' e explique nela, com sub-seções sucintas, os principais conceitos que interessam para o seu trabalho. NOTA: Isso normalmente é a última seção que se escreve, pois só no final você vai saber todos os conceitos necessários para o seu documento - HAMILTON: deixando por último}
 
 Nuvem computacional é um modelo de infra estrutura onde recursos compartilhados configuráveis acessíveis via rede são provisionados e descartados com esforço mínimo de gerenciamento ou recurso de um provedor de serviço. \cite{NIST2011}
 %A infra-estrutura é composta de máquinas físicas contendo cada uma um número variável de máquinas virtuais que implementam este serviço \cite{Sousa2009}. 
@@ -534,59 +534,12 @@ Há três modelos principais de comercialização de uso da nuvem \cite{NIST2011
 
 Containers Linux (LXC), uma tecnologia para auxiliar no gerenciamento de containeres para isolamento de recursos \marcos{Aliás, acho que o termo correto em português é ``contêiner'', não? - HAMILTON: o dicionário tem as 2 grafias} introduzida em 2008, proveram uma série de ferramentas para tirar vantagens das funcionalidades de cgroups e namespacing do kernel do Linux. 
 %
-Este conceito tem três implementações, LMCTFY \marcos{REFERÊNCIA}, Rocket \marcos{REFERÊNCIA} e Docker \marcos{REFERÊNCIA}. 
-%
 A adoção de containers para a implantação de software tem crescido muito para nas aplicações baseadas em nuvem. Segundo o ``Container Market Adoption Survey 2016'', realizado pelas empresas DevOps.com (https://devops.com/) e ClusterHQ (https://clusterhq.com) com 235 empresas que tem desenvolvimento de software suportando ou como sua atividade fim, 76\% dos respondentes utilizam containers para melhorar a eficiência do processo de desenvolvimento e em suas arquiteturas de micro serviços em nuvem.
-
-\section{Forense de memória em nuvem}
-\label{sec:forensics}
-
-\marcos{Hum... o que você de fato uso desses conceitos no seu trabalho? Pergunto porque está muito com cara de ``aula de história'', e você pode imaginar o quanto um revisor da área de exatas gostava de aula de história no colégio... Na boa, vai direto aos pontos que interessam, deixando esse blá-blá-blá para outro lugar (pode incluir na dissertação, que não tem limite de páginas, mas não em um artigo)}
-A evolução da forense digital pode ser descrita em 3 fases \cite{Charters2008}. 
-%
-A primeira ad-hoc se caracteriza pela falta de estrutura, processos, ferramental e objetivos. 
-%
-Nesta fase, evidências apresentadas em processos legais eram descartadas com base em erros procedurais e falta de garantias de acurácia ou cadeia de custódia. 
-%
-Foi nesta fase que acusados de crimes usando um computador eram soltos sob justificativa de terem tido sua privacidade violada pelos investigadores. 
-%
-Na segunda fase começa a estruturação da forense, surgem as primeiras políticas e processos de coleta, armazenamento, transporte e análise da evidência. 
-%
-O primeiro processo nesta fase foi proposto por Palmer G. em 2001 na primeira Digital Forensics Research Conference e ficou conhecido como DIP \marcos{É uma sigla? Se for, dê o nome completo}. 
-%
-Em 2002 Reith M. propôs o Abstract Digital Forensics Model que adicionava ao DIP estágios que faltava a este. 
-%
-Em 2003 Carrier e Spafford propuseram o Integrated Digital Investigation Process baseado nas técnicas e teorias da forense física. 
-%
-Finalmente em 2004 Baryamureeba e Tushabe propuseram o Enhanced Digital Investigation Process Model, uma evolução de Carrier e Spafford. 
-%
-Importante notar que esses modelos foram todos propostos antes que a forma atual de computação em nuvem estivesse disponível. \cite{Grispos2012}
-%
-Nesta fase surgiram as ferramentas que tinham por objetivo principal coletar evidências de forma que fossem legalmente aceitáveis, para isso precisavam atender requisitos de reprodutibilidade, confiabilidade e preservação da evidência
-%
-A terceira fase se caracteriza pela migração do ferramental de soluções pontuais para soluções empresariais. 
-%
-Conceitos como coleta em tempo real e forense como serviço emergem nesta fase.
-
-\marcos{Mas de novo? Esse texto traz alguma coisa de novidade com relação à introdução?}
-A utilização crescente de virtualização, ferramentas online e hospedagem em nuvem \cite{Amazon2016}, está criando dificuldades para a coleta de informações, análise e utilização em processos legais \cite{Sharma2012}. 
-%
-A funcionalidade de elasticidade de carga oferecida pelos provedores de nuvem por meio da qual infraestrutura pode ser alocada e desalocada dinamicamente, trouxe o problema da volatilidade dos dados nas máquinas virtuais. 
-%
-Com algumas ameaças que não deixam evidências em disco \cite{Rafique2013}, a memória de uma máquina virtual despejada de um pool e seus recursos liberados serão para sempre perdidos e com ela evidências importantes. 
-%
-Neste cenário, o simples armazenamento do conteúdo da memória não satisfaz o requisito de reprodutibilidade do processo pois a máquina virtual não existe mais. 
-%
-Tentou-se a abordagem de armazenar constantemente todas as alterações da memória para não perder informações importantes mas tal abordagem agravou o problema do crescente backlog de dados que os investigadores tem para analizar \cite{Quick2014} pois salva todo o histórico de alterações da memória da máquina virtual.
-
-O ferramental forense disponível hoje está pouco adaptado a desafios trazidos pela nuvem \cite{Dykstra2012a} pois focam em completude e poucos geram evidências aceitáveis em um processo jurídico \cite{Reichert2015} já que não satisfazem os três requisitos citados anteriormente. 
-%
-A cadeia de custódia é um processo de coleta e armazenamento de evidências que visa garantir que a evidência não foi alterada, destruída ou manipulada por pessoas não autorizadas, é pouco abordada nas soluções existentes hoje.
 
 \section{Trabalhos relacionados}
 \label{sec:related}
 
-Analisamos a literatura voltada a analise forense na nuvem foi analisada a luz dos seguintes conceitos pertinentes a este trabalho. 
+A literatura voltada a analise forense na nuvem foi analisada a luz dos seguintes conceitos. 
 
 \subsection{Acessar e coletar as informações de memória das máquinas virtuais em nuvem}
 
