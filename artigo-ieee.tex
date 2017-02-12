@@ -326,7 +326,7 @@
 %*** Para ajustar a largura das colunas e para multilinhas nas células ***
 \usepackage{array}
 \newcolumntype{L}{>{\centering\arraybackslash}m{0,75cm}}
-\newcolumntype{M}{>{\centering\arraybackslash}m{3cm}}
+\newcolumntype{M}{>{\RaggedLeft\arraybackslash}m{3cm}}
 
 % *** Do not adjust lengths that control margins, column widths, etc. ***
 % *** Do not use packages that alter fonts (such as pslatex).         ***
@@ -482,7 +482,7 @@ O presente trabalho visa suplantar tais limitações, por meio de uma proposta q
 %
 Em suma, a abordagem aqui descrita provê uma forma de correlacionar evidências e sua origem virtual, permitindo transportar e armazenar tais dados de modo a preservar sua credibilidade.
 %
-Esta proposta supõe que o sistema sendo monitorado é executado dentro de um container em nuvem. O foco da solução em containers se justifica pelo crescimento da adoção de containerização nos últimos anos e a previsão de que este será o mais usado modelo de implementação \cite{Piraghaj2016}.
+Esta proposta supõe que o sistema sendo monitorado é executado dentro de um contêiner em nuvem. O foco da solução em contêiner se justifica pelo crescimento da adoção de conteinerização nos últimos anos e a previsão de que este será o mais usado modelo de implementação \cite{Piraghaj2016}.
 %g
 A solução tem como algo específico ataques de injeção de código \cite{Case2014}, pois estes, quando usados contra uma arquitetura em nuvem, não deixam rastros quando máquinas virtuais são desativadas e seus recursos liberados \cite{Vomel2013}, \cite{Case2014}.
 %
@@ -524,7 +524,7 @@ Finalmente, a Seção \ref{sec:conclusion} apresenta algumas considerações fin
 \section{Adoção de arquiteturas em nuvem}
 \label{sec:cloud}
 
-\marcos{Discutir a importância da nuvem faz mais sentido na Introdução, no ``Contexto Geral''. Se o leitor chegou até aqui, ou ele está convencido da importância da nuvem (=seu contexto geral) e não é necessário lembrá-lo, ou ele parou de ler lá atrás, por não ter gostado do seu contexto geral... Informações sobre modelos de nuvem (deixando claro seu foco em IaaS) e containeres são interessantes de incluir no documento, mas não acho que condizem com o título da seção... SUGESTÃO: Renomeie a seção para ``Fundamentação Teórica'' e explique nela, com sub-seções sucintas, os principais conceitos que interessam para o seu trabalho. NOTA: Isso normalmente é a última seção que se escreve, pois só no final você vai saber todos os conceitos necessários para o seu documento - HAMILTON: deixando por último}
+\marcos{Discutir a importância da nuvem faz mais sentido na Introdução, no ``Contexto Geral''. Se o leitor chegou até aqui, ou ele está convencido da importância da nuvem (=seu contexto geral) e não é necessário lembrá-lo, ou ele parou de ler lá atrás, por não ter gostado do seu contexto geral... Informações sobre modelos de nuvem (deixando claro seu foco em IaaS) e contêineres são interessantes de incluir no documento, mas não acho que condizem com o título da seção... SUGESTÃO: Renomeie a seção para ``Fundamentação Teórica'' e explique nela, com sub-seções sucintas, os principais conceitos que interessam para o seu trabalho. NOTA: Isso normalmente é a última seção que se escreve, pois só no final você vai saber todos os conceitos necessários para o seu documento - HAMILTON: deixando por último}
 
 Nuvem computacional é um modelo de infra estrutura onde recursos compartilhados configuráveis acessíveis via rede são provisionados e descartados com esforço mínimo de gerenciamento ou recurso de um provedor de serviço. \cite{NIST2011}
 %A infra-estrutura é composta de máquinas físicas contendo cada uma um número variável de máquinas virtuais que implementam este serviço \cite{Sousa2009}. 
@@ -532,9 +532,9 @@ Nuvem computacional é um modelo de infra estrutura onde recursos compartilhados
 Há três modelos principais de comercialização de uso da nuvem \cite{NIST2011}: plataforma como serviço (PaaS) onde se provê infra estrutura para que o cliente instale seu software, software como serviço(SaaS) onde se provê o software que será usado pelo cliente e, o tipo mais pertinente para este trabalho, Infraestrutura como serviço (IaaS) ondê se provê recursos computacionais fundamentais.
 
 
-Containers Linux (LXC), uma tecnologia para auxiliar no gerenciamento de containeres para isolamento de recursos \marcos{Aliás, acho que o termo correto em português é ``contêiner'', não? - HAMILTON: o dicionário tem as 2 grafias} introduzida em 2008, proveram uma série de ferramentas para tirar vantagens das funcionalidades de cgroups e namespacing do kernel do Linux. 
+Contêiners Linux (LXC), uma tecnologia para auxiliar no gerenciamento de containeres para isolamento de recursos \marcos{Aliás, acho que o termo correto em português é ``contêiner'', não? - HAMILTON: o dicionário tem as 2 grafias} introduzida em 2008, proveram uma série de ferramentas para tirar vantagens das funcionalidades de cgroups e namespacing do kernel do Linux. 
 %
-A adoção de containers para a implantação de software tem crescido muito para nas aplicações baseadas em nuvem. Segundo o ``Container Market Adoption Survey 2016'', realizado pelas empresas DevOps.com (https://devops.com/) e ClusterHQ (https://clusterhq.com) com 235 empresas que tem desenvolvimento de software suportando ou como sua atividade fim, 76\% dos respondentes utilizam containers para melhorar a eficiência do processo de desenvolvimento e em suas arquiteturas de micro serviços em nuvem.
+A adoção de contêiners para a implantação de software tem crescido muito para nas aplicações baseadas em nuvem. Segundo o ``Container Market Adoption Survey 2016'', realizado pelas empresas DevOps.com (https://devops.com/) e ClusterHQ (https://clusterhq.com) com 235 empresas que tem desenvolvimento de software suportando ou como sua atividade fim, 76\% dos respondentes utilizam contêiners para melhorar a eficiência do processo de desenvolvimento e em suas arquiteturas de micro serviços em nuvem.
 
 \section{Trabalhos relacionados}
 \label{sec:related}
@@ -625,27 +625,27 @@ Nas soluções com infra-estrutura física a máquina é persistente, associar u
 %
 Com as soluções de infra virtual, em especial as auto-escaláveis, a máquina deixou de ser persistente e tornou-se volátil. 
 %
-Para resolver o problema da identificação da fonte precisamos encontrar outra forma, persistente, para identificar a fonte da evidência coletada, para isto usaremos containeres. 
+Para resolver o problema da identificação da fonte precisamos encontrar outra forma, persistente, para identificar a fonte da evidência coletada, para isto usaremos contêineres. 
 %
-Embora o container seja uma peça de software e por consequência também é volátil, a imagem compilada e sua execução na forma de container estão atrelados a um hash que os identificam. 
+Embora o contêiner seja uma peça de software e por consequência também é volátil, a imagem compilada e sua execução na forma de contêiner estão atrelados a um hash que os identificam. 
 %
-A pilha de um container pode ser visto na Figura 1.\\
+A pilha de um contêiner pode ser visto na Figura 1.\\
 
 \begin{figure}[h]
-\caption{Pilha monstrando funcionamento de container}
+\caption{Pilha monstrando funcionamento de contêiner}
 \includegraphics[scale=0.5]{docker.jpg}
 \centering
 \label{fig:instantaneo}
 \end{figure}
 
-A solução proposta por este trabalho, para resolver o problema de associação da evidência a sua origem de modo que o processo seja reprodutível, pausa a execução do container e coleta um instantâneo da memória dos processos sob sua execução. 
+A solução proposta por este trabalho, para resolver o problema de associação da evidência a sua origem de modo que o processo seja reprodutível, pausa a execução do contêiner e coleta um instantâneo da memória dos processos sob sua execução. 
 %
-Este processo é executado em intervalos de tempo conhecidos de modo a se ter uma evolução da história da memória dos processos. Em um sistema derivado do linux (Ubuntu 14.04) isso foi atingido via cópia do diretório ``\\proc'' relacionado aos processos sob o ``cgroup'' associado ao container e salvo em disco. 
+Este processo é executado em intervalos de tempo conhecidos de modo a se ter uma evolução da história da memória dos processos. Em um sistema derivado do linux (Ubuntu 14.04) isso foi atingido via cópia do diretório ``\\proc'' relacionado aos processos sob o ``cgroup'' associado ao contêiner e salvo em disco. 
 %
 Para relacionar o instantâneo a sua origem, assinamos o arquivo em que salvamos o instantâneo da memória com o hash da imagem como mostrado na Figura 2.\\
 
 \begin{figure}[h!]
-\caption{Evidência salva - hash do container e imagem}
+\caption{Evidência salva - hash do contêiner e imagem}
 \includegraphics[scale=0.2]{snapshot.jpg}
 \centering
 \label{fig:instantaneo}
@@ -686,11 +686,11 @@ A implementação da solução foi realizada em um notebook intel I5 de 2.30Mhz 
 %
 Nele, usando Oracle Virtual Box 5.0 criamos uma máquina virtual com 2 Gb de memória RAM emulando apenas 1 processador.
 %
-Na máquina virtual instalamos a versão 1.10 do Docker engine e 1.21 da API, criamos 3 containers, cada um rodando um nginx 1.0 em diferentes portas. 
+Na máquina virtual instalamos a versão 1.10 do Docker engine e 1.21 da API, criamos 3 contêiners, cada um rodando um nginx 1.0 em diferentes portas. 
 %
-Foi escrita uma aplicação em JAVA que descobre qual o PID associado a cada container e salva o \textbf{/proc/pid/numa\_maps} em um arquivo.
+Foi escrita uma aplicação em JAVA que descobre qual o PID associado a cada contêiner e salva o \textbf{/proc/pid/numa\_maps} em um arquivo.
 %
-A cópia e gravação do arquivo acontece da seguinte forma: a cada minuto a aplicação pausa o container em questão, tira uma cópia do numa\_maps, salva em um arquivo .mem e concatenavcom o hash de identificação da imagem. 
+A cópia e gravação do arquivo acontece da seguinte forma: a cada minuto a aplicação pausa o contêiner em questão, tira uma cópia do numa\_maps, salva em um arquivo .mem e concatenavcom o hash de identificação da imagem. 
 %
 Em seguida verifica qual o arquivo .mem mais antigo em disco, se for mais velho que o tempo 't', o arquivo é descartado.
 
@@ -700,7 +700,7 @@ A solução esta focada em coletar informações de memória do user space, ela 
 %
 Técnicas de investigação de malware que se baseam em informações do kernel space como por exemplo, a comparação de informações do Process Environment Block (PEB), que ficam no user space, com informações do Virtual Address Descriptor (VAD), que fica no Kernel space não são possíveis. 
 %
-Outro exemplo é a análise de ameaças que realizam manipulação direta dos objetos do kernel ( \textit{D.K.O.M. - Direct Kernel Object Manipulation} ) também não se beneficiam de associação com o container.
+Outro exemplo é a análise de ameaças que realizam manipulação direta dos objetos do kernel ( \textit{D.K.O.M. - Direct Kernel Object Manipulation} ) também não se beneficiam de associação com o contêiner.
 
 A solução completa com todos os elementos descritos anteriormente pode ser visto na figura 4
 
@@ -800,7 +800,7 @@ Até o momento a presente proposta teve sucesso em relacionar o instantâneo de 
 %
 A versão é importante pois até a 1.9.x, o identificador da imagem era apenas um randômico. Na versão 1.10 ele passou a ser um hash calculado a partir da imagem.
 
-Apesar do sucesso em salvar a memória relacionadas ao container e sua associação com a origem, não foi possível até o momento relizar a análise. 
+Apesar do sucesso em salvar a memória relacionadas ao contêiner e sua associação com a origem, não foi possível até o momento relizar a análise. 
 %
 As ferramentas de leitura de memória disponíveis no mercado dependem que todo o conteúdo da memória da máquina esteja disponível para realização da análise. 
 %
@@ -833,91 +833,91 @@ Como coletamos apenas a memória relacionada aos processos, o ferramental não f
 % (used to reserve space for the reference number labels box)
 \begin{thebibliography}{1}
 
-\bibitem[Amz]{Amazon2016}
+\bibitem[Amazon-PR:2016]{Amazon2016}
 {AMAZON. \emph{{Amazon Media Room Press Release}}.
 [S.l.], 2016. 2~p.}
 
-\bibitem[AdvForen]{Bash2015a}
+\bibitem[Adv. in Forensics:2015]{Bash2015a}
 {KEYUN, R. et al. \emph{{Advances in Digital Forensics IV}}. 7. ed. Orlando:
   [s.n.], 2011. 35--46~p.
 ISSN 1098-6596.
 ISBN 9788578110796.}
 
-\bibitem[For-IAAS]{Dykstra2012a}
+\bibitem[Acquiring for IAAS:2012]{Dykstra2012a}
 {DYKSTRA, J.; SHERMAN, A.~T. {Acquiring forensic evidence from
   infrastructure-as-a-service cloud computing: Exploring and evaluating tools,
   trust, and techniques}.
 \emph{Digital Investigation}, Elsevier Ltd, v.~9, n. SUPPL., p. S90--S98, 2012.
 ISSN 17422876.}
   
-\bibitem[DF2CE]{George2012}
+\bibitem[DF2CE:2012]{George2012}
 GEORGE, S.; VENTER, H.; THOMAS, F. {Digital Forensic Framework for a Cloud
   Environment. In:  CUNNINGHAM, P.; CUNNINGHAM, M. (Ed.). \emph{IST Africa
   2012}. Tanzania: Internation Information Management Corporation, 2012.
   p.~1--8.
   ISBN 9781905824342.}
   
-\bibitem[VMI]{Poisel2013}
+\bibitem[VMI:2013]{Poisel2013}
 {POISEL, R.; MALZER, E.; TJOA, S. {Evidence and cloud computing: The virtual
   machine introspection approach}.
 \emph{Journal of Wireless Mobile Networks, Ubiquitous Computing, and Dependable
   Applications}, v.~4, n.~1, p. 135--152, 2013.
 ISSN 20935374 (ISSN).}
 
-\bibitem[FROST]{Dykstra2013}
+\bibitem[FROST:2013]{Dykstra2013}
 {DYKSTRA, J.; SHERMAN, A.~T. {Design and implementation of FROST: Digital
   forensic tools for the OpenStack cloud computing platform}.
 \emph{Digital Investigation}, Elsevier Ltd, v.~10, n. SUPPL., p. S87--S95,
   2013.
 ISSN 17422876.}
 
-\bibitem[Automated]{Reichert2015}
+\bibitem[Auto Acq:2015]{Reichert2015}
 {REICHERT, Z.; RICHARDS, K.; YOSHIGOE, K. {Automated forensic data acquisition
   in the cloud}.
 \emph{Proceedings - 11th IEEE International Conference on Mobile Ad Hoc and
   Sensor Systems, MASS 2014}, p. 725--730, 2015.}
 
-\bibitem[Log-approach]{Sang2013}
+\bibitem[Log-approach:2013]{Sang2013}
 {SANG, T. {A log-based approach to make digital forensics easier on cloud
   computing}.
 \emph{Proceedings of the 2013 3rd International Conference on Intelligent
   System Design and Engineering Applications, ISDEA 2013}, p. 91--94, 2013.}
   
-\bibitem[Backup-approach]{Dezfouli2012}
+\bibitem[Backup-approach:2012]{Dezfouli2012}
 {DEZFOULI, F.~N. et al. {Volatile memory acquisition using backup for forensic
   investigation}.
 \emph{Proceedings 2012 International Conference on Cyber Security, Cyber
   Warfare and Digital Forensic, CyberSec 2012}, p. 186--189, 2012.}
   
-\bibitem[Semantic-Gap]{Dolan-Gavitt2011a}
+\bibitem[Semantic-Gap:2011]{Dolan-Gavitt2011a}
 {DOLAN-GAVITT, B. et al. {Virtuoso: Narrowing the semantic gap in virtual
   machine introspection}.
 \emph{Proceedings - IEEE Symposium on Security and Privacy}, p. 297--312, 2011.
 ISSN 10816011.}
 
-\bibitem[FAAS]{VanBaar2014}
+\bibitem[FAAS:2014]{VanBaar2014}
 {BAAR, R.~B. van; BEEK, H. M.~A. van; EIJK, E.~J. van. {Digital Forensics as a
   Service: A game changer}.
 \emph{Digital Investigation}, Elsevier Ltd, v.~11, p. S54--S62, 2014.
 ISSN 17422876.}
 
-\bibitem[Live-VM]{Zhang2010}
+\bibitem[Live-VM:2010]{Zhang2010}
 {ZHANG, L.; ZHANG, D.; WANG, L. {Live Digital Forensics in a Virtual Machine}.
   In:  \emph{2010 Internation Conference on Computer Application and System
   Modelling (ICCASM 2010)}. [S.l.: s.n.], 2010. v.~6, p. 328--332.}
   
-\bibitem[Compare-Volatile]{Aljaedi2011}
+\bibitem[Comparative:2011]{Aljaedi2011}
 {ALJAEDI, A. et al. {Comparative Analysis of Volatile Memory Forensics}.
 \emph{IEEE International Conference on Privacy, Security, Risk and Trust
   (PASSAT) and IEEE International Conference on Social Computing (SocialCom)},
   p. 1253--1258, 2011.}
   
-\bibitem[Desafio]{Do2014}
+\bibitem[Desafio:2014]{Do2014}
 {BARBARA, D. \emph{{Desafios da per{\'{i}}cia forense em um ambiente de
   computa{\c{c}}{\~{a}}o nas nuvens}}.
 [S.l.], 2014.}
 
-\bibitem[Cloud Challenges]{Simou2014}
+\bibitem[Cloud Chall:2014]{Simou2014}
 {SIMOU, S. et al. {Cloud forensics: Identifying the major issues and
   challenges}.
 \emph{Lecture Notes in Computer Science (including subseries Lecture Notes in
@@ -925,69 +925,69 @@ ISSN 17422876.}
   p. 271--284, 2014.
 ISSN 16113349.}
 
-\bibitem[P.P.F.]{Bem2008}
+\bibitem[P.P.F.:2000]{Bem2008}
 {BEM, D. et al. {Computer Forensics - Past , Present and Future}.
 \emph{Journal of Information Science and Technology}, v.~5, n.~3, p. 43--59,
   2008.}
   
-\bibitem[Art]{Case2014}
+\bibitem[Mem Forensics:2014]{Case2014}
 {CASE, A. et al. \emph{{The Art of Memory Forensics: Detecting malware abd
   threats in Windows, LInux and Mac memory}}. Kindle edi. [S.l.]: Wiley, 2014.}
   
-\bibitem[Comp Nuvem]{Sousa2009}
+\bibitem[Comp Nuvem:2009]{Sousa2009}
 {SOUSA, F. R.~C.; MOREIRA, L.~O.; MACHADO, J.~C. {Computa{\c{c}}{\~{a}}o em
   Nuvem: Conceitos, Tecnologias, Aplica{\c{c}}{\~{o}}es e Desafios}.
 \emph{II Escola Regional de Computa{\c{c}}{\~{a}}o, Ceara, Maranh{\~{a}}o,
   Piau{\'{i}} (ERCEMAPI)}, v.~1, n. EDUFPI, p. 150--175, 2009.}
   
-\bibitem[Evolution]{Charters2008}
+\bibitem[Evolution:2008]{Charters2008}
 {CHARTERS, I.; SMITH, M.; MCKEE, G. {The Evolution of Digital Forensics}. In:
   \emph{Techno Forensics 2008 Conference}. [S.l.: s.n.], 2008. p. 1--39.}
 
-\bibitem[Storm]{Grispos2012}
+\bibitem[Chlng. Cloud Computing:2012]{Grispos2012}
 {GRISPOS, G.; STORER, T.; GLISSON, W. {Calm before the storm: the challenges of
   cloud computing in digital forensics}.
 \emph{International Journal of Digital Crime and Forensics}, v.~4, n.~2, p.
   28--48, 2012.
 ISSN 1466640073.}
 
-\bibitem[Investigate]{Sharma2012}
+\bibitem[Implications forensics:2012]{Sharma2012}
 {SHARMA, H.; SABHARWAL, N. {Investigating the Implications of Virtual
   Forensics}.
 \emph{Advances in Engineering, Science and Management (ICAESM), 2012
   International Conference on}, p. 617--620, 2012.}
   
-\bibitem[stat x live]{Rafique2013}
+\bibitem[stat x live:2013]{Rafique2013}
 {RAFIQUE, M.; KHAN, M. N.~A. {Exploring Static and Live Digital Forensics:
   Methods, Practices and Tools}.
 \emph{International Journal of Scientific {\&} Engineering Research}, v.~4,
   n.~10, p. 1048--1056, 2013.}
   
-\bibitem[Increase Volume]{Quick2014}
+\bibitem[Increase Volume:2014]{Quick2014}
 {QUICK, D.; CHOO, K. K.~R. {Impacts of increasing volume of digital forensic
   data: A survey and future research challenges}.
 \emph{Digital Investigation}, Elsevier Ltd, v.~11, n.~4, p. 273--294, 2014.
 ISSN 17422876.}
 
-\bibitem[Lib Inject]{Miller2004}
+\bibitem[Lib Inject:2004]{Miller2004}
 {Miller, M. and Turkulainen, J. {Remote Library Injection}.
 \emph{www.nologin.org}, 2004. }
 
-\bibitem[Reflect Inject]{Fewer2008}
+\bibitem[Reflect Inject:2008]{Fewer2008}
 {Fewer, Stephen {Reflective DLL Injection}.
 \emph{harmonysecurity.com}, 2008. }
 
-\bibitem[Cloud Security]{Morsy2010}
+\bibitem[Cloud Security:2010]{Morsy2010}
 {MORSY, A.~M.; GRUNDY, J.; MULLER, I. An Analysis of the Cloud Computing
   Security Problem}.
 \emph{APSEC Cloud Workshop. Sydney, Australia: [s.n.], 2010.}
 
-\bibitem[Live forensics]{Rahman2015}
+\bibitem[Live forensics:2015]{Rahman2015}
 {RAHMAN, S.; KHAN, M. N.~A. {Review of live forensic analysis techniques}.
 \emph{International Journal of Hybrid Information Technology}, v.~8, n.~2, p.
   379--388, 2015.}
   
-\bibitem[Container]{Piraghaj2016}
+\bibitem[Container:2016]{Piraghaj2016}
 {PIRAGHAJ, S.~F. et al. {A Framework and Algorithm for Energy Efficient
   Container Consolidation in Cloud Data Centers}.
 \emph{Proceedings - 2015 IEEE International Conference on Data Science and Data
@@ -996,14 +996,14 @@ ISSN 17422876.}
   Communications and 8th IEEE International Conference on Internet of Things,
   DSDIS/CPSCom/GreenCom/iThings 2015}, p. 368--375, 2016.}
   
-\bibitem[Mem Acquisition]{Vomel2013}
+\bibitem[Mem Acquisition:2013]{Vomel2013}
 {V{\"{O}}MEL, S.; ST{\"{U}}TTGEN, J. {An evaluation platform for forensic
   memory acquisition software}. In:  \emph{The Digital Forensic Research
   Conference}. Monterey, Ca: [s.n.], 2013. v.~10, n. SUPPL., p. S30--S40.
 ISBN 1742-2876.
 ISSN 17422876.}
 
-\bibitem[NIST]{NIST2011}
+\bibitem[NIST:2011]{NIST2011}
 {MELL, P.; GRANCE, T. {The NIST definition of cloud computing}.
 \emph{NIST Special Publication}, v.~145, p.~7, 2011. ISSN 00845612.}
 
