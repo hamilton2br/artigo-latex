@@ -412,7 +412,7 @@ Infelizmente, devido à natureza volátil da nuvem, a tarefa de coletar evidênc
 %
 Este trabalho analisa propostas na literatura voltadas a resolver os principais desafios existentes na coleta evidências na nuvem, discutindo suas limitações, e então propõe uma solução que cobre coleta, transporte e armazenamento da evidência visando suplantá-las. 
 %
-A solução aqui proposta tem como focos (1) a reprodutibilidade do processo de coleta e (2) a garantia de custódia da evidência; em suma, a abordagem proposta provê uma forma de correlacionar evidências e sua origem virtual, permitindo transportar e armazenar tais dados sem afetar sua credibilidade.
+A solução aqui proposta provê uma forma de correlacionar evidências e sua origem virtual, permitindo transportar e armazenar tais dados sem afetar sua credibilidade tendo como focos (1) a reprodutibilidade do processo de coleta e (2) a garantia de custódia da evidência.
 
 \end{abstract}
 
@@ -448,7 +448,7 @@ Após esse pico, e com o objetivo de não incorrer em custos desnecessários, as
 %
 Embora interessante do ponto de vista de eficiência e custos, do ponto de vista forense a volatilidade da nuvem traz problemas em caso de ataques.
 %
-Por exemplo, caso uma das instâncias de máquina virtual criadas temporariamente seja alvo de ameaças que atuam diretamente na sua memória, sem deixar rastros em discos ou em arquivos de log, as evidências desse evento podem ser completamente perdidas.
+Por exemplo, caso uma das instâncias de máquina virtual criadas temporariamente seja alvo de ameaças que atuam diretamente na sua memória, sem deixar rastros em discos como arquivos de log, as evidências desse evento podem ser completamente perdidas.
 %
 Essa dificuldade é ainda agravada por aspectos como multi-inquilinato e multi-jurisdição típicas de soluções em nuvem \cite{Bash2015a}.
 %
@@ -484,7 +484,7 @@ Em suma, a abordagem aqui descrita provê uma forma de correlacionar evidências
 %
 Esta proposta supõe que o sistema sendo monitorado é executado dentro de um contêiner em nuvem. O foco da solução em contêiner se justifica pelo crescimento da adoção de conteinerização nos últimos anos e a previsão de que este será o mais usado modelo de implementação \cite{Piraghaj2016}.
 %g
-A solução tem como algo específico ataques de injeção de código \cite{Case2014}, pois estes, quando usados contra uma arquitetura em nuvem, não deixam rastros quando máquinas virtuais são desativadas e seus recursos liberados \cite{Vomel2013}, \cite{Case2014}.
+A solução tem como alvo específico ataques de injeção de código \cite{Case2014}, pois estes, quando usados contra uma arquitetura em nuvem, não deixam rastros quando máquinas virtuais são desativadas e seus recursos liberados \cite{Vomel2013}, \cite{Case2014}.
 %
 Em particular, têm especial interesse quatro tipos específicos dessa família de ameaças \cite{Case2014}:
 \marcos{TODO: talvez seja prematuro listar aqui os tipos de ataques (pode valer a pena mover para seção posterior). Por enquanto, vamos deixar aqui mesmo.- HAMILTON: OK}
@@ -512,11 +512,9 @@ O restante deste documento está organizado da seguinte forma.
 %
 A Seção \ref{sec:cloud} discute brevemente soluções em nuvem e suas características.
 %
-A Seção \ref{sec:forensics} apresenta a evolução da computação forense e os desafios que soluções em nuvem trouxeram para a área.
-%
 A Seção \ref{sec:related} analisa os trabalhos relacionados na área de forense de memória.
 %
-A Seção \ref{sec:proposal} detalha a solução proposta e avalia como ela trata os desafios descritos na Seção \ref{sec:forensics}.
+A Seção \ref{sec:proposal} detalha a solução proposta e avalia como ela trata os desafios alvo deste projeto.
 %
 Finalmente, a Seção \ref{sec:conclusion} apresenta algumas considerações finais e discute ideias para trabalhos futuros.
 
@@ -532,9 +530,9 @@ Nuvem computacional é um modelo de infra estrutura onde recursos compartilhados
 Há três modelos principais de comercialização de uso da nuvem \cite{NIST2011}: plataforma como serviço (PaaS) onde se provê infra estrutura para que o cliente instale seu software, software como serviço(SaaS) onde se provê o software que será usado pelo cliente e, o tipo mais pertinente para este trabalho, Infraestrutura como serviço (IaaS) ondê se provê recursos computacionais fundamentais.
 
 
-Contêiners Linux (LXC), uma tecnologia para auxiliar no gerenciamento de containeres para isolamento de recursos \marcos{Aliás, acho que o termo correto em português é ``contêiner'', não? - HAMILTON: o dicionário tem as 2 grafias} introduzida em 2008, proveram uma série de ferramentas para tirar vantagens das funcionalidades de cgroups e namespacing do kernel do Linux. 
+Contêiners Linux (LXC), uma tecnologia para auxiliar no gerenciamento de containeres para isolamento de recursos introduzida em 2008, proveram uma série de ferramentas para tirar vantagens das funcionalidades de cgroups e namespacing do kernel do Linux. 
 %
-A adoção de contêiners para a implantação de software tem crescido muito para nas aplicações baseadas em nuvem. Segundo o ``Container Market Adoption Survey 2016'', realizado pelas empresas DevOps.com (https://devops.com/) e ClusterHQ (https://clusterhq.com) com 235 empresas que tem desenvolvimento de software suportando ou como sua atividade fim, 76\% dos respondentes utilizam contêiners para melhorar a eficiência do processo de desenvolvimento e em suas arquiteturas de micro serviços em nuvem.
+A adoção de contêiners para a implantação de software tem crescido muito para nas aplicações baseadas em nuvem. Segundo o ``Container Market Adoption Survey 2016'' realizado pelas empresas DevOps.com (https://devops.com/) e ClusterHQ (https://clusterhq.com) com 235 empresas que tem desenvolvimento de software como sua atividade fim ou como suporte a atividade fim, 76\% dos respondentes utilizam contêiners para melhorar a eficiência do processo de desenvolvimento e em suas arquiteturas de micro serviços em nuvem.
 
 \section{Trabalhos relacionados}
 \label{sec:related}
@@ -545,9 +543,9 @@ A literatura voltada a analise forense na nuvem foi analisada a luz dos seguinte
 
 Referente a coleta de informações, os autores \cite{Reichert2015}, \cite{Poisel2013}, \cite{Dykstra2013}, \cite{George2012} e \cite{Sang2013} focam em coleta "após o fato" pois ela acontece apenas após a intrusão ser detectada. 
 %
-Os processos de coleta descritos nos trabalhos são iniciados de forma manual ou automática via integração com um mecanismo de detecção de intrusão. 
+Os processos de coleta descritos nos trabalhos são iniciados de forma manual ou automáticamente via integração com um mecanismo de detecção de intrusão. 
 %
-No caso específico de memória volátil, tal forma de coleta não consegue descrever como era a memória antes da intrusão pois o processo só é acionado depois. 
+No caso específico de memória volátil, tal forma de coleta não consegue descrever como era a memória antes da intrusão pois o processo só é acionado depois da detecção do ataque. 
 %
 A capacidade de saber como era a memória antes do fato é descrita por \cite{Case2014} como necessária para viabilizar a abordagem de coletar o suficiente para realizar a investigação pois permite comparar dois instantâneos de memória e minimizar o volume coletado antes do fato. 
 %
@@ -560,16 +558,12 @@ Os autores \cite{Poisel2013}, \cite{Dykstra2013} e \cite{Sang2013} adotam a estr
 Nas duas estratégias citadas anteriormente, o problema do grande volume de informações coletadas não é abordado pelo autores nem o cenário onde é necessário coletar evidências de uma máquina virtual que já foi despejada do pool e os recursos liberados. 
 %
 Atender este último cenário é importante pois com as soluções em nuvem que escalam automaticamente, as evidências de uma máquina vítima de um ataque que foi despejada de um pool com a diminuição da demanda serão para sempre perdidas. 
-%
-Analisando a proposta de \cite{Poisel2013}, parece ser possível cobrir o cenário mencionado mas ele não dá detalhes da implementação suficiente para termos certeza.
 
 \subsection{Capacidade de reproduzir o processo e obter os mesmos resultados}
 
 A reprodutibilidade do processo de coleta é uma dos requisitos para garantir a cadeia de custódia da evidência e sua aceitação em um processo legal. Cadeia de custódia esta relacionado a credibilidade e ter dois analistas reproduzindo o processo de coleta de memória chegando ao mesmo conjunto de evidências tem um peso muito forte em termos de credibilidade. 
 %
 Neste tópico, nenhuma das propostas encontradas até o momento consegue reproduzir os mesmos resultados ao repetir o processo no cenário em que uma máquina virtual é despejada da nuvem e seus recursos liberados pois todas elas dependem da existência da máquina virtual para a repetição da coleta. 
-%
-Analisando a proposta de \cite{George2012} parece que é possível mas o autor não dá detalhes de implementação suficientes para termos certeza.
 
 \subsection{Não violar privacidade ou jurisdição das partes não envolvidas na investigação}
 
@@ -621,13 +615,13 @@ Além disso, deve-se armazenar a memória coletada de modo a garantir sua integr
 
 \subsection{Descrição}
 
-Nas soluções com infra-estrutura física a máquina é persistente, associar uma copia da memória, a imagem de um disco ou pacotes trafegando na rede a sua origem é uma tarefa simples.
+Nas soluções com infra-estrutura física a máquina é persistente. A associação de uma informação da memória, a imagem de um disco ou pacotes trafegando na rede à sua origem é duradoura.
 %
 Com as soluções de infra virtual, em especial as auto-escaláveis, a máquina deixou de ser persistente e tornou-se volátil. 
 %
-Para resolver o problema da identificação da fonte precisamos encontrar outra forma, persistente, para identificar a fonte da evidência coletada, para isto usaremos contêineres. 
+Para resolver o problema da identificação da fonte precisamos encontrar outro elemento persistente para identificar a fonte da evidência coletada. Para isto usaremos contêineres. 
 %
-Embora o contêiner seja uma peça de software e por consequência também é volátil, a imagem compilada e sua execução na forma de contêiner estão atrelados a um hash que os identificam. 
+Embora o contêiner seja uma peça de software e por consequência também é volátil, a imagem compilada e sua execução na forma de contêiner estão atrelados a um hash que os identificam unicamente. 
 %
 A pilha de um contêiner pode ser visto na Figura 1.\\
 
@@ -638,9 +632,9 @@ A pilha de um contêiner pode ser visto na Figura 1.\\
 \label{fig:instantaneo}
 \end{figure}
 
-A solução proposta por este trabalho, para resolver o problema de associação da evidência a sua origem de modo que o processo seja reprodutível, pausa a execução do contêiner e coleta um instantâneo da memória dos processos sob sua execução. 
+A solução proposta por este trabalho para resolver o problema de associação da evidência a sua origem de modo que o processo seja reprodutível, pausa a execução do contêiner e coleta um instantâneo da memória dos processos sob sua execução. 
 %
-Este processo é executado em intervalos de tempo conhecidos de modo a se ter uma evolução da história da memória dos processos. Em um sistema derivado do linux (Ubuntu 14.04) isso foi atingido via cópia do diretório ``\\proc'' relacionado aos processos sob o ``cgroup'' associado ao contêiner e salvo em disco. 
+Esta coleta é executada em intervalos de tempo conhecidos de modo a se um histórico da memória dos processos. Em um sistema derivado do linux (Ubuntu 14.04) isso foi atingido via cópia do diretório ``\\proc'' relacionado aos processos sob o ``cgroup'' associado ao contêiner e salvo em disco. 
 %
 Para relacionar o instantâneo a sua origem, assinamos o arquivo em que salvamos o instantâneo da memória com o hash da imagem como mostrado na Figura 2.\\
 
@@ -663,7 +657,7 @@ De acordo com \cite{Case2014}, detectar intrusões na memória de processos depe
 %
 Com base nisso decidimos que ``suficiente'' seria a quantidade necessária para descrever o sistema antes e depois do ataque. 
 %
-A idéia é implementar um log rotativo de instantâneos de memória cobrindo uma quantidade de tempo configurável, integrar a solução com algum sistema de detecção de ameaça de modo que, ao detectar um ataque, o log passa de rotativo a completo assim permitindo que se conheça o sistema antes e depois do ataque como mostrado na Figura 3. \\
+A idéia é implementar um log rotativo de instantâneos de memória cobrindo uma quantidade de tempo configurável. Integrar a solução com algum sistema de detecção de ameaça de modo que, ao detectar um ataque, o log passa de rotativo a completo permitindo que se conheça o sistema antes e depois do ataque e sua evolução como mostrado na Figura 3. \\
 
 \begin{figure}[h!]
 \caption{Janela deslizante de coleta de evidência}
@@ -672,7 +666,7 @@ A idéia é implementar um log rotativo de instantâneos de memória cobrindo um
 \label{fig:janela}
 \end{figure}
 
-De modo a não violar a jurisdição de outros países ou a privacidade de outros usuários por causa do caráter multi-inquilino e multi-jurisdição das arquiteturas em nuvem pública, a solução proposta por este trabalho foi o de armazenar a evidência em um local físico fora da nuvem, utilizando como transporte conexão segura. 
+De modo a não violar a jurisdição de outros países ou a privacidade de outros usuários por causa do caráter multi-inquilino e multi-jurisdição das arquiteturas em nuvem pública, a solução proposta por este trabalho foi o de armazenar a evidência em um local físico fora da nuvem utilizando como transporte uma conexão segura. 
 %
 Outro ponto importante é garantir a cadeia de custódia da evidência ou seja, garantir que a evidência não foi destruída, alterada ou acessada por qualquer pessoa. 
 %
@@ -871,7 +865,7 @@ ISSN 20935374 (ISSN).}
   2013.
 ISSN 17422876.}
 
-\bibitem[Auto Acq:2015]{Reichert2015}
+\bibitem[Auto acquisition:2015]{Reichert2015}
 {REICHERT, Z.; RICHARDS, K.; YOSHIGOE, K. {Automated forensic data acquisition
   in the cloud}.
 \emph{Proceedings - 11th IEEE International Conference on Mobile Ad Hoc and
@@ -917,7 +911,7 @@ ISSN 17422876.}
   computa{\c{c}}{\~{a}}o nas nuvens}}.
 [S.l.], 2014.}
 
-\bibitem[Cloud Chall:2014]{Simou2014}
+\bibitem[Cloud Chlng:2014]{Simou2014}
 {SIMOU, S. et al. {Cloud forensics: Identifying the major issues and
   challenges}.
 \emph{Lecture Notes in Computer Science (including subseries Lecture Notes in
@@ -925,7 +919,7 @@ ISSN 17422876.}
   p. 271--284, 2014.
 ISSN 16113349.}
 
-\bibitem[P.P.F.:2000]{Bem2008}
+\bibitem[PPF:2008]{Bem2008}
 {BEM, D. et al. {Computer Forensics - Past , Present and Future}.
 \emph{Journal of Information Science and Technology}, v.~5, n.~3, p. 43--59,
   2008.}
