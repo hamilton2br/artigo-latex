@@ -609,7 +609,7 @@ Dizang				& \includegraphics[scale=0.015]{check.png}	    & \includegraphics[scal
 O presente proposta tem como objetivo principal coletar memória de uma máquina virtual de modo a conseguir: 
 (1) identificar os quatro tipos de ataque listados anteriormente; 
 (2) identificar sua fonte, mesmo se a máquina virtual não existir mais; 
-(3) descrever o sistema antes e depois do incidente.
+(3) descrever o sistema antes e depois do incidente;
 %
 Além disso, deve-se armazenar a memória coletada de modo a garantir sua integridade e confidencialidade, sem violar a jurisdição cabível ou a privacidade de outros usuários no mesmo servidor físico.
 
@@ -619,7 +619,7 @@ Nas soluções com infra-estrutura física a máquina é persistente. A associa�
 %
 Com as soluções de infra virtual, em especial as auto-escaláveis, a máquina deixou de ser persistente e tornou-se volátil. 
 %
-Para resolver o problema da identificação da fonte precisamos encontrar outro elemento persistente para identificar a fonte da evidência coletada. Para isto usaremos contêineres. 
+Para resolver o problema da identificação da fonte é necessário encontrar outro elemento persistente para identificar a fonte da evidência coletada. Para isto usou-se contêineres. 
 %
 Embora o contêiner seja uma peça de software e por consequência também é volátil, a imagem compilada e sua execução na forma de contêiner estão atrelados a um hash que os identificam unicamente. 
 %
@@ -636,7 +636,7 @@ A solução proposta por este trabalho para resolver o problema de associação 
 %
 Esta coleta é executada em intervalos de tempo conhecidos de modo a se um histórico da memória dos processos. Em um sistema derivado do linux (Ubuntu 14.04) isso foi atingido via cópia do diretório ``\\proc'' relacionado aos processos sob o ``cgroup'' associado ao contêiner e salvo em disco. 
 %
-Para relacionar o instantâneo a sua origem, assinamos o arquivo em que salvamos o instantâneo da memória com o hash da imagem como mostrado na Figura 2.\\
+Para relacionar o instantâneo a sua origem, assinou-se o arquivo em que foram salvos o instantâneo da memória com o hash da imagem como mostrado na Figura 2.\\
 
 \begin{figure}[h!]
 \caption{Evidência salva - hash do contêiner e imagem}
@@ -655,7 +655,7 @@ A questão foi definir a quantidade de dados ``suficiente'' para uma investigaç
 %
 De acordo com \cite{Case2014}, detectar intrusões na memória de processos depende de termos uma descrição da memória antes e depois da intrusão. 
 %
-Com base nisso decidimos que ``suficiente'' seria a quantidade necessária para descrever o sistema antes e depois do ataque. 
+Com base nisso determinou-se que ``suficiente'' seria a quantidade necessária para descrever o sistema antes e depois do ataque. 
 %
 A idéia é implementar um log rotativo de instantâneos de memória cobrindo uma quantidade de tempo configurável. Integrar a solução com algum sistema de detecção de ameaça de modo que, ao detectar um ataque, o log passa de rotativo a completo permitindo que se conheça o sistema antes e depois do ataque e sua evolução como mostrado na Figura 3. \\
 
@@ -666,23 +666,23 @@ A idéia é implementar um log rotativo de instantâneos de memória cobrindo um
 \label{fig:janela}
 \end{figure}
 
-De modo a não violar a jurisdição de outros países ou a privacidade de outros usuários por causa do caráter multi-inquilino e multi-jurisdição das arquiteturas em nuvem pública, a solução proposta por este trabalho foi o de armazenar a evidência em um local físico fora da nuvem utilizando como transporte uma conexão segura. 
+De modo a não violar a jurisdição de outros países ou a privacidade de outros usuários por causa do caráter multi-inquilino e multi-jurisdição das arquiteturas em nuvem pública, a solução proposta foi o de armazenar a evidência em um local físico fora da nuvem utilizando como transporte uma conexão segura. 
 %
-Outro ponto importante é garantir a cadeia de custódia da evidência ou seja, garantir que a evidência não foi destruída, alterada ou acessada por qualquer pessoa. 
+Outro ponto importante é garantir que a evidência não foi destruída, alterada ou acessada por qualquer pessoa. 
 %
-Assim a solução proposta por este trabalho usará de armazenamento físico fora da nuvem, o transporte será feito por TLS, no momento do armazenamento calcularemos o hash da evidência e o acesso ao mesmo será controlado.
+Assim a solução proposta por este trabalho usará de armazenamento físico fora da nuvem, o transporte será feito por TLS, no momento do armazenamento será calculado o hash da evidência e o acesso ao mesmo será controlado.
 
-Tendo a implementação sido bem sucedida conseguiremos analisar e identificar as formas de ataque enumeradas nos objetivos.\\
+Tendo a implementação sido bem sucedida será possível analisar e identificar as formas de ataque enumeradas nos objetivos.\\
 
 \subsection{Implementação}
 
 A implementação da solução foi realizada em um notebook intel I5 de 2.30Mhz e 4Gb de RAM com sistema operacional de 64 bits. 
 %
-Nele, usando Oracle Virtual Box 5.0 criamos uma máquina virtual com 2 Gb de memória RAM emulando apenas 1 processador.
+Nele, usando Oracle Virtual Box 5.0 foi criada uma máquina virtual com 2 Gb de memória RAM emulando apenas 1 processador.
 %
-Na máquina virtual instalamos a versão 1.10 do Docker engine e 1.21 da API, criamos 3 contêiners, cada um rodando um nginx 1.0 em diferentes portas. 
+Na máquina virtual foi instalada a versão 1.10 do Docker engine e 1.21 da API, criados 3 contêiners, cada um rodando um nginx 1.0 em diferentes portas. 
 %
-Foi escrita uma aplicação em JAVA que descobre qual o PID associado a cada contêiner e salva o \textbf{/proc/pid/numa\_maps} em um arquivo.
+Escreveu-se uma aplicação em JAVA que descobre qual o PID associado a cada contêiner e salva o \textbf{/proc/pid/numa\_maps} em um arquivo.
 %
 A cópia e gravação do arquivo acontece da seguinte forma: a cada minuto a aplicação pausa o contêiner em questão, tira uma cópia do numa\_maps, salva em um arquivo .mem e concatenavcom o hash de identificação da imagem. 
 %
@@ -794,13 +794,13 @@ Até o momento a presente proposta teve sucesso em relacionar o instantâneo de 
 %
 A versão é importante pois até a 1.9.x, o identificador da imagem era apenas um randômico. Na versão 1.10 ele passou a ser um hash calculado a partir da imagem.
 
-Apesar do sucesso em salvar a memória relacionadas ao contêiner e sua associação com a origem, não foi possível até o momento relizar a análise. 
+Apesar do sucesso em salvar a memória relacionadas ao contêiner e sua associação com a origem, não foi possível até o momento relizar uma análise das ameaças. 
 %
-As ferramentas de leitura de memória disponíveis no mercado dependem que todo o conteúdo da memória da máquina esteja disponível para realização da análise. 
+As ferramentas de leitura de memória disponíveis no mercado requerem que todo o conteúdo da memória da máquina esteja disponível para realização da análise. 
 %
-Como coletamos apenas a memória relacionada aos processos, o ferramental não funciona. 
+Como é coletada apenas a memória relacionada aos processos, o ferramental não funciona. 
 %
-É necessário o desenvolvimento de uma ferramenta que trabalhe sem a memória completa da máquina, ou no caso da ferramenta \textit{Volatility} é necessário a criação de um profile para a memória do processo.
+É necessário o desenvolvimento de uma ferramenta que trabalhe sem a memória completa da máquina, ou no caso da ferramenta \textit{Volatility} é necessário a criação de um profile para a memória do processo
 
 
 % trigger a \newpage just before the given reference
