@@ -356,17 +356,17 @@
 % author names and affiliations
 % use a multiple column layout for up to three different
 % affiliations
-\author{\IEEEauthorblockN{Hamilton Fonte II}
+\author{\IEEEauthorblockN{Hamilton Fonte II, Marcos A. Simplicio Jr.}
 \IEEEauthorblockA{
-Escola Politécnica -- Universidade de São Paulo (USP)
+Escola Politécnica, Universidade de São Paulo (USP)
 São Paulo, SP, Brasil\\
-Email: hamiltonii@gmail.com}
-\and
-\IEEEauthorblockN{Marcos A. Simplicio Jr.}
-\IEEEauthorblockA{
-Escola Politécnica -- Universidade de São Paulo (USP)
-São Paulo, SP, Brasil\\
-Email: mjunior@larc.usp.br}
+Email: hamiltonii@gmail.com, mjunior@larc.usp.br}
+%\and
+%\IEEEauthorblockN{Marcos A. Simplicio Jr.}
+%\IEEEauthorblockA{
+%Escola Politécnica -- Universidade de São Paulo (USP)
+%São Paulo, SP, Brasil\\
+%Email: mjunior@larc.usp.br}
 }
 
 % conference papers do not typically use \thanks and this command
@@ -586,8 +586,8 @@ A Tabela 1 mostra um comparativo das soluções estudadas.
 \begin{table}[h!]
 \centering
 \caption{Comparativo de soluções de coleta de informações de memória de máquinas em nuvem para análise forense \marcos{LEGENDAS DEVEM SER DESCRITIVAS O SUFICIENTE PARA QUE SEJAM ENTENDIDAS SEM QUE SEQUER EU TENHA LIDO O SEU TEXTO...} }
-\begin{tabular}{L|L|L|L|L}
-\hline
+\begin{tabular}{p{2.9cm}|L|L|L|L}
+\cline{2-5}
 \textbf{}			& \rotatebox{90}{\textbf{Coleta  é contínua?}}      & \rotatebox{90}{\textbf{Reproduz o processo sem a VM?}} & \rotatebox{90}{\textbf{Garante cadeia de custódia?}}     & \rotatebox{90}{\textbf{Preserva jurisdição e privacidade?}}          \\ \hline
 Dizang				& \includegraphics[scale=0.015]{check.png}	    & \includegraphics[scale=0.015]{check.png}               & \includegraphics[scale=0.015]{check.png}                 & \includegraphics[scale=0.015]{check.png}                             \\ \hline
 \cite{George2012}		& \includegraphics[scale=0.007]{x.png}		    & \includegraphics[scale=0.007]{x.png}                  & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.015]{check.png}                             \\ \hline
@@ -802,6 +802,7 @@ Como é coletada apenas a memória relacionada aos processos, o ferramental não
 %
 É necessário o desenvolvimento de uma ferramenta que trabalhe sem a memória completa da máquina, ou no caso da ferramenta \textit{Volatility} é necessário a criação de um profile para a memória do processo
 
+\marcos{Suas referências estão no formato errado... Não é IEEE... Para corrigir: use as referências em um arquivo .bib separado, não inline com o comando ``thebibliography''... Veja nos comentários do modelo que ele fala para usar ``bibliography\{IEEEabrv,../bib/paper\}''}
 
 % trigger a \newpage just before the given reference
 % number - used to balance the columns on the last page
