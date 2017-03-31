@@ -435,7 +435,7 @@ A solução aqui proposta provê uma forma de correlacionar evidências e sua or
 
 %==== CONTEXTO GERAL: Nuvem e volatilidade de VMs ====
 %
-Técnicas de virtualização, replicação de serviços e compartilhamento de recursos entre múltiplos usuários (multi-inquilinato) proveem a nuvens computacionais uma elevada escalabilidade \cite{Morsy2010}.
+Técnicas de virtualização, replicação de serviços e compartilhamento de recursos entre múltiplos usuários (multi-inquilinato) proveem a nuvens computacionais uma elevada escalabilidade \cite{Morsy_Cloud_Security:2010}.
 %
 Ao mesmo tempo, tais mecanismos também criam uma elevada volatilidade das máquinas virtuais que executam aplicações em nuvem.
 %
@@ -450,13 +450,13 @@ Embora interessante do ponto de vista de eficiência e custos, do ponto de vista
 %
 Por exemplo, caso uma das instâncias de máquina virtual criadas temporariamente seja alvo de ameaças que atuam diretamente na sua memória, sem deixar rastros em discos como arquivos de log, as evidências desse evento podem ser completamente perdidas.
 %
-Essa dificuldade é ainda agravada por aspectos como multi-inquilinato e multi-jurisdição típicas de soluções em nuvem \cite{Bash2015a}.
+Essa dificuldade é ainda agravada por aspectos como multi-inquilinato e multi-jurisdição típicas de soluções em nuvem \cite{Bash_Adv_in_Forensics:2015}.
 %
 Especificamente, o aspecto multi-inquilino dificulta a obtenção do hardware que executa as aplicações de interesse, pois, como ele é compartilhado por vários usuários, removê-los para análise poderia levar a uma violação de privacidade dos usuários não relacionados à investigação. 
 %
-Já a característica distribuída da nuvem pode levar à alocação de informações relevante à investigação em vários países, dificultando a obtenção das mesmas em especial quando não existem acordos de cooperação entre as instituições e/ou países envolvidos \cite{Dykstra2012a}.
+Já a característica distribuída da nuvem pode levar à alocação de informações relevante à investigação em vários países, dificultando a obtenção das mesmas em especial quando não existem acordos de cooperação entre as instituições e/ou países envolvidos \cite{Dykstra_Acquiring_for_IAAS:2012}.
 %
-Combinadas, tais características da nuvem dificultam a coleta de evidências com a credibilidade necessária para que elas possam ser usadas em processos legais,  o que exige o respeito à privacidade, à jurisdição e à cadeia de custódia, bem como a reprodutibilidade do processo de coleta \cite{Rahman2015}.
+Combinadas, tais características da nuvem dificultam a coleta de evidências com a credibilidade necessária para que elas possam ser usadas em processos legais,  o que exige o respeito à privacidade, à jurisdição e à cadeia de custódia, bem como a reprodutibilidade do processo de coleta \cite{Rahman_Live_Forensics_Techniques:2015}.
 
 
 
@@ -464,9 +464,9 @@ Combinadas, tais características da nuvem dificultam a coleta de evidências co
 %
 Embora existam soluções na literatura que abordam a coleta de informações de nuvem com o propósito de análise forense, a grande maioria aborda a coleta, o transporte e o armazenamento o faz de forma isolada.
 %
-Por exemplo, trabalhos como \cite{Dykstra2013} e \cite{Reichert2015} tratam de fatores como multi-inquilinato e multi-jurisdição, discutindo formas de coleta e preservação da evidência fora da núvem.
+Por exemplo, trabalhos como \cite{Dykstra_FROST:2013} e \cite{Reichert_Auto_acquisition:2015} tratam de fatores como multi-inquilinato e multi-jurisdição, discutindo formas de coleta e preservação da evidência fora da núvem.
 %
-Já estudos como \cite{George2012} focam na forense ao vivo para a coleta de evidência das máquinas virtuais, enquanto trabalhos como \cite{Sang2013} aborda a questão de processos de garantia de cadeia de custódia em ambientes de nuvem para transporte da evidência.
+Já estudos como \cite{George_DF2CE:2012} focam na forense ao vivo para a coleta de evidência das máquinas virtuais, enquanto trabalhos como \cite{Sang_Log_approach:2013} aborda a questão de processos de garantia de cadeia de custódia em ambientes de nuvem para transporte da evidência.
 %
 %abordam os problemas descritos anteriormente \marcos{QUAIS, CARA PÁLIDA? VOCÊ LISTOU 4 TIPOS DE ATAQUE E DEIXOU UM PROBLEMA GERAL: COMO O LEITOR VAI SABER QUAIS EXATAMENTE SÃO ABORDADOS? Seja mais preciso: clareza acima de tudo!!!} de forma isolada.
 %
@@ -482,11 +482,11 @@ O presente trabalho visa suplantar tais limitações por meio de uma proposta qu
 %
 Em suma, a abordagem aqui descrita provê uma forma de correlacionar evidências e sua origem virtual, permitindo transportar e armazenar tais dados de modo a preservar sua credibilidade.
 %
-Esta proposta supõe que o sistema sendo monitorado é executado dentro de um contêiner em nuvem. O foco da solução em contêiner se justifica pelo crescimento da adoção de conteinerização nos últimos anos e a previsão de que este será o mais usado modelo de implementação \cite{Piraghaj2016}.
+Esta proposta supõe que o sistema sendo monitorado é executado dentro de um contêiner em nuvem. O foco da solução em contêiner se justifica pelo crescimento da adoção de conteinerização nos últimos anos e a previsão de que este será o mais usado modelo de implementação \cite{Piraghaj_Container_Cloud_Computing:2016}.
 %g
-A solução tem como alvo específico ataques de injeção de código \cite{Case2014}, pois estes, quando usados contra uma arquitetura em nuvem, não deixam rastros quando máquinas virtuais são desativadas e seus recursos liberados \cite{Vomel2013}, \cite{Case2014}.
+A solução tem como alvo específico ataques de injeção de código \cite{Case_Memory_Forensics:2014}, pois estes, quando usados contra uma arquitetura em nuvem, não deixam rastros quando máquinas virtuais são desativadas e seus recursos liberados \cite{Vomel_Memory_Acquisition:2013}, \cite{Case_Memory_Forensics:2014}.
 %
-Em particular, têm especial interesse quatro tipos específicos dessa família de ameaças \cite{Case2014}:
+Em particular, têm especial interesse quatro tipos específicos dessa família de ameaças \cite{Case_Memory_Forensics:2014}:
 \marcos{TODO: talvez seja prematuro listar aqui os tipos de ataques (pode valer a pena mover para seção posterior). Por enquanto, vamos deixar aqui mesmo.- HAMILTON: OK}
 
 \begin{itemize}
@@ -494,7 +494,7 @@ Em particular, têm especial interesse quatro tipos específicos dessa família 
  %
  Como resultado, o código da biblioteca carregada executa com os mesmos privilégios do executável em que ela foi injetada. 
  %
- Esta estratégia, comumente usada para instalar malwares, pode fazer com que uma biblioteca maliciosa armazenada no sistema seja distribuída por vários processos de uma mesma máquina, dificultando sua remoção \cite{Miller2004}.
+ Esta estratégia, comumente usada para instalar malwares, pode fazer com que uma biblioteca maliciosa armazenada no sistema seja distribuída por vários processos de uma mesma máquina, dificultando sua remoção \cite{Miller_Remote_Library_Injection:2004}.
  %
  \item \textbf{Inline Hooking}: Um processo malicioso escreve código como uma sequência de bytes diretamente no espaço de memória de um processo alvo e força este último a executá-lo. 
  %
@@ -502,7 +502,7 @@ Em particular, têm especial interesse quatro tipos específicos dessa família 
  %
  \item \textbf{Injeção reflexiva de biblioteca}: Um processo malicioso acessa diretamente a memória de um processo alvo, inserindo nela o código de uma biblioteca na forma de uma sequência de bytes, e então força o processo a executar essa biblioteca. 
  %
- Nesta forma de ataque, a biblioteca maliciosa não existe fisicamente; isso torna esta estratégia de injeção de código potencialmente mais atrativa, pois o carregamento da biblioteca não é registrado no sistema operacional e, portanto, o ataque torna-se mais difícil de ser detectado \cite{Fewer2008}.
+ Nesta forma de ataque, a biblioteca maliciosa não existe fisicamente; isso torna esta estratégia de injeção de código potencialmente mais atrativa, pois o carregamento da biblioteca não é registrado no sistema operacional e, portanto, o ataque torna-se mais difícil de ser detectado \cite{Fewer_Reflective_Library_Inject:2008}.
  %
  \item \textbf{Injeção de processo vazio}: Um processo malicioso dispara uma instância de um processo legítimo no estado ``suspenso''; a área do executável é então liberada e realocada com código malicioso.
 \end{itemize}
@@ -525,7 +525,7 @@ Finalmente, a Seção \ref{sec:conclusion} apresenta algumas considerações fin
 \marcos{Discutir a importância da nuvem faz mais sentido na Introdução, no ``Contexto Geral''. Se o leitor chegou até aqui, ou ele está convencido da importância da nuvem (=seu contexto geral) e não é necessário lembrá-lo, ou ele parou de ler lá atrás, por não ter gostado do seu contexto geral... Informações sobre modelos de nuvem (deixando claro seu foco em IaaS) e contêineres são interessantes de incluir no documento, mas não acho que condizem com o título da seção... SUGESTÃO: Renomeie a seção para ``Fundamentação Teórica'' e explique nela, com sub-seções sucintas, os principais conceitos que interessam para o seu trabalho. NOTA: Isso normalmente é a última seção que se escreve, pois só no final você vai saber todos os conceitos necessários para o seu documento - HAMILTON: deixando por último}
 
 Nuvem computacional é um modelo de infra estrutura onde recursos compartilhados configuráveis acessíveis via rede são provisionados e descartados com esforço mínimo de gerenciamento ou recurso de um provedor de serviço. \cite{NIST2011}
-%A infra-estrutura é composta de máquinas físicas contendo cada uma um número variável de máquinas virtuais que implementam este serviço \cite{Sousa2009}. 
+%A infra-estrutura é composta de máquinas físicas contendo cada uma um número variável de máquinas virtuais que implementam este serviço \cite{Sousa_Computacao_Nuvem:2009}. 
 %
 Há três modelos principais de comercialização de uso da nuvem \cite{NIST2011}: plataforma como serviço (PaaS) onde se provê infra estrutura para que o cliente instale seu software, software como serviço(SaaS) onde se provê o software que será usado pelo cliente e, o tipo mais pertinente para este trabalho, Infraestrutura como serviço (IaaS) ondê se provê recursos computacionais fundamentais.
 
@@ -541,19 +541,19 @@ A literatura voltada a analise forense na nuvem foi analisada a luz dos seguinte
 
 \subsection{Acessar e coletar as informações de memória das máquinas virtuais em nuvem}
 
-Referente a coleta de informações, os autores \cite{Reichert2015}, \cite{Poisel2013}, \cite{Dykstra2013}, \cite{George2012} e \cite{Sang2013} focam em coleta "após o fato" pois ela acontece apenas após a intrusão ser detectada. 
+Referente a coleta de informações, os autores \cite{Reichert_Auto_acquisition:2015}, \cite{Poisel_VMI:2013}, \cite{Dykstra_FROST:2013}, \cite{George_DF2CE:2012} e \cite{Sang_Log_approach:2013} focam em coleta "após o fato" pois ela acontece apenas após a intrusão ser detectada. 
 %
 Os processos de coleta descritos nos trabalhos são iniciados de forma manual ou automáticamente via integração com um mecanismo de detecção de intrusão. 
 %
 No caso específico de memória volátil, tal forma de coleta não consegue descrever como era a memória antes da intrusão pois o processo só é acionado depois da detecção do ataque. 
 %
-A capacidade de saber como era a memória antes do fato é descrita por \cite{Case2014} como necessária para viabilizar a abordagem de coletar o suficiente para realizar a investigação pois permite comparar dois instantâneos de memória e minimizar o volume coletado antes do fato. 
+A capacidade de saber como era a memória antes do fato é descrita por \cite{Case_Memory_Forensics:2014} como necessária para viabilizar a abordagem de coletar o suficiente para realizar a investigação pois permite comparar dois instantâneos de memória e minimizar o volume coletado antes do fato. 
 %
-A única proposta encontrada que leva tal necessidade em consideração é \cite{Dezfouli2012} mas propõe que o dado seja armazenado no próprio dispositivo porém essa abordagem não é aplicável ao cenário em nuvem pois leva a perda de informações importantes caso a máquina virtual seja despejada e seus recursos liberados.
+A única proposta encontrada que leva tal necessidade em consideração é \cite{Dezfouli_Backup_approach:2012} mas propõe que o dado seja armazenado no próprio dispositivo porém essa abordagem não é aplicável ao cenário em nuvem pois leva a perda de informações importantes caso a máquina virtual seja despejada e seus recursos liberados.
 
-Ainda na coleta de informações, os autores \cite{Reichert2015} e \cite{George2012} sugerem a abordagem de forense ao vivo onde os dados são constantemente coletados sem distinção do antes ou depois do fato. 
+Ainda na coleta de informações, os autores \cite{Reichert_Auto_acquisition:2015} e \cite{George_DF2CE:2012} sugerem a abordagem de forense ao vivo onde os dados são constantemente coletados sem distinção do antes ou depois do fato. 
 %
-Os autores \cite{Poisel2013}, \cite{Dykstra2013} e \cite{Sang2013} adotam a estratégia de isolar e parar a máquina virtual para em seguida realizar o processo de coleta. 
+Os autores \cite{Poisel_VMI:2013}, \cite{Dykstra_FROST:2013} e \cite{Sang_Log_approach:2013} adotam a estratégia de isolar e parar a máquina virtual para em seguida realizar o processo de coleta. 
 %
 Nas duas estratégias citadas anteriormente, o problema do grande volume de informações coletadas não é abordado pelo autores nem o cenário onde é necessário coletar evidências de uma máquina virtual que já foi despejada do pool e os recursos liberados. 
 %
@@ -571,35 +571,35 @@ No caso das soluções em nuvem, não é possível remover o hardware para anál
 %
 A maioria dos autores resolve este problema adequadamente e podemos listar duas estratégias usadas. 
 %
-Os autores \cite{Reichert2015}, \cite{George2012}, \cite{Poisel2013} e \cite{Dykstra2013} usam estratégias de coletar dados pertinentes a investigação e armazená-los fora da nuvem enquanto que \cite{Sang2013} e um caso específico de \cite{George2012} dependem da cooperação do provedor de serviços de nuvem para conseguir as informações necessárias à investigação. 
+Os autores \cite{Reichert_Auto_acquisition:2015}, \cite{George_DF2CE:2012}, \cite{Poisel_VMI:2013} e \cite{Dykstra_FROST:2013} usam estratégias de coletar dados pertinentes a investigação e armazená-los fora da nuvem enquanto que \cite{Sang_Log_approach:2013} e um caso específico de \cite{George_DF2CE:2012} dependem da cooperação do provedor de serviços de nuvem para conseguir as informações necessárias à investigação. 
 %
 Depender do provedor de serviços de nuvem é considerada uma estratégia fraca pela comunidade forense pois o foco do provedor de nuvem é garantir a continuidade do serviço e não a coleta de evidências.
 
 \subsection{Garantir a cadeia de custódia da evidência}
 
-Na garantia da cadeia de custódia apenas \cite{Sang2013} aborda a questão, mas toma cuidados somente para garantir que a evidência não foi destruída ou alterada através do cálculo de hashing da mesma mas não explica como impede o acesso não autorizado. 
+Na garantia da cadeia de custódia apenas \cite{Sang_Log_approach:2013} aborda a questão, mas toma cuidados somente para garantir que a evidência não foi destruída ou alterada através do cálculo de hashing da mesma mas não explica como impede o acesso não autorizado. 
 %
 As propostas dos outros autores estão focadas apenas no aspecto técnico da coleta, nenhum deles menciona garantia de custódia, apenas que as evidências são coletadas de forma "forensicamente aceitável".
 
 A Tabela 1 mostra um comparativo das soluções estudadas.
 
-\begin{table}[h!]
+\begin{table}[h]
 \centering
 \caption{Comparativo de soluções de coleta de informações de memória de máquinas em nuvem para análise forense \marcos{LEGENDAS DEVEM SER DESCRITIVAS O SUFICIENTE PARA QUE SEJAM ENTENDIDAS SEM QUE SEQUER EU TENHA LIDO O SEU TEXTO...} }
-\begin{tabular}{p{2.9cm}|L|L|L|L}
+\begin{tabular}{p{3.0cm}|L|L|L|L}
 \cline{2-5}
-\textbf{}			& \rotatebox{90}{\textbf{Coleta  é contínua?}}      & \rotatebox{90}{\textbf{Reproduz o processo sem a VM?}} & \rotatebox{90}{\textbf{Garante cadeia de custódia?}}     & \rotatebox{90}{\textbf{Preserva jurisdição e privacidade?}}          \\ \hline
-Dizang				& \includegraphics[scale=0.015]{check.png}	    & \includegraphics[scale=0.015]{check.png}               & \includegraphics[scale=0.015]{check.png}                 & \includegraphics[scale=0.015]{check.png}                             \\ \hline
-\cite{George2012}		& \includegraphics[scale=0.007]{x.png}		    & \includegraphics[scale=0.007]{x.png}                  & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.015]{check.png}                             \\ \hline
-\cite{Poisel2013}		& \includegraphics[scale=0.007]{x.png}              & \includegraphics[scale=0.007]{x.png}                  & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.015]{check.png}                             \\ \hline
-\cite{Dykstra2013}		& \includegraphics[scale=0.007]{x.png}              & \includegraphics[scale=0.007]{x.png}                  & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.015]{check.png}                             \\ \hline
-\cite{Do2014}			& \includegraphics[scale=0.007]{x.png}              & \includegraphics[scale=0.007]{x.png}                  & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.015]{check.png}                             \\ \hline
-\cite{Reichert2015}		& \includegraphics[scale=0.007]{x.png}              & \includegraphics[scale=0.007]{x.png}                  & \includegraphics[scale=0.015]{check.png}                  & \includegraphics[scale=0.015]{check.png}                             \\ \hline
-\cite{Sang2013}			& \includegraphics[scale=0.015]{check.png}          & \includegraphics[scale=0.007]{x.png}	            & \includegraphics[scale=0.015]{check.png}                      & \includegraphics[scale=0.015]{check.png}                             \\ \hline
-\cite{Dolan-Gavitt2011a}	& \includegraphics[scale=0.007]{x.png}              & \includegraphics[scale=0.007]{x.png}                  & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.015]{check.png}                             \\ \hline
-\cite{Aljaedi2011}		& \includegraphics[scale=0.007]{x.png}              & \includegraphics[scale=0.007]{x.png}                  & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.015]{check.png}                             \\ \hline
-\cite{Dezfouli2012}		& \includegraphics[scale=0.015]{check.png}          & \includegraphics[scale=0.007]{x.png}                  & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.015]{check.png}                             \\ \hline
-\cite{VanBaar2014}		& \includegraphics[scale=0.015]{check.png}          & \includegraphics[scale=0.007]{x.png}                  & \includegraphics[scale=0.015]{check.png}                  & \includegraphics[scale=0.015]{check.png}                             \\
+\textbf{}			& \rotatebox{90}{\textbf{Coleta  é contínua?}}      & \rotatebox{90}{\textbf{Reproduz o processo sem a VM?}} & \rotatebox{90}{\textbf{Garante cadeia de custódia?}}      & \rotatebox{90}{\textbf{Preserva jurisdição e privacidade?}}          \\ \hline
+Dizang				& \includegraphics[scale=0.015]{check.png}	    & \includegraphics[scale=0.015]{check.png}               & \includegraphics[scale=0.015]{check.png}                  & \includegraphics[scale=0.015]{check.png}                             \\ \hline
+DF2CE-George			& \includegraphics[scale=0.007]{x.png}		    & \includegraphics[scale=0.007]{x.png}                   & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.015]{check.png}                             \\ \hline
+VMI-Poisel			& \includegraphics[scale=0.007]{x.png}              & \includegraphics[scale=0.007]{x.png}                   & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.015]{check.png}                             \\ \hline
+FROST-Dykstra			& \includegraphics[scale=0.007]{x.png}              & \includegraphics[scale=0.007]{x.png}                   & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.015]{check.png}                             \\ \hline
+Desafios da Forense-Do		& \includegraphics[scale=0.007]{x.png}              & \includegraphics[scale=0.007]{x.png}                   & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.015]{check.png}                             \\ \hline
+Auto Aquisition-Reichert	& \includegraphics[scale=0.007]{x.png}              & \includegraphics[scale=0.007]{x.png}                   & \includegraphics[scale=0.015]{check.png}                  & \includegraphics[scale=0.015]{check.png}                             \\ \hline
+Log Approach-Sang		& \includegraphics[scale=0.015]{check.png}          & \includegraphics[scale=0.007]{x.png}	             & \includegraphics[scale=0.015]{check.png}                  & \includegraphics[scale=0.015]{check.png}                             \\ \hline
+Semantic Gap-Dolan		& \includegraphics[scale=0.007]{x.png}              & \includegraphics[scale=0.007]{x.png}                   & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.015]{check.png}                             \\ \hline
+Comp. Analisys-Aljaedi		& \includegraphics[scale=0.007]{x.png}              & \includegraphics[scale=0.007]{x.png}                   & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.015]{check.png}                             \\ \hline
+Bkp. Approach-Dezfouli		& \includegraphics[scale=0.015]{check.png}          & \includegraphics[scale=0.007]{x.png}                   & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.015]{check.png}                             \\ \hline
+FAAS-VanBaar			& \includegraphics[scale=0.015]{check.png}          & \includegraphics[scale=0.007]{x.png}                   & \includegraphics[scale=0.015]{check.png}                  & \includegraphics[scale=0.015]{check.png}                             \\
 \end{tabular}
 \end{table}
 
@@ -629,7 +629,7 @@ A pilha de um contêiner pode ser visto na Figura 1.\\
 \caption{Pilha monstrando funcionamento de contêiner}
 \includegraphics[scale=0.5]{docker.jpg}
 \centering
-\label{fig:instantaneo}
+\label{fig:pilha}
 \end{figure}
 
 A solução proposta por este trabalho para resolver o problema de associação da evidência a sua origem de modo que o processo seja reprodutível, pausa a execução do contêiner e coleta um instantâneo da memória dos processos sob sua execução. 
@@ -638,14 +638,14 @@ Esta coleta é executada em intervalos de tempo conhecidos de modo a se um hist�
 %
 Para relacionar o instantâneo a sua origem, assinou-se o arquivo em que foram salvos o instantâneo da memória com o hash da imagem como mostrado na Figura 2.\\
 
-\begin{figure}[h!]
+\begin{figure}[h]
 \caption{Evidência salva - hash do contêiner e imagem}
 \includegraphics[scale=0.2]{snapshot.jpg}
 \centering
 \label{fig:instantaneo}
 \end{figure}
 
-As técnicas forenses praticadas hoje estão voltadas para a obtenção da informação em sua totalidade, seja via cópia bit a bit, seja por remoção do hardware \cite{Simou2014} \cite{Bem2008}. 
+As técnicas forenses praticadas hoje estão voltadas para a obtenção da informação em sua totalidade, seja via cópia bit a bit, seja por remoção do hardware \cite{Simou_Cloud_Chlng:2014} \cite{Bem_Past_Present_Future:2008}. 
 %
 Tais práticas tem levado ao crescente volume de dados que os investigadores tem que analisar. Há uma vertente na comunidade chamada ``sniper forensics'' onde se coleta e armazena o suficiente para a investigação. 
 %
@@ -653,13 +653,13 @@ A solução proposta por este trabalho acompanha esta tendência.
 %
 A questão foi definir a quantidade de dados ``suficiente'' para uma investigação. 
 %
-De acordo com \cite{Case2014}, detectar intrusões na memória de processos depende de termos uma descrição da memória antes e depois da intrusão. 
+De acordo com \cite{Case_Memory_Forensics:2014}, detectar intrusões na memória de processos depende de termos uma descrição da memória antes e depois da intrusão. 
 %
 Com base nisso determinou-se que ``suficiente'' seria a quantidade necessária para descrever o sistema antes e depois do ataque. 
 %
 A idéia é implementar um log rotativo de instantâneos de memória cobrindo uma quantidade de tempo configurável. Integrar a solução com algum sistema de detecção de ameaça de modo que, ao detectar um ataque, o log passa de rotativo a completo permitindo que se conheça o sistema antes e depois do ataque e sua evolução como mostrado na Figura 3. \\
 
-\begin{figure}[h!]
+\begin{figure}[h]
 \caption{Janela deslizante de coleta de evidência}
 \includegraphics[scale=0.4]{janela.jpg}
 \centering
@@ -819,192 +819,14 @@ Como é coletada apenas a memória relacionada aos processos, o ferramental não
 % http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
 % The IEEEtran BibTeX style support page is at:
 % http://www.michaelshell.org/tex/ieeetran/bibtex/
-%\bibliographystyle{IEEEtran}
+\bibliographystyle{IEEEtran}
 % argument is your BibTeX string definitions and bibliography database(s)
-%\bibliography{IEEEabrv,../bib/paper}
-%
+\bibliography{IEEEabrv,artigo-ieee.bib}
+
 % <OR> manually copy in the resultant .bbl file
 % set second argument of \begin to the number of references
 % (used to reserve space for the reference number labels box)
-\begin{thebibliography}{1}
 
-\bibitem[Amazon-PR:2016]{Amazon2016}
-{AMAZON. \emph{{Amazon Media Room Press Release}}.
-[S.l.], 2016. 2~p.}
-
-\bibitem[Adv. in Forensics:2015]{Bash2015a}
-{KEYUN, R. et al. \emph{{Advances in Digital Forensics IV}}. 7. ed. Orlando:
-  [s.n.], 2011. 35--46~p.
-ISSN 1098-6596.
-ISBN 9788578110796.}
-
-\bibitem[Acquiring for IAAS:2012]{Dykstra2012a}
-{DYKSTRA, J.; SHERMAN, A.~T. {Acquiring forensic evidence from
-  infrastructure-as-a-service cloud computing: Exploring and evaluating tools,
-  trust, and techniques}.
-\emph{Digital Investigation}, Elsevier Ltd, v.~9, n. SUPPL., p. S90--S98, 2012.
-ISSN 17422876.}
-  
-\bibitem[DF2CE:2012]{George2012}
-GEORGE, S.; VENTER, H.; THOMAS, F. {Digital Forensic Framework for a Cloud
-  Environment. In:  CUNNINGHAM, P.; CUNNINGHAM, M. (Ed.). \emph{IST Africa
-  2012}. Tanzania: Internation Information Management Corporation, 2012.
-  p.~1--8.
-  ISBN 9781905824342.}
-  
-\bibitem[VMI:2013]{Poisel2013}
-{POISEL, R.; MALZER, E.; TJOA, S. {Evidence and cloud computing: The virtual
-  machine introspection approach}.
-\emph{Journal of Wireless Mobile Networks, Ubiquitous Computing, and Dependable
-  Applications}, v.~4, n.~1, p. 135--152, 2013.
-ISSN 20935374 (ISSN).}
-
-\bibitem[FROST:2013]{Dykstra2013}
-{DYKSTRA, J.; SHERMAN, A.~T. {Design and implementation of FROST: Digital
-  forensic tools for the OpenStack cloud computing platform}.
-\emph{Digital Investigation}, Elsevier Ltd, v.~10, n. SUPPL., p. S87--S95,
-  2013.
-ISSN 17422876.}
-
-\bibitem[Auto acquisition:2015]{Reichert2015}
-{REICHERT, Z.; RICHARDS, K.; YOSHIGOE, K. {Automated forensic data acquisition
-  in the cloud}.
-\emph{Proceedings - 11th IEEE International Conference on Mobile Ad Hoc and
-  Sensor Systems, MASS 2014}, p. 725--730, 2015.}
-
-\bibitem[Log-approach:2013]{Sang2013}
-{SANG, T. {A log-based approach to make digital forensics easier on cloud
-  computing}.
-\emph{Proceedings of the 2013 3rd International Conference on Intelligent
-  System Design and Engineering Applications, ISDEA 2013}, p. 91--94, 2013.}
-  
-\bibitem[Backup-approach:2012]{Dezfouli2012}
-{DEZFOULI, F.~N. et al. {Volatile memory acquisition using backup for forensic
-  investigation}.
-\emph{Proceedings 2012 International Conference on Cyber Security, Cyber
-  Warfare and Digital Forensic, CyberSec 2012}, p. 186--189, 2012.}
-  
-\bibitem[Semantic-Gap:2011]{Dolan-Gavitt2011a}
-{DOLAN-GAVITT, B. et al. {Virtuoso: Narrowing the semantic gap in virtual
-  machine introspection}.
-\emph{Proceedings - IEEE Symposium on Security and Privacy}, p. 297--312, 2011.
-ISSN 10816011.}
-
-\bibitem[FAAS:2014]{VanBaar2014}
-{BAAR, R.~B. van; BEEK, H. M.~A. van; EIJK, E.~J. van. {Digital Forensics as a
-  Service: A game changer}.
-\emph{Digital Investigation}, Elsevier Ltd, v.~11, p. S54--S62, 2014.
-ISSN 17422876.}
-
-\bibitem[Live-VM:2010]{Zhang2010}
-{ZHANG, L.; ZHANG, D.; WANG, L. {Live Digital Forensics in a Virtual Machine}.
-  In:  \emph{2010 Internation Conference on Computer Application and System
-  Modelling (ICCASM 2010)}. [S.l.: s.n.], 2010. v.~6, p. 328--332.}
-  
-\bibitem[Comparative:2011]{Aljaedi2011}
-{ALJAEDI, A. et al. {Comparative Analysis of Volatile Memory Forensics}.
-\emph{IEEE International Conference on Privacy, Security, Risk and Trust
-  (PASSAT) and IEEE International Conference on Social Computing (SocialCom)},
-  p. 1253--1258, 2011.}
-  
-\bibitem[Desafio:2014]{Do2014}
-{BARBARA, D. \emph{{Desafios da per{\'{i}}cia forense em um ambiente de
-  computa{\c{c}}{\~{a}}o nas nuvens}}.
-[S.l.], 2014.}
-
-\bibitem[Cloud Chlng:2014]{Simou2014}
-{SIMOU, S. et al. {Cloud forensics: Identifying the major issues and
-  challenges}.
-\emph{Lecture Notes in Computer Science (including subseries Lecture Notes in
-  Artificial Intelligence and Lecture Notes in Bioinformatics)}, v. 8484 LNCS,
-  p. 271--284, 2014.
-ISSN 16113349.}
-
-\bibitem[PPF:2008]{Bem2008}
-{BEM, D. et al. {Computer Forensics - Past , Present and Future}.
-\emph{Journal of Information Science and Technology}, v.~5, n.~3, p. 43--59,
-  2008.}
-  
-\bibitem[Mem Forensics:2014]{Case2014}
-{CASE, A. et al. \emph{{The Art of Memory Forensics: Detecting malware abd
-  threats in Windows, LInux and Mac memory}}. Kindle edi. [S.l.]: Wiley, 2014.}
-  
-\bibitem[Comp Nuvem:2009]{Sousa2009}
-{SOUSA, F. R.~C.; MOREIRA, L.~O.; MACHADO, J.~C. {Computa{\c{c}}{\~{a}}o em
-  Nuvem: Conceitos, Tecnologias, Aplica{\c{c}}{\~{o}}es e Desafios}.
-\emph{II Escola Regional de Computa{\c{c}}{\~{a}}o, Ceara, Maranh{\~{a}}o,
-  Piau{\'{i}} (ERCEMAPI)}, v.~1, n. EDUFPI, p. 150--175, 2009.}
-  
-\bibitem[Evolution:2008]{Charters2008}
-{CHARTERS, I.; SMITH, M.; MCKEE, G. {The Evolution of Digital Forensics}. In:
-  \emph{Techno Forensics 2008 Conference}. [S.l.: s.n.], 2008. p. 1--39.}
-
-\bibitem[Chlng. Cloud Computing:2012]{Grispos2012}
-{GRISPOS, G.; STORER, T.; GLISSON, W. {Calm before the storm: the challenges of
-  cloud computing in digital forensics}.
-\emph{International Journal of Digital Crime and Forensics}, v.~4, n.~2, p.
-  28--48, 2012.
-ISSN 1466640073.}
-
-\bibitem[Implications forensics:2012]{Sharma2012}
-{SHARMA, H.; SABHARWAL, N. {Investigating the Implications of Virtual
-  Forensics}.
-\emph{Advances in Engineering, Science and Management (ICAESM), 2012
-  International Conference on}, p. 617--620, 2012.}
-  
-\bibitem[stat x live:2013]{Rafique2013}
-{RAFIQUE, M.; KHAN, M. N.~A. {Exploring Static and Live Digital Forensics:
-  Methods, Practices and Tools}.
-\emph{International Journal of Scientific {\&} Engineering Research}, v.~4,
-  n.~10, p. 1048--1056, 2013.}
-  
-\bibitem[Increase Volume:2014]{Quick2014}
-{QUICK, D.; CHOO, K. K.~R. {Impacts of increasing volume of digital forensic
-  data: A survey and future research challenges}.
-\emph{Digital Investigation}, Elsevier Ltd, v.~11, n.~4, p. 273--294, 2014.
-ISSN 17422876.}
-
-\bibitem[Lib Inject:2004]{Miller2004}
-{Miller, M. and Turkulainen, J. {Remote Library Injection}.
-\emph{www.nologin.org}, 2004. }
-
-\bibitem[Reflect Inject:2008]{Fewer2008}
-{Fewer, Stephen {Reflective DLL Injection}.
-\emph{harmonysecurity.com}, 2008. }
-
-\bibitem[Cloud Security:2010]{Morsy2010}
-{MORSY, A.~M.; GRUNDY, J.; MULLER, I. An Analysis of the Cloud Computing
-  Security Problem}.
-\emph{APSEC Cloud Workshop. Sydney, Australia: [s.n.], 2010.}
-
-\bibitem[Live forensics:2015]{Rahman2015}
-{RAHMAN, S.; KHAN, M. N.~A. {Review of live forensic analysis techniques}.
-\emph{International Journal of Hybrid Information Technology}, v.~8, n.~2, p.
-  379--388, 2015.}
-  
-\bibitem[Container:2016]{Piraghaj2016}
-{PIRAGHAJ, S.~F. et al. {A Framework and Algorithm for Energy Efficient
-  Container Consolidation in Cloud Data Centers}.
-\emph{Proceedings - 2015 IEEE International Conference on Data Science and Data
-  Intensive Systems; 8th IEEE International Conference Cyber, Physical and
-  Social Computing; 11th IEEE International Conference on Green Computing and
-  Communications and 8th IEEE International Conference on Internet of Things,
-  DSDIS/CPSCom/GreenCom/iThings 2015}, p. 368--375, 2016.}
-  
-\bibitem[Mem Acquisition:2013]{Vomel2013}
-{V{\"{O}}MEL, S.; ST{\"{U}}TTGEN, J. {An evaluation platform for forensic
-  memory acquisition software}. In:  \emph{The Digital Forensic Research
-  Conference}. Monterey, Ca: [s.n.], 2013. v.~10, n. SUPPL., p. S30--S40.
-ISBN 1742-2876.
-ISSN 17422876.}
-
-\bibitem[NIST:2011]{NIST2011}
-{MELL, P.; GRANCE, T. {The NIST definition of cloud computing}.
-\emph{NIST Special Publication}, v.~145, p.~7, 2011. ISSN 00845612.}
-
-\end{thebibliography}
-
-% that's all folks
 \end{document}
 
 
