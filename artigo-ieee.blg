@@ -20,43 +20,43 @@ Warning--empty journal in Fewer_Reflective_Library_Inject:2008
 Done.
 You've used 18 entries,
             4039 wiz_defined-function locations,
-            1334 strings with 19761 characters,
-and the built_in function-call counts, 14108 in all, are:
-= -- 1174
+            1333 strings with 19755 characters,
+and the built_in function-call counts, 13973 in all, are:
+= -- 1156
 > -- 335
-< -- 127
+< -- 124
 + -- 169
 - -- 55
-* -- 719
-:= -- 2171
+* -- 707
+:= -- 2144
 add.period$ -- 36
 call.type$ -- 18
 change.case$ -- 23
 chr.to.int$ -- 291
 cite$ -- 22
-duplicate$ -- 994
-empty$ -- 1077
+duplicate$ -- 985
+empty$ -- 1074
 format.name$ -- 73
-if$ -- 3213
+if$ -- 3183
 int.to.chr$ -- 0
 int.to.str$ -- 18
-missing$ -- 164
+missing$ -- 161
 newline$ -- 89
 num.names$ -- 22
-pop$ -- 375
+pop$ -- 378
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 4
-skip$ -- 1077
+skip$ -- 1065
 stack$ -- 0
 substring$ -- 677
-swap$ -- 821
-text.length$ -- 30
+swap$ -- 806
+text.length$ -- 27
 text.prefix$ -- 0
 top$ -- 5
 type$ -- 18
 warning$ -- 4
 while$ -- 74
 width$ -- 20
-write$ -- 212
+write$ -- 209
 (There were 4 warnings)

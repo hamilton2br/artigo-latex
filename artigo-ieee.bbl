@@ -36,9 +36,8 @@ R.~Keyun, C.~Joe, K.~Tahar, and C.~Mark, \emph{{Advances in Digital Forensics
 \BIBentryALTinterwordspacing
 J.~Dykstra and A.~T. Sherman, ``{Acquiring forensic evidence from
   infrastructure-as-a-service cloud computing: Exploring and evaluating tools,
-  trust, and techniques},'' \emph{Digital Investigation}, vol.~9, no. SUPPL.,
-  pp. S90--S98, 2012. [Online]. Available:
-  \url{http://dx.doi.org/10.1016/j.diin.2012.05.001}
+  trust, and techniques},'' \emph{Digital Investigation}, vol.~9, pp. S90--S98,
+  2012. [Online]. Available: \url{http://dx.doi.org/10.1016/j.diin.2012.05.001}
 \BIBentrySTDinterwordspacing
 
 \bibitem{Rahman_Live_Forensics_Techniques:2015}
@@ -53,7 +52,7 @@ S.~Rahman and M.~N.~A. Khan, ``{Review of live forensic analysis techniques},''
 \BIBentryALTinterwordspacing
 J.~Dykstra and A.~T. Sherman, ``{Design and implementation of FROST: Digital
   forensic tools for the OpenStack cloud computing platform},'' \emph{Digital
-  Investigation}, vol.~10, no. SUPPL., pp. S87--S95, 2013. [Online]. Available:
+  Investigation}, vol.~10, pp. S87--S95, 2013. [Online]. Available:
   \url{http://dx.doi.org/10.1016/j.diin.2013.06.010}
 \BIBentrySTDinterwordspacing
 
@@ -86,13 +85,13 @@ S.~F. Piraghaj, A.~V. Dastjerdi, R.~N. Calheiros, and R.~Buyya, ``{A Framework
 
 \bibitem{Case_Memory_Forensics:2014}
 A.~Case, M.~Ligh, L.~Jamie, and A.~Walters, \emph{{The Art of Memory Forensics:
-  Detecting malware abd threats in Windows, LInux and Mac memory}},
+  Detecting malware and threats in Windows, Linux and Mac memory}},
   kindle~ed.\hskip 1em plus 0.5em minus 0.4em\relax Wiley, 2014.
 
 \bibitem{Vomel_Memory_Acquisition:2013}
 S.~V{\"{o}}mel and J.~St{\"{u}}ttgen, ``{An evaluation platform for forensic
   memory acquisition software},'' in \emph{The Digital Forensic Research
-  Conference}, vol.~10, no. SUPPL., Monterey, Ca, 2013, pp. S30--S40.
+  Conference}, vol.~10, Monterey, Ca, 2013, pp. S30--S40.
 
 \bibitem{Miller_Remote_Library_Injection:2004}
 M.~Miller and J.~Turkulainen, ``{Remote Library Injection},'' pp. 1--40, 2004.

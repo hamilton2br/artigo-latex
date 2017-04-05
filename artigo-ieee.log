@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  30 MAR 2017 23:01
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  4 APR 2017 22:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -730,12 +730,12 @@ File: omsptm.fd
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 805.
  (./artigo-ieee.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 112--118
+Underfull \hbox (badness 10000) in paragraph at lines 111--117
 \OT1/ptm/m/n/8 Avail-able: http://www.scopus.com/inward/record.url?eid=2-s2.0-
  []
 
 
-Overfull \hbox (9.55112pt too wide) in paragraph at lines 112--118
+Overfull \hbox (9.55112pt too wide) in paragraph at lines 111--117
 \OT1/ptm/m/n/8 84885399460&partnerID=40&md5=0e332690d4cb1f01934b540b535fd771 
  []
 
@@ -767,7 +767,7 @@ sy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/times/utmri8a.pfb>
-Output written on artigo-ieee.pdf (5 pages, 458162 bytes).
+Output written on artigo-ieee.pdf (5 pages, 458154 bytes).
 PDF statistics:
  54 PDF objects out of 1000 (max. 8388607)
  32 compressed objects within 1 object stream
