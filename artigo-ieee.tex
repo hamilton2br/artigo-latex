@@ -487,7 +487,7 @@ Esta proposta supõe que o sistema sendo monitorado é executado dentro de um co
 A solução tem como alvo específico ataques de injeção de código \cite{Case_Memory_Forensics:2014}, pois estes, quando usados contra uma arquitetura em nuvem, não deixam rastros quando máquinas virtuais são desativadas e seus recursos liberados \cite{Vomel_Memory_Acquisition:2013}, \cite{Case_Memory_Forensics:2014}.
 %
 Em particular, têm especial interesse quatro tipos específicos dessa família de ameaças \cite{Case_Memory_Forensics:2014}:
-\marcos{TODO: talvez seja prematuro listar aqui os tipos de ataques (pode valer a pena mover para seção posterior). Por enquanto, vamos deixar aqui mesmo.- HAMILTON: OK}
+
 
 \begin{itemize}
  \item \textbf{Injeção remota de bibliotecas}: Um processo malicioso força o processo alvo a carregar uma biblioteca em seu espaço de memória.
@@ -522,7 +522,7 @@ Finalmente, a Seção \ref{sec:conclusion} apresenta algumas considerações fin
 \section{Adoção de arquiteturas em nuvem}
 \label{sec:cloud}
 
-\marcos{Discutir a importância da nuvem faz mais sentido na Introdução, no ``Contexto Geral''. Se o leitor chegou até aqui, ou ele está convencido da importância da nuvem (=seu contexto geral) e não é necessário lembrá-lo, ou ele parou de ler lá atrás, por não ter gostado do seu contexto geral... Informações sobre modelos de nuvem (deixando claro seu foco em IaaS) e contêineres são interessantes de incluir no documento, mas não acho que condizem com o título da seção... SUGESTÃO: Renomeie a seção para ``Fundamentação Teórica'' e explique nela, com sub-seções sucintas, os principais conceitos que interessam para o seu trabalho. NOTA: Isso normalmente é a última seção que se escreve, pois só no final você vai saber todos os conceitos necessários para o seu documento - HAMILTON: deixando por último}
+
 
 Nuvem computacional é um modelo de infra estrutura onde recursos compartilhados configuráveis acessíveis via rede são provisionados e descartados com esforço mínimo de gerenciamento ou recurso de um provedor de serviço. \cite{NIST2011}
 %A infra-estrutura é composta de máquinas físicas contendo cada uma um número variável de máquinas virtuais que implementam este serviço \cite{Sousa_Computacao_Nuvem:2009}. 
@@ -801,8 +801,6 @@ As ferramentas de leitura de memória disponíveis no mercado requerem que todo 
 Como é coletada apenas a memória relacionada aos processos, o ferramental não funciona. 
 %
 É necessário o desenvolvimento de uma ferramenta que trabalhe sem a memória completa da máquina, ou no caso da ferramenta \textit{Volatility} é necessário a criação de um profile para a memória do processo
-
-\marcos{Suas referências estão no formato errado... Não é IEEE... Para corrigir: use as referências em um arquivo .bib separado, não inline com o comando ``thebibliography''... Veja nos comentários do modelo que ele fala para usar ``bibliography\{IEEEabrv,../bib/paper\}''}
 
 % trigger a \newpage just before the given reference
 % number - used to balance the columns on the last page
