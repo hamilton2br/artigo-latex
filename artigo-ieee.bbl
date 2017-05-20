@@ -106,6 +106,12 @@ P.~Mell and T.~Grance, ``{The NIST definition of cloud computing},'' \emph{NIST
   \url{http://www.mendeley.com/research/the-nist-definition-about-cloud-computing/}
 \BIBentrySTDinterwordspacing
 
+\bibitem{Linuxcontainers.org2015}
+\BIBentryALTinterwordspacing
+Linuxcontainers.org, ``{Linux Containers (LXC)},'' 2015. [Online]. Available:
+  \url{https://linuxcontainers.org/lxc/introduction/}
+\BIBentrySTDinterwordspacing
+
 \bibitem{Poisel_VMI:2013}
 \BIBentryALTinterwordspacing
 R.~Poisel, E.~Malzer, and S.~Tjoa, ``{Evidence and cloud computing: The virtual
@@ -121,6 +127,31 @@ F.~N. Dezfouli, A.~Dehghantanha, R.~Mahmoud, N.~F. {Binti Mohd Sani}, and
   investigation},'' \emph{Proceedings 2012 International Conference on Cyber
   Security, Cyber Warfare and Digital Forensic, CyberSec 2012}, pp. 186--189,
   2012.
+
+\bibitem{Do_Desafio:2014}
+D.~Barbara, ``{Desafios da per{\'{i}}cia forense em um ambiente de
+  computa{\c{c}}{\~{a}}o nas nuvens},'' Universidade do Planalto Catarinense,
+  Tech. Rep., 2014.
+
+\bibitem{Dolan-Gavitt_Semantic_Gap:2011}
+B.~Dolan-Gavitt, T.~Leek, M.~Zhivich, J.~Giffin, and W.~Lee, ``{Virtuoso:
+  Narrowing the semantic gap in virtual machine introspection},''
+  \emph{Proceedings - IEEE Symposium on Security and Privacy}, pp. 297--312,
+  2011.
+
+\bibitem{Aljaedi_Comparative:2011}
+A.~Aljaedi, D.~Lindskog, P.~Zavarsky, R.~Ruhl, and F.~Almari, ``{Comparative
+  Analysis of Volatile Memory Forensics},'' \emph{IEEE International Conference
+  on Privacy, Security, Risk and Trust (PASSAT) and IEEE International
+  Conference on Social Computing (SocialCom)}, pp. 1253--1258, 2011.
+
+\bibitem{VanBaar_FAAS:2014}
+\BIBentryALTinterwordspacing
+R.~B. van Baar, H.~M.~A. van Beek, and E.~J. van Eijk, ``{Digital Forensics as
+  a Service: A game changer},'' \emph{Digital Investigation}, vol.~11, pp.
+  S54--S62, 2014. [Online]. Available:
+  \url{http://dx.doi.org/10.1016/j.diin.2014.03.007}
+\BIBentrySTDinterwordspacing
 
 \bibitem{Simou_Cloud_Chlng:2014}
 S.~Simou, C.~Kalloniatis, E.~Kavakli, and S.~Gritzalis, ``{Cloud forensics:

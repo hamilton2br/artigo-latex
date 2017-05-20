@@ -7,8 +7,7 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-Database file #1: IEEEabrv.bib
-Database file #2: artigo-ieee.bib.bib
+Database file #1: artigo-ieee.bib
 -- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
@@ -18,45 +17,45 @@ Warning--empty journal in Miller_Remote_Library_Injection:2004
 Warning--empty journal in Fewer_Reflective_Library_Inject:2008
 
 Done.
-You've used 18 entries,
+You've used 23 entries,
             4039 wiz_defined-function locations,
-            1333 strings with 19755 characters,
-and the built_in function-call counts, 13973 in all, are:
-= -- 1156
-> -- 335
-< -- 124
-+ -- 169
-- -- 55
-* -- 707
-:= -- 2144
-add.period$ -- 36
-call.type$ -- 18
-change.case$ -- 23
-chr.to.int$ -- 291
-cite$ -- 22
-duplicate$ -- 985
-empty$ -- 1074
-format.name$ -- 73
-if$ -- 3183
+            965 strings with 13176 characters,
+and the built_in function-call counts, 17554 in all, are:
+= -- 1453
+> -- 424
+< -- 154
++ -- 217
+- -- 70
+* -- 870
+:= -- 2695
+add.period$ -- 46
+call.type$ -- 23
+change.case$ -- 28
+chr.to.int$ -- 369
+cite$ -- 27
+duplicate$ -- 1238
+empty$ -- 1341
+format.name$ -- 91
+if$ -- 3996
 int.to.chr$ -- 0
-int.to.str$ -- 18
-missing$ -- 161
-newline$ -- 89
-num.names$ -- 22
-pop$ -- 378
+int.to.str$ -- 23
+missing$ -- 206
+newline$ -- 108
+num.names$ -- 27
+pop$ -- 491
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 4
-skip$ -- 1065
+skip$ -- 1336
 stack$ -- 0
-substring$ -- 677
-swap$ -- 806
-text.length$ -- 27
+substring$ -- 864
+swap$ -- 1014
+text.length$ -- 31
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 18
+type$ -- 23
 warning$ -- 4
-while$ -- 74
-width$ -- 20
-write$ -- 209
+while$ -- 91
+width$ -- 25
+write$ -- 259
 (There were 4 warnings)
