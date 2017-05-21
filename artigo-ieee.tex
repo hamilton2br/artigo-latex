@@ -441,7 +441,7 @@ Especificamente, ela tem como focos (1) a reprodutibilidade do processo de colet
 %
 Técnicas de virtualização, replicação de serviços e compartilhamento de recursos entre múltiplos usuários (multi-inquilinato) proveem a nuvens computacionais uma elevada escalabilidade \cite{Morsy_Cloud_Security:2010}.
 %
-Ao mesmo tempo, tais mecanismos também criam uma elevada volatilidade das máquinas virtuais que executam aplicações em nuvem.
+Ao mesmo tempo, tais mecanismos também criam uma elevada volatilidade dos recursos virtuais que executam aplicações em nuvem.
 %
 Afinal, quando submetida a uma carga elevada, uma aplicação hospedada na nuvem pode criar clones das máquinas virtuais (\textit{virtual machines} -- VMs) que a hospedam e balancear a carga entre elas, de modo a atender à demanda sem prejuízos na qualidade do serviço oferecido. 
 %
@@ -452,7 +452,7 @@ Após esse pico, as máquinas que foram clonadas são normalmente desativadas, s
 %
 Embora interessante do ponto de vista de eficiência e custos, do ponto de vista forense a volatilidade da nuvem traz problemas em caso de ataques.
 %
-Por exemplo, caso uma das instâncias de VM criadas temporariamente seja alvo de ameaças que atuam diretamente na sua memória, sem deixar rastros em discos (e.g., arquivos de log), as evidências desse evento podem ser completamente perdidas após elas serem desativadas e terem seus recursos liberados.
+Por exemplo, caso uma das instâncias de processamento virtuais criadas temporariamente seja alvo de ameaças que atuam diretamente na sua memória, sem deixar rastros em discos (e.g., arquivos de log), as evidências desse evento podem ser completamente perdidas após elas serem desativadas e terem seus recursos liberados.
 %
 Essa dificuldade é ainda agravada por aspectos como multi-inquilinato e multi-jurisdição típicas de soluções em nuvem \cite{Bash_Adv_in_Forensics:2015}.
 %
@@ -488,7 +488,7 @@ Para isso, a proposta supõe que o sistema sendo monitorado é executado dentro 
 %
 O foco da solução em contêiner se justifica pelo crescimento da adoção de conteinerização nos últimos anos, bem como pela previsão de que este será o modelo de implementação mais usado em aplicações futuras \cite{Piraghaj_Container_Cloud_Computing:2016}.
 %
-A solução tem como alvo específico ataques de injeção de código \cite{Case_Memory_Forensics:2014}, pois estes, quando usados contra uma arquitetura em nuvem, não deixam rastros quando contêineres e/ou máquinas virtuais são desativados e seus recursos liberados \cite{Vomel_Memory_Acquisition:2013}, \cite{Case_Memory_Forensics:2014}.
+A solução tem como alvo específico ataques de injeção de código \cite{Case_Memory_Forensics:2014}, pois estes, quando usados contra uma arquitetura em nuvem, não deixam rastros quando recursos de processamento virtuais são desativados e seus recursos liberados \cite{Vomel_Memory_Acquisition:2013}, \cite{Case_Memory_Forensics:2014}.
 %
 Em particular, têm especial interesse quatro tipos específicos dessa família de ameaças \cite{Case_Memory_Forensics:2014}:
 
@@ -563,13 +563,13 @@ No caso específico de memória volátil, tal forma de coleta não consegue desc
 %
 \marcosR{Sua frase original adota uma postura um pouco ``tímida''. Explico-me. Quando você fala ``Segundo X, bla-bla-bla'', você está dizendo que não necessariamente sabe/concorda com ``bla-bla-bla''. É como dizer ``Eu não sei de nada: quem falou isso foi X''. Isso é recomendado para assuntos polêmicos, em especial quando você quer apresentar dois pontos de vista: ``Segundo X, bla. Já segundo Y, ble''. Entretanto, quando é algo puramente técnico, ou com o qual você concorda, melhor construir sua frase na forma ``Bla (REFERENCIA para X)''. Ou seja, é você quem está escrevendo, mas se duvidarem de você, que leiam X (que apresenta argumentos adicionais, reforçando o que você está dizendo). Essa segunda forma fica bem melhor como postura: é você fazendo a afirmação, dando a cara a tapa, e apenas mostrando que há respaldo naquilo que você diz. - Hamilton: Feito}
 %A capacidade de saber como era a memória antes do fato é descrita por \cite{Case_Memory_Forensics:2014} como necessária para viabilizar a abordagem de coletar o suficiente para realizar a investigação pois permite comparar dois instantâneos de memória e minimizar o volume coletado antes do fato. 
-Tal limitação pode trazer danos à investigação pois normalmente é importante para investigações ser capaz de comparar dois momentos da memória e, ao mesmo tempo, minimizar o volume coletado antes do fato sob análise \cite{Case_Memory_Forensics:2014}. 
+Tal limitação pode trazer danos à investigação pois é importante para investigações ser capaz de comparar dois momentos da memória e, ao mesmo tempo, minimizar o volume coletado antes do fato sob análise \cite{Case_Memory_Forensics:2014}. 
 %
 Entre os trabalhos estudados, a única proposta encontrada que leva tal necessidade em consideração é \cite{Dezfouli_Backup_approach:2012}, que propõe que o dado seja armazenado no próprio equipamento sob análise.
 %
 \marcosR{Cuidado... muito incisivo dizer que ``essa abordagem não é aplicável''. Talvez ela seja, e você que não está enxergando. Melhor suavizar a frase, como na versão que reescrevi.}
 %Infelizmente, entretanto, essa abordagem não é aplicável ao cenário em nuvem, pois leva a perda de informações importantes caso a máquina virtual seja despejada e seus recursos liberados.
-\marcosT{Revise seu texto para as várias ocorrências de ``máquina virtual'': você diz que o seu foco são contêineres, mas ao longo do texto você fica mencionando basicamente máquinas virtuais... Melhor (1) trocar para algo como ``recurso virtual'', que tem ``sua memória liberada'', ou então (2) sempre dizer ``máquina virtual ou contêiner'', que tem  ``seus recursos liberados''. Escolha um (não me parece haver uma preferência clara, então você é livre pra decidir) e aplique no texto todo. Aliás, se vai ficar falando ``máquina virtual'' com frequência, melhor definir e usar a sigla ``VM'', não?}
+\marcosT{Revise seu texto para as várias ocorrências de ``máquina virtual'': você diz que o seu foco são contêineres, mas ao longo do texto você fica mencionando basicamente máquinas virtuais... Melhor (1) trocar para algo como ``recurso virtual'', que tem ``sua memória liberada'', ou então (2) sempre dizer ``máquina virtual ou contêiner'', que tem  ``seus recursos liberados''. Escolha um (não me parece haver uma preferência clara, então você é livre pra decidir) e aplique no texto todo. Aliás, se vai ficar falando ``máquina virtual'' com frequência, melhor definir e usar a sigla ``VM'', não? - Hamilton: Feito - Máquina virtual só permanece quando faz referência ao trabalho de outra pessoa}
 Infelizmente, entretanto, a aplicação de tal abordagem no cenário em nuvem é pouco viável, pois pode levar a perda de informações importantes caso a máquina virtual ou contêiner seja desativada, tendo seus recursos liberados.
 %
 
@@ -580,16 +580,16 @@ Existem ainda trabalhos voltados à coleta de informações durante a execução
 %
 Esse é o caso de trabalhos como \cite{Poisel_VMI:2013,Dykstra_FROST:2013,Sang_Log_approach:2013}, que adotam a estratégia de isolar e parar a máquina virtual para em seguida realizar o processo de coleta. 
 %
-\marcosR{MAIS CLAREZA: quais são as ``duas estratégias citadas anteriormente''? Você não enumerou nada, então como eu vou saber quais são elas? Se fosse na frase anterior, até seria aceitável, mas não espere que o leitor procure pelo texto todo onde está algo. Lembre-se que revisores, além de amargos, são seres preguiçosos: se você não for extremamente cuidadoso com a clareza do seu texto, ele não verá a luz do dia... Veja se a nova frase é o que você queria dizer.}
+\marcosR{MAIS CLAREZA: quais são as ``duas estratégias citadas anteriormente''? Você não enumerou nada, então como eu vou saber quais são elas? Se fosse na frase anterior, até seria aceitável, mas não espere que o leitor procure pelo texto todo onde está algo. Lembre-se que revisores, além de amargos, são seres preguiçosos: se você não for extremamente cuidadoso com a clareza do seu texto, ele não verá a luz do dia... Veja se a nova frase é o que você queria dizer. - Hamilton: Feito}
 %Nas duas estratégias citadas anteriormente, o problema do grande volume de informações coletadas não é abordado pelo autores nem o cenário onde é necessário coletar evidências de uma máquina virtual que já foi despejada do pool e os recursos liberados. 
 Embora interessantes, as abordagens descritas nesses trabalhos podem levar a um elevado volume de informações coletadas, além de também não tratarem o cenário em que é necessário coletar evidências quando são liberados os recursos virtuais contendo tais informações.
 
 
 \subsection{Capacidade de reproduzir o processo e obter os mesmos resultados}
 
-Para ser aceito em um processo legal a evidência precisa ter credibilidade. Se dois analístas obtêm resultados diferentes executando o mesmo procedimento de coleta, a evidência gerada não tem credibilidade. A reprodutibilidade processo de coleta é uma parte importante da coleta de informações para análise forense.
+Para ser aceito em um processo legal a evidência precisa ter credibilidade. Se dois analístas obtêm resultados diferentes executando o mesmo procedimento de coleta, a evidência gerada não tem credibilidade. A reprodutibilidade processo de coleta é uma parte importante da geração de evidências para análise forense.
 %
-Neste tópico, nenhuma das propostas encontradas até o momento consegue reproduzir os mesmos resultados ao repetir o processo no cenário em que uma máquina virtual é despejada da nuvem e seus recursos liberados pois todas elas dependem da existência da máquina virtual para a repetição da coleta. 
+Neste tópico, nenhuma das propostas encontradas até o momento consegue reproduzir os mesmos resultados ao repetir o processo no cenário em que o recurso de processamento virtual é despejada da nuvem e seus recursos físicos liberados pois todas elas dependem da existência do recurso virtual para a repetição da coleta. 
 
 \subsection{Não violar privacidade ou jurisdição das partes não envolvidas na investigação}
 
@@ -633,7 +633,7 @@ Digital Forensics as a Service: A game changer \cite{VanBaar_FAAS:2014}						& \
 \section{Solução proposta: Dizang}
 \label{sec:proposal}
 
-O presente proposta tem como objetivo principal coletar memória de uma máquina virtual de modo a conseguir: 
+A presente proposta tem como objetivo principal coletar memória de recursos de processamento virtual de modo a conseguir: 
 (1) identificar os quatro tipos de ataque listados anteriormente; 
 (2) identificar sua fonte, mesmo se a máquina virtual não existir mais; 
 (3) descrever o sistema antes e depois do incidente;
@@ -642,13 +642,13 @@ Além disso, deve-se armazenar a memória coletada de modo a garantir sua integr
 
 \subsection{Descrição}
 
-Nas soluções com infra-estrutura física a máquina é persistente. A associação de uma informação da memória, imagem de um disco ou pacotes trafegando na rede à sua origem é duradoura.
+Nas soluções com infra-estrutura física, o recursoa é persistente. A associação de uma informação da memória, imagem de um disco ou pacotes trafegando na rede à sua origem é duradoura.
 %
-Com as soluções de infra virtual, em especial as auto-escaláveis, a máquina deixou de ser persistente e tornou-se volátil. 
+Com as soluções de infra virtual, em especial as auto-escaláveis, o recurso deixou de ser persistente e tornou-se volátil. 
 %
-Para resolver o problema da identificação da fonte é necessário encontrar outro elemento persistente para identificar a fonte da evidência coletada. Para isto para isto a presente proposta usa contêineres. 
+Para resolver o problema da identificação da fonte é necessário encontrar outro elemento persistente para identificar a fonte da evidência coletada. Para isto para isto a presente proposta usa contêineres (LXC). 
 %
-Embora o contêiner seja uma peça de software e por consequência também é volátil, a imagem compilada e sua execução na forma de contêiner estão atrelados a um hash que os identificam unicamente. 
+Embora o contêiner seja uma peça de software e por consequência também é volátil, a imagem compilada e sua execução na forma de contêiner estão atrelados a um hash que os identificam unicamente. Embora máquinas virtuais também possam ser identificadas por hashes, a escolha do contêiner se justifica pela menor granularidade, é possível ter um contêiner com apenas uma parte da pilha da aplicação tornando mais precisa ainda a relação da evidência com sua fonte.
 %
 A pilha de um contêiner pode ser visto na Figura 1.\\
 
@@ -659,9 +659,11 @@ A pilha de um contêiner pode ser visto na Figura 1.\\
 \label{fig:pilha}
 \end{figure}
 
-A solução proposta por este trabalho para resolver o problema de associação da evidência a sua origem de modo que o processo seja reprodutível pausa a execução do contêiner e coleta um instantâneo da memória dos processos sob sua execução.
+A seguir é descrito como a presente proposta resolve os problemas de associação da evidência a origem, volume de dados coletados, garantia de custódia e respeito as diferentes jurisdições e privacidade.
+
+A solução proposta por este trabalho para resolver o problema de associação da evidência a sua origem de modo que o processo seja reprodutível usa contêiners para abrigar programas que realizam processamento. A execução desses contêiners é pausada para a coleta de um instantâneo da memória dos processos sob sua execução.
 %
-Esta coleta é executada em intervalos de tempo conhecidos de modo a ter um histórico da memória dos processos. Em uma distribuição linux (Ubuntu 14.04) isso foi atingido via cópia do diretório \textbf{\\proc} relacionado aos processos sob o \textbf{cgroup} associado ao contêiner e salvo em disco. 
+Esta coleta é executada em intervalos de tempo conhecidos de modo a ter um histórico da memória do que esta abrigado no contêiner. Em uma distribuição linux (Ubuntu 14.04) isso foi atingido via cópia do diretório \textbf{\\proc} relacionado aos processos sob o \textbf{cgroup} associado ao contêiner e salvo em disco. 
 %
 Para relacionar o instantâneo a sua origem, assinou-se o arquivo em que foram salvos o instantâneo da memória com o hash da imagem como mostrado na Figura 2.\\
 
@@ -678,7 +680,7 @@ Tais práticas têm levado ao crescente volume de dados que os investigadores t�
 %
 A solução proposta por este trabalho acompanha esta tendência. 
 %
-A questão foi definir a quantidade de dados \textit{suficiente} para uma investigação. 
+Para resolver este problema foi necessário definir qual a quantidade de dados tida como \textit{suficiente} para uma investigação. 
 %
 Detectar intrusões na memória de processos depende de termos uma descrição da memória antes e depois da intrusão \cite{Case_Memory_Forensics:2014}. Assim, a solução proposta implementa um log rotativo de instantâneos de memória cobrindo uma quantidade de tempo configurável. 
 %
@@ -691,7 +693,7 @@ Ao integrar a solução com algum sistema de detecção de ameaça, ao detectar 
 \label{fig:janela}
 \end{figure}
 
-De modo a não violar a jurisdição de outros países ou a privacidade de outros usuários, a solução proposta armazena a evidência em um local físico fora da nuvem utilizando como transporte uma conexão segura. 
+De modo a não violar a jurisdição de outros países ou a privacidade de outros usuários, a solução proposta armazena a evidência em um local físico fora da nuvem utilizando como transporte uma conexão segura (TLS). 
 %
 Para cobrir o requisito de garantir que a evidência não foi destruída, alterada ou acessada por qualquer pessoa a solução proposta por este trabalho usará de armazenamento físico fora da nuvem, o transporte será feito pela camada transporte seguro (\textit{Transport Layer System} -- TLS), um hash da evidência será calculado e o acesso ao mesmo será controlado.
 %
@@ -715,7 +717,7 @@ Em seguida verifica qual o arquivo .mem mais antigo em disco, se for mais velho 
 
 A solução está focada em coletar informações de memória do espaço do usuário (\textit{user space}), ela não enxerga o espaço do kernel (\textit{kernel space}). 
 %
-Técnicas de investigação de malware que se baseam em informações do kernel space como por exemplo, a comparação de informações do bloco do ambiente do processo (\textit{Process Environment Block -- PEB}), que ficam no user space, com informações do descritor de endereços de memória virtual (\textit{Virtual Address Descriptor -- VAD}), que fica no Kernel space não são possíveis. 
+Técnicas de investigação de malware que se baseam em informações do kernel space como 	por exemplo, a comparação de informações do bloco do ambiente do processo (\textit{Process Environment Block -- PEB}), que ficam no user space, com informações do descritor de endereços de memória virtual (\textit{Virtual Address Descriptor -- VAD}), que fica no Kernel space não são possíveis. 
 %
 Outro exemplo é a análise de ameaças que realizam manipulação direta dos objetos do kernel (\textit{D.K.O.M. - Direct Kernel Object Manipulation}) também não se beneficiam de associação com o contêiner.
 
