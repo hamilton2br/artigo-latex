@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  21 MAY 2017 16:52
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  27 MAY 2017 19:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -705,62 +705,52 @@ Package pdftex.def Info: check.png used on input line 629.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 1448) in paragraph at lines 645--654
-[]\OT1/ptm/m/n/10 Nas solu[][]oes com infra-estrutura f[]^^Psica, o re-cur-soa 
-[]e
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 645--654
+Underfull \hbox (badness 10000) in paragraph at lines 644--660
 
  []
 
-[3] <docker.jpg, id=20, 304.13625pt x 220.825pt>
-File: docker.jpg Graphic file (type jpg)
- <use docker.jpg>
-Package pdftex.def Info: docker.jpg used on input line 657.
-(pdftex.def)             Requested size: 152.06775pt x 110.41222pt.
+[3]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Underfull \hbox (badness 10000) in paragraph at lines 664--669
 
- []
-
-<snapshot.jpg, id=21, 1292.83pt x 216.81pt>
+<snapshot.jpg, id=20, 1292.83pt x 216.81pt>
 File: snapshot.jpg Graphic file (type jpg)
  <use snapshot.jpg>
-Package pdftex.def Info: snapshot.jpg used on input line 672.
+Package pdftex.def Info: snapshot.jpg used on input line 663.
 (pdftex.def)             Requested size: 258.56142pt x 43.36122pt.
 
-Overfull \hbox (6.56142pt too wide) in paragraph at lines 672--675
+Overfull \hbox (6.56142pt too wide) in paragraph at lines 663--666
  [][] 
  []
 
 
-Underfull \hbox (badness 1910) in paragraph at lines 677--688
-\OT1/ptm/m/n/10 in-trus[]oes na mem[]oria de pro-ces-sos de-pende de ter-mos
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 677--688
+Underfull \hbox (badness 10000) in paragraph at lines 668--678
 
  []
 
-[4 <./check.png> <./x.png> <./docker.jpg> <./snapshot.jpg>]
-<janela.jpg, id=27, 614.295pt x 447.92343pt>
+<janela.jpg, id=21, 614.295pt x 447.92343pt>
 File: janela.jpg Graphic file (type jpg)
  <use janela.jpg>
-Package pdftex.def Info: janela.jpg used on input line 691.
+Package pdftex.def Info: janela.jpg used on input line 681.
 (pdftex.def)             Requested size: 245.71364pt x 179.1662pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 696--701
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 686--692
 
  []
 
-<solucao.jpg, id=28, 864.98157pt x 507.39563pt>
+[4 <./check.png> <./x.png> <./snapshot.jpg>]
+<solucao.jpg, id=27, 864.98157pt x 507.39563pt>
 File: solucao.jpg Graphic file (type jpg)
  <use solucao.jpg>
-Package pdftex.def Info: solucao.jpg used on input line 728.
+Package pdftex.def Info: solucao.jpg used on input line 719.
 (pdftex.def)             Requested size: 216.24486pt x 126.84859pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 (./artigo-ieee.bbl [5 <./janela.jpg> <./solucao.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 117--123
@@ -784,25 +774,27 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[6] (./artigo-ieee.aux) ) 
+[6
+
+] (./artigo-ieee.aux) ) 
 Here is how much of TeX's memory you used:
- 3009 strings out of 493304
- 44308 string characters out of 6139871
- 135666 words of memory out of 5000000
- 6426 multiletter control sequences out of 15000+600000
+ 3006 strings out of 493304
+ 44341 string characters out of 6139871
+ 137670 words of memory out of 5000000
+ 6424 multiletter control sequences out of 15000+600000
  39904 words of font info for 73 fonts, out of 8000000 for 9000
  960 hyphenation exceptions out of 8191
  38i,16n,35p,927b,318s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r
-.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
-/times/utmri8a.pfb>
-Output written on artigo-ieee.pdf (6 pages, 456010 bytes).
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.e
+nc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/t
+imes/utmri8a.pfb>
+Output written on artigo-ieee.pdf (6 pages, 439937 bytes).
 PDF statistics:
- 53 PDF objects out of 1000 (max. 8388607)
+ 52 PDF objects out of 1000 (max. 8388607)
  31 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
