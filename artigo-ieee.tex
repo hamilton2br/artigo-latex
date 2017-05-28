@@ -452,11 +452,11 @@ Após esse pico, as máquinas que foram clonadas são normalmente desativadas, s
 %
 Embora interessante do ponto de vista de eficiência e custos, do ponto de vista forense a volatilidade da nuvem traz problemas em caso de ataques.
 %
-Por exemplo, caso uma das instâncias de processamento virtuais criadas temporariamente seja alvo de ameaças que atuam diretamente na sua memória, sem deixar rastros em discos (e.g., arquivos de log), as evidências desse evento podem ser completamente perdidas após elas serem desativadas e terem seus recursos liberados.
+Por exemplo, caso uma das instâncias de processamento virtuais criadas temporariamente seja alvo de ameaças que atuam diretamente na sua memória, sem deixar rastros em discos (e.g., arquivos de \textit{log}), as evidências desse evento podem ser completamente perdidas após elas serem desativadas e terem seus recursos liberados.
 %
 Essa dificuldade é ainda agravada por aspectos como multi-inquilinato e multi-jurisdição típicas de soluções em nuvem \cite{Bash_Adv_in_Forensics:2015}.
 %
-Especificamente, o aspecto multi-inquilino dificulta a obtenção do hardware que executa as aplicações de interesse, pois, como ele é compartilhado por vários usuários, removê-los para análise poderia levar a uma violação de privacidade dos usuários não relacionados à investigação. 
+Especificamente, o aspecto multi-inquilino dificulta a obtenção do \textit{hardware} que executa as aplicações de interesse, pois, como ele é compartilhado por vários usuários, removê-los para análise poderia levar a uma violação de privacidade dos usuários não relacionados à investigação. 
 %
 Já a natureza distribuída da nuvem pode levar à alocação de informações relevantes à investigação em vários países, dificultando a obtenção das mesmas em especial quando não existem acordos de cooperação entre as entidades envolvidas \cite{Dykstra_Acquiring_for_IAAS:2012}.
 %
@@ -528,10 +528,10 @@ Finalmente, a Seção \ref{sec:conclusion} apresenta algumas considerações fin
 
 
 Uma nuvem computacional é um modelo de infraestrutura no qual recursos compartilhados em quantidade configurável, acessíveis via rede, são alocados e desalocados com esforço mínimo de gerenciamento por parte de um provedor de serviços. \cite{NIST2011}
-%A infra-estrutura é composta de máquinas físicas contendo cada uma um número variável de máquinas virtuais que implementam este serviço \cite{Sousa_Computacao_Nuvem:2009}. 
+%A infraestrutura é composta de máquinas físicas contendo cada uma um número variável de máquinas virtuais que implementam este serviço \cite{Sousa_Computacao_Nuvem:2009}. 
 %
 \marcosR{Veja erro comum 37. Você não pode falar que a sigla para ``Plataforma como Serviços'' é ``PaaS'' em vez de ``PcS'' sem dizer de onde você tirou o ``PaaS''... - Hamilton: Feito}
-Há três modelos principais de comercialização de uso da nuvem \cite{NIST2011}: software como serviço (\textit{Software as a Service} -- SaaS), na qual se provê o software que será usado pelo cliente; plataforma como serviço (\textit{Platform as a Service} -- PaaS), na qual se provê o ambiente para que o cliente desenvolva, teste e execute seu software; e, o tipo mais pertinente para este trabalho, Infraestrutura como serviço (\textit{Infrastructure as a Service} -- IaaS), na qual são fornecidos recursos computacionais básicos, como processamento e memória, em geral de forma virtualizada.
+Há três modelos principais de comercialização de uso da nuvem \cite{NIST2011}: \textit{software} como serviço (\textit{Software as a Service} -- SaaS), na qual se provê o \textit{software} que será usado pelo cliente; plataforma como serviço (\textit{Platform as a Service} -- PaaS), na qual se provê o ambiente para que o cliente desenvolva, teste e execute seu \textit{software}; e, o tipo mais pertinente para este trabalho, Infraestrutura como serviço (\textit{Infrastructure as a Service} -- IaaS), na qual são fornecidos recursos computacionais básicos, como processamento e memória, em geral de forma virtualizada.
 
 
 \marcosR{Mais cuidado com a ligação entre ideias... Não tinha ligação alguma entre este parágrafo e o anterior - Hamilton: OK}
@@ -539,7 +539,7 @@ A virtualização de recursos na nuvem, embora tradicionalmente feita por meio d
 %
 De fato, segundo o ``Container Market Adoption Survey 2016'', realizado pelas empresas DevOps.com (https://devops.com/) e ClusterHQ (https://clusterhq.com) com 235 empresas que têm desenvolvimento de software como sua atividade fim ou como suporte à atividade fim, 76\% dos respondentes utilizam contêiners para melhorar a eficiência do processo de desenvolvimento e em suas arquiteturas de micro-serviços em nuvem.
 %
-Diferentemente de máquinas virtuais, que envolvem a criação de um hardware virtual e de um sistema operacional (SO) acima do sistema nativo e que opera independente deste, a virtualização com contêineres é feita no nível do SO nativo, tem uma implementação mais simples eliminado camadas entre o aplicativo executado e o hardware físico.
+Diferentemente de máquinas virtuais, que envolvem a criação de um \textit{hardware} virtual e de um sistema operacional (SO) acima do sistema nativo e que opera independente deste, a virtualização com contêineres é feita no nível do SO nativo, tem uma implementação mais simples eliminado camadas entre o aplicativo executado e o \textit{hardware} físico.
 %
 Uma tecnologia bastante utilizada para esse propósito são Contêiners Linux (LXC) \cite{Linuxcontainers.org2015}, que aproveitam-se de funcionalidades como cgroups e namespacing do kernel do Linux para auxiliar no gerenciamento e isolamento de recursos virtuais.
 
@@ -593,17 +593,17 @@ Neste tópico, nenhuma das propostas encontradas até o momento consegue reprodu
 
 \subsection{Não violar privacidade ou jurisdição das partes não envolvidas na investigação}
 
-Nas soluções em nuvem, remover o hardware para análise pode levar a violação de privacidade uma vez que o mesmo guarda informações de indivíduos e empresas que não estão envolvidas na investigação em curso.
+Nas soluções em nuvem, remover o \textit{hardware} para análise pode levar a violação de privacidade uma vez que o mesmo guarda informações de indivíduos e empresas que não estão envolvidas na investigação em curso.
 %
 A maioria dos autores resolve este problema adequadamente e podemos listar duas estratégias usadas. 
 %
-Os autores \cite{Reichert_Auto_acquisition:2015}, \cite{George_DF2CE:2012}, \cite{Poisel_VMI:2013} e \cite{Dykstra_FROST:2013} usam estratégias de coletar dados pertinentes a investigação e armazená-los fora da nuvem enquanto que \cite{Sang_Log_approach:2013} e um caso específico de \cite{George_DF2CE:2012} dependem da cooperação do provedor de serviços de nuvem para conseguir as informações necessárias à investigação. 
+Os autores \cite{Reichert_Auto_acquisition:2015}, \cite{George_DF2CE:2012}, \cite{Poisel_VMI:2013} e \cite{Dykstra_FROST:2013} usam a estratégia de coletar dados pertinentes a investigação e armazená-los fora da nuvem enquanto que \cite{Sang_Log_approach:2013} e um caso específico de \cite{George_DF2CE:2012} dependem da cooperação do provedor de serviços de nuvem para conseguir as informações necessárias à investigação. 
 %
-Depender do provedor de serviços de nuvem é uma estratégia fraca pois além do volume de dados de usuário forçar os provedores a limitar o tamanho dos logs armazenados, caso ocorra uma indisponibilidade causada por um ataque, o objetivo do provedor será o de restabelecer o serviço não o de preservar evidências\cite{Clarke_Review_of_Challenges:2015}. 
+Depender do provedor de serviços de nuvem é uma estratégia fraca pois além do volume de dados de usuário forçar os provedores a limitar o tamanho dos \textit{logs} armazenados, caso ocorra uma indisponibilidade causada por um ataque, o objetivo do provedor será o de restabelecer o serviço não o de preservar evidências\cite{Clarke_Review_of_Challenges:2015}. 
 
 \subsection{Garantir a cadeia de custódia da evidência}
 
-Na garantia da cadeia de custódia apenas \cite{Sang_Log_approach:2013} aborda a questão. Usa de cálculo de hashing para garantir que a evidência não foi alterada ou destruída mas não explica como impede o acesso não autorizado. 
+Na garantia da cadeia de custódia apenas \cite{Sang_Log_approach:2013} aborda a questão. Usa de cálculo de \textit{hash} para garantir que a evidência não foi alterada ou destruída mas não explica como impede o acesso não autorizado. 
 %
 As propostas dos outros autores estão focadas apenas no aspecto técnico da coleta, nenhum deles menciona garantia de custódia, apenas que as evidências são coletadas de forma "forensicamente aceitável".
 
@@ -641,39 +641,29 @@ A presente proposta tem como objetivo principal coletar memória de recursos vir
 %
 \subsection{Descrição}
 
-Nas soluções com infra-estrutura física a associação de uma informação da memória, imagem de um disco ou pacotes trafegando na rede à sua origem é direta.
+Nas soluções com infraestrutura física a associação de uma informação da memória, imagem de um disco ou pacotes trafegando na rede à sua origem é direta.
 %
-Nas soluções de infra-estrutura virtual, em especial as auto-escaláveis, o recurso é volátil e portanto pode ser removido e seus recursos desalocados. 
+Nas soluções de infraestrutura virtual, em especial as auto-escaláveis, o recurso é volátil e portanto pode ser removido e seus recursos desalocados. 
 %
 Para conseguir relacionar uma evidência a uma origem volátil é necessário encontrar outro elemento que persista a relação fonte-avidência. Para atingir este objetivo a presente proposta usa contêineres linux (LXC).\\
 %
-Embora o contêiner seja um software e por consequência também volátil, a imagem compilada e sua execução na forma de contêiner estão atrelados a um hash que os identificam unicamente. 
+Embora o contêiner seja um \textit{software} e por consequência também volátil, a imagem compilada e sua execução na forma de contêiner estão atrelados a um \textit{hash} que os identificam unicamente. 
 %
-O contêiner também permite identificar com mais precisão a fonte de uma evidência uma vez que é possível ter um contêiner com apenas parte da pilha da aplicação sendo monitorada.\\
+O contêiner tambem permite identificar com mais precisão a fonte de uma evidência uma vez que é possível ter um contêiner com apenas parte da pilha da aplicação sendo monitorada.\\
 %
 A implementação da coleta interrompe temporáriamente a execução do contêiner, realiza a cópia da memória do mesmo e em seguida retoma sua execução. Esta técnica, inspirada em \cite{Rafique_Static_Live_Digital_Forensics:2013} para máquinas virtuais, produz um instantâneo da memória volátil do contêiner permitindo que seja análisada em um estado de repouso, isto é sem a necessidade de ter o contêiner em execução.
 %
 Realizando a coleta em intervalos de tempo determinados, será possível construír um histórico da memória do que esta sendo executado no contêiner.\\
 %
-%Para relacionar a informação coletada a sua origem, assina-se a evidência com o hash da imagem do contêiner e para garantir a integridade da evidência, calcula-se o hash da mesma. Evidência, hash e assinatura são então transportados a seu destino usando uma conexão segura.\\
-%
-
-\begin{figure}[h]
-\caption{Evidência salva - hash do contêiner e imagem}
-\includegraphics[scale=0.2]{snapshot.jpg}
-\centering
-\label{fig:instantaneo}
-\end{figure}
-
-As técnicas forenses praticadas hoje estão voltadas para a obtenção da informação em sua totalidade, seja via cópia bit a bit, seja por remoção do hardware \cite{Simou_Cloud_Chlng:2014} \cite{Bem_Past_Present_Future:2008}. 
+As técnicas forenses praticadas hoje estão voltadas para a obtenção da informação em sua totalidade, seja via cópia bit a bit, seja por remoção do \textit{hardware} \cite{Simou_Cloud_Chlng:2014} \cite{Bem_Past_Present_Future:2008}. 
 %
 Tais técnicas são hoje responsáveis pelo problema do crescente volume de informações que os investigadores precisam analisar \cite{Quick_Increase_Volume_Impact:2014}.\\
 %
-Para resolver este problema a presente proposta usa duas abordagens. A primeira foi a definição de um volume de dados que seria \textit{suficiente} para a realização de uma investigação. A segunda foi definir a idade máxima que a evidência pode ter quando o sistema trabalha em condições normais, isto é, não estando sob ataque.\\
+Para resolver este problema esta proposta usa duas estratégias. A primeira foi a definição de um volume de dados que seria \textit{suficiente} para a realização de uma investigação. A segunda foi definir a idade máxima que a evidência pode ter quando o sistema trabalha em condições normais, isto é, não estando sob ataque.\\
 %
-Para detectar e analisar intrusões na memória de processos é necessário ter uma cópia da memória antes e depois da intrusão \cite{Case_Memory_Forensics:2014}. Assim, a solução proposta implementa uma janela de instantâneos de memória cobrindo um intervalo de tempo pré-determinado. Em condições normais de uso as evidências são coletadas em intervalos de tempo e coletas mais velhas que uma determinada idade são descartadas.
+Para detectar e analisar intrusões na memória de processos é necessário ter uma cópia da memória antes e depois da intrusão \cite{Case_Memory_Forensics:2014}. Assim, a solução proposta implementa uma janela de instantâneos de memória cobrindo um intervalo de tempo pré-determinado como ilustrado na figura 1. Em condições normais de uso as evidências são coletadas em intervalos de tempo e coletas mais velhas que uma determinada idade são descartadas.
 %
-Integrando a solução com um sistema de detecção de ameaça, no evento de um ataque, o log deixa de descartar as coletas mais antigas sendo possível conhecer o sistema antes e depois do ataque e sua evolução. A figura 2 mostra como funciona essa janela.\\
+Integrando a solução com um sistema de detecção de ameaça, no evento de um ataque, o \textit{log} deixa de descartar as coletas mais antigas sendo possível conhecer o sistema antes e depois do ataque e sua evolução.\\
 %
 
 \begin{figure}[h]
@@ -683,7 +673,7 @@ Integrando a solução com um sistema de detecção de ameaça, no evento de um 
 \label{fig:janela}
 \end{figure}
 
-Para persistir a relação evidência-origem e garantir a integridade da mesma, a presente proposta assina a evidência com o hash de identificação da imagem do contêiner e calcula o hash do conjunto evidência e identificador de contêiner.\\
+Para persistir a relação evidência-origem e garantir a integridade da mesma, a presente proposta assina a evidência com o \textit{hash} de identificação da imagem do contêiner e calcula o \textit{hash} do conjunto evidência e identificador de contêiner.\\
 %
 De modo a não violar a jurisdição de outros países ou a privacidade de outros usuários, a evidência é armazenada em um local físico fora da nuvem utilizando como transporte uma camada de transporte seguro (\textit{Transport Layer Security} -- TLS). 
 %
@@ -692,17 +682,17 @@ Tendo a implementação sido bem sucedida será possível analisar e identificar
 
 \subsection{Implementação}
 
-A implementação da solução foi realizada em um notebook intel I5 de 2.30Mhz e 4Gb de RAM com sistema operacional de 64 bits. 
+A implementação da solução ilustrada na figura 2 foi realizada em um notebook intel I5 de 2.30Mhz e 4Gb de RAM com sistema operacional de 64 bits. 
 %
 Nele, usando Oracle Virtual Box 5.0 foi criada uma máquina virtual com 2 Gb de memória RAM emulando apenas 1 processador.
 %
-Na máquina virtual foi instalada a versão 1.10 do Docker engine e 1.21 da API, criados 3 contêiners, cada um rodando um nginx 1.0 em diferentes portas. 
+Na máquina virtual foi instalada a versão 1.10 do Docker Engine e 1.21 da API Docker, criados 3 contêiners cada um rodando um nginx 1.0 em diferentes portas. 
 %
-Escreveu-se uma aplicação em JAVA que descobre qual o PID associado a cada contêiner e copia o \textbf{/proc/pid/numa\_maps}.
+Escreveu-se uma aplicação em JAVA que descobre qual o identificador de processo associado a cada contêiner e copia o \textbf{/proc/pid/numa\_maps}.
 %
-A cópia e gravação do arquivo acontece da seguinte forma: a cada minuto a aplicação pausa o contêiner em questão, tira uma cópia do \textbf{numa\_maps}, concatena com o hash de identificação da imagem do contêiner e o salva em um arquivo cujo nome é o identificador da imagem do contêiner e a extenção é \textbf{mem}. 
+A cópia e gravação do arquivo acontece da seguinte forma: a cada minuto a aplicação pausa o contêiner em questão, copa a diretório \textbf{numa\_maps}, concatena com o \textit{hash} de identificação da imagem do contêiner, calcula o \textit{hash} do conjunto e o salva em um arquivo cujo nome é o identificador da imagem do contêiner e a extenção é \textbf{.mem}. 
 %
-Em seguida verifica qual o arquivo \textbf{.mem} mais antigo em disco, se for mais velho que o tempo 't', o arquivo é descartado.
+Em seguida verifica quais o arquivos \textbf{.mem} mais antigos em disco, se for mais velho que o tempo 't', o arquivo é descartado.
 
 \subsection{Limitações}
 
@@ -711,8 +701,6 @@ A solução está focada em coletar informações de memória do espaço do usu�
 Técnicas de investigação de malware que se baseam em informações do \textit{kernel space} como 	por exemplo, a comparação de informações do bloco do ambiente do processo (\textit{Process Environment Block -- PEB}), que ficam no \textit{user space}, com informações do descritor de endereços de memória virtual (\textit{Virtual Address Descriptor -- VAD}), que fica no \textit{kernel space} não são possíveis. 
 %
 Outro exemplo é a análise de ameaças que realizam manipulação direta dos objetos do kernel (\textit{D.K.O.M. - Direct Kernel Object Manipulation}) também não se beneficiam de associação com o contêiner.
-
-A solução completa com todos os elementos descritos anteriormente pode ser visto na figura 4
 
 \begin{figure}[h]
 \caption{Solução completa}
@@ -806,9 +794,9 @@ A solução completa com todos os elementos descritos anteriormente pode ser vis
 \section{Conclusoes Finais}
 \label{sec:conclusion}
 
-Até o momento a presente proposta teve sucesso em relacionar o instantâneo de memória a sua origem através do hash de identificação da imagem, usou-se a versão 1.10 do Docker para tal fim. 
+Até o momento a presente proposta teve sucesso em relacionar o instantâneo de memória a sua origem através do \textit{hash} de identificação da imagem, usou-se a versão 1.10 do Docker para tal fim. 
 %
-A versão é importante pois até a 1.9.x, o identificador da imagem era apenas um randômico. Na versão 1.10 ele passou a ser um hash calculado a partir da imagem.
+A versão é importante pois até a 1.9.x, o identificador da imagem era apenas um randômico. Na versão 1.10 ele passou a ser um \textit{hash} calculado a partir da imagem.
 %
 Apesar do sucesso em salvar a memória relacionadas ao contêiner e sua associação com a origem, não foi possível até o momento relizar uma análise das ameaças. 
 %
