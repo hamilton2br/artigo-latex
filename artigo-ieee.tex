@@ -341,6 +341,9 @@
 \newcommand{\fancyname}{Dizang}
 \newcommand{\fancynameX}{\fancyname}
 
+%shortcuts
+\newcommand{\xfig}{\includegraphics[scale=0.007]{x.png}}
+\newcommand{\checkfig}{\includegraphics[scale=0.015]{check.png}}
 
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
@@ -488,7 +491,7 @@ Para isso, a proposta supõe que o sistema sendo monitorado é executado dentro 
 %
 O foco da solução em contêiner se justifica pelo crescimento da adoção de conteinerização nos últimos anos, bem como pela previsão de que este será o modelo de implementação mais usado em aplicações futuras \cite{Piraghaj_Container_Cloud_Computing:2016}.
 %
-A solução tem como alvo específico ataques de injeção de código \cite{Case_Memory_Forensics:2014}, pois estes, quando usados contra uma arquitetura em nuvem, não deixam rastros quando recursos de processamento virtuais são desativados e seus recursos liberados \cite{Vomel_Memory_Acquisition:2013}, \cite{Case_Memory_Forensics:2014}.
+A solução tem como alvo específico ataques de injeção de código \cite{Case_Memory_Forensics:2014}, pois estes, quando usados contra uma arquitetura em nuvem, não deixam rastros quando recursos de processamento virtuais são desativados e sua memória é liberada \cite{Vomel_Memory_Acquisition:2013}, \cite{Case_Memory_Forensics:2014}.
 %
 Em particular, têm especial interesse quatro tipos específicos dessa família de ameaças \cite{Case_Memory_Forensics:2014}:
 
@@ -530,11 +533,9 @@ Finalmente, a Seção \ref{sec:conclusion} apresenta algumas considerações fin
 Uma nuvem computacional é um modelo de infraestrutura no qual recursos compartilhados em quantidade configurável, acessíveis via rede, são alocados e desalocados com esforço mínimo de gerenciamento por parte de um provedor de serviços. \cite{NIST2011}
 %A infraestrutura é composta de máquinas físicas contendo cada uma um número variável de máquinas virtuais que implementam este serviço \cite{Sousa_Computacao_Nuvem:2009}. 
 %
-\marcosR{Veja erro comum 37. Você não pode falar que a sigla para ``Plataforma como Serviços'' é ``PaaS'' em vez de ``PcS'' sem dizer de onde você tirou o ``PaaS''... - Hamilton: Feito}
 Há três modelos principais de comercialização de uso da nuvem \cite{NIST2011}: \textit{software} como serviço (\textit{Software as a Service} -- SaaS), na qual se provê o \textit{software} que será usado pelo cliente; plataforma como serviço (\textit{Platform as a Service} -- PaaS), na qual se provê o ambiente para que o cliente desenvolva, teste e execute seu \textit{software}; e, o tipo mais pertinente para este trabalho, Infraestrutura como serviço (\textit{Infrastructure as a Service} -- IaaS), na qual são fornecidos recursos computacionais básicos, como processamento e memória, em geral de forma virtualizada.
 
 
-\marcosR{Mais cuidado com a ligação entre ideias... Não tinha ligação alguma entre este parágrafo e o anterior - Hamilton: OK}
 A virtualização de recursos na nuvem, embora tradicionalmente feita por meio de máquinas virtuais, vêm sendo crescentemente feita também na forma de contêineres.
 %
 De fato, segundo o ``Container Market Adoption Survey 2016'', realizado pelas empresas DevOps.com (https://devops.com/) e ClusterHQ (https://clusterhq.com) com 235 empresas que têm desenvolvimento de software como sua atividade fim ou como suporte à atividade fim, 76\% dos respondentes utilizam contêiners para melhorar a eficiência do processo de desenvolvimento e em suas arquiteturas de micro-serviços em nuvem.
@@ -548,7 +549,6 @@ Uma tecnologia bastante utilizada para esse propósito são Contêiners Linux (L
 \section{Trabalhos relacionados}
 \label{sec:related}
 
-\marcosR{Mais cuidado com acentos... vi vários problemas de ``tem'' quando devia ser ``têm'', ou ``analise'' quando deveria ser ``análise''. Veja erro comum 24. - Hamilton: Feito}
 Existem vários aspectos relativos à análise forense na nuvem, indo desde a coleta de informações até a garantia da cadeia de custódia de evidências.
 %
 Para uma discussão mais estruturada dos trabalhos disponíveis na literatura sobre o tema, a seguir eles são apresentados com base nos diferentes aspectos que abordam.
@@ -561,127 +561,154 @@ Os processos de coleta descritos nesses trabalhos podem ser iniciados de forma m
 %
 No caso específico de memória volátil, tal forma de coleta não consegue descrever como era a memória antes da intrusão, pois o processo só é acionado depois da detecção do ataque. 
 %
-\marcosR{Sua frase original adota uma postura um pouco ``tímida''. Explico-me. Quando você fala ``Segundo X, bla-bla-bla'', você está dizendo que não necessariamente sabe/concorda com ``bla-bla-bla''. É como dizer ``Eu não sei de nada: quem falou isso foi X''. Isso é recomendado para assuntos polêmicos, em especial quando você quer apresentar dois pontos de vista: ``Segundo X, bla. Já segundo Y, ble''. Entretanto, quando é algo puramente técnico, ou com o qual você concorda, melhor construir sua frase na forma ``Bla (REFERENCIA para X)''. Ou seja, é você quem está escrevendo, mas se duvidarem de você, que leiam X (que apresenta argumentos adicionais, reforçando o que você está dizendo). Essa segunda forma fica bem melhor como postura: é você fazendo a afirmação, dando a cara a tapa, e apenas mostrando que há respaldo naquilo que você diz. - Hamilton: Feito}
 %A capacidade de saber como era a memória antes do fato é descrita por \cite{Case_Memory_Forensics:2014} como necessária para viabilizar a abordagem de coletar o suficiente para realizar a investigação pois permite comparar dois instantâneos de memória e minimizar o volume coletado antes do fato. 
-Tal limitação pode trazer danos à investigação pois é importante para investigações ser capaz de comparar dois momentos da memória e, ao mesmo tempo, minimizar o volume coletado antes do fato sob análise \cite{Case_Memory_Forensics:2014}. 
+Tal limitação pode trazer prejuízos à investigação, dado que algumas análises dependem exatamente da capacidade de se comparar dois momentos da memória \cite{Case_Memory_Forensics:2014}. 
 %
 Entre os trabalhos estudados, a única proposta encontrada que leva tal necessidade em consideração é \cite{Dezfouli_Backup_approach:2012}, que propõe que o dado seja armazenado no próprio equipamento sob análise.
 %
-\marcosR{Cuidado... muito incisivo dizer que ``essa abordagem não é aplicável''. Talvez ela seja, e você que não está enxergando. Melhor suavizar a frase, como na versão que reescrevi.}
 %Infelizmente, entretanto, essa abordagem não é aplicável ao cenário em nuvem, pois leva a perda de informações importantes caso a máquina virtual seja despejada e seus recursos liberados.
-\marcosT{Revise seu texto para as várias ocorrências de ``máquina virtual'': você diz que o seu foco são contêineres, mas ao longo do texto você fica mencionando basicamente máquinas virtuais... Melhor (1) trocar para algo como ``recurso virtual'', que tem ``sua memória liberada'', ou então (2) sempre dizer ``máquina virtual ou contêiner'', que tem  ``seus recursos liberados''. Escolha um (não me parece haver uma preferência clara, então você é livre pra decidir) e aplique no texto todo. Aliás, se vai ficar falando ``máquina virtual'' com frequência, melhor definir e usar a sigla ``VM'', não? - Hamilton: Feito - Máquina virtual só permanece quando faz referência ao trabalho de outra pessoa}
-Infelizmente, entretanto, a aplicação de tal abordagem no cenário em nuvem é pouco viável, pois pode levar a perda de informações importantes caso a máquina virtual ou contêiner seja desativada, tendo seus recursos liberados.
+Infelizmente, entretanto, a aplicação de tal abordagem no cenário em nuvem é pouco viável, pois pode levar à perda de informações importantes caso a máquina virtual ou contêiner seja desativada, tendo seus recursos liberados.
 %
 
-\marcosR{O seu tom às vezes fica informal demais no início da frase... Tudo bem falar assim de forma mais direta, mas a escrita tem que ser mais formal.}
-\marcosR{Mais cuidado com o uso de ``onde'': ele é advérbio de \textbf{lugar}, então não use para coisas que não são estritamente lugares. Por exemplo, ``a abordagem de forense ao vivo'' não é um lugar, mas sim uma situação. Logo, use pronomes relativos, como ``o qual'' e variações... Isso é erro de português: https://educacao.uol.com.br/dicas-portugues/onde-sempre-se-refere-a-lugar.jhtm - Hamilton: Feito}
 %Ainda na coleta de informações, os autores \cite{Reichert_Auto_acquisition:2015} e \cite{George_DF2CE:2012} sugerem a abordagem de forense ao vivo onde os dados são constantemente coletados sem distinção do antes ou depois do fato. 
 Existem ainda trabalhos voltados à coleta de informações durante a execução do sistema, nos quais os dados são constantemente coletados sem distinção do que aconteceu antes ou depois do fato de interesse.
 %
 Esse é o caso de trabalhos como \cite{Poisel_VMI:2013,Dykstra_FROST:2013,Sang_Log_approach:2013}, que adotam a estratégia de isolar e parar a máquina virtual para em seguida realizar o processo de coleta. 
 %
-\marcosR{MAIS CLAREZA: quais são as ``duas estratégias citadas anteriormente''? Você não enumerou nada, então como eu vou saber quais são elas? Se fosse na frase anterior, até seria aceitável, mas não espere que o leitor procure pelo texto todo onde está algo. Lembre-se que revisores, além de amargos, são seres preguiçosos: se você não for extremamente cuidadoso com a clareza do seu texto, ele não verá a luz do dia... Veja se a nova frase é o que você queria dizer. - Hamilton: Feito}
 %Nas duas estratégias citadas anteriormente, o problema do grande volume de informações coletadas não é abordado pelo autores nem o cenário onde é necessário coletar evidências de uma máquina virtual que já foi despejada do pool e os recursos liberados. 
-Embora interessantes, as abordagens descritas nesses trabalhos podem levar a um elevado volume de informações coletadas, além de também não tratarem o cenário em que é necessário coletar evidências quando são liberados os recursos virtuais contendo tais informações.
+Embora interessantes, as abordagens descritas nesses trabalhos podem levar a um elevado volume de dados coletados, além de também não tratarem o cenário em que é necessário coletar evidências quando os recursos virtuais contendo tais informações são liberados.
 
 
 \subsection{Capacidade de reproduzir o processo e obter os mesmos resultados}
 
-Para ser aceito em um processo legal a evidência precisa ter credibilidade. Se dois analístas obtêm resultados diferentes executando o mesmo procedimento de coleta, a evidência gerada não tem credibilidade. A reprodutibilidade processo de coleta é uma parte importante da geração de evidências para análise forense.
+Se, durante uma análise forense, analistas diferentes obtêm resultados distintos ao executar o mesmo procedimento de coleta, a evidência gerada não tem credibilidade, inviabilizando seu uso em um processo legal. 
 %
-Neste tópico, nenhuma das propostas encontradas até o momento consegue reproduzir os mesmos resultados ao repetir o processo no cenário em que o recurso de processamento virtual é despejada da nuvem e seus recursos físicos liberados pois todas elas dependem da existência do recurso virtual para a repetição da coleta. 
+Por essa razão, a reprodutibilidade do processo de coleta é uma parte importante da geração de evidências para análise forense.
+%
+Infelizmente, entretanto, nenhuma das propostas encontradas na literatura atualmente permite tal reprodutibilidade em cenários de nuvem em que máquinas virtuais ou contêineres são desativados e seus recursos físicos liberados: todas elas dependem da existência do recurso virtual para a repetição do processo de coleta.
 
 \subsection{Não violar privacidade ou jurisdição das partes não envolvidas na investigação}
 
-Nas soluções em nuvem, remover o \textit{hardware} para análise pode levar a violação de privacidade uma vez que o mesmo guarda informações de indivíduos e empresas que não estão envolvidas na investigação em curso.
+Em um ambiente de nuvem pública, remover o \textit{hardware} para análise posterior pode levar à violação de privacidade de usuários, uma vez que o multi-inquilinato desse cenário faz com que uma mesma máquina física guarde informações de diversos clientes, alguns dos quais podem não estar envolvidos na investigação em curso.
 %
-A maioria dos autores resolve este problema adequadamente e podemos listar duas estratégias usadas. 
+Diversos trabalhos na literatura tratam esse problema adequadamente, por meio das duas estratégias principais: a primeira, adotada em \cite{Reichert_Auto_acquisition:2015,George_DF2CE:2012,Poisel_VMI:2013,Dykstra_FROST:2013}, consiste em coletar dados pertinentes à investigação e armazená-los fora da nuvem; a segunda, empregada em \cite{Sang_Log_approach:2013} e que constitui um caso específico de \cite{George_DF2CE:2012}, depende da cooperação do provedor de serviços de nuvem para conseguir as informações necessárias à investigação. 
 %
-Os autores \cite{Reichert_Auto_acquisition:2015}, \cite{George_DF2CE:2012}, \cite{Poisel_VMI:2013} e \cite{Dykstra_FROST:2013} usam a estratégia de coletar dados pertinentes a investigação e armazená-los fora da nuvem enquanto que \cite{Sang_Log_approach:2013} e um caso específico de \cite{George_DF2CE:2012} dependem da cooperação do provedor de serviços de nuvem para conseguir as informações necessárias à investigação. 
-%
-Depender do provedor de serviços de nuvem é uma estratégia fraca pois além do volume de dados de usuário forçar os provedores a limitar o tamanho dos \textit{logs} armazenados, caso ocorra uma indisponibilidade causada por um ataque, o objetivo do provedor será o de restabelecer o serviço não o de preservar evidências\cite{Clarke_Review_of_Challenges:2015}. 
+Depender do provedor de serviços de nuvem é uma estratégia pouco recomendada, entretanto, pois (1) o volume de dados de usuários pode forçar os provedores a limitar o tamanho dos \textit{logs} armazenados, e (2) caso ocorra uma indisponibilidade causada por um ataque, o objetivo do provedor será o de restabelecer o serviço, não necessariamente o de preservar evidências\cite{Clarke_Review_of_Challenges:2015}. 
+
 
 \subsection{Garantir a cadeia de custódia da evidência}
 
-Na garantia da cadeia de custódia apenas \cite{Sang_Log_approach:2013} aborda a questão. Usa de cálculo de \textit{hash} para garantir que a evidência não foi alterada ou destruída mas não explica como impede o acesso não autorizado. 
+Dentre os trabalhos analisados, apenas \cite{Sang_Log_approach:2013} aborda a questão da garantia da cadeia de custódia. 
 %
-As propostas dos outros autores estão focadas apenas no aspecto técnico da coleta, nenhum deles menciona garantia de custódia, apenas que as evidências são coletadas de forma "forensicamente aceitável".
+Especificamente, o trabalho emprega \textit{hashes} para verificar a integridade da evidência, permitindo a detecção de alterações na mesma, embora não explique os mecanismos que poderiam ser utilizados para impedir acesso não autorizado (e, assim, potencial alteração) aos próprios hashes. 
+%
+As propostas dos outros autores concentram-se apenas no aspecto técnico da coleta, sem discutir claramente garantia de custódia mas apenas mencionando que as evidências devem ser coletadas de forma ``forensicamente aceitável''.
 
-A Tabela 1 mostra um comparativo das soluções estudadas.
+\subsection{Resumo}
 
-\begin{table}[h]
+A Tabela \ref{tab:related-work} mostra um comparativo das soluções estudadas, considerando os aspectos discutidos nesta seção, posicionando as contribuições da proposta apresentada neste trabalho.
+
+\begin{table}[htb!]
 \centering
-\caption{Comparativo de soluções de coleta de informações de memória de máquinas em nuvem para análise forense }
+\caption{Comparativo de soluções de coleta de informações de memória de máquinas em nuvem para análise forense}
+\label{tab:related-work}
 \renewcommand{\arraystretch}{2}
 \begin{tabular}{p{3.0cm}|L|L|L|L}
 \cline{2-5}
-\textbf{}													& \rotatebox{90}{\textbf{Coleta  é contínua?}}      & \rotatebox{90}{\textbf{Reproduz o processo sem a VM?}} & \rotatebox{90}{\textbf{Garante cadeia de custódia?}}      & \rotatebox{90}{\textbf{Preserva jurisdição e privacidade?}}          \\ \hline
-Dizang (esta proposta)												& \includegraphics[scale=0.015]{check.png}	    & \includegraphics[scale=0.015]{check.png}               & \includegraphics[scale=0.015]{check.png}                  & \includegraphics[scale=0.015]{check.png}                             \\ \hline
-Digital forensic framework for cloud environment \cite{George_DF2CE:2012}					& \includegraphics[scale=0.007]{x.png}		    & \includegraphics[scale=0.007]{x.png}                   & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.015]{check.png}                             \\ \hline
-Virtual machine introspection \cite{Poisel_VMI:2013}								& \includegraphics[scale=0.007]{x.png}              & \includegraphics[scale=0.007]{x.png}                   & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.015]{check.png}                             \\ \hline
-Digital orensic tools for the OpenStack cloud computing platform \cite{Dykstra_FROST:2013}			& \includegraphics[scale=0.007]{x.png}              & \includegraphics[scale=0.007]{x.png}                   & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.015]{check.png}                             \\ \hline
-Desafios da perícia forense em um ambiente de computação na nuvem \cite{Do_Desafio:2014}			& \includegraphics[scale=0.007]{x.png}		    & \includegraphics[scale=0.007]{x.png}                   & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.015]{check.png}                             \\ \hline
-Automated forense data aquicition \cite{Reichert_Auto_acquisition:2015}						& \includegraphics[scale=0.007]{x.png}  	    & \includegraphics[scale=0.007]{x.png}                   & \includegraphics[scale=0.015]{check.png}                  & \includegraphics[scale=0.015]{check.png}                             \\ \hline
-A log-based approach to make digital forensics easier on cloud computing \cite{Sang_Log_approach:2013}		& \includegraphics[scale=0.015]{check.png}          & \includegraphics[scale=0.007]{x.png}	             & \includegraphics[scale=0.015]{check.png}                  & \includegraphics[scale=0.015]{check.png}                             \\ \hline
-Narrowing the semantic gap in virtual machine introspection \cite{Dolan-Gavitt_Semantic_Gap:2011}		& \includegraphics[scale=0.007]{x.png}              & \includegraphics[scale=0.007]{x.png}                   & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.015]{check.png}                             \\ \hline
-Comparative Analysis of Volatile Memory Forensics \cite{Aljaedi_Comparative:2011}				& \includegraphics[scale=0.007]{x.png}              & \includegraphics[scale=0.007]{x.png}                   & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.015]{check.png}                             \\ \hline
-Volatile memory acquisition using backup for forensic investigation \cite{Dezfouli_Backup_approach:2012}	& \includegraphics[scale=0.015]{check.png}          & \includegraphics[scale=0.007]{x.png}                   & \includegraphics[scale=0.007]{x.png}                      & \includegraphics[scale=0.015]{check.png}                             \\ \hline
-Digital Forensics as a Service: A game changer \cite{VanBaar_FAAS:2014}						& \includegraphics[scale=0.015]{check.png}          & \includegraphics[scale=0.007]{x.png}                   & \includegraphics[scale=0.015]{check.png}                  & \includegraphics[scale=0.015]{check.png}                             \\
+\textbf{}															& \rotatebox{90}{\textbf{Coleta  é contínua?}}      & \rotatebox{90}{\textbf{Reproduz o processo sem a VM?}} & \rotatebox{90}{\textbf{Garante cadeia de custódia?}}     		& \rotatebox{90}{\textbf{Preserva jurisdição e privacidade?}}          \\ \hline
+\fancyname (esta proposta)						& \checkfig	  & \checkfig               & \checkfig                  & \checkfig                             \\ \hline
+\cite{George_DF2CE:2012}							& \xfig		  	& \xfig                   & \xfig                      & \checkfig                             \\ \hline
+\cite{Poisel_VMI:2013}								& \xfig       & \xfig                   & \xfig                      & \checkfig                             \\ \hline
+\cite{Dykstra_FROST:2013}							& \xfig       & \xfig                   & \xfig                      & \checkfig                             \\ \hline
+\cite{Do_Desafio:2014}								& \xfig		    & \xfig                   & \xfig                      & \checkfig                             \\ \hline
+\cite{Reichert_Auto_acquisition:2015}	& \xfig  	    & \xfig                   & \checkfig                  & \checkfig                             \\ \hline
+\cite{Sang_Log_approach:2013}					& \checkfig   & \xfig	             			& \checkfig                  & \checkfig                             \\ \hline
+\cite{Dolan-Gavitt_Semantic_Gap:2011}	& \xfig       & \xfig                   & \xfig                      & \checkfig                             \\ \hline
+\cite{Aljaedi_Comparative:2011}				& \xfig       & \xfig                   & \xfig                      & \checkfig                             \\ \hline
+\cite{Dezfouli_Backup_approach:2012}	& \checkfig   & \xfig                   & \xfig                      & \checkfig                             \\ \hline
+\cite{VanBaar_FAAS:2014}							& \checkfig   & \xfig                   & \checkfig                  & \checkfig                             \\
 \end{tabular}
 \end{table}
 
-\section{Solução proposta: Dizang}
+\section{Solução proposta: \fancyname}
 \label{sec:proposal}
 
-A presente proposta tem como objetivo principal coletar memória de recursos virtuais de modo a conseguir: 
-(1) identificar sua fonte, mesmo se o recurso virtual não existir mais, 
-(2) descrever o sistema antes e depois do incidente,
-(3) transportar e armazenar a memória coletada garantindo sua integridade de confidencialidade e
-(4) não violar a jurisdição e a privacidade de outros usuários no mesmo servidor físico.
+A presente proposta tem como objetivo principal coletar memória de recursos computacionais virtuais de modo a conseguir: 
+(1) identificar a fonte da evidência \marcosR{Não ficou claro: fonte é o que? Usuário? Sistea? VM? Contêiner? Outra coisa? Hamilton: Feito}, mesmo se o recurso virtual não existir mais; 
+(2) descrever o sistema antes e depois do incidente;
+(3) transportar e armazenar a memória coletada de uma forma que garanta sua integridade e confidencialidade; e
+(4) não violar a jurisdição e a privacidade de outros usuários que porventura tenham recursos alocados no mesmo servidor físico.
 %
+A solução aqui apresentada, denominada \fancyname, é descrita em detalhes a seguir.
+
+
 \subsection{Descrição}
 
-Nas soluções com infraestrutura física a associação de uma informação da memória, imagem de um disco ou pacotes trafegando na rede à sua origem é direta.
+Em sistemas computacionais executados sobre uma infraestrutura física (i.e., não virtualizada), pode-se fazer uma associação direta entre um recurso qualquer, como uma informação da memória, imagem de disco ou pacotes trafegando na rede, e sua origem correspondente.
 %
-Nas soluções de infraestrutura virtual, em especial as auto-escaláveis, o recurso é volátil e portanto pode ser removido e seus recursos desalocados. 
+\marcosR{Eu tinha dito que uma alternativa para a questão de ``máquina virtual vs. contêiner'' era ``trocar para algo como 'recurso virtual', que tem 'sua \textbf{memória} liberada''. Dizer ``\textbf{recurso} virtual que tem seus \textbf{recursos} liberados'' faz zero sentido... Hamilton: OK}
+Já em sistemas construídos sobre uma infraestrutura virtual, em especial quando esta é auto-escalável, os recursos computacionais são altamente voláteis e, portanto, podem ser desalocados a qualquer momento.
 %
-Para conseguir relacionar uma evidência a uma origem volátil é necessário encontrar outro elemento que persista a relação fonte-avidência. Para atingir este objetivo a presente proposta usa contêineres linux (LXC).\\
+Para conseguir correlacionar uma evidência a sua origem volátil, é necessário utilizar outro elemento em que persista a relação fonte-evidência, o que na presente proposta é feito por meio de contêineres linux (LXC).
 %
-Embora o contêiner seja um \textit{software} e por consequência também volátil, a imagem compilada e sua execução na forma de contêiner estão atrelados a um \textit{hash} que os identificam unicamente. 
+\marcosT{Não entendi o ``estão atrelados'': é sempre assim (ou seja, você quis dizer ``são normalmente atrelados'') ou isso é parte da sua proposta (ou seja, você quis dizer ``, na presente proposta, são atrelados'') - Hamilton: Feito}
+Embora um contêiner seja um \textit{software} e, portanto, também volátil, cada imagem compilada e sua execução na forma de contêiner são normalmente atrelados a um \textit{hash} que identifica univocamente essa relação.
 %
-O contêiner tambem permite identificar com mais precisão a fonte de uma evidência uma vez que é possível ter um contêiner com apenas parte da pilha da aplicação sendo monitorada.\\
+\marcosT{Não entendi a frase a seguir. Explique melhor o que você quis dizer com ``contêiner com apenas parte da pilha da aplicação sendo monitorada'' (talvez um exemplo ajude?). Hamilton: Feito}
+O contêiner também permite identificar com mais precisão a fonte de uma evidência uma vez que é possível dividir as partes de um sistema em contêineres como por exemplo, um contêiner para o motor de páginas dinâmicas (\textit{Apache}), outro com as lógicas de negócio (\textit{golang}) e um terceiro para um banco de dados (\textit{Cassandra}).
+
+\marcosT{O parágrafo estava muito grande, então quebrei aqui. O problema é que falta uma frase para ligar a frase a seguir ao contexto da discussão... Coloque uma frase aqui, deixando claro qual requisito você quer satisfazer com essa ideia de ``interromper temporariamente a execução do contêiner''. Aplique isso para TUDO que for proposta: o leitor tem que saber de antemão pra que você está fazendo alguma coisa, ou vai ficar se perguntando ``Espera, mas pra que fazer isso?!'' - Hamilton: acho que foi}
+Uma cópia de memória não é uma atividade atômica [referência], ela concorre com outros processos. Um desses processos pode ser o código malicioso apagando traços de sua existência da memória do contêiner. 
 %
-A implementação da coleta interrompe temporáriamente a execução do contêiner, realiza a cópia da memória do mesmo e em seguida retoma sua execução. Esta técnica, inspirada em \cite{Rafique_Static_Live_Digital_Forensics:2013} para máquinas virtuais, produz um instantâneo da memória volátil do contêiner permitindo que seja análisada em um estado de repouso, isto é sem a necessidade de ter o contêiner em execução.
+De modo a tornar a cópia da memória atômico, a presente proposta interrompe temporariamente a execução do contêiner, realiza a cópia de sua memória, e em seguida retoma sua execução. 
 %
-Realizando a coleta em intervalos de tempo determinados, será possível construír um histórico da memória do que esta sendo executado no contêiner.\\
+Essa técnica, que é semelhante àquela adotada em \cite{Rafique_Static_Live_Digital_Forensics:2013} para máquinas virtuais, produz um instantâneo da memória volátil do contêiner; isso permite sua análise em um estado de repouso, ou seja, sem a necessidade de ter o contêiner em execução.
 %
-As técnicas forenses praticadas hoje estão voltadas para a obtenção da informação em sua totalidade, seja via cópia bit a bit, seja por remoção do \textit{hardware} \cite{Simou_Cloud_Chlng:2014} \cite{Bem_Past_Present_Future:2008}. 
+\marcosR{Use futuro \textbf{apenas} para coisas no futuro... Vai ser possível no futuro ou é possível no presente...? - Hamilton: é possível, OK}
+%Realizando a coleta em intervalos de tempo determinados, será possível construír um histórico da memória do que esta sendo executado no contêiner.\\
+Ao realizar a coleta em intervalos de tempo adequados, é possível construir um histórico do estado da memória durante a execução no contêiner.
 %
-Tais técnicas são hoje responsáveis pelo problema do crescente volume de informações que os investigadores precisam analisar \cite{Quick_Increase_Volume_Impact:2014}.\\
+\marcosT{A ligação entre as frases anterior e a seguir está bem ruim... você parece estar mudando completamente de assunto... Acredito que faltou uma frase dizendo que ``''salvar toda a memória'' pode se tornar um problema, reforçar isso com as duas frases que já estão a seguir, e depois dizer que você vai resolver.}
+A maioria das técnicas forenses praticadas atualmente são voltadas à obtenção da informação em sua totalidade, seja via cópia bit a bit, seja por meio da obtenção do \textit{hardware} físico \cite{Simou_Cloud_Chlng:2014} \cite{Bem_Past_Present_Future:2008}. 
 %
-Para resolver este problema esta proposta usa duas estratégias. A primeira foi a definição de um volume de dados que seria \textit{suficiente} para a realização de uma investigação. A segunda foi definir a idade máxima que a evidência pode ter quando o sistema trabalha em condições normais, isto é, não estando sob ataque.\\
+Embora tais técnicas possam parecer interessantes à primeira vista, elas são hoje responsáveis por um problema: o crescente volume de informações que os investigadores precisam analisar \cite{Quick_Increase_Volume_Impact:2014}.
 %
-Para detectar e analisar intrusões na memória de processos é necessário ter uma cópia da memória antes e depois da intrusão \cite{Case_Memory_Forensics:2014}. Assim, a solução proposta implementa uma janela de instantâneos de memória cobrindo um intervalo de tempo pré-determinado como ilustrado na figura 1. Em condições normais de uso as evidências são coletadas em intervalos de tempo e coletas mais velhas que uma determinada idade são descartadas.
+\marcosR{Use passado \textbf{apenas} para coisas no passado... A proposta adotou essas duas estratégias, porém não adota mais (= passado) ou a proposta adotou e continua adotando essas estratégias (=presente)? - Hamilton: continua adotando, OK}
+%Para mitigar essa dificuldade, a presente proposta adotada duas estratégias: a primeira foi a definição de um volume de dados que seria \textit{suficiente} para a realização de uma investigação. A segunda foi definir a idade máxima que a evidência pode ter quando o sistema trabalha em condições normais, isto é, não estando sob ataque.
+Para mitigar essa dificuldade, a presente proposta adotada duas estratégias: a primeira é a definição de um volume de dados que possa ser considerado \textit{suficiente} para a realização de uma investigação; a segunda é a definição de uma \textit{idade máxima} para a evidência enquanto o sistema trabalha em condições normais, isto é, quando não está sob ataque.
 %
-Integrando a solução com um sistema de detecção de ameaça, no evento de um ataque, o \textit{log} deixa de descartar as coletas mais antigas sendo possível conhecer o sistema antes e depois do ataque e sua evolução.\\
+Para detectar e analisar intrusões na memória de processos, é necessário ter uma cópia da memória antes e depois da intrusão \cite{Case_Memory_Forensics:2014}. 
+%
+\marcosR{Er... se você tem ``label'', é para poder usar ``ref''... colocar os números diretamente é jogar fora uma das mais importantes ferramentas do LaTeX...}
+Assim, a solução proposta implementa uma janela de instantâneos de memória cobrindo um intervalo de tempo pré-determinado, como ilustrado na Figura \ref{fig:janela}. 
+%
+Em condições normais de operação, as evidências são coletadas com certa periodicidade e coletas que atingem uma determinada idade são descartadas.
+%
+Em contraste, após a detecção de um evento de ataque (e.g., por um sistema de detecção de intrusões), \fancyname deixa de descartar as coletas mais antigas do \textit{log} de monitoramento, sendo possível conhecer o sistema antes e depois do ataque, avaliando sua evolução.
+%
+\marcosR{Não sei por que você está utilizando $\backslash\backslash$ no final das suas frases, mas pare de fazer isso... deixe o LaTeX se virar com a formatação. No final, quando você tiver tudo escrito, aí pode fazer algum sentido se preocupar com formatação, mas não antes disso... - Hamilton: é pra formatação mesmo :-) OK vou deixar o latex se virar}
 %
 
-\begin{figure}[h]
+\begin{figure}[htb!]
 \caption{Janela deslizante de coleta de evidência}
 \includegraphics[scale=0.4]{janela.jpg}
 \centering
 \label{fig:janela}
 \end{figure}
 
-Para persistir a relação evidência-origem e garantir a integridade da mesma, a presente proposta assina a evidência com o \textit{hash} de identificação da imagem do contêiner e calcula o \textit{hash} do conjunto evidência e identificador de contêiner.\\
+\marcosT{Essa frase não faz sentido: não se ``assina'' nada com um ``hash''. Você pode ``calcular o hash'' ou ``assinar um dado'' (e.g., um dado juntamente com o hash de alguma coisa). Revise essa frase... - Hamilton: Feito}
+Para persistir a relação evidência-origem e garantir a integridade da mesma, a presente proposta calcula o hash do par [evidência-identificador da imagem do contêiner] e armazena a tupla [hash-identificador da imagem do contêiner-evidência].
 %
-De modo a não violar a jurisdição de outros países ou a privacidade de outros usuários, a evidência é armazenada em um local físico fora da nuvem utilizando como transporte uma camada de transporte seguro (\textit{Transport Layer Security} -- TLS). 
+Para evitar eventuais problemas com o armazenamento desses dados em países com jurisdições diferentes daquelas que devem ser aplicadas na investigação em questão, as evidências coletadas são armazenadas em um local físico fora da nuvem, após serem transportadas por meio de um canal seguro (e.g., usando o protocolo \textit{Transport Layer Security} -- TLS).
 %
-Tendo a implementação sido bem sucedida será possível analisar e identificar as formas de ataque enumeradas nos objetivos.\\
+
 %
 
 \subsection{Implementação}
 
+\marcosT{CLAREZA: quais ataques? Onde estão esses objetivos (diga a seção!!!)? Perceba que não tem qualquer seção com esse nome: você espera realmente que o leitor procure no seu texto onde eles estão...?}
+Visando avaliar sua eficácia em auxiliar as tarefas a análise e identificação das formas de ataque enumeradas nos objetivos, os métodos propostos foram implementados em uma plataforma de testes.
+%
 A implementação da solução ilustrada na figura 2 foi realizada em um notebook intel I5 de 2.30Mhz e 4Gb de RAM com sistema operacional de 64 bits. 
 %
 Nele, usando Oracle Virtual Box 5.0 foi criada uma máquina virtual com 2 Gb de memória RAM emulando apenas 1 processador.
@@ -702,7 +729,7 @@ Técnicas de investigação de malware que se baseam em informações do \textit
 %
 Outro exemplo é a análise de ameaças que realizam manipulação direta dos objetos do kernel (\textit{D.K.O.M. - Direct Kernel Object Manipulation}) também não se beneficiam de associação com o contêiner.
 
-\begin{figure}[h]
+\begin{figure}[htb!]
 \caption{Solução completa}
 \includegraphics[scale=0.25]{solucao.jpg}
 \label{fig:Solucao}
