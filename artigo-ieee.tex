@@ -484,7 +484,7 @@ Por outro lado, não foram identificadas na literatura propostas que (1) descrev
 
 %==== O QUE FAZEMOS: Ataques de injeção ====
 %
-O presente trabalho visa suplantar tais limitações por meio de uma proposta que tem como focos (1) a reprodutibilidade do processo de coleta e (2) a garantia de custódia da evidência.
+O presente trabalho visa suplantar tais limitações por meio de uma proposta que tem como focos (1) a reprodutibilidade do processo de coleta, (2) o estabelecimento de vínculo entre a evidência coletada e sua origem, (3) a preservação da juristição e privacidade dos não envolvidos na investigação e (4) a garantia de custódia da evidência.
 Em suma, a solução descrita provê uma forma de correlacionar evidências e sua origem virtual, permitindo transportar e armazenar tais dados de modo a preservar sua credibilidade.
 %
 Para isso, a proposta supõe que o sistema sendo monitorado é executado dentro de um contêiner em nuvem. 
@@ -657,10 +657,10 @@ Embora um contêiner seja um \textit{software} e, portanto, também volátil, ca
 \marcosT{Não entendi a frase a seguir. Explique melhor o que você quis dizer com ``contêiner com apenas parte da pilha da aplicação sendo monitorada'' (talvez um exemplo ajude?). Hamilton: Feito}
 O contêiner também permite identificar com mais precisão a fonte de uma evidência uma vez que é possível dividir as partes de um sistema em contêineres como por exemplo, um contêiner para o motor de páginas dinâmicas (\textit{Apache}), outro com as lógicas de negócio (\textit{golang}) e um terceiro para um banco de dados (\textit{Cassandra}).
 
-\marcosT{O parágrafo estava muito grande, então quebrei aqui. O problema é que falta uma frase para ligar a frase a seguir ao contexto da discussão... Coloque uma frase aqui, deixando claro qual requisito você quer satisfazer com essa ideia de ``interromper temporariamente a execução do contêiner''. Aplique isso para TUDO que for proposta: o leitor tem que saber de antemão pra que você está fazendo alguma coisa, ou vai ficar se perguntando ``Espera, mas pra que fazer isso?!'' - Hamilton: acho que foi}
-Uma cópia de memória não é uma atividade atômica [referência], ela concorre com outros processos. Um desses processos pode ser o código malicioso apagando traços de sua existência da memória do contêiner. 
+\marcosT{O parágrafo estava muito grande, então quebrei aqui. O problema é que falta uma frase para ligar a frase a seguir ao contexto da discussão... Coloque uma frase aqui, deixando claro qual requisito você quer satisfazer com essa ideia de ``interromper temporariamente a execução do contêiner''. Aplique isso para TUDO que for proposta: o leitor tem que saber de antemão pra que você está fazendo alguma coisa, ou vai ficar se perguntando ``Espera, mas pra que fazer isso?!'' - Hamilton: Feito}
+A cópia de memória não é uma atividade atômica, ela concorre em conjunto com outros processos e threads. Caso um desses seja um código malicioso apagando traços de sua existência da memória do contêiner, informações possivelmente importantes para a investigação serão perdidas. 
 %
-De modo a tornar a cópia da memória atômico, a presente proposta interrompe temporariamente a execução do contêiner, realiza a cópia de sua memória, e em seguida retoma sua execução. 
+De modo a tornar a cópia da memória atômica, a presente proposta interrompe temporariamente a execução do contêiner, realiza a cópia de sua memória, e em seguida retoma sua execução. 
 %
 Essa técnica, que é semelhante àquela adotada em \cite{Rafique_Static_Live_Digital_Forensics:2013} para máquinas virtuais, produz um instantâneo da memória volátil do contêiner; isso permite sua análise em um estado de repouso, ou seja, sem a necessidade de ter o contêiner em execução.
 %
@@ -706,8 +706,8 @@ Para evitar eventuais problemas com o armazenamento desses dados em países com 
 
 \subsection{Implementação}
 
-\marcosT{CLAREZA: quais ataques? Onde estão esses objetivos (diga a seção!!!)? Perceba que não tem qualquer seção com esse nome: você espera realmente que o leitor procure no seu texto onde eles estão...?}
-Visando avaliar sua eficácia em auxiliar as tarefas a análise e identificação das formas de ataque enumeradas nos objetivos, os métodos propostos foram implementados em uma plataforma de testes.
+\marcosT{CLAREZA: quais ataques? Onde estão esses objetivos (diga a seção!!!)? Perceba que não tem qualquer seção com esse nome: você espera realmente que o leitor procure no seu texto onde eles estão...? - Hamilton: Feito}
+Visando avaliar sua eficácia em coletar as informações de memória dos contêineres, reproduzir o processo de coleta, não violar jurisdição ou privacidade e garantir a cadeia de custódia, os métodos propostos foram implementados em uma plataforma de testes.
 %
 A implementação da solução ilustrada na figura 2 foi realizada em um notebook intel I5 de 2.30Mhz e 4Gb de RAM com sistema operacional de 64 bits. 
 %
@@ -723,11 +723,11 @@ Em seguida verifica quais o arquivos \textbf{.mem} mais antigos em disco, se for
 
 \subsection{Limitações}
 
-A solução está focada em coletar informações de memória do espaço do usuário (\textit{user space}), ela não enxerga o espaço do kernel (\textit{kernel space}). 
+A solução está focada em coletar informações de memória do espaço do usuário (\textit{user space}), ela não consegue acessar o espaço do kernel (\textit{kernel space}). 
 %
 Técnicas de investigação de malware que se baseam em informações do \textit{kernel space} como 	por exemplo, a comparação de informações do bloco do ambiente do processo (\textit{Process Environment Block -- PEB}), que ficam no \textit{user space}, com informações do descritor de endereços de memória virtual (\textit{Virtual Address Descriptor -- VAD}), que fica no \textit{kernel space} não são possíveis. 
 %
-Outro exemplo é a análise de ameaças que realizam manipulação direta dos objetos do kernel (\textit{D.K.O.M. - Direct Kernel Object Manipulation}) também não se beneficiam de associação com o contêiner.
+Análise de ameaças que realizam manipulação direta dos objetos do kernel (\textit{D.K.O.M. - Direct Kernel Object Manipulation}) também não se beneficiam de associação com o contêiner.
 
 \begin{figure}[htb!]
 \caption{Solução completa}
@@ -821,17 +821,15 @@ Outro exemplo é a análise de ameaças que realizam manipulação direta dos ob
 \section{Conclusoes Finais}
 \label{sec:conclusion}
 
-Até o momento a presente proposta teve sucesso em relacionar o instantâneo de memória a sua origem através do \textit{hash} de identificação da imagem, usou-se a versão 1.10 do Docker para tal fim. 
-%
-A versão é importante pois até a 1.9.x, o identificador da imagem era apenas um randômico. Na versão 1.10 ele passou a ser um \textit{hash} calculado a partir da imagem.
+Até o momento a presente proposta teve sucesso em relacionar o instantâneo de memória a sua origem utilizando o \textit{hash} calculado da imagem do contêiner como identificador da evidência armazenada. 
 %
 Apesar do sucesso em salvar a memória relacionadas ao contêiner e sua associação com a origem, não foi possível até o momento relizar uma análise das ameaças. 
 %
-As ferramentas de leitura de memória disponíveis no mercado requerem que todo o conteúdo da memória da máquina esteja disponível para realização da análise. 
+As ferramentas de análise de memória disponíveis no mercado necessitam que todo o conteúdo da memória da máquina esteja disponível para realização da análise. 
 %
 Como é coletada apenas a memória relacionada aos processos, o ferramental não funciona. 
 %
-É necessário o desenvolvimento de uma ferramenta que trabalhe sem a memória completa da máquina, ou no caso da ferramenta \textit{Volatility} é necessário a criação de um profile para a memória do processo
+É necessário o desenvolvimento de uma ferramenta que trabalhe sem a memória completa da máquina.
 
 % trigger a \newpage just before the given reference
 % number - used to balance the columns on the last page
