@@ -8,6 +8,7 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: artigo-ieee.bib
+Warning--I didn't find a database entry for "Dykstra_FROST"
 -- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
@@ -18,45 +19,45 @@ Warning--empty journal in Fewer_Reflective_Library_Inject:2008
 Warning--empty journal in Clarke_Review_of_Challenges:2015
 
 Done.
-You've used 26 entries,
+You've used 36 entries,
             4039 wiz_defined-function locations,
-            986 strings with 14061 characters,
-and the built_in function-call counts, 20232 in all, are:
-= -- 1691
-> -- 481
-< -- 184
-+ -- 249
-- -- 78
-* -- 1008
-:= -- 3109
-add.period$ -- 52
-call.type$ -- 26
-change.case$ -- 31
-chr.to.int$ -- 435
-cite$ -- 31
-duplicate$ -- 1418
-empty$ -- 1521
-format.name$ -- 102
-if$ -- 4606
+            1038 strings with 15044 characters,
+and the built_in function-call counts, 24522 in all, are:
+= -- 2020
+> -- 548
+< -- 201
++ -- 285
+- -- 91
+* -- 1171
+:= -- 3849
+add.period$ -- 72
+call.type$ -- 36
+change.case$ -- 41
+chr.to.int$ -- 477
+cite$ -- 41
+duplicate$ -- 1760
+empty$ -- 1922
+format.name$ -- 116
+if$ -- 5538
 int.to.chr$ -- 0
-int.to.str$ -- 26
-missing$ -- 234
-newline$ -- 121
-num.names$ -- 30
-pop$ -- 543
+int.to.str$ -- 36
+missing$ -- 308
+newline$ -- 167
+num.names$ -- 40
+pop$ -- 772
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 4
-skip$ -- 1545
+skip$ -- 1869
 stack$ -- 0
-substring$ -- 1021
-swap$ -- 1180
-text.length$ -- 39
+substring$ -- 1127
+swap$ -- 1391
+text.length$ -- 42
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 26
+type$ -- 36
 warning$ -- 5
-while$ -- 106
-width$ -- 28
-write$ -- 296
-(There were 5 warnings)
+while$ -- 124
+width$ -- 38
+write$ -- 389
+(There were 6 warnings)

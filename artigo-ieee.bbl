@@ -158,6 +158,23 @@ R.~B. van Baar, H.~M.~A. van Beek, and E.~J. van Eijk, ``{Digital Forensics as
   \url{http://dx.doi.org/10.1016/j.diin.2014.03.007}
 \BIBentrySTDinterwordspacing
 
+\bibitem{Tomcat}
+\BIBentryALTinterwordspacing
+Apache, ``{Apache-Tomcat},'' 2016. [Online]. Available:
+  \url{http://tomcat.apache.org/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Google}
+\BIBentryALTinterwordspacing
+Google, ``{Golang}.'' [Online]. Available: \url{https://golang.org/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Cassandra}
+\BIBentryALTinterwordspacing
+Apache, ``{Apache-Cassandra},'' 2016. [Online]. Available:
+  \url{http://cassandra.apache.org/}
+\BIBentrySTDinterwordspacing
+
 \bibitem{Rafique_Static_Live_Digital_Forensics:2013}
 \BIBentryALTinterwordspacing
 M.~Rafique and M.~N.~A. Khan, ``{Exploring Static and Live Digital Forensics:
@@ -186,5 +203,43 @@ D.~Quick and K.~K.~R. Choo, ``{Impacts of increasing volume of digital forensic
   Investigation}, vol.~11, no.~4, pp. 273--294, 2014. [Online]. Available:
   \url{http://dx.doi.org/10.1016/j.diin.2014.09.002}
 \BIBentrySTDinterwordspacing
+
+\bibitem{DierksT2008}
+R.~E. {Dierks T}, ``{The Transport Layer Security (TLS) Protocol},'' pp.
+  1--104, 2008.
+
+\bibitem{VirtualBox}
+\BIBentryALTinterwordspacing
+Oracle, ``{Virtual Box 5.1}.'' [Online]. Available:
+  \url{https://www.virtualbox.org/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{DockerInc}
+\BIBentryALTinterwordspacing
+{Docker Inc}, ``{Docker}.'' [Online]. Available: \url{https://www.docker.com/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{nginx}
+\BIBentryALTinterwordspacing
+S.~Igor, ``{NginX}.'' [Online]. Available: \url{https://nginx.org/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{UnixManPages_numa_maps}
+\BIBentryALTinterwordspacing
+{Unix Man Pages}, ``{Numa Maps - Non Uniform Memory Architecture}.'' [Online].
+  Available: \url{http://man7.org/linux/man-pages/man7/numa.7.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{VolatilityFoundation2014}
+\BIBentryALTinterwordspacing
+{Volatility Foundation}, ``{Volatility Framework},'' 2014. [Online]. Available:
+  \url{http://www.volatilityfoundation.org/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Fraser2006}
+T.~Fraser, W.~A. Arbaugh, N.~L. {Petroni Jr}, and W.~Aaron, ``{FATKit: A
+  framework for the extraction and analysis of digital forensic data from
+  volatile system memory},'' \emph{Digital Investigations}, vol.~3, pp.
+  197--210, 2006.
 
 \end{thebibliography}
