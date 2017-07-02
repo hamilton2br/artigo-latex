@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  24 JUN 2017 13:14
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  2 JUL 2017 18:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -660,17 +660,52 @@ Underfull \hbox (badness 1596) in paragraph at lines 707--718
 []\OT1/ptm/m/n/10 Os m[]etodos pro-pos-tos foram im-ple-men-ta-dos em uma
  []
 
-[4 <./janela.jpg>] <solucao.jpg, id=26, 864.98157pt x 507.39563pt>
-File: solucao.jpg Graphic file (type jpg)
+[4 <./janela.jpg>]
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 732.
 
-<use solucao.jpg>
-Package pdftex.def Info: solucao.jpg used on input line 733.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+
+LaTeX Warning: Reference `tab:results-size' on page 5 undefined on input line 7
+37.
+
+
+LaTeX Warning: Reference `tab:results-size' on page 5 undefined on input line 7
+54.
+
+
+LaTeX Warning: Reference `tab:related-results-conteiner' on page 5 undefined on
+ input line 794.
+
+<evolucao_coleta.jpg, id=26, 898.35625pt x 341.275pt>
+File: evolucao_coleta.jpg Graphic file (type jpg)
+
+<use evolucao_coleta.jpg>
+Package pdftex.def Info: evolucao_coleta.jpg used on input line 833.
+(pdftex.def)             Requested size: 260.51663pt x 98.96721pt.
+
+Overfull \hbox (8.51663pt too wide) in paragraph at lines 833--836
+ [][] 
+ []
+
+<memoria_salva.jpg, id=27, 1479.5275pt x 290.08376pt>
+File: memoria_salva.jpg Graphic file (type jpg)
+ <use memoria_salva.jpg>
+Package pdftex.def Info: memoria_salva.jpg used on input line 840.
+(pdftex.def)             Requested size: 251.51634pt x 49.31358pt.
+
+[5 <./evolucao_coleta.jpg> <./memoria_salva.jpg>]
+<solucao.jpg, id=32, 864.98157pt x 507.39563pt>
+File: solucao.jpg Graphic file (type jpg)
+ <use solucao.jpg>
+Package pdftex.def Info: solucao.jpg used on input line 855.
 (pdftex.def)             Requested size: 216.24486pt x 126.84859pt.
 
 
-LaTeX Warning: Citation `Dykstra_FROST' on page 5 undefined on input line 829.
+LaTeX Warning: Citation `Dykstra_FROST' on page 6 undefined on input line 951.
 
-(./artigo-ieee.bbl [5 <./solucao.jpg>]
+(./artigo-ieee.bbl [6 <./solucao.jpg>]
 Underfull \hbox (badness 2608) in paragraph at lines 163--166
 []\OT1/ptm/m/n/8 Apache, ``Apache-Tomcat,'' 2016. [On-line]. Avail-able:
  []
@@ -697,28 +732,29 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[6] (./artigo-ieee.aux)
+[7] (./artigo-ieee.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 3013 strings out of 493304
- 44414 string characters out of 6139871
- 128760 words of memory out of 5000000
- 6432 multiletter control sequences out of 15000+600000
- 39904 words of font info for 73 fonts, out of 8000000 for 9000
+ 3062 strings out of 493304
+ 45220 string characters out of 6139871
+ 128776 words of memory out of 5000000
+ 6474 multiletter control sequences out of 15000+600000
+ 40419 words of font info for 75 fonts, out of 8000000 for 9000
  960 hyphenation exceptions out of 8191
  38i,16n,35p,674b,318s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf
--dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
-tmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on artigo-ieee.pdf (6 pages, 326373 bytes).
+-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/
+utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on artigo-ieee.pdf (7 pages, 451358 bytes).
 PDF statistics:
- 51 PDF objects out of 1000 (max. 8388607)
- 31 compressed objects within 1 object stream
+ 62 PDF objects out of 1000 (max. 8388607)
+ 38 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
