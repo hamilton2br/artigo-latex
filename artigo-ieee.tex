@@ -726,9 +726,11 @@ Após a conclusão do processo de cópia, a mesma aplicação verifica se existe
 
 \subsection{Experimento e Conclusões}
 
-A implementação da presente proposta foi configurada de modo a realizar coletas de memória em intervalos de 1 minuto e apagar as coletas que tivessem mais de 5 minutos de existência. 
+Para verificar se a presente proposta atinge os aos objetivos declarados montou-se o seguinte experimento.
 %
-Permitiu-se que a solução \fancyname rodasse por 30 minutos durante o qual foram coletadas métricas de uso de espaço em disco utilizado pelos instantâneos de memória salvos e o tempo de pausa no contêiner necessário para a cópia das mesmas.
+A solução \fancyname foi configurada para realizar coletas de memória em intervalos de 1 minuto e apagar aquelas que tivessem mais de 5 minutos de existência. 
+%
+Permitiu-se que ela rodasse por 30 minutos. Durante este tempo foram coletadas métricas de uso de espaço em disco utilizado pelos instantâneos de memória salvos e o tempo de pausa no contêiner usado para a cópia das mesmas.
 %
 A cada coleta executou-se o comando \texttt{du -sh *.mem} do \textit{Unix} para retornar a lista dos instantâneos e o espaço em disco ocupado pelas coletas. 
 %
@@ -737,24 +739,10 @@ Ao fim do experimento removeu-se os contêiners.
 
 O espaço em disco ocupado pelos instantâneos de memória durante o experimento é mostrado na tabela \ref{tab:results-size} e plotado no gráfico \ref{fig:evolucao_coleta}. 
 %
-O gráfico mostra que o aumento do uso do espaço em disco é linear e o crescimento se interrompe quando é atingido o limite de tempo configurado para a janela pois as coletas com tempo de vida maior que o limite configurado são apagadas do disco. 
+O gráfico mostra que o aumento do uso do espaço em disco é linear e o crescimento se interrompe quando é atingido o limite de tempo configurado para a janela pois as coletas com tempo de vida maior que tal limite são apagadas do disco. 
 %
-Podemos concluir que a solução mantem a um nível constante a quantidade de dados que é armazenada permitindo planejar o tamanho necessário para o armazenamento das coletas.
+Podemos concluir que a solução mantem sob controle o espaço em disco ocupado pelas coletas.
 %
-
-A figura \ref{fig:memoria_salva} mostra que as coletas continuaram no disco da máquina mesmo após a remoção dos contêiners. Usando o identificador do contêiner e da imagem como nome do arquivo que armazena o instantâneo da memória conseguimos associar a evidência a sua origem de modo a conseguir reproduzir as condições do ataque.
-%
-
-No evento da detecção de uma ameaça a presente proposta deixa de apagar as coletas mais antigas. Desta forma é capaz de descrever a história das alterações da memória do contêiner e com isso viabilizar a análise forense em busca das 4 vulnerabilidades de injeção de código citadas no início do artigo pois consegue descrever o estado do sistema antes e depois do incidente \cite{Case_Memory_Forensics:2014}.
-%
-
-Uma preocupação da presente proposta é o impacto que a pausa de um contêiner para coleta de dados pode causar na performance da aplicação executando no mesmo. A tabela \ref{tab:results-conteiner} mostra os tempos de cópia de memória durante o experimento e os dados foram plotados no gráfico \ref{fig:memoria_copia}.
-%
-É possível notar que após a inicialização, o tempo para realizar a cópia da memória pela presente proposta no ambiente descrito na seção \textit{implementação} varia entre 20 e 40 milisegundos. 
-%
-Para avaliar o tempo de cópia deve-se levar em consideração o que está sendo executado no contêiner. 
-%
-Na implementação do presente experimento, cada contêiner está executando um motor de páginas web dinâmicas nginx 1.0 \cite{nginx}. Neste cenário o tempo gasto com a cópia é adequado. %encontrar referencia
 
 \begin{table}[htb!]
 \centering
@@ -796,6 +784,37 @@ Tamanho total ocupado (KBytes) & Tempo (segundos) \\ \hline
 \end{tabular}
 \end{table}
 
+\begin{figure}[htb!]
+\caption{Evolução do uso do espaço em disco}
+\includegraphics[scale=0.29]{evolucao_coleta.jpg}
+\centering
+\label{fig:evolucao_coleta}
+\end{figure}
+
+
+A figura \ref{fig:memoria_salva} é uma listagem de alguns dos instantâneos de memória salvos pela solução. Nela podemos ver que as coletas continuaram no disco da máquina mesmo após a remoção dos contêiners. Usando o identificador do contêiner e da imagem como nome do arquivo que armazena o instantâneo da memória conseguimos associar a evidência a sua origem.
+%
+
+\begin{figure}[htb!]
+\caption{Lista de instantâneos de memória}
+\includegraphics[scale=0.17]{memoria_salva.jpg}
+\centering
+\label{fig:memoria_salva}
+\end{figure}
+
+
+No evento da detecção de uma ameaça a presente proposta deixa de apagar as coletas mais antigas. Desta forma é capaz de descrever a história das alterações da memória do contêiner e com isso viabilizar a análise forense em busca das 4 vulnerabilidades de injeção de código citadas no início do artigo pois consegue descrever o estado do sistema antes e depois do incidente \cite{Case_Memory_Forensics:2014}.
+%
+
+Uma preocupação da presente proposta é o impacto que a pausa de um contêiner para coleta de dados pode causar na performance da aplicação executando no mesmo. A tabela \ref{tab:results-conteiner} mostra os tempos transcorridos para a cópia de memória durante o experimento. Os dados foram plotados no gráfico \ref{fig:memoria_copia}.
+%
+É possível notar que após a inicialização, o tempo para realizar a cópia da memória pela presente proposta no ambiente descrito na seção \textit{implementação} varia entre 20 e 40 milisegundos. 
+%
+Para avaliar o tempo de cópia deve-se levar em consideração o que está sendo executado no contêiner. 
+%
+Na implementação do presente experimento, cada contêiner está executando um motor de páginas web dinâmicas nginx 1.0 \cite{nginx}. Neste cenário o tempo gasto com a cópia é adequado. %encontrar referencia
+
+
 \begin{table}[htb!]
 \centering
 \caption{Tempo de cópia da memória de um contêiner}
@@ -836,19 +855,6 @@ Tempo de cópia (Milisegundos) & Coleta           \\ \hline
 \end{tabular}
 \end{table}
 
-\begin{figure}[htb!]
-\caption{Evolução do uso do espaço em disco}
-\includegraphics[scale=0.29]{evolucao_coleta.jpg}
-\centering
-\label{fig:evolucao_coleta}
-\end{figure}
-
-\begin{figure}[htb!]
-\caption{Lista de instantâneos de memória}
-\includegraphics[scale=0.17]{memoria_salva.jpg}
-\centering
-\label{fig:memoria_salva}
-\end{figure}
 
 \begin{figure}[htb!]
 \caption{Lista de instantâneos de memória}

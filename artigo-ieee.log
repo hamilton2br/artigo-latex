@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  2 JUL 2017 20:03
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  3 JUL 2017 21:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -661,7 +661,7 @@ Underfull \hbox (badness 1596) in paragraph at lines 707--719
  []
 
 [4 <./janela.jpg>]
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 733.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 735.
 
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
@@ -670,33 +670,32 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 File: evolucao_coleta.jpg Graphic file (type jpg)
 
 <use evolucao_coleta.jpg>
-Package pdftex.def Info: evolucao_coleta.jpg used on input line 841.
+Package pdftex.def Info: evolucao_coleta.jpg used on input line 789.
 (pdftex.def)             Requested size: 260.51663pt x 98.96721pt.
 
-Overfull \hbox (8.51663pt too wide) in paragraph at lines 841--844
+Overfull \hbox (8.51663pt too wide) in paragraph at lines 789--792
  [][] 
  []
 
 <memoria_salva.jpg, id=27, 1479.5275pt x 290.08376pt>
 File: memoria_salva.jpg Graphic file (type jpg)
  <use memoria_salva.jpg>
-Package pdftex.def Info: memoria_salva.jpg used on input line 848.
+Package pdftex.def Info: memoria_salva.jpg used on input line 800.
 (pdftex.def)             Requested size: 251.51634pt x 49.31358pt.
 
-<memoria_copia.jpg, id=28, 763.85374pt x 339.2675pt>
+[5 <./evolucao_coleta.jpg> <./memoria_salva.jpg>]
+<memoria_copia.jpg, id=32, 763.85374pt x 339.2675pt>
 File: memoria_copia.jpg Graphic file (type jpg)
  <use memoria_copia.jpg>
-Package pdftex.def Info: memoria_copia.jpg used on input line 855.
+Package pdftex.def Info: memoria_copia.jpg used on input line 861.
 (pdftex.def)             Requested size: 244.43819pt x 108.56781pt.
 
-[5 <./evolucao_coleta.jpg>] <solucao.jpg, id=33, 864.98157pt x 507.39563pt>
+<solucao.jpg, id=33, 864.98157pt x 507.39563pt>
 File: solucao.jpg Graphic file (type jpg)
-
-<use solucao.jpg>
-Package pdftex.def Info: solucao.jpg used on input line 870.
+ <use solucao.jpg>
+Package pdftex.def Info: solucao.jpg used on input line 876.
 (pdftex.def)             Requested size: 216.24486pt x 126.84859pt.
- [6 <./memoria_salva.jpg> <./memoria_copia.jpg> <./solucao.jpg>] (./artigo-ieee
-.bbl
+ [6 <./memoria_copia.jpg> <./solucao.jpg>] (./artigo-ieee.bbl
 Underfull \hbox (badness 2608) in paragraph at lines 163--166
 []\OT1/ptm/m/n/8 Apache, ``Apache-Tomcat,'' 2016. [On-line]. Avail-able:
  []
@@ -739,7 +738,7 @@ live/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
 rw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8
 a.pfb>
-Output written on artigo-ieee.pdf (7 pages, 484202 bytes).
+Output written on artigo-ieee.pdf (7 pages, 484298 bytes).
 PDF statistics:
  63 PDF objects out of 1000 (max. 8388607)
  38 compressed objects within 1 object stream
