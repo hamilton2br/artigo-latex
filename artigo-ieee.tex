@@ -419,7 +419,7 @@ Este trabalho analisa propostas na literatura voltadas a resolver os principais 
 %
 A solução aqui proposta provê uma forma de correlacionar evidências e sua origem virtual, permitindo transportar e armazenar tais dados sem afetar sua credibilidade.
 %
-Especificamente, ela tem como focos (1) a reprodutibilidade do processo de coleta e (2) a garantia de custódia da evidência.
+Especificamente, ela tem como focos (1) a reprodutibilidade do processo de coleta, (2) não violar jurisdição e (3) não violar a privacidade dos não envolvidos na investigação..
 
 \end{abstract}
 
@@ -729,11 +729,11 @@ Após a conclusão do processo de cópia, a mesma aplicação verifica se existe
 Para verificar se a presente proposta atinge os aos objetivos declarados montou-se o seguinte experimento:
 %
 
-A solução \fancyname foi configurada para realizar coletas de memória em intervalos de 1 minuto e apagar aquelas que tivessem mais de 5 minutos de existência. 
+A solução \fancyname foi configurada para realizar coletas de memória em intervalos de 1 minuto, salva-las em um armazenamento em disco externo e apagar aquelas que tivessem mais de 5 minutos de existência. 
 %
 Permitiu-se que ela rodasse por 30 minutos durante o qual foram coletadas métricas de uso de espaço em disco utilizado pelos instantâneos de memória salvos e o tempo de pausa no contêiner necessário para a cópia das mesmas.
 %
-A cada coleta executou-se o comando \texttt{du -sh *.mem} do \textit{Unix} para retornar a lista dos arquivos onde os instantâneos de memória foram armazenados e o espaço em disco ocupado pelos mesmos. 
+A cada coleta executou-se o comando \texttt{du -sh *.mem} do \textit{Unix} no armazenamento externo para retornar a lista dos arquivos onde os instantâneos de memória foram armazenados e o espaço em disco ocupado pelos mesmos. 
 %
 Ao fim do experimento os contêineres foram removidos.
 
@@ -820,7 +820,13 @@ Durante o experimento foram medidos os tempos de cópia da memória do contêine
 É possível notar que após a inicialização da aplicação, o tempo para realizar a cópia varia entre 20 e 40 milisegundos. 
 %
 Na implementação do presente experimento, cada contêiner está executando um motor de páginas web dinâmicas nginx 1.0 \cite{nginx}. Neste cenário o tempo gasto com a cópia é adequado. %encontrar referencia
+%
 
+Armazenando apenas os instantâneos de memória mostramos que é possível coletar informações da núvem sem uma cópia total da máquina assim não violando a privacidade dos não envolvidos na investigação.
+%
+
+Armazenando em um disco externo monstramos que é possível evitar problemas de jurisdição relacionadas a localização física de um armazenamento virtual caso os instantâneos permanecessem na nuvem.
+%
 
 \begin{table}[htb!]
 \centering
