@@ -539,11 +539,11 @@ Há três modelos principais de comercialização de uso da nuvem \cite{NIST2011
 
 A virtualização de recursos na nuvem, embora tradicionalmente feita por meio de máquinas virtuais, vêm sendo crescentemente feita também na forma de contêineres.
 %
-De fato, segundo o ``Container Market Adoption Survey 2016'', realizado pelas empresas DevOps.com (https://devops.com/) e ClusterHQ (https://clusterhq.com) com 235 empresas que têm desenvolvimento de software como sua atividade fim ou como suporte à atividade fim, 76\% dos respondentes utilizam contêiners para melhorar a eficiência do processo de desenvolvimento e em suas arquiteturas de micro-serviços em nuvem.
+De fato, segundo o ``Container Market Adoption Survey 2016'', realizado pelas empresas DevOps.com (https://devops.com/) e ClusterHQ (https://clusterhq.com) com 235 empresas que têm desenvolvimento de software como sua atividade fim ou como suporte à atividade fim, 76\% dos respondentes utilizam contêineres para melhorar a eficiência do processo de desenvolvimento e em suas arquiteturas de micro-serviços em nuvem.
 %
 Diferentemente de máquinas virtuais, que envolvem a criação de um \textit{hardware} virtual e de um sistema operacional (SO) acima do sistema nativo e que opera independente deste, a virtualização com contêineres é feita no nível do SO nativo, tem uma implementação mais simples eliminado camadas entre o aplicativo executado e o \textit{hardware} físico.
 %
-Uma tecnologia bastante utilizada para esse propósito são Contêiners Linux (LXC) \cite{Linuxcontainers.org2015}, que aproveitam-se de funcionalidades como cgroups e namespacing do kernel do Linux para auxiliar no gerenciamento e isolamento de recursos virtuais.
+Uma tecnologia bastante utilizada para esse propósito são Contêineres Linux (LXC) \cite{Linuxcontainers.org2015}, que aproveitam-se de funcionalidades como cgroups e namespacing do kernel do Linux para auxiliar no gerenciamento e isolamento de recursos virtuais.
 
 
 
@@ -708,7 +708,7 @@ Os métodos propostos foram implementados em uma plataforma de testes visando av
 %
 A solução, ilustrada na Figura \ref{fig:Solucao}, consistiu na criação de 1 máquina virtual usando o Oracle Virtual Box 5.0 \cite{VirtualBox} em um notebook Intel i5 de 2.30Mhz e 4Gb de RAM com sistema operacional de 64 bits.
 %
-Essas máquinas virtuais possuem 2 Gb de memória RAM e emulam apenas 1 processador, e em cada uma delas foi instalado o Docker Engine 1.10 \cite{DockerInc} e a API Docker 1.21 \cite{DockerInc}, com os quais foram criados 3 contêiners executando o nginx 1.0 \cite{nginx} em diferentes portas. 
+Essas máquinas virtuais possuem 2 Gb de memória RAM e emulam apenas 1 processador, e em cada uma delas foi instalado o Docker Engine 1.10 \cite{DockerInc} e a API Docker 1.21 \cite{DockerInc}, com os quais foram criados 3 contêineres executando o nginx 1.0 \cite{nginx} em diferentes portas. 
 %
 Usando uma aplicação Java que descobre qual o identificador de processo associado a cada contêiner, pode-se copiar conteúdo do \textit{descritor de alocação de memória não uniforme} (\textbf{/proc/pid/numa\_maps}) que contem a alocação das páginas de memória, os nós que estão associados a essas páginas, o que está alocado e suas respectivas políticas de acesso\cite{UnixManPages_numa_maps}. \marcosT{explique o que são esses dados! Hamilton - Feito}.
 %
@@ -726,15 +726,16 @@ Após a conclusão do processo de cópia, a mesma aplicação verifica se existe
 
 \subsection{Experimento e Conclusões}
 
-Para verificar se a presente proposta atinge os aos objetivos declarados montou-se o seguinte experimento.
+Para verificar se a presente proposta atinge os aos objetivos declarados montou-se o seguinte experimento:
 %
+
 A solução \fancyname foi configurada para realizar coletas de memória em intervalos de 1 minuto e apagar aquelas que tivessem mais de 5 minutos de existência. 
 %
-Permitiu-se que ela rodasse por 30 minutos. Durante este tempo foram coletadas métricas de uso de espaço em disco utilizado pelos instantâneos de memória salvos e o tempo de pausa no contêiner usado para a cópia das mesmas.
+Permitiu-se que ela rodasse por 30 minutos durante o qual foram coletadas métricas de uso de espaço em disco utilizado pelos instantâneos de memória salvos e o tempo de pausa no contêiner necessário para a cópia das mesmas.
 %
-A cada coleta executou-se o comando \texttt{du -sh *.mem} do \textit{Unix} para retornar a lista dos instantâneos e o espaço em disco ocupado pelas coletas. 
+A cada coleta executou-se o comando \texttt{du -sh *.mem} do \textit{Unix} para retornar a lista dos arquivos onde os instantâneos de memória foram armazenados e o espaço em disco ocupado pelos mesmos. 
 %
-Ao fim do experimento removeu-se os contêiners.
+Ao fim do experimento os contêineres foram removidos.
 
 
 O espaço em disco ocupado pelos instantâneos de memória durante o experimento é mostrado na tabela \ref{tab:results-size} e plotado no gráfico \ref{fig:evolucao_coleta}. 
@@ -792,7 +793,9 @@ Tamanho total ocupado (KBytes) & Tempo (segundos) \\ \hline
 \end{figure}
 
 
-A figura \ref{fig:memoria_salva} é uma listagem de alguns dos instantâneos de memória salvos pela solução. Nela podemos ver que as coletas continuaram no disco da máquina mesmo após a remoção dos contêiners. Usando o identificador do contêiner e da imagem como nome do arquivo que armazena o instantâneo da memória conseguimos associar a evidência a sua origem.
+A figura \ref{fig:memoria_salva} é uma listagem de alguns dos instantâneos de memória salvos pela solução depois que os contêineres foram removidos. Nela podemos ver que as coletas continuaram no disco da máquina mesmo após a remoção dos contêineres. 
+%
+Usando o identificador do contêiner e da imagem como nome do arquivo que armazena o instantâneo da memória conseguimos associar a evidência a sua origem no caso a imagem e o contêiner.
 %
 
 \begin{figure}[htb!]
@@ -803,14 +806,18 @@ A figura \ref{fig:memoria_salva} é uma listagem de alguns dos instantâneos de 
 \end{figure}
 
 
-No evento da detecção de uma ameaça a presente proposta deixa de apagar as coletas mais antigas. Desta forma é capaz de descrever a história das alterações da memória do contêiner e com isso viabilizar a análise forense em busca das 4 vulnerabilidades de injeção de código citadas no início do artigo pois consegue descrever o estado do sistema antes e depois do incidente \cite{Case_Memory_Forensics:2014}.
+No evento da detecção de uma ameaça a presente proposta deixa de apagar as coletas mais antigas. 
+%
+Desta forma é capaz de descrever a história das alterações da memória do contêiner e com isso viabilizar a análise forense em busca das 4 vulnerabilidades de injeção de código em memória citadas no início do artigo.
+%
+A viabilidade se dá pois consegue descrever o estado do sistema antes e depois do incidente \cite{Case_Memory_Forensics:2014}.
 %
 
-Uma preocupação da presente proposta é o impacto que a pausa de um contêiner para coleta de dados pode causar na performance da aplicação executando no mesmo. A tabela \ref{tab:results-conteiner} mostra os tempos transcorridos para a cópia de memória durante o experimento. Os dados foram plotados no gráfico \ref{fig:memoria_copia}.
+Uma preocupação da presente proposta é o impacto que a pausa de um contêiner para coleta de dados pode causar na performance da aplicação executando no mesmo. 
 %
-É possível notar que após a inicialização, o tempo para realizar a cópia da memória pela presente proposta no ambiente descrito na seção \textit{implementação} varia entre 20 e 40 milisegundos. 
+Durante o experimento foram medidos os tempos de cópia da memória do contêiner, a tabela \ref{tab:results-conteiner} mostra os tempos de cópia durante o experimento, os valores foram plotados no gráfico \ref{fig:memoria_copia}.
 %
-Para avaliar o tempo de cópia deve-se levar em consideração o que está sendo executado no contêiner. 
+É possível notar que após a inicialização da aplicação, o tempo para realizar a cópia varia entre 20 e 40 milisegundos. 
 %
 Na implementação do presente experimento, cada contêiner está executando um motor de páginas web dinâmicas nginx 1.0 \cite{nginx}. Neste cenário o tempo gasto com a cópia é adequado. %encontrar referencia
 
