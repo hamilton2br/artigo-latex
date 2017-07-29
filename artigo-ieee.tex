@@ -322,6 +322,7 @@
 %*** Para inclusão de imagens e permitir rotacionar texto ***
 \usepackage{graphicx}			% Inclusão de gráficos
 \graphicspath{ {./} }			% localizando as imagens
+\usepackage{multicol}
 
 %*** Para ajustar a largura das colunas e para multilinhas nas células ***
 \usepackage{array}
@@ -644,6 +645,7 @@ A solução aqui apresentada, denominada \fancyname, é descrita em detalhes a s
 
 
 \subsection{Descrição}
+\label{sec:proposal-desc}
 
 Em sistemas computacionais executados sobre uma infraestrutura física (i.e., não virtualizada), pode-se fazer uma associação direta entre um recurso qualquer, como uma informação da memória, imagem de disco ou pacotes trafegando na rede, e sua origem correspondente.
 %
@@ -701,8 +703,16 @@ Para evitar eventuais problemas com o armazenamento desses dados em países com 
 %
 
 \subsection{Implementação}
+\label{sec:proposal-impl}
 
 %\marcosT{CLAREZA: quais ataques? Onde estão esses objetivos (diga a seção!!!)? Perceba que não tem qualquer seção com esse nome: você espera realmente que o leitor procure no seu texto onde eles estão...? - Hamilton: Feito}
+
+\begin{figure}[htb!]
+\caption{Desenho completo da solução Dizang}
+\includegraphics[scale=0.25]{solucao.jpg}
+\label{fig:Solucao}
+\end{figure}
+
 
 Os métodos propostos foram implementados em uma plataforma de testes visando avaliar a eficácia de \fancyname em coletar as informações de memória dos contêineres de forma reprodutível, garantindo a cadeia de custódia sem violar jurisdições ou a privacidade de usuários.
 %
@@ -710,171 +720,184 @@ A solução, ilustrada na Figura \ref{fig:Solucao}, consistiu na criação de 1 
 %
 Essas máquinas virtuais possuem 2 Gb de memória RAM e emulam apenas 1 processador, e em cada uma delas foi instalado o Docker Engine 1.10 \cite{DockerInc} e a API Docker 1.21 \cite{DockerInc}, com os quais foram criados 3 contêineres executando o nginx 1.0 \cite{nginx} em diferentes portas. 
 %
-Usando uma aplicação Java que descobre qual o identificador de processo associado a cada contêiner, pode-se copiar conteúdo do \textit{descritor de alocação de memória não uniforme} (\textbf{/proc/pid/numa\_maps}) que contem a alocação das páginas de memória, os nós que estão associados a essas páginas, o que está alocado e suas respectivas políticas de acesso\cite{UnixManPages_numa_maps}. \marcosT{explique o que são esses dados! Hamilton - Feito}.
+Usando uma aplicação Java que descobre o identificador de processo associado a cada contêiner, pode-se copiar conteúdo do \textit{descritor de alocação de memória não uniforme} (\textbf{/proc/pid/numa\_maps}), o qual contém a alocação das páginas de memória, os nós que estão associados a essas páginas, o que está alocado e suas respectivas políticas de acesso\cite{UnixManPages_numa_maps}.
 %
 A cópia e gravação desse arquivo acontece da seguinte forma: a cada minuto, a aplicação (1) pausa o contêiner em questão, (2) copia a diretório \textbf{numa\_maps}, (3)  concatena os dados obtidos com o \textit{hash} de identificação da imagem do contêiner, (4) calcula o \textit{hash} do conjunto e (5) salva o resultado em um arquivo cujo nome é o identificador da imagem do contêiner e a extensão é \textbf{.mem}. 
 %
 Após a conclusão do processo de cópia, a mesma aplicação verifica se existem arquivos \textbf{.mem} em disco mais antigos do que um certo intervalo de tempo ``t'', descartando-os.
 %
 
-\marcosT{IMPORTANTE: discuta em alguns parágrafos os resultados. Até aqui, você só disse o que fez, mas não falou nada sobre o que isso traz de impactos positivos ou negativos. Por exemplo: quanto tempo demora a cópia (isso pode ser crítico para um processo que opera em tempo real, já que ele será pausado...)? Enfim, tire conclusões dos experimentos, porque senão os experimentos não têm qualquer utilidade para o leitor... Quanto mais completa a discussão (não só ``tempos'', mas também memória, quantidade de dados gerados por hora, uso de banda, etc.), melhor. Gráficos e tabelas com dados obtidos são muito bem vindos. - Hamilton: Feito}
+%\marcosT{IMPORTANTE: discuta em alguns parágrafos os resultados. Até aqui, você só disse o que fez, mas não falou nada sobre o que isso traz de impactos positivos ou negativos. Por exemplo: quanto tempo demora a cópia (isso pode ser crítico para um processo que opera em tempo real, já que ele será pausado...)? Enfim, tire conclusões dos experimentos, porque senão os experimentos não têm qualquer utilidade para o leitor... Quanto mais completa a discussão (não só ``tempos'', mas também memória, quantidade de dados gerados por hora, uso de banda, etc.), melhor. Gráficos e tabelas com dados obtidos são muito bem vindos. - Hamilton: Feito}
 
-\marcosT{IMPORTANTE: Discuta também a relação entre o que foi feito e os ataques de injeção mencionados na introdução. O seu texto inicialmente menciona tais ataques como parte do seu foco, mas nunca mais retoma a existência deles depois que você descreve a solução... Não precisa ser uma discussão longa, mas ao menos algumas considerações sobre o porquê de você conseguir analisar tais ataques usando a técnica proposta - Hamilton: Feito.}
+%\marcosT{IMPORTANTE: Discuta também a relação entre o que foi feito e os ataques de injeção mencionados na introdução. O seu texto inicialmente menciona tais ataques como parte do seu foco, mas nunca mais retoma a existência deles depois que você descreve a solução... Não precisa ser uma discussão longa, mas ao menos algumas considerações sobre o porquê de você conseguir analisar tais ataques usando a técnica proposta - Hamilton: Feito.}
 %
 
 %
 
-\subsection{Experimento e Conclusões}
+\subsection{Resultados experimentais}
+\label{sec:proposal-exp}
 
-Para verificar se a presente proposta atinge os aos objetivos declarados montou-se o seguinte experimento:
+Para avaliar a efetividade de \fancyname na coleta de evidências, alguns experimentos foram realizados usando o ambiente implementado conforme descrito na Seção \ref{sec:proposal-impl}.
+%
+Primeiramente, o sistema foi configurado para realizar coletas de memória em intervalos de 1 minuto, salvá-las em disco externo e apagar amostras coletadas há mais de 5 minutos. 
+%
+O sistema foi então executado por 30 minutos, tempo durante o qual foram coletadas como métricas (1) o uso de espaço em disco utilizado pelos instantâneos de memória salvos e (2) o tempo de pausa no contêiner necessário para a cópia das mesmas.
+%
+A cada coleta, foi executado o comando \texttt{du -sh *.mem} do \textit{Unix} no disco de armazenamento externo, para retornar a lista dos arquivos onde os instantâneos de memória foram armazenados e o espaço em disco ocupado pelos mesmos. 
+%
+Ao fim do experimento, os contêineres foram removidos.
+
+
+A ocupação em disco devido aos instantâneos de memória capturados durante o experimento é mostrada no gráfico da Figura \ref{fig:evolucao_coleta}. 
+%
+O gráfico mostra que o aumento do uso do espaço em disco é linear e o crescimento se interrompe quando é atingido o limite de tempo configurado para a janela, pois as coletas com tempo de vida maior que tal limite são apagadas do disco. 
+%
+Pode-se concluir, portanto, que a solução mantém sob controle o espaço em disco ocupado pelas amostras coletadas.
 %
 
-A solução \fancyname foi configurada para realizar coletas de memória em intervalos de 1 minuto, salva-las em um armazenamento em disco externo e apagar aquelas que tivessem mais de 5 minutos de existência. 
-%
-Permitiu-se que ela rodasse por 30 minutos durante o qual foram coletadas métricas de uso de espaço em disco utilizado pelos instantâneos de memória salvos e o tempo de pausa no contêiner necessário para a cópia das mesmas.
-%
-A cada coleta executou-se o comando \texttt{du -sh *.mem} do \textit{Unix} no armazenamento externo para retornar a lista dos arquivos onde os instantâneos de memória foram armazenados e o espaço em disco ocupado pelos mesmos. 
-%
-Ao fim do experimento os contêineres foram removidos.
+%\marcos{EVITE REDUNDÂNCIA ENTRE GRÁFICO E TABELA. Faz sentido apenas se um deles for trazer informações adicionais (e, nesses casos, em geral o gráfico/tabela acaba tendo algum highlight, para deixar a utilidade dessa redundância)
+%\begin{table}[htb!]
+%\centering
+%\caption{Evolução do uso do espaço em disco}
+%\label{tab:results-size}
+%\begin{tabular}{c|c}
+%\hline
+%Tamanho total ocupado (KBytes) & Tempo (segundos) \\ \hline
+%240                            & 1                \\ \hline
+%480                            & 2                \\ \hline
+%720                            & 3                \\ \hline
+%960                            & 4                \\ \hline
+%1200                           & 5                \\ \hline
+%1200                           & 6                \\ \hline
+%1200                           & 7                \\ \hline
+%1200                           & 8                \\ \hline
+%1200                           & 9                \\ \hline
+%1200                           & 10                \\ \hline
+%1200                           & 11                \\ \hline
+%1200                           & 12                \\ \hline
+%1200                           & 13                \\ \hline
+%1200                           & 14                \\ \hline
+%1200                           & 15                \\ \hline
+%1200                           & 16                \\ \hline
+%1200                           & 17                \\ \hline
+%1200                           & 18                \\ \hline
+%1200                           & 19                \\ \hline
+%1200                           & 20                \\ \hline
+%1200                           & 21                \\ \hline
+%1200                           & 22                \\ \hline
+%1200                           & 23                \\ \hline
+%1200                           & 24                \\ \hline
+%1200                           & 25                \\ \hline
+%1200                           & 26                \\ \hline
+%1200                           & 27                \\ \hline
+%1200                           & 28                \\ \hline
+%1200                           & 29                \\ \hline
+%1200                           & 30                \\ \hline
+%\end{tabular}
+%\end{table}
 
-
-O espaço em disco ocupado pelos instantâneos de memória durante o experimento é mostrado na tabela \ref{tab:results-size} e plotado no gráfico \ref{fig:evolucao_coleta}. 
-%
-O gráfico mostra que o aumento do uso do espaço em disco é linear e o crescimento se interrompe quando é atingido o limite de tempo configurado para a janela pois as coletas com tempo de vida maior que tal limite são apagadas do disco. 
-%
-Podemos concluir que a solução mantem sob controle o espaço em disco ocupado pelas coletas.
-%
-
-\begin{table}[htb!]
-\centering
-\caption{Evolução do uso do espaço em disco}
-\label{tab:results-size}
-\begin{tabular}{c|c}
-\hline
-Tamanho total ocupado (KBytes) & Tempo (segundos) \\ \hline
-240                            & 1                \\ \hline
-480                            & 2                \\ \hline
-720                            & 3                \\ \hline
-960                            & 4                \\ \hline
-1200                           & 5                \\ \hline
-1200                           & 6                \\ \hline
-1200                           & 7                \\ \hline
-1200                           & 8                \\ \hline
-1200                           & 9                \\ \hline
-1200                           & 10                \\ \hline
-1200                           & 11                \\ \hline
-1200                           & 12                \\ \hline
-1200                           & 13                \\ \hline
-1200                           & 14                \\ \hline
-1200                           & 15                \\ \hline
-1200                           & 16                \\ \hline
-1200                           & 17                \\ \hline
-1200                           & 18                \\ \hline
-1200                           & 19                \\ \hline
-1200                           & 20                \\ \hline
-1200                           & 21                \\ \hline
-1200                           & 22                \\ \hline
-1200                           & 23                \\ \hline
-1200                           & 24                \\ \hline
-1200                           & 25                \\ \hline
-1200                           & 26                \\ \hline
-1200                           & 27                \\ \hline
-1200                           & 28                \\ \hline
-1200                           & 29                \\ \hline
-1200                           & 30                \\ \hline
-\end{tabular}
-\end{table}
-
-\begin{figure}[htb!]
-\caption{Evolução do uso do espaço em disco}
-\includegraphics[scale=0.29]{evolucao_coleta.jpg}
+\begin{figure*}[htb!]
+\caption{Evolução do uso do espaço em disco com o \fancyname. \marcosT{Aumente o tamanho da fonte, para melhorar a legibilidade. No eixo x, não precisa ir de 1 em 1 se isso ajudar a aumentar a fonte. - Hamilton: Feito}}
+\includegraphics[scale=0.30]{evolucao_coleta.jpg}
 \centering
 \label{fig:evolucao_coleta}
-\end{figure}
+\end{figure*}
 
 
-A figura \ref{fig:memoria_salva} é uma listagem de alguns dos instantâneos de memória salvos pela solução depois que os contêineres foram removidos. Nela podemos ver que as coletas continuaram no disco da máquina mesmo após a remoção dos contêineres. 
+
+
+A figura \ref{fig:memoria_salva}, por sua vez, mostra uma listagem de alguns dos instantâneos de memória salvos pela solução depois que os contêineres são removidos. 
 %
-Usando o identificador do contêiner e da imagem como nome do arquivo que armazena o instantâneo da memória conseguimos associar a evidência a sua origem no caso a imagem e o contêiner.
+Nela pode-se ver que as coletas continuaram no disco da máquina mesmo após a remoção dos contêineres. 
 %
+Usando o identificador do contêiner e da imagem destacados no box cinza como nome do arquivo que armazena o instantâneo da memória, consegue-se associar a evidência a sua origem (i.e., a imagem e o contêiner), conforme esperado para uma análise forense.
+%
+Essa capacidade se mantém após a detecção de uma ameaça, pois nesse caso coletas mais antigas deixam de ser apagadas.
+%
+Assim, é possível descrever o estado do sistema antes e depois do incidente \cite{Case_Memory_Forensics:2014}, permitindo-se, por exemplo, que ataques de injeção de código em memória sejam analisados.
 
-\begin{figure}[htb!]
-\caption{Lista de instantâneos de memória}
-\includegraphics[scale=0.17]{memoria_salva.jpg}
+
+\begin{figure*}[htb!]
+\caption{Lista de instantâneos de memória. \marcosT{Coloque fundo branco e texto em preto (ou outra cor escura): melhora a visibilidade. Também precisa aumentar a fonte, e, potencialmente, fazer highlight de alguma coisa (para o leitor, parece um monte de caracteres aleatórios...). Se precisar de espaço, pode colocar como ``figure*'', para que a imagem ocupe as duas colunas do documento - Hamilton: Feito. Coloquei o box cinza pois outra cor mais forte começaca a chamar mais atenção que o texto.}}
+\includegraphics[scale=0.30]{memoria_salva.jpg}
 \centering
 \label{fig:memoria_salva}
-\end{figure}
+\end{figure*}
 
 
-No evento da detecção de uma ameaça a presente proposta deixa de apagar as coletas mais antigas. 
+%No evento da detecção de uma ameaça a presente proposta deixa de apagar as coletas mais antigas. 
 %
-Desta forma é capaz de descrever a história das alterações da memória do contêiner e com isso viabilizar a análise forense em busca das 4 vulnerabilidades de injeção de código em memória citadas no início do artigo.
+%Desta forma é capaz de descrever a história das alterações da memória do contêiner e com isso viabilizar a análise forense em busca das 4 vulnerabilidades de injeção de código em memória citadas no início do artigo. \marcos{Link bem fraco com introdução... pra que explicar em *detalhes* as vulnerabilidades na Introdução se você vai fazer uma explicação *superficial* de como elas são abordadas... Coloquei en passant para não dar a impressão de que você quis chamar a atenção para aquelas vulnerabilidades (sim, eu tinha pedido para você fazer esse link, mas um link tão fraco joga CONTRA você, não a favor...)}
 %
-A viabilidade se dá pois consegue descrever o estado do sistema antes e depois do incidente \cite{Case_Memory_Forensics:2014}.
-%
-
-Uma preocupação da presente proposta é o impacto que a pausa de um contêiner para coleta de dados pode causar na performance da aplicação executando no mesmo. 
-%
-Durante o experimento foram medidos os tempos de cópia da memória do contêiner, a tabela \ref{tab:results-conteiner} mostra os tempos de cópia durante o experimento, os valores foram plotados no gráfico \ref{fig:memoria_copia}.
-%
-É possível notar que após a inicialização da aplicação, o tempo para realizar a cópia varia entre 20 e 40 milisegundos. 
-%
-Na implementação do presente experimento, cada contêiner está executando um motor de páginas web dinâmicas nginx 1.0 \cite{nginx}. Neste cenário o tempo gasto com a cópia é adequado. %encontrar referencia
+%A viabilidade se dá pois consegue descrever o estado do sistema antes e depois do incidente \cite{Case_Memory_Forensics:2014}.
 %
 
-Armazenando apenas os instantâneos de memória mostramos que é possível coletar informações da núvem sem uma cópia total da máquina assim não violando a privacidade dos não envolvidos na investigação.
+Uma potencial preocupação da presente proposta é que a pausa de um contêiner para coleta de dados pode, em princípio, causar perdas no desempenho da aplicação sendo executada. 
+%
+Para avaliar esse impacto, durante o experimento foram medidos os tempos de cópia da memória do contêiner.
+%
+Os resultados são mostrados no gráfico da Figura \ref{fig:memoria_copia}.
+%
+É possível notar que, após a inicialização da aplicação, o tempo para realizar a cópia varia entre 20 e 40 milisegundos. 
+%
+Para contêineres executando um motor de páginas web dinâmicas, como é o caso do experimento em questão, essa latência deve ser pouco perceptível por usuários finais.
 %
 
-Armazenando em um disco externo monstramos que é possível evitar problemas de jurisdição relacionadas a localização física de um armazenamento virtual caso os instantâneos permanecessem na nuvem.
+
+
+\marcosT{Essas duas frases não é resultado do experimento, mas apenas característica da sua solução, então não faz muito sentido colocar aqui. Melhor mover essas considerações para o local em que você descreve essas características, fazendo merge com o texto que já esteja lá. Se você já fez essa discussão naquele ponto, então não precisa repetir. Se for fazer o merge, lembre-se (repita 2x ao dia, como um mantra): NÃO USE PRIMEIRA PESSOA EM TEXTOS FORMAIS EM PORTUGUÊS.}
+Armazenando apenas os instantâneos de memória mostramos que é possível coletar informações da nuvem sem uma cópia total da máquina assim não violando a privacidade dos não envolvidos na investigação.
+%
+Armazenando em um disco externo mostramos que é possível evitar problemas de jurisdição relacionadas a localização física de um armazenamento virtual caso os instantâneos permanecessem na nuvem.
 %
 
-\begin{table}[htb!]
-\centering
-\caption{Tempo de cópia da memória de um contêiner}
-\label{tab:results-conteiner}
-\begin{tabular}{c|c}
-\hline
-Tempo de cópia (Milisegundos) & Coleta           \\ \hline
-149                           & 1                \\ \hline
-59                            & 2                \\ \hline
-23                            & 3                \\ \hline
-32                            & 4                \\ \hline
-35                            & 5                \\ \hline
-21                            & 6                \\ \hline
-17                            & 7                \\ \hline
-38                            & 8                \\ \hline
-16                            & 9                \\ \hline
-33                            & 10               \\ \hline
-17                            & 11               \\ \hline
-36                            & 12               \\ \hline
-18                            & 13               \\ \hline
-25                            & 14               \\ \hline
-31                            & 15               \\ \hline
-14                            & 16               \\ \hline
-33                            & 17               \\ \hline
-19                            & 18               \\ \hline
-13                            & 19               \\ \hline
-20                            & 20               \\ \hline
-18                            & 21               \\ \hline
-24                            & 22               \\ \hline
-8                             & 23               \\ \hline
-9                             & 24               \\ \hline
-19                            & 25               \\ \hline
-7                             & 26               \\ \hline
-8                             & 27               \\ \hline
-11                            & 28               \\ \hline
-35                            & 29               \\ \hline
-13                            & 30               \\ \hline
-\end{tabular}
-\end{table}
+%\begin{table}[htb!]
+%\centering
+%\caption{Tempo de cópia da memória de um contêiner}
+%\label{tab:results-conteiner}
+%\begin{tabular}{c|c}
+%\hline
+%Tempo de cópia (Milisegundos) & Coleta           \\ \hline
+%149                           & 1                \\ \hline
+%59                            & 2                \\ \hline
+%23                            & 3                \\ \hline
+%32                            & 4                \\ \hline
+%35                            & 5                \\ \hline
+%21                            & 6                \\ \hline
+%17                            & 7                \\ \hline
+%38                            & 8                \\ \hline
+%16                            & 9                \\ \hline
+%33                            & 10               \\ \hline
+%17                            & 11               \\ \hline
+%36                            & 12               \\ \hline
+%18                            & 13               \\ \hline
+%25                            & 14               \\ \hline
+%31                            & 15               \\ \hline
+%14                            & 16               \\ \hline
+%33                            & 17               \\ \hline
+%19                            & 18               \\ \hline
+%13                            & 19               \\ \hline
+%20                            & 20               \\ \hline
+%18                            & 21               \\ \hline
+%24                            & 22               \\ \hline
+%8                             & 23               \\ \hline
+%9                             & 24               \\ \hline
+%19                            & 25               \\ \hline
+%7                             & 26               \\ \hline
+%8                             & 27               \\ \hline
+%11                            & 28               \\ \hline
+%35                            & 29               \\ \hline
+%13                            & 30               \\ \hline
+%\end{tabular}
+%\end{table}
 
 
-\begin{figure}[htb!]
-\caption{Lista de instantâneos de memória}
-\includegraphics[scale=0.32]{memoria_copia.jpg}
+\begin{figure*}[htb!]
+\caption{Lista de instantâneos de memória. \marcosT{Plote também o tempo médio juntamente como o desvio padrão da média (pode ser uma média móvel caso acredite que faça muita diferença o início e o restante das medidas): esse tipo de métrica é MUITO mais relevante do que essa listagem, embora manter os pontos atuais também seja interessante - Hamilton: Feito}.}
+\includegraphics[scale=0.30]{memoria_copia.jpg}
 \centering
 \label{fig:memoria_copia}
-\end{figure}
+\end{figure*}
 
 \subsection{Limitações}
 
@@ -882,13 +905,9 @@ Como a solução descrita tem como foco coletar informações de memória no esp
 %
 Assim, \fancyname em princípio não provê suporte a técnicas de investigação de malware que se baseiam em informações do \textit{kernel space}, como, por exemplo, a comparação de informações do bloco do ambiente do processo (\textit{Process Environment Block -- PEB}), que ficam no \textit{user space}, com informações do descritor de endereços de memória virtual (\textit{Virtual Address Descriptor -- VAD}), que fica no \textit{kernel space}. 
 %
-Análise de ameaças que realizam manipulação direta dos objetos do kernel (D.K.O.M.-- \textit{Direct Kernel Object Manipulation}) também não se beneficiam com a solução aqui proposta. \marcosT{Não entendi a ``associação com o contêiner'' aqui. Você quer dizer que ``não se beneficiam com a solução aqui proposta'' ou outra coisa? Você não definiu o que seria a tal ``associação com o contêiner'' fora do contexto da sua solução, então ficou confuso - Hamilton: Feito}.
+Análise de ameaças que realizam manipulação direta dos objetos do kernel (D.K.O.M.-- \textit{Direct Kernel Object Manipulation}) também não se beneficiam com a solução aqui proposta. 
+%\marcosT{Não entendi a ``associação com o contêiner'' aqui. Você quer dizer que ``não se beneficiam com a solução aqui proposta'' ou outra coisa? Você não definiu o que seria a tal ``associação com o contêiner'' fora do contexto da sua solução, então ficou confuso - Hamilton: Feito}.
 
-\begin{figure}[htb!]
-\caption{Desenho completo da solução Dizang \marcosT{``Solução completa'' do que, cara pálida? Legendas devem ser auto-explicativas (i.e., se o leitor não ler sequer uma linha do seu texto e bater o olho em uma figura, ele deve conseguir entender alguma coisa daquela figura...) Com o nome ``Solução completa'', pode ser desde uma ``receita de bolo'' até a ``cura para o câncer''... - Hamilton: Feito}}
-\includegraphics[scale=0.25]{solucao.jpg}
-\label{fig:Solucao}
-\end{figure}
 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
@@ -976,19 +995,19 @@ Análise de ameaças que realizam manipulação direta dos objetos do kernel (D.
 \section{Considerações Finais}
 \label{sec:conclusion}
 
-\marcosT{Uma boa conclusão retoma, logo na primeira frase, o problema que ela se propunha a resolver. Comece com uma ou mais frases nesse sentido, (nota: \textbf{sem} copiar+colar de outro ponto do texto). - Hamilton: Feito}
+\marcosT{Uma boa conclusão retoma, logo na primeira frase, o problema que ela se propunha a resolver. Comece com uma ou mais frases nesse sentido, (nota: \textbf{sem} copiar+colar de outro ponto do texto). - Hamilton: Feito} \marcosT{Só que não: eu disse para você retomar o \textbf{problema} na sua primeira frase. Sua frase começa retomando a \textbf{solução}. Essa que você colocou como primeira seria boa como uma segunda frase, em que você reforça como resolve o problema...}
 %
 A proposta apresentada é capaz de relacionar o instantâneo de memória a sua origem utilizando o \textit{hash} calculado da imagem do contêiner como identificador da evidência armazenada, limita a quantidade de dados armazenados usando a implementação de janela de armazenamento e é capaz de descrever a memória antes e depois de um ataque viabilizando a análise de ataques de injeção de memória. 
 %
 Combinada com uma ferramenta adequada para análise das ameaças, essa característica de \fancyname pode ser uma ferramenta poderosa para análises forenses.
 %
-Cabe notar, entretanto, que muitas ferramentas de análise malware disponíveis no mercado necessitam que todo o conteúdo da memória da máquina esteja disponível para realização da análise com o FROST \cite{Dykstra_FROST:2013}, Volatility Framework \cite{VolatilityFoundation2014} e FATkit \cite{Fraser2006} (e.g., \marcosT{Dê exemplos com referências! - Hamilton: Feito}), o que inviabiliza seu uso diretamente sobre a memória de processos conforme coletado por \fancyname.
+Cabe notar, entretanto, que muitas ferramentas de análise malware disponíveis no mercado necessitam que todo o conteúdo da memória da máquina esteja disponível para realização da análise (e.g., FROST \cite{Dykstra_FROST:2013}, Volatility Framework \cite{VolatilityFoundation2014} e FATkit \cite{Fraser2006}), o que inviabiliza seu uso diretamente sobre a memória de processos conforme coletado por \fancyname.
 %
 Portanto, como trabalho futuro, pretende-se desenvolver uma ferramenta mais flexível de análise, que, embora potencialmente utilize técnicas similares às atuais para detecção de ameaças, seja capaz de fazê-lo sem necessariamente ter acesso à memória completa da máquina.
 
 
 
-\marcosR{As próximas frases, como escritas, são ``tiros no pé'': você fica falando das limitações que não são da sua proposta, mas sim do universo onde sua proposta se encaixa... Deixe a propaganda negativa para seus concorrentes fazerem, não para você... Refraseei para manter o mesmo conteúdo, mas de forma positiva em vez de negativa.}
+%\marcosR{As próximas frases, como escritas, são ``tiros no pé'': você fica falando das limitações que não são da sua proposta, mas sim do universo onde sua proposta se encaixa... Deixe a propaganda negativa para seus concorrentes fazerem, não para você... Refraseei para manter o mesmo conteúdo, mas de forma positiva em vez de negativa.}
 %Apesar do sucesso em salvar a memória relacionadas ao contêiner e sua associação com a origem, não foi possível até o momento realizar uma análise das ameaças. 
 %
 %As ferramentas de análise de memória disponíveis no mercado necessitam que todo o conteúdo da memória da máquina esteja disponível para realização da análise. 
