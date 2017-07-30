@@ -810,7 +810,7 @@ A figura \ref{fig:memoria_salva}, por sua vez, mostra uma listagem de alguns dos
 %
 Nela pode-se ver que as coletas continuaram no disco da máquina mesmo após a remoção dos contêineres. 
 %
-Usando o identificador do contêiner e da imagem destacados no box cinza como nome do arquivo que armazena o instantâneo da memória, consegue-se associar a evidência a sua origem (i.e., a imagem e o contêiner), conforme esperado para uma análise forense.
+Usando o identificador do contêiner e da imagem, consegue-se associar a evidência a sua origem (i.e., a imagem e o contêiner), conforme esperado para uma análise forense.
 %
 Essa capacidade se mantém após a detecção de uma ameaça, pois nesse caso coletas mais antigas deixam de ser apagadas.
 %
@@ -818,7 +818,7 @@ Assim, é possível descrever o estado do sistema antes e depois do incidente \c
 
 
 \begin{figure*}[htb!]
-\caption{Lista de instantâneos de memória. \marcosT{Coloque fundo branco e texto em preto (ou outra cor escura): melhora a visibilidade. Também precisa aumentar a fonte, e, potencialmente, fazer highlight de alguma coisa (para o leitor, parece um monte de caracteres aleatórios...). Se precisar de espaço, pode colocar como ``figure*'', para que a imagem ocupe as duas colunas do documento - Hamilton: Feito. Coloquei o box cinza pois outra cor mais forte começaca a chamar mais atenção que o texto.}}
+\caption{Lista de instantâneos de memória. \marcosT{Coloque fundo branco e texto em preto (ou outra cor escura): melhora a visibilidade. Também precisa aumentar a fonte, e, potencialmente, fazer highlight de alguma coisa (para o leitor, parece um monte de caracteres aleatórios...). Se precisar de espaço, pode colocar como ``figure*'', para que a imagem ocupe as duas colunas do documento - Hamilton: Feito.}}
 \includegraphics[scale=0.30]{memoria_salva.jpg}
 \centering
 \label{fig:memoria_salva}
@@ -843,12 +843,7 @@ Os resultados são mostrados no gráfico da Figura \ref{fig:memoria_copia}.
 Para contêineres executando um motor de páginas web dinâmicas, como é o caso do experimento em questão, essa latência deve ser pouco perceptível por usuários finais.
 %
 
-
-
-\marcosT{Essas duas frases não é resultado do experimento, mas apenas característica da sua solução, então não faz muito sentido colocar aqui. Melhor mover essas considerações para o local em que você descreve essas características, fazendo merge com o texto que já esteja lá. Se você já fez essa discussão naquele ponto, então não precisa repetir. Se for fazer o merge, lembre-se (repita 2x ao dia, como um mantra): NÃO USE PRIMEIRA PESSOA EM TEXTOS FORMAIS EM PORTUGUÊS.}
-Armazenando apenas os instantâneos de memória mostramos que é possível coletar informações da nuvem sem uma cópia total da máquina assim não violando a privacidade dos não envolvidos na investigação.
-%
-Armazenando em um disco externo mostramos que é possível evitar problemas de jurisdição relacionadas a localização física de um armazenamento virtual caso os instantâneos permanecessem na nuvem.
+\marcosT{Essas duas frases não é resultado do experimento, mas apenas característica da sua solução, então não faz muito sentido colocar aqui. Melhor mover essas considerações para o local em que você descreve essas características, fazendo merge com o texto que já esteja lá. Se você já fez essa discussão naquele ponto, então não precisa repetir. Se for fazer o merge, lembre-se (repita 2x ao dia, como um mantra): NÃO USE PRIMEIRA PESSOA EM TEXTOS FORMAIS EM PORTUGUÊS. - Hamilton: Feito. Desulpas, fraquejei :p}
 %
 
 %\begin{table}[htb!]
@@ -995,7 +990,9 @@ Análise de ameaças que realizam manipulação direta dos objetos do kernel (D.
 \section{Considerações Finais}
 \label{sec:conclusion}
 
-\marcosT{Uma boa conclusão retoma, logo na primeira frase, o problema que ela se propunha a resolver. Comece com uma ou mais frases nesse sentido, (nota: \textbf{sem} copiar+colar de outro ponto do texto). - Hamilton: Feito} \marcosT{Só que não: eu disse para você retomar o \textbf{problema} na sua primeira frase. Sua frase começa retomando a \textbf{solução}. Essa que você colocou como primeira seria boa como uma segunda frase, em que você reforça como resolve o problema...}
+\marcosT{Uma boa conclusão retoma, logo na primeira frase, o problema que ela se propunha a resolver. Comece com uma ou mais frases nesse sentido, (nota: \textbf{sem} copiar+colar de outro ponto do texto). - Hamilton: Feito} \marcosT{Só que não: eu disse para você retomar o \textbf{problema} na sua primeira frase. Sua frase começa retomando a \textbf{solução}. Essa que você colocou como primeira seria boa como uma segunda frase, em que você reforça como resolve o problema - Hamilton: Acho que agora foi :)}
+%
+Instâncias de processamento virtual, que foram vítimas de ameaças que atuam diretamente na memória sem deixar rastros em disco, quando desalocadas não deixam evidencias para suportar uma investigação. Combinado com os aspectos multi inquilino e multi jurisdição das soluções em núvem, dificulta a coleta de informações para a investigação de incidentes.
 %
 A proposta apresentada é capaz de relacionar o instantâneo de memória a sua origem utilizando o \textit{hash} calculado da imagem do contêiner como identificador da evidência armazenada, limita a quantidade de dados armazenados usando a implementação de janela de armazenamento e é capaz de descrever a memória antes e depois de um ataque viabilizando a análise de ataques de injeção de memória. 
 %
