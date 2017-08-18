@@ -797,7 +797,7 @@ Pode-se concluir, portanto, que a solução mantém sob controle o espaço em di
 %\end{table}
 
 \begin{figure*}[htb!]
-\caption{Evolução do uso do espaço em disco com o \fancyname. \marcosT{Aumente o tamanho da fonte, para melhorar a legibilidade. No eixo x, não precisa ir de 1 em 1 se isso ajudar a aumentar a fonte. - Hamilton: Feito}}
+\caption{Evolução do uso do espaço em disco com o \fancyname.}
 \includegraphics[scale=0.30]{evolucao_coleta.jpg}
 \centering
 \label{fig:evolucao_coleta}
@@ -818,8 +818,10 @@ Assim, é possível descrever o estado do sistema antes e depois do incidente \c
 
 
 \begin{figure*}[htb!]
-\caption{Lista de instantâneos de memória. \marcosT{Coloque fundo branco e texto em preto (ou outra cor escura): melhora a visibilidade. Também precisa aumentar a fonte, e, potencialmente, fazer highlight de alguma coisa (para o leitor, parece um monte de caracteres aleatórios...). Se precisar de espaço, pode colocar como ``figure*'', para que a imagem ocupe as duas colunas do documento - Hamilton: Feito.}}
+\caption{Lista de instantâneos de memória.}
+\fbox{
 \includegraphics[scale=0.30]{memoria_salva.jpg}
+}
 \centering
 \label{fig:memoria_salva}
 \end{figure*}
@@ -832,18 +834,18 @@ Assim, é possível descrever o estado do sistema antes e depois do incidente \c
 %A viabilidade se dá pois consegue descrever o estado do sistema antes e depois do incidente \cite{Case_Memory_Forensics:2014}.
 %
 
-Uma potencial preocupação da presente proposta é que a pausa de um contêiner para coleta de dados pode, em princípio, causar perdas no desempenho da aplicação sendo executada. 
+Uma potencial limitação da solução proposta é que a pausa de um contêiner para coleta de dados poder, em princípio, causar perdas no desempenho da aplicação sendo executada. 
 %
 Para avaliar esse impacto, durante o experimento foram medidos os tempos de cópia da memória do contêiner.
 %
 Os resultados são mostrados no gráfico da Figura \ref{fig:memoria_copia}.
 %
-É possível notar que, após a inicialização da aplicação, o tempo para realizar a cópia varia entre 20 e 40 milisegundos. 
+É possível notar que, após a inicialização da aplicação, o tempo para realizar a cópia é bastante reduzido, variando entre 20 e 40 milisegundos. 
 %
-Para contêineres executando um motor de páginas web dinâmicas, como é o caso do experimento em questão, essa latência deve ser pouco perceptível por usuários finais.
-%
+Em especial, para contêineres executando um motor de páginas web dinâmicas, como é o caso do experimento em questão, essa latência deve ser pouco perceptível por usuários finais.
 
-\marcosT{Essas duas frases não é resultado do experimento, mas apenas característica da sua solução, então não faz muito sentido colocar aqui. Melhor mover essas considerações para o local em que você descreve essas características, fazendo merge com o texto que já esteja lá. Se você já fez essa discussão naquele ponto, então não precisa repetir. Se for fazer o merge, lembre-se (repita 2x ao dia, como um mantra): NÃO USE PRIMEIRA PESSOA EM TEXTOS FORMAIS EM PORTUGUÊS. - Hamilton: Feito. Desulpas, fraquejei :p}
+
+%\marcosT{Essas duas frases não é resultado do experimento, mas apenas característica da sua solução, então não faz muito sentido colocar aqui. Melhor mover essas considerações para o local em que você descreve essas características, fazendo merge com o texto que já esteja lá. Se você já fez essa discussão naquele ponto, então não precisa repetir. Se for fazer o merge, lembre-se (repita 2x ao dia, como um mantra): NÃO USE PRIMEIRA PESSOA EM TEXTOS FORMAIS EM PORTUGUÊS. - Hamilton: Feito. Desulpas, fraquejei :p}
 %
 
 %\begin{table}[htb!]
@@ -886,9 +888,8 @@ Para contêineres executando um motor de páginas web dinâmicas, como é o caso
 %\end{tabular}
 %\end{table}
 
-
 \begin{figure*}[htb!]
-\caption{Lista de instantâneos de memória. \marcosT{Plote também o tempo médio juntamente como o desvio padrão da média (pode ser uma média móvel caso acredite que faça muita diferença o início e o restante das medidas): esse tipo de métrica é MUITO mais relevante do que essa listagem, embora manter os pontos atuais também seja interessante - Hamilton: Feito}.}
+\caption{Lista de instantâneos de memória.}
 \includegraphics[scale=0.30]{memoria_copia.jpg}
 \centering
 \label{fig:memoria_copia}
@@ -990,17 +991,24 @@ Análise de ameaças que realizam manipulação direta dos objetos do kernel (D.
 \section{Considerações Finais}
 \label{sec:conclusion}
 
-\marcosT{Uma boa conclusão retoma, logo na primeira frase, o problema que ela se propunha a resolver. Comece com uma ou mais frases nesse sentido, (nota: \textbf{sem} copiar+colar de outro ponto do texto). - Hamilton: Feito} \marcosT{Só que não: eu disse para você retomar o \textbf{problema} na sua primeira frase. Sua frase começa retomando a \textbf{solução}. Essa que você colocou como primeira seria boa como uma segunda frase, em que você reforça como resolve o problema - Hamilton: Acho que agora foi :)}
+%\marcosT{Uma boa conclusão retoma, logo na primeira frase, o problema que ela se propunha a resolver. Comece com uma ou mais frases nesse sentido, (nota: \textbf{sem} copiar+colar de outro ponto do texto). - Hamilton: Feito} \marcosT{Só que não: eu disse para você retomar o \textbf{problema} na sua primeira frase. Sua frase começa retomando a \textbf{solução}. Essa que você colocou como primeira seria boa como uma segunda frase, em que você reforça como resolve o problema - Hamilton: Acho que agora foi :)}
 %
-Instâncias de processamento virtual, vítimas de ameaças que atuam diretamente na memória sem deixar rastros em disco, quando desalocadas não deixam evidencias para suportar uma investigação. Combinado com os aspectos multi inquilino e multi jurisdição das soluções em núvem, dificulta a coleta de informações para a investigação de incidentes.
+Ameaças digitais que atuam diretamente na memória de sistema não costumam deixar rastros em disco após terem os recursos correspondentes desalocados, dificultando análises forenses posteriores.
 %
-A proposta apresentada é capaz de relacionar o instantâneo de memória a sua origem utilizando o \textit{hash} calculado da imagem do contêiner como identificador da evidência armazenada, limita a quantidade de dados armazenados usando a implementação de janela de armazenamento e é capaz de descrever a memória antes e depois de um ataque viabilizando a análise de ataques de injeção de memória. 
+Esse problema é especialmente notável em sistemas de computação em nuvem, nos quais a alocação e desalocação de recursos virtualizados (e.g., máquinas virtuais e contêineres) é frequente.
 %
-Combinada com uma ferramenta adequada para análise das ameaças, essa característica de \fancyname pode ser uma ferramenta poderosa para análises forenses.
+Essa característica, aliada a aspectos como multi-inquilinato e multi-jurisdição de nuvens computacionais, dificulta a coleta de evidências para a investigação de incidentes.
+
+
+Nesse cenário, a proposta apresentada visa relacionar o instantâneo de memória a sua origem, utilizando o \textit{hash} calculado da imagem do contêiner como identificador da evidência armazenada.
+%
+Para evitar uso excessivo de memória, a quantidade de dados armazenados usa uma janela de armazenamento, o que permite descrever a memória antes e depois de um ataque (e.g., de injeção de memória). 
+%
+Combinada com uma ferramenta para identificação de ameaças, essas características de \fancyname o transformam em uma solução poderosa para prover evidências e, assim, viabilizar análises forenses na nuvem.
 %
 Cabe notar, entretanto, que muitas ferramentas de análise malware disponíveis no mercado necessitam que todo o conteúdo da memória da máquina esteja disponível para realização da análise (e.g., FROST \cite{Dykstra_FROST:2013}, Volatility Framework \cite{VolatilityFoundation2014} e FATkit \cite{Fraser2006}), o que inviabiliza seu uso diretamente sobre a memória de processos conforme coletado por \fancyname.
 %
-Portanto, como trabalho futuro, pretende-se desenvolver uma ferramenta mais flexível de análise, que, embora potencialmente utilize técnicas similares às atuais para detecção de ameaças, seja capaz de fazê-lo sem necessariamente ter acesso à memória completa da máquina.
+Portanto, como trabalho futuro, pretende-se desenvolver uma ferramenta de detecção de ameaças mais flexível, que, embora potencialmente utilize técnicas similares àquelas adotadas em sistemas atuais, seja capaz de fazê-lo sem necessariamente ter acesso à memória completa da máquina.
 
 
 
