@@ -1,0 +1,59 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: artigo-sbc.aux
+The style file: sbc.bst
+Database file #1: artigo-sbc.bib
+Warning--empty journal in Clarke_Review_of_Challenges:2015
+Warning--there's a number but no volume in Clarke_Review_of_Challenges:2015
+Warning--empty year in DockerInc
+Warning--empty journal in Fewer_Reflective_Library_Inject:2008
+Warning--there's a number but no volume in Fewer_Reflective_Library_Inject:2008
+Warning--empty year in Google
+Warning--empty year in nginx
+Warning--can't use both author and editor fields in Bash_Adv_in_Forensics:2015
+Warning--empty publisher in Bash_Adv_in_Forensics:2015
+Warning--empty journal in Miller_Remote_Library_Injection:2004
+Warning--empty year in VirtualBox
+Warning--empty year in UnixManPages_numa_maps
+You've used 36 entries,
+            1935 wiz_defined-function locations,
+            682 strings with 10694 characters,
+and the built_in function-call counts, 13814 in all, are:
+= -- 1392
+> -- 538
+< -- 32
++ -- 177
+- -- 176
+* -- 1096
+:= -- 2391
+add.period$ -- 99
+call.type$ -- 36
+change.case$ -- 268
+chr.to.int$ -- 35
+cite$ -- 48
+duplicate$ -- 545
+empty$ -- 928
+format.name$ -- 228
+if$ -- 2719
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 27
+newline$ -- 173
+num.names$ -- 110
+pop$ -- 237
+preamble$ -- 1
+purify$ -- 267
+quote$ -- 0
+skip$ -- 439
+stack$ -- 0
+substring$ -- 957
+swap$ -- 98
+text.length$ -- 11
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 212
+warning$ -- 12
+while$ -- 123
+width$ -- 0
+write$ -- 437
+(There were 12 warnings)
