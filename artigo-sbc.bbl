@@ -1,12 +1,5 @@
 \begin{thebibliography}{}
 
-\bibitem[Aljaedi et~al. 2011]{Aljaedi_Comparative:2011}
-Aljaedi, A., Lindskog, D., Zavarsky, P., Ruhl, R., and Almari, F. (2011).
-\newblock {Comparative Analysis of Volatile Memory Forensics}.
-\newblock {\em IEEE International Conference on Privacy, Security, Risk and
-  Trust (PASSAT) and IEEE International Conference on Social Computing
-  (SocialCom)}, pages 1253--1258.
-
 \bibitem[Apache 2016a]{Cassandra}
 Apache (2016a).
 \newblock {Apache-Cassandra}.
@@ -15,28 +8,16 @@ Apache (2016a).
 Apache (2016b).
 \newblock {Apache-Tomcat}.
 
-\bibitem[Barbara 2014]{Do_Desafio:2014}
-Barbara, D. (2014).
-\newblock {Desafios da per{\'{i}}cia forense em um ambiente de
-  computa{\c{c}}{\~{a}}o nas nuvens}.
-\newblock Technical report, Universidade do Planalto Catarinense.
-
-\bibitem[Bem et~al. 2008]{Bem_Past_Present_Future:2008}
-Bem, D., Feld, F., Huebner, E., and Bem, O. (2008).
-\newblock {Computer Forensics - Past , Present and Future}.
-\newblock {\em Journal of Information Science and Technology}, 5(3):43--59.
-
 \bibitem[Case et~al. 2014]{Case_Memory_Forensics:2014}
 Case, A., Ligh, M., Jamie, L., and Walters, A. (2014).
 \newblock {\em {The Art of Memory Forensics: Detecting malware and threats in
   Windows, Linux and Mac memory}}.
 \newblock Wiley, kindle edition.
 
-\bibitem[Clarke et~al. 2015]{Clarke_Review_of_Challenges:2015}
-Clarke, N.~L., Reich, C., Saad, A., and Furnell, S. (2015).
+\bibitem[Clarke et~al. ]{Clarke_Review_of_Challenges:2015}
+Clarke, N.~L., Reich, C., Saad, A., and Furnell, S.
 \newblock {Cloud Forensics : A Review of Challenges , Solutions and Open
-  Problems Cloud Forensics : A Review of Challenges , Solutions and Open
-  Problems}.
+  Problems}, year = {2015}.
 \newblock (April):1--9.
 
 \bibitem[Dezfouli et~al. 2012]{Dezfouli_Backup_approach:2012}
@@ -44,8 +25,8 @@ Dezfouli, F.~N., Dehghantanha, A., Mahmoud, R., {Binti Mohd Sani}, N.~F., and
   {Bin Shamsuddin}, S. (2012).
 \newblock {Volatile memory acquisition using backup for forensic
   investigation}.
-\newblock {\em Proceedings 2012 International Conference on Cyber Security,
-  Cyber Warfare and Digital Forensic, CyberSec 2012}, pages 186--189.
+\newblock {\em Proc. of Intnl. Conf. on Cyber Security, Cyber Warfare and
+  Digital Forensic}, pages 186--189.
 
 \bibitem[{Dierks T} 2008]{DierksT2008}
 {Dierks T}, R.~E. (2008).
@@ -54,13 +35,6 @@ Dezfouli, F.~N., Dehghantanha, A., Mahmoud, R., {Binti Mohd Sani}, N.~F., and
 \bibitem[{Docker Inc} ]{DockerInc}
 {Docker Inc}.
 \newblock {Docker}.
-
-\bibitem[Dolan-Gavitt et~al. 2011]{Dolan-Gavitt_Semantic_Gap:2011}
-Dolan-Gavitt, B., Leek, T., Zhivich, M., Giffin, J., and Lee, W. (2011).
-\newblock {Virtuoso: Narrowing the semantic gap in virtual machine
-  introspection}.
-\newblock {\em Proceedings - IEEE Symposium on Security and Privacy}, pages
-  297--312.
 
 \bibitem[Dykstra and Sherman 2012]{Dykstra_Acquiring_for_IAAS:2012}
 Dykstra, J. and Sherman, A.~T. (2012).
@@ -78,12 +52,6 @@ Dykstra, J. and Sherman, A.~T. (2013).
 Fewer, B.~S. (2008).
 \newblock {Reflective DLL Injection}.
 \newblock (October).
-
-\bibitem[Fraser et~al. 2006]{Fraser2006}
-Fraser, T., Arbaugh, W.~A., {Petroni Jr}, N.~L., and Aaron, W. (2006).
-\newblock {FATKit: A framework for the extraction and analysis of digital
-  forensic data from volatile system memory}.
-\newblock {\em Digital Investigations}, 3:197--210.
 
 \bibitem[George et~al. 2012]{George_DF2CE:2012}
 George, S., Venter, H., and Thomas, F. (2012).
@@ -131,11 +99,8 @@ Oracle.
 Piraghaj, S.~F., Dastjerdi, A.~V., Calheiros, R.~N., and Buyya, R. (2016).
 \newblock {A Framework and Algorithm for Energy Efficient Container
   Consolidation in Cloud Data Centers}.
-\newblock {\em Proceedings - 2015 IEEE International Conference on Data Science
-  and Data Intensive Systems; 8th IEEE International Conference Cyber, Physical
-  and Social Computing; 11th IEEE International Conference on Green Computing
-  and Communications and 8th IEEE International Conference on Internet of
-  Things, DSDIS/CPSCom/GreenCom/iThings 2015}, pages 368--375.
+\newblock {\em Proc. - IEEE International Conference on Data Science and Data
+  Intensive Systems}, pages 368--375.
 
 \bibitem[Poisel et~al. 2013]{Poisel_VMI:2013}
 Poisel, R., Malzer, E., and Tjoa, S. (2013).
@@ -166,41 +131,21 @@ Rahman, S. and Khan, M. N.~A. (2015).
 \bibitem[Reichert et~al. 2015]{Reichert_Auto_acquisition:2015}
 Reichert, Z., Richards, K., and Yoshigoe, K. (2015).
 \newblock {Automated forensic data acquisition in the cloud}.
-\newblock {\em Proceedings - 11th IEEE International Conference on Mobile Ad
-  Hoc and Sensor Systems, MASS 2014}, pages 725--730.
+\newblock {\em Proc. - 11th IEEE MASS}, pages 725--730.
 
 \bibitem[Sang 2013]{Sang_Log_approach:2013}
 Sang, T. (2013).
 \newblock {A log-based approach to make digital forensics easier on cloud
   computing}.
-\newblock {\em Proceedings of the 2013 3rd International Conference on
-  Intelligent System Design and Engineering Applications, ISDEA 2013}, pages
-  91--94.
+\newblock {\em Proc of the 2013 3rd ISDEA}, pages 91--94.
 
 \bibitem[Simou et~al. 2014]{Simou_Cloud_Chlng:2014}
 Simou, S., Kalloniatis, C., Kavakli, E., and Gritzalis, S. (2014).
 \newblock {Cloud forensics: Identifying the major issues and challenges}.
-\newblock {\em Lecture Notes in Computer Science (including subseries Lecture
-  Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)}, 8484
-  LNCS:271--284.
+\newblock {\em Lecture Notes in Computer Science}, 8484 LNCS:271--284.
 
 \bibitem[{Unix Man Pages} ]{UnixManPages_numa_maps}
 {Unix Man Pages}.
 \newblock {Numa Maps - Non Uniform Memory Architecture}.
-
-\bibitem[van Baar et~al. 2014]{VanBaar_FAAS:2014}
-van Baar, R.~B., van Beek, H. M.~A., and van Eijk, E.~J. (2014).
-\newblock {Digital Forensics as a Service: A game changer}.
-\newblock {\em Digital Investigation}, 11:S54--S62.
-
-\bibitem[{Volatility Foundation} 2014]{VolatilityFoundation2014}
-{Volatility Foundation} (2014).
-\newblock {Volatility Framework}.
-
-\bibitem[V{\"{o}}mel and St{\"{u}}ttgen 2013]{Vomel_Memory_Acquisition:2013}
-V{\"{o}}mel, S. and St{\"{u}}ttgen, J. (2013).
-\newblock {An evaluation platform for forensic memory acquisition software}.
-\newblock In {\em The Digital Forensic Research Conference}, volume~10, pages
-  S30--S40, Monterey, CA.
 
 \end{thebibliography}

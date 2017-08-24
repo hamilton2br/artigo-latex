@@ -3,6 +3,12 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: artigo-sbc.aux
 The style file: sbc.bst
 Database file #1: artigo-sbc.bib
+I was expecting a `,' or a `}'---line 189 of file artigo-sbc.bib
+ : 
+ : @misc{Linuxcontainers.org2015,
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--empty year in Clarke_Review_of_Challenges:2015
 Warning--empty journal in Clarke_Review_of_Challenges:2015
 Warning--there's a number but no volume in Clarke_Review_of_Challenges:2015
 Warning--empty year in DockerInc
@@ -15,45 +21,45 @@ Warning--empty publisher in Bash_Adv_in_Forensics:2015
 Warning--empty journal in Miller_Remote_Library_Injection:2004
 Warning--empty year in VirtualBox
 Warning--empty year in UnixManPages_numa_maps
-You've used 36 entries,
+You've used 28 entries,
             1935 wiz_defined-function locations,
-            682 strings with 10694 characters,
-and the built_in function-call counts, 13814 in all, are:
-= -- 1392
-> -- 538
-< -- 32
-+ -- 177
-- -- 176
-* -- 1096
-:= -- 2391
-add.period$ -- 99
-call.type$ -- 36
-change.case$ -- 268
-chr.to.int$ -- 35
-cite$ -- 48
-duplicate$ -- 545
-empty$ -- 928
-format.name$ -- 228
-if$ -- 2719
+            635 strings with 8366 characters,
+and the built_in function-call counts, 10254 in all, are:
+= -- 1029
+> -- 391
+< -- 25
++ -- 127
+- -- 126
+* -- 807
+:= -- 1794
+add.period$ -- 76
+call.type$ -- 28
+change.case$ -- 202
+chr.to.int$ -- 27
+cite$ -- 41
+duplicate$ -- 407
+empty$ -- 694
+format.name$ -- 168
+if$ -- 2005
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 27
-newline$ -- 173
-num.names$ -- 110
-pop$ -- 237
+missing$ -- 21
+newline$ -- 134
+num.names$ -- 86
+pop$ -- 183
 preamble$ -- 1
-purify$ -- 267
+purify$ -- 202
 quote$ -- 0
-skip$ -- 439
+skip$ -- 319
 stack$ -- 0
-substring$ -- 957
-swap$ -- 98
-text.length$ -- 11
+substring$ -- 688
+swap$ -- 62
+text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 212
-warning$ -- 12
-while$ -- 123
+type$ -- 164
+warning$ -- 13
+while$ -- 92
 width$ -- 0
-write$ -- 437
-(There were 12 warnings)
+write$ -- 333
+(There was 1 error message)
