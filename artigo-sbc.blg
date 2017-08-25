@@ -21,45 +21,45 @@ Warning--empty publisher in Bash_Adv_in_Forensics:2015
 Warning--empty journal in Miller_Remote_Library_Injection:2004
 Warning--empty year in VirtualBox
 Warning--empty year in UnixManPages_numa_maps
-You've used 28 entries,
+You've used 27 entries,
             1935 wiz_defined-function locations,
-            635 strings with 8366 characters,
-and the built_in function-call counts, 10254 in all, are:
-= -- 1029
-> -- 391
-< -- 25
-+ -- 127
-- -- 126
-* -- 807
-:= -- 1794
-add.period$ -- 76
-call.type$ -- 28
-change.case$ -- 202
-chr.to.int$ -- 27
-cite$ -- 41
-duplicate$ -- 407
-empty$ -- 694
-format.name$ -- 168
-if$ -- 2005
+            629 strings with 8016 characters,
+and the built_in function-call counts, 9672 in all, are:
+= -- 970
+> -- 363
+< -- 24
++ -- 117
+- -- 116
+* -- 761
+:= -- 1702
+add.period$ -- 73
+call.type$ -- 27
+change.case$ -- 192
+chr.to.int$ -- 26
+cite$ -- 40
+duplicate$ -- 384
+empty$ -- 659
+format.name$ -- 157
+if$ -- 1884
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 21
-newline$ -- 134
-num.names$ -- 86
-pop$ -- 183
+missing$ -- 20
+newline$ -- 129
+num.names$ -- 83
+pop$ -- 173
 preamble$ -- 1
-purify$ -- 202
+purify$ -- 192
 quote$ -- 0
-skip$ -- 319
+skip$ -- 297
 stack$ -- 0
-substring$ -- 688
-swap$ -- 62
-text.length$ -- 7
+substring$ -- 644
+swap$ -- 52
+text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 164
+type$ -- 158
 warning$ -- 13
-while$ -- 92
+while$ -- 87
 width$ -- 0
-write$ -- 333
+write$ -- 320
 (There was 1 error message)

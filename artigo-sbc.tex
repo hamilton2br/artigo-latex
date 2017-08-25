@@ -45,11 +45,13 @@
 \maketitle
 
 \begin{abstract}
-  This meta-paper describes the style to be used in articles and short papers
-  for SBC conferences. For papers in English, you should add just an abstract
-  while for the papers in Portuguese, we also ask for an abstract in
-  Portuguese (``resumo''). In both cases, abstracts should not have more than
-  10 lines and must be in the first page of the paper.
+The adoption of cloud based architectures increases every day and with it the number of cases in which this type of technology is used for illicit purposes
+%
+Unfortunately, due to the volatile nature of the cloud, the task of collecting evidence for forensic analysis in this environment is facing practical and legal issues. 
+%
+This paper analyzes proposals in the literature to solve the main challenges on collecting evidence in the cloud, its limitations and then proposes a solution to collect, transport and storage the evidence in order to supplant them. 
+%
+
 \end{abstract}
      
 \begin{resumo} 
@@ -157,7 +159,7 @@ Finalmente, a Seção \ref{sec:conclusion} apresenta algumas considerações finais.
 \section{Adoção de arquiteturas em nuvem e contêineres}
 \label{sec:cloud}
 
-Uma nuvem computacional é um modelo de infraestrutura no qual recursos compartilhados em quantidade configurável, acessíveis via rede, são alocados e desalocados com esforço mínimo de gerenciamento por parte de um provedor de serviços.
+Uma nuvem computacional é um modelo de infraestrutura no qual recursos compartilhados em quantidade configurável, acessíveis via rede, são alocados e desalocados com esforço mínimo de gerenciamento.
 %A infraestrutura é composta de máquinas físicas contendo cada uma um número variável de máquinas virtuais que implementam este serviço \cite{Sousa_Computacao_Nuvem:2009}. 
 %
 Há três modelos principais de comercialização de uso da nuvem: \textit{software} como serviço (\textit{Software as a Service} -- SaaS), na qual se provê o \textit{software} que será usado pelo cliente; plataforma como serviço (\textit{Platform as a Service} -- PaaS), na qual se provê o ambiente para que o cliente desenvolva, teste e execute seu \textit{software}; e, o tipo mais pertinente para este trabalho, Infraestrutura como serviço (\textit{Infrastructure as a Service} -- IaaS), na qual são fornecidos recursos computacionais básicos, como processamento e memória, em geral de forma virtualizada. \cite{NIST2011}
@@ -175,10 +177,12 @@ Uma tecnologia bastante utilizada para esse propósito são Contêineres Linux (LXC
 \section{Trabalhos relacionados}
 \label{sec:related}
 
-Existem vários aspectos relativos à análise forense na nuvem.
+%Existem vários aspectos relativos à análise forense na nuvem.
 %
-Para uma discussão mais estruturada dos trabalhos disponíveis na literatura sobre o tema, a seguir eles são apresentados com base nos diferentes aspectos que abordam.
-
+%Para uma discussão mais estruturada dos trabalhos disponíveis na literatura sobre o tema, a seguir eles são apresentados com base nos diferentes aspectos que abordam.
+%
+A seguir são apresentados outros trabalhos disponíveis na literatura com base nos diferentes aspectos que abordam
+%
 
 \subsection{Acessar e coletar as informações de memória das máquinas virtuais em nuvem}
 
@@ -191,14 +195,14 @@ No caso específico de memória volátil, tal forma de coleta não consegue descreve
 %A capacidade de saber como era a memória antes do fato é descrita por \cite{Case_Memory_Forensics:2014} como necessária para viabilizar a abordagem de coletar o suficiente para realizar a investigação pois permite comparar dois instantâneos de memória e minimizar o volume coletado antes do fato. 
 Tal limitação pode trazer prejuízos à investigação, dado que algumas análises dependem exatamente da capacidade de se comparar dois momentos da memória \cite{Case_Memory_Forensics:2014}. 
 %
-Entre os trabalhos estudados, a única proposta encontrada que leva tal necessidade em consideração é \cite{Dezfouli_Backup_approach:2012}, que propõe que o dado seja armazenado no próprio equipamento sob análise.
+%Entre os trabalhos estudados, a única proposta encontrada que leva tal necessidade em consideração é \cite{Dezfouli_Backup_approach:2012}, que propõe que o dado seja armazenado no próprio equipamento sob análise.
 %
 %Infelizmente, entretanto, essa abordagem não é aplicável ao cenário em nuvem, pois leva a perda de informações importantes caso a máquina virtual seja despejada e seus recursos liberados.
 Infelizmente, entretanto, a aplicação de tal abordagem no cenário em nuvem é pouco viável, pois pode levar à perda de informações importantes caso a máquina virtual ou contêiner seja desativada, tendo seus recursos liberados.
 %
 
 %Ainda na coleta de informações, os autores \cite{Reichert_Auto_acquisition:2015} e \cite{George_DF2CE:2012} sugerem a abordagem de forense ao vivo onde os dados são constantemente coletados sem distinção do antes ou depois do fato. 
-Existem ainda trabalhos voltados à coleta de informações durante a execução do sistema, nos quais os dados são constantemente coletados sem distinção do que aconteceu antes ou depois do fato de interesse.
+Existem ainda trabalhos voltados à coleta de informações, nos quais os dados são constantemente coletados sem distinção do que aconteceu antes ou depois do fato de interesse.
 %
 Esse é o caso de trabalhos como \cite{Poisel_VMI:2013,Dykstra_FROST:2013,Sang_Log_approach:2013}, que adotam a estratégia de isolar e parar a máquina virtual para em seguida realizar o processo de coleta. 
 %
@@ -467,8 +471,8 @@ Os resultados são mostrados no gráfico da Figura \ref{fig:memoria_copia}.
 %
 É possível notar que, após a inicialização da aplicação, o tempo para realizar a cópia é bastante reduzido, variando entre 20 e 40 milisegundos. 
 %
-Em especial, para contêineres executando um motor de páginas web dinâmicas, como é o caso do experimento em questão, essa latência deve ser pouco perceptível por usuários finais.
-
+%Em especial, para contêineres executando um motor de páginas web dinâmicas, como é o caso do experimento em questão, essa latência deve ser pouco perceptível por usuários finais.
+Para implementações similares ao experimento em questão, essa latêcia deve ser pouco perceptível.
 
 %\marcosT{Essas duas frases não é resultado do experimento, mas apenas característica da sua solução, então não faz muito sentido colocar aqui. Melhor mover essas considerações para o local em que você descreve essas características, fazendo merge com o texto que já esteja lá. Se você já fez essa discussão naquele ponto, então não precisa repetir. Se for fazer o merge, lembre-se (repita 2x ao dia, como um mantra): NÃO USE PRIMEIRA PESSOA EM TEXTOS FORMAIS EM PORTUGUÊS. - Hamilton: Feito. Desulpas, fraquejei :p}
 %
