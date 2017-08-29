@@ -22,7 +22,7 @@
 \newcommand{\marcos}[1]{{\color{blue}{MARCOS: #1}}}
 \newcommand{\marcosT}[1]{{\color{red}{TODO: #1}}}
 \newcommand{\marcosR}[1]{{\color{brown}{COMMENT: #1}}}
-\newcommand{\fancyname}{Dizang}
+\newcommand{\fancyname}{Dizang }
 \newcommand{\fancynameX}{\fancyname}
 
 %shortcuts
@@ -45,11 +45,11 @@
 \maketitle
 
 \begin{abstract}
-The adoption of cloud based architectures increases every day and with it the number of cases in which this type of technology is used for illicit purposes
+The adoption of cloud based architectures increases every day and with it the number of cases in which this type of technology is used for illicit purposes.
 %
 Unfortunately, due to the volatile nature of the cloud, the task of collecting evidence for forensic analysis in this environment is facing practical and legal issues. 
 %
-This paper analyzes proposals in the literature to solve the main challenges on collecting evidence in the cloud, its limitations and then proposes a solution to collect, transport and storage the evidence in order to supplant them. 
+This paper analyzes proposals in the literature to solve the main challenges on collecting evidence in the cloud, its limitations and then proposes a solution to collect, transport and store the evidence in order to supplant them. 
 %
 
 \end{abstract}
@@ -59,7 +59,7 @@ A adoção de arquiteturas em nuvem aumenta a cada dia, e com ela também o número 
 %
 Infelizmente, devido à natureza volátil da nuvem, a tarefa de coletar evidências para análise forense nesse ambiente tem esbarrado em desafios práticos e legais.
 %
-Este trabalho analisa propostas na literatura voltadas a resolver os principais desafios existentes na coleta evidências na nuvem, discutindo suas limitações, e então propõe uma solução que cobre coleta, transporte e armazenamento da evidência visando suplantá-las. 
+Este trabalho analisa propostas na literatura voltadas a resolver os principais desafios existentes na coleta evidências na nuvem, discutindo suas limitações e então propõe uma solução que cobre coleta, transporte e armazenamento da evidência visando suplantá-las. 
 %
 A solução aqui proposta provê uma forma de correlacionar evidências e sua origem virtual, permitindo transportar e armazenar tais dados sem afetar sua credibilidade.
 %
@@ -77,7 +77,7 @@ Ao mesmo tempo, tais mecanismos também criam uma elevada volatilidade dos recurs
 %
 Afinal, quando submetida a uma carga elevada, uma aplicação hospedada na nuvem pode criar clones das máquinas virtuais (\textit{virtual machines} -- VMs) que a hospedam e balancear a carga entre elas, de modo a atender à demanda sem prejuízos na qualidade do serviço oferecido. 
 %
-Após esse pico, as máquinas que foram clonadas são normalmente desativadas, seus recursos liberados e o sistema retorna à capacidade anterior, evitando-se custos desnecessários
+Após esse pico, as máquinas que foram clonadas são normalmente desativadas, seus recursos liberados e o sistema retorna à capacidade anterior.
 
 
 %==== CONTEXTO ESPECÍFICO + PROBLEMA GERAL: Forense na nuvem vs. volatilidade + multitenancy + multidomains ====
@@ -443,7 +443,7 @@ Usando o identificador do contêiner e da imagem, consegue-se associar a evidênci
 %
 Essa capacidade se mantém após a detecção de uma ameaça, pois nesse caso coletas mais antigas deixam de ser apagadas.
 %
-Assim, é possível descrever o estado do sistema antes e depois do incidente \cite{Case_Memory_Forensics:2014}, permitindo-se, por exemplo, que ataques de injeção de código em memória sejam analisados.
+Assim, é possível descrever o estado do sistema antes e depois do incidente \cite{Case_Memory_Forensics:2014}, viabilizando-se, por exemplo, a análise de ataques de injeção de código em memória.
 
 
 \begin{figure*}[htb!]
@@ -526,7 +526,7 @@ Para implementações similares ao experimento em questão, essa latêcia deve ser p
 
 \subsection{Limitações}
 
-Como a solução descrita tem como foco coletar informações de memória no espaço do usuário (\textit{user space}), ela não consegue acessar o espaço de kernel (\textit{kernel space}). 
+Como a solução descrita coleta apenas informações de memória no espaço do usuário (\textit{user space}), ela não consegue acessar o espaço de kernel (\textit{kernel space}). 
 %
 Assim, \fancyname em princípio não provê suporte a técnicas de investigação de malware que se baseiam em informações do \textit{kernel space}, como, por exemplo, a comparação de informações do bloco do ambiente do processo (\textit{Process Environment Block -- PEB}), que ficam no \textit{user space}, com informações do descritor de endereços de memória virtual (\textit{Virtual Address Descriptor -- VAD}), que fica no \textit{kernel space}. 
 %
