@@ -3,63 +3,46 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: artigo-sbc.aux
 The style file: sbc.bst
 Database file #1: artigo-sbc.bib
-I was expecting a `,' or a `}'---line 189 of file artigo-sbc.bib
- : 
- : @misc{Linuxcontainers.org2015,
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-Warning--empty year in Clarke_Review_of_Challenges:2015
-Warning--empty journal in Clarke_Review_of_Challenges:2015
-Warning--there's a number but no volume in Clarke_Review_of_Challenges:2015
-Warning--empty year in DockerInc
-Warning--empty journal in Fewer_Reflective_Library_Inject:2008
-Warning--there's a number but no volume in Fewer_Reflective_Library_Inject:2008
-Warning--empty year in Google
-Warning--empty year in nginx
-Warning--can't use both author and editor fields in Bash_Adv_in_Forensics:2015
-Warning--empty publisher in Bash_Adv_in_Forensics:2015
-Warning--empty journal in Miller_Remote_Library_Injection:2004
-Warning--empty year in VirtualBox
 Warning--empty year in UnixManPages_numa_maps
 You've used 27 entries,
             1935 wiz_defined-function locations,
-            629 strings with 8016 characters,
-and the built_in function-call counts, 9672 in all, are:
-= -- 970
-> -- 363
-< -- 24
-+ -- 117
-- -- 116
-* -- 761
-:= -- 1702
-add.period$ -- 73
+            650 strings with 9517 characters,
+and the built_in function-call counts, 11311 in all, are:
+= -- 1146
+> -- 435
+< -- 25
++ -- 150
+- -- 144
+* -- 889
+:= -- 1907
+add.period$ -- 87
 call.type$ -- 27
-change.case$ -- 192
-chr.to.int$ -- 26
-cite$ -- 40
-duplicate$ -- 384
-empty$ -- 659
-format.name$ -- 157
-if$ -- 1884
-int.to.chr$ -- 2
+change.case$ -- 207
+chr.to.int$ -- 27
+cite$ -- 28
+duplicate$ -- 460
+empty$ -- 787
+format.name$ -- 187
+if$ -- 2288
+int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 20
-newline$ -- 129
-num.names$ -- 83
-pop$ -- 173
+missing$ -- 23
+newline$ -- 142
+num.names$ -- 81
+pop$ -- 193
 preamble$ -- 1
-purify$ -- 192
+purify$ -- 207
 quote$ -- 0
-skip$ -- 297
+skip$ -- 358
 stack$ -- 0
-substring$ -- 644
-swap$ -- 52
-text.length$ -- 6
+substring$ -- 791
+swap$ -- 96
+text.length$ -- 11
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 158
-warning$ -- 13
-while$ -- 87
+warning$ -- 1
+while$ -- 94
 width$ -- 0
-write$ -- 320
-(There was 1 error message)
+write$ -- 360
+(There was 1 warning)

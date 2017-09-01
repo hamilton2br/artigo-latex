@@ -1,98 +1,100 @@
 \begin{thebibliography}{}
 
-\bibitem[Apache 2016a]{Cassandra}
-Apache (2016a).
-\newblock {Apache-Cassandra}.
+\bibitem[Aljaedi et~al. 2011]{Aljaedi_Comparative:2011}
+Aljaedi, A., Lindskog, D., Zavarsky, P., Ruhl, R., and Almari, F. (2011).
+\newblock Comparative analysis of volatile memory forensics: Live response vs.
+  memory imaging.
+\newblock In {\em IEEE 3rd Int. Conf. on Privacy, Security, Risk and Trust},
+  pages 1253--1258.
 
-\bibitem[Apache 2016b]{Tomcat}
-Apache (2016b).
-\newblock {Apache-Tomcat}.
+\bibitem[Alqahtany et~al. 2015]{Clarke_Review_of_Challenges:2015}
+Alqahtany, S., Clarke, N., Furnell, S., and Reich, C. (2015).
+\newblock Cloud forensics: A review of challenges, solutions and open problems.
+\newblock In {\em Int. Conference on Cloud Computing (ICCC)}, pages 1--9. IEEE.
+
+\bibitem[Barbara 2014]{Do_Desafio:2014}
+Barbara, D. (2014).
+\newblock {Desafios da per{\'{i}}cia forense em um ambiente de
+  computa{\c{c}}{\~{a}}o nas nuvens}.
+\newblock Technical report, Univ. do Planalto Catarinense.
+\newblock \urls{revista.uniplac.net/ojs/index.php/tc_si/article/view/1911}.
+
+\bibitem[Bem et~al. 2008]{Bem_Past_Present_Future:2008}
+Bem, D., Feld, F., Huebner, E., and Bem, O. (2008).
+\newblock Computer forensics - past , present and future.
+\newblock {\em Journal of Information Science and Technology}, 5(3):43--59.
 
 \bibitem[Case et~al. 2014]{Case_Memory_Forensics:2014}
 Case, A., Ligh, M., Jamie, L., and Walters, A. (2014).
 \newblock {\em {The Art of Memory Forensics: Detecting malware and threats in
   Windows, Linux and Mac memory}}.
-\newblock Wiley, kindle edition.
+\newblock Wiley.
 
-\bibitem[Clarke et~al. ]{Clarke_Review_of_Challenges:2015}
-Clarke, N.~L., Reich, C., Saad, A., and Furnell, S.
-\newblock {Cloud Forensics : A Review of Challenges , Solutions and Open
-  Problems}, year = {2015}.
-\newblock (April):1--9.
+\bibitem[{DevOps and ClusterHQ} 2016]{container-survey:2016}
+{DevOps and ClusterHQ} (2016).
+\newblock Container market adoption survey 2016.
+\newblock
+  \urls{https://clusterhq.com/assets/pdfs/state-of-container-usage-june-2016.pdf}.
+
+\bibitem[Dezfouli et~al. 2012]{Dezfouli_Backup_approach:2012}
+Dezfouli, F., Dehghantanha, A., Mahmoud, R., Sani, N., and Shamsuddin, S.
+  (2012).
+\newblock Volatile memory acquisition using backup for forensic investigation.
+\newblock In {\em Int. Conf. on Cyber Security, Cyber Warfare and Digital
+  Forensic (CyberSec)}, pages 186--189.
 
 \bibitem[{Dierks T} 2008]{DierksT2008}
 {Dierks T}, R.~E. (2008).
 \newblock {The Transport Layer Security (TLS) Protocol}.
+\newblock IETF: \urls{https://tools.ietf.org/html/rfc5246}.
 
-\bibitem[{Docker Inc} ]{DockerInc}
-{Docker Inc}.
-\newblock {Docker}.
+\bibitem[Dolan-Gavitt et~al. 2011]{Dolan-Gavitt_Semantic_Gap:2011}
+Dolan-Gavitt, B., Leek, T., Zhivich, M., Giffin, J., and Lee, W. (2011).
+\newblock Virtuoso: Narrowing the semantic gap in virtual machine
+  introspection.
+\newblock In {\em IEEE Symposium on Security and Privacy}, pages 297--312.
 
 \bibitem[Dykstra and Sherman 2012]{Dykstra_Acquiring_for_IAAS:2012}
-Dykstra, J. and Sherman, A.~T. (2012).
+Dykstra, J. and Sherman, A. (2012).
 \newblock {Acquiring forensic evidence from infrastructure-as-a-service cloud
   computing: Exploring and evaluating tools, trust, and techniques}.
 \newblock {\em Digital Investigation}, 9:S90--S98.
+\newblock (Proc. of the 12th Annual DFRWS Conference).
 
 \bibitem[Dykstra and Sherman 2013]{Dykstra_FROST:2013}
 Dykstra, J. and Sherman, A.~T. (2013).
-\newblock {Design and implementation of FROST: Digital forensic tools for the
-  OpenStack cloud computing platform}.
+\newblock Design and implementation of {FROST}: Digital forensic tools for the
+  {OpenStack} cloud computing platform.
 \newblock {\em Digital Investigation}, 10:S87--S95.
-
-\bibitem[Fewer 2008]{Fewer_Reflective_Library_Inject:2008}
-Fewer, B.~S. (2008).
-\newblock {Reflective DLL Injection}.
-\newblock (October).
+\newblock (Proc. of 13th Annual DFRWS Conference).
 
 \bibitem[George et~al. 2012]{George_DF2CE:2012}
 George, S., Venter, H., and Thomas, F. (2012).
 \newblock {Digital Forensic Framework for a Cloud Environment}.
-\newblock In Cunningham, P. and Cunningham, M., editors, {\em IST Africa 2012},
-  pages 1--8, Tanzania. Internation Information Management Corporation.
+\newblock In {\em IST Africa}, pages 1--8, Tanzania. IIMC.
 
-\bibitem[Google ]{Google}
-Google.
-\newblock {Golang}.
-
-\bibitem[Igor ]{nginx}
-Igor, S.
-\newblock {NginX}.
-
-\bibitem[Keyun et~al. 2011]{Bash_Adv_in_Forensics:2015}
-Keyun, R., Joe, C., Tahar, K., and Mark, C. (2011).
+\bibitem[Gilbert and Sujeet 2008]{Bash_Adv_in_Forensics:2015}
+Gilbert, P. and Sujeet, S. (2008).
 \newblock {\em {Advances in Digital Forensics IV}}, volume~1.
-\newblock Orlando, 7 edition.
-
-\bibitem[Linuxcontainers.org 2015]{Linuxcontainers.org2015}
-Linuxcontainers.org (2015).
-\newblock {Linux Containers (LXC)}.
+\newblock Springer-US, Orlando, 1 edition.
 
 \bibitem[Mell and Grance 2011]{NIST2011}
 Mell, P. and Grance, T. (2011).
-\newblock {The NIST definition of cloud computing}.
-\newblock {\em NIST Special Publication}, 145:7.
-
-\bibitem[Miller and Turkulainen 2004]{Miller_Remote_Library_Injection:2004}
-Miller, M. and Turkulainen, J. (2004).
-\newblock {Remote Library Injection}.
-\newblock pages 1--40.
+\newblock The {NIST} definition of cloud computing.
+\newblock NIST SP 800-145.
+  \urls{csrc.nist.gov/publications/nistpubs/800-145/SP800-145.pdf}.
 
 \bibitem[Morsy et~al. 2010]{Morsy_Cloud_Security:2010}
 Morsy, A.~M., Grundy, J., and Muller, I. (2010).
 \newblock {An Analysis of the Cloud Computing Security Problem}.
 \newblock In {\em APSEC Cloud Workshop}, Sydney, Australia.
 
-\bibitem[Oracle ]{VirtualBox}
-Oracle.
-\newblock {Virtual Box 5.1}.
-
-\bibitem[Piraghaj et~al. 2016]{Piraghaj_Container_Cloud_Computing:2016}
-Piraghaj, S.~F., Dastjerdi, A.~V., Calheiros, R.~N., and Buyya, R. (2016).
-\newblock {A Framework and Algorithm for Energy Efficient Container
-  Consolidation in Cloud Data Centers}.
-\newblock {\em Proc. - IEEE International Conference on Data Science and Data
-  Intensive Systems}, pages 368--375.
+\bibitem[Piraghaj et~al. 2015]{Piraghaj_Container_Cloud_Computing:2016}
+Piraghaj, S., Dastjerdi, A., Calheiros, R., and Buyya, R. (2015).
+\newblock A framework and algorithm for energy efficient container
+  consolidation in cloud data centers.
+\newblock In {\em IEEE Int. Conf. on Data Science and Data Intensive Systems
+  (DSDIS)}, pages 368--375.
 
 \bibitem[Poisel et~al. 2013]{Poisel_VMI:2013}
 Poisel, R., Malzer, E., and Tjoa, S. (2013).
@@ -111,8 +113,7 @@ Quick, D. and Choo, K. K.~R. (2014).
 Rafique, M. and Khan, M. N.~A. (2013).
 \newblock {Exploring Static and Live Digital Forensics: Methods, Practices and
   Tools}.
-\newblock {\em International Journal of Scientific {\&} Engineering Research},
-  4(10):1048--1056.
+\newblock {\em IJSER}, 4(10):1048--1056.
 
 \bibitem[Rahman and Khan 2015]{Rahman_Live_Forensics_Techniques:2015}
 Rahman, S. and Khan, M. N.~A. (2015).
@@ -123,21 +124,41 @@ Rahman, S. and Khan, M. N.~A. (2015).
 \bibitem[Reichert et~al. 2015]{Reichert_Auto_acquisition:2015}
 Reichert, Z., Richards, K., and Yoshigoe, K. (2015).
 \newblock {Automated forensic data acquisition in the cloud}.
-\newblock {\em Proc. - 11th IEEE MASS}, pages 725--730.
+\newblock {\em IEEE Int. Conf. on Mobile Ad Hoc and Sensor Systems}, pages
+  725--730.
 
 \bibitem[Sang 2013]{Sang_Log_approach:2013}
 Sang, T. (2013).
 \newblock {A log-based approach to make digital forensics easier on cloud
   computing}.
-\newblock {\em Proc of the 2013 3rd ISDEA}, pages 91--94.
+\newblock {\em Intelligent System Design and Engineering Applications (ISDEA)},
+  pages 91--94.
 
 \bibitem[Simou et~al. 2014]{Simou_Cloud_Chlng:2014}
 Simou, S., Kalloniatis, C., Kavakli, E., and Gritzalis, S. (2014).
 \newblock {Cloud forensics: Identifying the major issues and challenges}.
-\newblock {\em Lecture Notes in Computer Science}, 8484 LNCS:271--284.
+\newblock In {\em Advanced Information Systems Engineering (CAiSE 2014)},
+  volume 8484, pages 271--284.
 
 \bibitem[{Unix Man Pages} ]{UnixManPages_numa_maps}
 {Unix Man Pages}.
 \newblock {Numa Maps - Non Uniform Memory Architecture}.
+\newblock \urls{man7.org/linux/man-pages/man7/numa.7.html}.
+
+\bibitem[van Baar et~al. 2014]{VanBaar_FAAS:2014}
+van Baar, R.~B., van Beek, H. M.~A., and van Eijk, E.~J. (2014).
+\newblock {Digital Forensics as a Service: A game changer}.
+\newblock {\em Digital Investigation}, 11:S54--S62.
+
+\bibitem[{Volatility Foundation} 2014]{VolatilityFoundation2014}
+{Volatility Foundation} (2014).
+\newblock {Volatility Framework}.
+\newblock \urls{www.volatilityfoundation.org/}.
+
+\bibitem[V\"{o}mel and St\"{u}ttgen 2013]{Vomel_Memory_Acquisition:2013}
+V\"{o}mel, S. and St\"{u}ttgen, J. (2013).
+\newblock An evaluation platform for forensic memory acquisition software.
+\newblock {\em Digit. Investig.}, 10:S30--S40.
+\newblock Elsevier Science Publishers.
 
 \end{thebibliography}
