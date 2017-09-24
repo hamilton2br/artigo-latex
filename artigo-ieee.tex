@@ -315,6 +315,7 @@
 
 %*** para suportar acentuação ***
 \usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
 
 %*** para suportar tabelas com colunas mergeadas ***
 \usepackage{multirow}
@@ -323,6 +324,10 @@
 \usepackage{graphicx}			% Inclusão de gráficos
 \graphicspath{ {./} }			% localizando as imagens
 \usepackage{multicol}
+
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage{comment}
 
 %*** Para ajustar a largura das colunas e para multilinhas nas células ***
 \usepackage{array}
@@ -345,6 +350,8 @@
 %shortcuts
 \newcommand{\xfig}{\includegraphics[scale=0.007]{x.png}}
 \newcommand{\checkfig}{\includegraphics[scale=0.015]{check.png}}
+\newcommand{\rot}[1]{\rotatebox{90}{#1}}
+\newcommand{\urls}[1]{{\footnotesize{\url{#1}}}}
 
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
