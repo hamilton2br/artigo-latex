@@ -39,15 +39,15 @@
 
 \title{\fancynameX: Uma solução para coleta de evidências forenses de ataques de injeção na nuvem}
 
-%\author{Hamilton J. S. Fonte II, Marcos A. Simplicio Jr.}
-\author{Autor 1, Autor 2}
+\author{Hamilton J. S. Fonte II, Marcos A. Simplicio Jr.}
+%\author{Autor 1, Autor 2}
 
-%\address{Escola Politécnica -- Universidade de São Paulo (USP)\\
-%  Av. Prof. Luciano Gualberto 380 - Butantã -- 05.508-010 -- São Paulo -- SP -- Brasil
-%}
-\address{Filiação - Linha 1\\
-  Filiação - Linha 2
+\address{Escola Politécnica -- Universidade de São Paulo (USP)\\
+  Av. Prof. Luciano Gualberto 380 - Butantã -- 05.508-010 -- São Paulo -- SP -- Brasil
 }
+%\address{Filiação - Linha 1\\
+%  Filiação - Linha 2
+%}
 
 \begin{document} 
 
@@ -597,9 +597,12 @@ Para evitar uso excessivo de memória, a quantidade de dados armazenados usa uma 
 %
 Combinada com uma ferramenta para identificação de ameaças, essas características de \fancyname o transformam em uma solução poderosa para prover evidências e, assim, viabilizar análises forenses na nuvem.
 %
-Cabe notar, entretanto, que muitas ferramentas de análise malware disponíveis no mercado necessitam que todo o conteúdo da memória da máquina esteja disponível para realização da análise (e.g., FROST \cite{Dykstra_FROST:2013} e Volatility Framework \cite{VolatilityFoundation2014}), o que inviabiliza seu uso diretamente sobre a memória de processos conforme coletado por \fancyname.
+%Cabe notar, entretanto, que muitas ferramentas de análise malware disponíveis no mercado necessitam que todo o conteúdo da memória da máquina esteja disponível para realização da análise (e.g., FROST \cite{Dykstra_FROST:2013} e Volatility Framework \cite{VolatilityFoundation2014}), o que inviabiliza seu uso diretamente sobre a memória de processos conforme coletado por \fancyname.
 %
-Portanto, como trabalho futuro, pretende-se desenvolver uma ferramenta de detecção de ameaças mais flexível, que, embora potencialmente utilize técnicas similares àquelas adotadas em sistemas atuais, seja capaz de fazê-lo sem necessariamente ter acesso à memória completa da máquina.
+%Portanto, como trabalho futuro, pretende-se desenvolver uma ferramenta de detecção de ameaças mais flexível, que, embora potencialmente utilize técnicas similares àquelas adotadas em sistemas atuais, seja capaz de fazê-lo sem necessariamente ter acesso à memória completa da máquina.
+%
+
+Como trabalho futuro, pretende-se estudar o impacto provocado pela pausa do contêiner no desempenho de um sistema em produção e realizar uma análise da memória dos contêiners deste mesmo sistema utilizando as coletas feitas por \fancyname. Com esses resultados pretende-se implementar uma ferramenta mais flexível que não precise ter acesso a memória completa da máquina, requisito comum de muitas ferramentas de análise de malware no mercado (e.g., FROST \cite{Dykstra_FROST:2013} e Volatility Framework \cite{VolatilityFoundation2014}).
 
 \bibliographystyle{sbc}
 \bibliography{artigo-sbc}
