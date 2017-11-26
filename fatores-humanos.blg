@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: fatores-humanos.aux
+The style file: sbc.bst
+Database file #1: artigo-sbc.bib
+Warning--empty year in UnixManPages_numa_maps
+You've used 19 entries,
+            1935 wiz_defined-function locations,
+            599 strings with 7509 characters,
+and the built_in function-call counts, 7286 in all, are:
+= -- 744
+> -- 267
+< -- 18
++ -- 88
+- -- 86
+* -- 580
+:= -- 1259
+add.period$ -- 59
+call.type$ -- 19
+change.case$ -- 137
+chr.to.int$ -- 19
+cite$ -- 20
+duplicate$ -- 288
+empty$ -- 504
+format.name$ -- 119
+if$ -- 1441
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 16
+newline$ -- 99
+num.names$ -- 57
+pop$ -- 115
+preamble$ -- 1
+purify$ -- 138
+quote$ -- 0
+skip$ -- 226
+stack$ -- 0
+substring$ -- 509
+swap$ -- 46
+text.length$ -- 6
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 110
+warning$ -- 1
+while$ -- 64
+width$ -- 0
+write$ -- 249
+(There was 1 warning)
