@@ -344,7 +344,7 @@
 \newcommand{\marcos}[1]{{\color{blue}{MARCOS: #1}}}
 \newcommand{\marcosT}[1]{{\color{red}{TODO: #1}}}
 \newcommand{\marcosR}[1]{{\color{brown}{COMMENT: #1}}}
-\newcommand{\fancyname}{Dizang}
+\newcommand{\fancyname}{Dizang }
 \newcommand{\fancynameX}{\fancyname}
 
 %shortcuts
@@ -423,7 +423,7 @@ Arquiteturas em nuvem são cada vez mais comuns, e também o número de problema
 %
 Infelizmente, devido à natureza volátil de recursos na nuvem, a coleta de evidências para análise forense nesse ambiente tem esbarrado em desafios práticos e legais.
 %
-Este trabalho analisa propostas voltadas a resolver os desafios existentes na coleta evidências na nuvem, discute suas limitações, e então apresenta uma solução visando suplantá-las.
+Este trabalho, com foco técnico, analisa propostas voltadas a resolver os desafios existentes na coleta evidências na nuvem, discute suas limitações, e então apresenta uma solução visando suplantá-las.
 %
 Especificamente, a proposta tem como foco a reprodutibilidade do processo de coleta, sem com isso violar jurisdições ou a privacidade dos não envolvidos na investigação.
 
@@ -469,7 +469,8 @@ Especificamente, o aspecto multi-inquilino dificulta a obtenção do \textit{har
 %
 Já a natureza distribuída da nuvem pode levar à alocação de informações relevantes à investigação em vários países, dificultando a obtenção das mesmas em especial quando não existem acordos de cooperação entre as entidades envolvidas \cite{Dykstra_Acquiring_for_IAAS:2012}.
 %
-Combinadas, tais características dificultam a coleta de evidências com a credibilidade necessária para que elas possam ser usadas em processos legais,  o que exige o respeito à privacidade, à jurisdição e à cadeia de custódia, bem como a reprodutibilidade do processo de coleta \cite{Rahman_Live_Forensics_Techniques:2015}.
+Combinadas, tais características dificultam a coleta de evidências com a credibilidade necessária para que elas possam ser aceitas em processos legais,  o que exige o respeito à privacidade, à jurisdição e à cadeia de custódia, bem como a reprodutibilidade do processo de coleta \cite{Rahman_Live_Forensics_Techniques:2015}.
+%Combinadas, tais características dificultam a coleta de evidências com a credibilidade necessária para que elas possam ser usadas em processos legais,  o que exige o respeito à privacidade, à jurisdição e à cadeia de custódia, bem como a reprodutibilidade do processo de coleta \cite{Rahman_Live_Forensics_Techniques:2015}.
 
 
 %==== O QUE EXISTE E PORQUE NÃO É SUFICIENTE: ??? ====
@@ -492,9 +493,12 @@ Por outro lado, não foram identificadas propostas que (1) descrevam como o dado
 %
 O presente trabalho visa suplantar tais limitações, apresentando uma proposta com foco: (1) na reprodutibilidade do processo de coleta, (2) no estabelecimento de vínculo entre a evidência coletada e sua origem, (3) na preservação da jurisdição e da privacidade dos não envolvidos na investigação.
 %
-Em suma, a solução descrita provê uma forma de correlacionar evidências e sua origem virtual, permitindo transportar e armazenar tais dados de modo a preservar sua credibilidade.
+Em suma, a solução descrita provê uma forma de correlacionar evidências e sua origem virtual, permitindo transportar e armazenar tais dados de modo a preservar sua credibilidade e assim contribuir para sua aceitabilidade em um processo legal.
 %
-Para isso, supõe-se que o sistema sendo monitorado é executado dentro de um contêiner, abordagem que se justifica pelo crescimento da adoção de conteinerização nos últimos anos, bem como pela previsão de que este será o modelo de implementação mais usado no futuro \cite{Piraghaj_Container_Cloud_Computing:2016}.
+Por fim, gestão de incidentes, que cada vez mais compartilha processos e ferramentas com a forense digital, pode se beneficiar de uma solução de coleta e preservação de evidências que esteja pronta na fase de \textit{preparação ao incidente} e seja capaz de preservar as evidências para a fase \textit{pós-incidente} permitindo assim que na fase de \textit{detecção e análise} não seja necessário se preocupar com perda parcial ou total das mesmas.
+%
+Para isso, supõe-se que o sistema sendo monitorado é executado dentro de um recurso em nuvem univocamente identificável.
+%Para isso, supõe-se que o sistema sendo monitorado é executado dentro de um contêiner, abordagem que se justifica pelo crescimento da adoção de conteinerização nos últimos anos, bem como pela previsão de que este será o modelo de implementação mais usado no futuro \cite{Piraghaj_Container_Cloud_Computing:2016}.
 %
 A solução tem como alvo específico ataques de injeção de código \cite{Case_Memory_Forensics:2014}, pois estes, quando usados contra uma arquitetura em nuvem, não deixam rastros quando recursos de processamento virtuais são desativados e sua memória é liberada \cite{Vomel_Memory_Acquisition:2013}, \cite{Case_Memory_Forensics:2014}.
 %
@@ -592,7 +596,7 @@ Embora interessantes, as abordagens descritas nesses trabalhos podem levar a um 
 
 \subsection{Capacidade de reproduzir o processo e obter os mesmos resultados}
 
-Se, durante uma análise forense, analistas diferentes obtêm resultados distintos ao executar o mesmo procedimento de coleta, a evidência gerada não tem credibilidade, inviabilizando seu uso em um processo legal. 
+Se, durante uma análise forense, analistas diferentes obtêm resultados distintos ao executar o mesmo procedimento de coleta, a evidência gerada não tem credibilidade podendo levar a sua não aceitação em um processo legal. 
 %
 Por essa razão, a reprodutibilidade do processo de coleta é uma parte importante da geração de evidências para análise forense.
 %
@@ -628,7 +632,8 @@ Em sistemas computacionais executados sobre uma infraestrutura física (i.e., n�
 %
 Já em sistemas construídos sobre uma infraestrutura virtual, em especial quando esta é auto-escalável, os recursos computacionais são altamente voláteis e, portanto, podem ser desalocados a qualquer momento.
 %
-Para conseguir correlacionar uma evidência a sua origem volátil, é necessário utilizar outro elemento em que persista a relação fonte-evidência, o que na presente proposta é feito por meio de contêineres linux (LXC).
+Para conseguir correlacionar uma evidência a sua origem volátil, esta implementação faz uso de contêineres linux (LXC) para persistir a relação fonte-evidência.
+%Para conseguir correlacionar uma evidência a sua origem volátil, é necessário utilizar outro elemento em que persista a relação fonte-evidência, o que na presente proposta é feito por meio de contêineres linux (LXC).
 %
 Embora um contêiner seja um \textit{software} e, portanto, também volátil, cada imagem compilada e sua execução na forma de contêiner são normalmente atrelados a um \textit{hash} que identifica univocamente essa relação.
 %
@@ -689,7 +694,7 @@ Para evitar eventuais problemas com o armazenamento desses dados em países com 
 \begin{figure}[htb!]
 \footnotesize
 \caption{Arquitetura geral da solução Dizang}
-\includegraphics[scale=0.41]{solucao.jpg}
+\includegraphics[scale=0.31]{solucao.jpg}
 \centering
 \label{fig:Solucao}
 \end{figure}

@@ -73,12 +73,6 @@ T.~Sang, ``{A log-based approach to make digital forensics easier on cloud
   computing},'' \emph{Intelligent System Design and Engineering Applications
   (ISDEA)}, pp. 91--94, 2013.
 
-\bibitem{Piraghaj_Container_Cloud_Computing:2016}
-S.~Piraghaj, A.~Dastjerdi, R.~Calheiros, and R.~Buyya, ``A framework and
-  algorithm for energy efficient container consolidation in cloud data
-  centers,'' in \emph{IEEE Int. Conf. on Data Science and Data Intensive
-  Systems (DSDIS)}, 2015, pp. 368--375.
-
 \bibitem{Case_Memory_Forensics:2014}
 A.~Case, M.~Ligh, L.~Jamie, and A.~Walters, \emph{{The Art of Memory Forensics:
   Detecting malware and threats in Windows, Linux and Mac memory}}.\hskip 1em
