@@ -349,7 +349,7 @@
 
 %shortcuts
 \newcommand{\xfig}{\includegraphics[scale=0.007]{x.png}}
-\newcommand{\checkfig}{\includegraphics[scale=0.015]{check.png}}
+\newcommand{\cfig}{\includegraphics[scale=0.015]{check.png}}
 \newcommand{\rot}[1]{\rotatebox{90}{#1}}
 \newcommand{\urls}[1]{{\footnotesize{\url{#1}}}}
 
@@ -419,15 +419,13 @@ Email: hamiltonii@gmail.com, mjunior@larc.usp.br}
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
 \begin{abstract}
-A adoção de arquiteturas em nuvem aumenta a cada dia, e com ela também o número de casos em que esse tipo de tecnologia é usada para fins ilícitos. 
+Arquiteturas em nuvem são cada vez mais comuns, e também o número de problemas de segurança envolvendo essa tecnologia. 
 %
-Infelizmente, devido à natureza volátil da nuvem, a tarefa de coletar evidências para análise forense nesse ambiente tem esbarrado em desafios práticos e legais.
+Infelizmente, devido à natureza volátil de recursos na nuvem, a coleta de evidências para análise forense nesse ambiente tem esbarrado em desafios práticos e legais.
 %
-Este trabalho analisa propostas na literatura voltadas a resolver os principais desafios existentes na coleta evidências na nuvem, discutindo suas limitações, e então propõe uma solução que cobre coleta, transporte e armazenamento da evidência visando suplantá-las. 
+Este trabalho analisa propostas voltadas a resolver os desafios existentes na coleta evidências na nuvem, discute suas limitações, e então apresenta uma solução visando suplantá-las.
 %
-A solução aqui proposta provê uma forma de correlacionar evidências e sua origem virtual, permitindo transportar e armazenar tais dados sem afetar sua credibilidade.
-%
-Especificamente, ela tem como focos (1) a reprodutibilidade do processo de coleta, (2) não violar jurisdição e (3) não violar a privacidade dos não envolvidos na investigação.
+Especificamente, a proposta tem como foco a reprodutibilidade do processo de coleta, sem com isso violar jurisdições ou a privacidade dos não envolvidos na investigação.
 
 \end{abstract}
 
@@ -450,13 +448,13 @@ Especificamente, ela tem como focos (1) a reprodutibilidade do processo de colet
 
 %==== CONTEXTO GERAL: Nuvem e volatilidade de VMs ====
 %
-Técnicas de virtualização, replicação de serviços e compartilhamento de recursos entre múltiplos usuários (multi-inquilinato) proveem a nuvens computacionais uma elevada escalabilidade \cite{Morsy_Cloud_Security:2010}.
+Técnicas de virtualização, replicação de serviços e compartilhamento de recursos entre múltiplos usuários (multi-inquilinato) dão a nuvens computacionais alta escalabilidade \cite{Morsy_Cloud_Security:2010}.
 %
-Ao mesmo tempo, tais mecanismos também criam uma elevada volatilidade dos recursos virtuais que executam aplicações em nuvem.
+Porém, tais mecanismos também levam à volatilidade dos recursos virtuais que executam aplicações.
 %
-Afinal, quando submetida a uma carga elevada, uma aplicação hospedada na nuvem pode criar clones das máquinas virtuais (\textit{virtual machines} -- VMs) que a hospedam e balancear a carga entre elas, de modo a atender à demanda sem prejuízos na qualidade do serviço oferecido. 
+Afinal, quando submetida a uma carga elevada, uma aplicação hospedada na nuvem pode criar clones das máquinas virtuais (\textit{virtual machines} -- VMs) que a hospedam e balancear a carga entre elas, buscando atender à demanda sem prejuízos na qualidade do serviço oferecido. 
 %
-Após esse pico, as máquinas que foram clonadas são normalmente desativadas, seus recursos liberados e o sistema retorna à capacidade anterior, evitando-se custos desnecessários
+Após esse pico, as VMs clonadas são normalmente desativadas, seus recursos liberados e o sistema retorna à capacidade anterior, evitando-se custos desnecessários.
 
 
 %==== CONTEXTO ESPECÍFICO + PROBLEMA GERAL: Forense na nuvem vs. volatilidade + multitenancy + multidomains ====
@@ -476,63 +474,43 @@ Combinadas, tais características dificultam a coleta de evidências com a credi
 
 %==== O QUE EXISTE E PORQUE NÃO É SUFICIENTE: ??? ====
 %
-Embora existam soluções na literatura que abordam a coleta de informações de nuvem com o propósito de análise forense, a grande maioria delas aborda a coleta, o transporte e o armazenamento de forma isolada.
+Embora existam soluções na literatura voltadas à coleta de informações na nuvem para a análise forense, a maioria delas aborda a coleta, o transporte e o armazenamento de forma isolada.
 %
 Por exemplo, trabalhos como \cite{Dykstra_FROST:2013} e \cite{Reichert_Auto_acquisition:2015} tratam de fatores como multi-inquilinato e multi-jurisdição, discutindo formas de coleta e preservação da evidência fora da nuvem.
 %
-Já estudos como \cite{George_DF2CE:2012} se concentram na análise forense para a coleta de evidência de máquinas virtuais enquanto elas estão em execução, enquanto trabalhos como \cite{Sang_Log_approach:2013} abordam a questão de processos de garantia de cadeia de custódia em ambientes de nuvem para transporte da evidência.
+Já estudos como \cite{George_DF2CE:2012} se concentram na análise forense para a coleta de evidência de VMs enquanto elas estão em execução, enquanto trabalhos como \cite{Sang_Log_approach:2013} tratam a garantia de cadeia de custódia durante o transporte da evidência.
 %
 %abordam os problemas descritos anteriormente \marcosT{QUAIS, CARA PÁLIDA? VOCÊ LISTOU 4 TIPOS DE ATAQUE E DEIXOU UM PROBLEMA GERAL: COMO O LEITOR VAI SABER QUAIS EXATAMENTE SÃO ABORDADOS? Seja mais preciso: clareza acima de tudo!!!} de forma isolada.
 %
 %Alguns propõem soluções para o os fatores multi-inquilino e multi-jurisdição, outros abordam apenas a coleta de evidência de máquinas virtuais e por fim temos as que descrevem apenas os processos de garantia de cadeia de custodia. \marcosT{Er... você não me deu sequer um exemplo, então eu sou obrigado a acreditar em você sem que você apresente argumentos... lembre-se que revisores são seres amargos e cruéis, que não acreditam em nada, então melhor não arriscar e dar exemplos claros.}
 %
-Por outro lado, não foram identificadas na literatura propostas que (1) descrevam como o dado é coletado e armazenado observando a cadeia de custódia, e (2) visem garantir que, mesmo que um recurso virtualizado (e.g., uma VM) seja desalocada, haja condições de se reproduzir o processo de coleta de evidências.
+Por outro lado, não foram identificadas propostas que (1) descrevam como o dado é coletado e armazenado observando a cadeia de custódia, e (2) permitam que, mesmo que um recurso virtualizado seja desalocado, haja condições de se reproduzir o processo de coleta de evidências.
 
 
 
 %==== O QUE FAZEMOS: Ataques de injeção ====
 %
-O presente trabalho visa suplantar tais limitações por meio de uma proposta que tem como focos (1) a reprodutibilidade do processo de coleta, (2) o estabelecimento de vínculo entre a evidência coletada e sua origem, (3) a preservação da jurisdição e da privacidade dos não envolvidos na investigação e (4) a garantia de custódia da evidência.
+O presente trabalho visa suplantar tais limitações, apresentando uma proposta com foco: (1) na reprodutibilidade do processo de coleta, (2) no estabelecimento de vínculo entre a evidência coletada e sua origem, (3) na preservação da jurisdição e da privacidade dos não envolvidos na investigação.
 %
 Em suma, a solução descrita provê uma forma de correlacionar evidências e sua origem virtual, permitindo transportar e armazenar tais dados de modo a preservar sua credibilidade.
 %
-Para isso, a proposta supõe que o sistema sendo monitorado é executado dentro de um contêiner em nuvem. 
-%
-O foco da solução em contêiner se justifica pelo crescimento da adoção de conteinerização nos últimos anos, bem como pela previsão de que este será o modelo de implementação mais usado em aplicações futuras \cite{Piraghaj_Container_Cloud_Computing:2016}.
+Para isso, supõe-se que o sistema sendo monitorado é executado dentro de um contêiner, abordagem que se justifica pelo crescimento da adoção de conteinerização nos últimos anos, bem como pela previsão de que este será o modelo de implementação mais usado no futuro \cite{Piraghaj_Container_Cloud_Computing:2016}.
 %
 A solução tem como alvo específico ataques de injeção de código \cite{Case_Memory_Forensics:2014}, pois estes, quando usados contra uma arquitetura em nuvem, não deixam rastros quando recursos de processamento virtuais são desativados e sua memória é liberada \cite{Vomel_Memory_Acquisition:2013}, \cite{Case_Memory_Forensics:2014}.
 %
-Em particular, têm especial interesse quatro tipos específicos dessa família de ameaças \cite{Case_Memory_Forensics:2014}:
+%Em particular, têm especial interesse quatro tipos específicos dessa família de ameaças \cite{Case_Memory_Forensics:2014}:
 
 
-\begin{itemize}
- \item \textbf{Injeção remota de bibliotecas}: Um processo malicioso força o processo alvo a carregar uma biblioteca em seu espaço de memória.
- %
- Como resultado, o código da biblioteca carregada executa com os mesmos privilégios do executável em que ela foi injetada. 
- %
- Esta estratégia, comumente usada para instalar malwares, pode fazer com que uma biblioteca maliciosa armazenada no sistema seja distribuída por vários processos de uma mesma máquina, dificultando sua remoção \cite{Miller_Remote_Library_Injection:2004}.
- %
- \item \textbf{Inline Hooking}: Um processo malicioso escreve código como uma sequência de bytes diretamente no espaço de memória de um processo alvo, e então força este último a executar o código injetado. 
- %
- O código pode ser, por exemplo, um \textit{script} de \textit{shell}.
- %
- \item \textbf{Injeção reflexiva de biblioteca}: Um processo malicioso acessa diretamente a memória do processo alvo, inserindo nela o código de uma biblioteca na forma de uma sequência de bytes, e então força o processo a executar essa biblioteca. 
- %
- Nessa forma de ataque, a biblioteca maliciosa não existe fisicamente; isso torna tal estratégia de injeção de código potencialmente mais atrativa, pois o carregamento da biblioteca não é registrado no sistema operacional (SO), dificultando a detecção do ataque \cite{Fewer_Reflective_Library_Inject:2008}.
- %
- \item \textbf{Injeção de processo vazio}: Um processo malicioso dispara uma instância de um processo legítimo no estado ``suspenso''; a área do executável é então liberada e realocada com código malicioso.
-\end{itemize}
-
-
-O restante deste documento está organizado da seguinte forma.
+Este documento está assim organizado.
 %
 A Seção \ref{sec:cloud} discute brevemente soluções em nuvem e suas características.
 %
 A Seção \ref{sec:related} analisa os trabalhos relacionados na área de forense de memória.
 %
-A Seção \ref{sec:proposal} detalha a solução proposta e avalia como ela trata os desafios alvo deste projeto.
+A Seção \ref{sec:proposal} detalha a solução proposta e avalia como ela trata os desafios alvo deste trabalho.
 %
-Finalmente, a Seção \ref{sec:conclusion} apresenta algumas considerações finais e discute ideias para trabalhos futuros.
+A Seção \ref{sec:conclusion} apresenta as conclusões do estudo.
+
 
 
 \section{Adoção de arquiteturas em nuvem e contêineres}
@@ -545,13 +523,14 @@ Uma nuvem computacional é um modelo de infraestrutura no qual recursos comparti
 Há três modelos principais de comercialização de uso da nuvem \cite{NIST2011}: \textit{software} como serviço (\textit{Software as a Service} -- SaaS), na qual se provê o \textit{software} que será usado pelo cliente; plataforma como serviço (\textit{Platform as a Service} -- PaaS), na qual se provê o ambiente para que o cliente desenvolva, teste e execute seu \textit{software}; e, o tipo mais pertinente para este trabalho, Infraestrutura como serviço (\textit{Infrastructure as a Service} -- IaaS), na qual são fornecidos recursos computacionais básicos, como processamento e memória, em geral de forma virtualizada.
 
 
-A virtualização de recursos na nuvem, embora tradicionalmente feita por meio de máquinas virtuais, vêm sendo crescentemente feita também na forma de contêineres.
+A virtualização de recursos na nuvem, embora tradicionalmente feita por meio de VMs, vem sendo crescentemente feita também na forma de contêineres.
 %
-De fato, segundo o ``Container Market Adoption Survey 2016'', realizado pelas empresas DevOps.com (https://devops.com/) e ClusterHQ (https://clusterhq.com) com 235 empresas que têm desenvolvimento de software como sua atividade fim ou como suporte à atividade fim, 76\% dos respondentes utilizam contêineres para melhorar a eficiência do processo de desenvolvimento e em suas arquiteturas de micro-serviços em nuvem.
+De fato, segundo estudo realizado em 2016 com 235 empresas que têm desenvolvimento de software como sua atividade fim ou como suporte à atividade fim \cite{container-survey:2016}, 76\% dos respondentes utilizam contêineres para melhorar a eficiência do processo de desenvolvimento e em suas arquiteturas de micro-serviços em nuvem.
 %
-Diferentemente de máquinas virtuais, que envolvem a criação de um \textit{hardware} virtual e de um sistema operacional (SO) acima do sistema nativo e que opera independente deste, a virtualização com contêineres é feita no nível do SO nativo, tem uma implementação mais simples eliminado camadas entre o aplicativo executado e o \textit{hardware} físico.
+Diferentemente de VMs, que envolvem a criação de um \textit{hardware} virtual e também de um SO acima do sistema nativo, a virtualização com contêineres é feita no nível do SO nativo, tem uma implementação mais simples eliminado camadas entre o aplicativo executado e o \textit{hardware} físico.
 %
-Uma tecnologia bastante utilizada para esse propósito são Contêineres Linux (LXC) \cite{Linuxcontainers.org2015}, que aproveitam-se de funcionalidades como cgroups e namespacing do kernel do Linux para auxiliar no gerenciamento e isolamento de recursos virtuais.
+Uma tecnologia bastante utilizada para esse propósito são Contêineres Linux (LXC)%\cite{Linuxcontainers.org2015}
+, que aproveitam-se de funcionalidades como cgroups e namespacing do kernel do Linux para auxiliar no gerenciamento e isolamento de recursos virtuais.
 
 
 
@@ -560,9 +539,32 @@ Uma tecnologia bastante utilizada para esse propósito são Contêineres Linux (
 
 Existem vários aspectos relativos à análise forense na nuvem, indo desde a coleta de informações até a garantia da cadeia de custódia de evidências.
 %
-Para uma discussão mais estruturada dos trabalhos disponíveis na literatura sobre o tema, a seguir eles são apresentados com base nos diferentes aspectos que abordam.
+Para uma discussão mais estruturada dos trabalhos disponíveis na literatura sobre o tema, resumidos na Tabela \ref{tab:related-work}, a seguir eles são apresentados com base nos diferentes aspectos que abordam.
 
-\subsection{Acessar e coletar as informações de memória das máquinas virtuais em nuvem}
+\begin{table}[htb!]
+\footnotesize
+\renewcommand{\arraystretch}{1.4}
+\renewcommand{\tabcolsep}{0.5mm}
+\centering
+\caption{Comparativo de soluções de coleta de informações de memória de máquinas em nuvem para análise forense}
+\label{tab:related-work}
+\begin{tabular}{p{5.3cm}|L|L|L|L|L|L|L|L|L|L|L|}
+\textbf{}																		& \rot{\fancyname~(esta proposta)} 			& \rot{\cite{George_DF2CE:2012}} 
+																						& \rot{\cite{Poisel_VMI:2013}} 					& \rot{\cite{Dykstra_FROST:2013}}
+																						& \rot{\cite{Do_Desafio:2014}} 					& \rot{\cite{Reichert_Auto_acquisition:2015}}	
+																						&	\rot{\cite{Sang_Log_approach:2013}} 	& \rot{\cite{Dolan-Gavitt_Semantic_Gap:2011}} 
+																						& \rot{\cite{Aljaedi_Comparative:2011}} & \rot{\cite{Dezfouli_Backup_approach:2012}} 
+																						& \rot{\cite{VanBaar_FAAS:2014}}
+\\ \hline
+\textbf{Coleta  é contínua?}								& \cfig	& \xfig & \xfig & \xfig & \xfig & \xfig & \cfig & \xfig & \xfig & \cfig & \cfig \\
+\textbf{Reproduz o processo sem a VM?} 			& \cfig	& \xfig & \xfig & \xfig & \xfig & \xfig & \xfig & \xfig & \xfig & \xfig & \xfig \\
+\textbf{Garante cadeia de custódia?}				& \cfig	& \xfig & \xfig & \xfig & \xfig & \cfig & \cfig & \xfig & \xfig & \xfig & \cfig \\
+\textbf{Preserva jurisdição e privacidade?} & \cfig	& \cfig	& \cfig	& \cfig	& \cfig	& \cfig	& \cfig	& \cfig	& \cfig	& \cfig	& \cfig	\\
+\end{tabular}
+\end{table}
+
+
+\subsection{Acessar e coletar as informações de memória na nuvem}
 
 Diversos trabalhos de análise forense na nuvem se concentram na coleta de dados ``após o fato'', ou seja, após a intrusão ser detectada \cite{Reichert_Auto_acquisition:2015,Poisel_VMI:2013,Dykstra_FROST:2013,George_DF2CE:2012,Sang_Log_approach:2013}. 
 %
@@ -576,13 +578,13 @@ Tal limitação pode trazer prejuízos à investigação, dado que algumas anál
 Entre os trabalhos estudados, a única proposta encontrada que leva tal necessidade em consideração é \cite{Dezfouli_Backup_approach:2012}, que propõe que o dado seja armazenado no próprio equipamento sob análise.
 %
 %Infelizmente, entretanto, essa abordagem não é aplicável ao cenário em nuvem, pois leva a perda de informações importantes caso a máquina virtual seja despejada e seus recursos liberados.
-Infelizmente, entretanto, a aplicação de tal abordagem no cenário em nuvem é pouco viável, pois pode levar à perda de informações importantes caso a máquina virtual ou contêiner seja desativada, tendo seus recursos liberados.
+Infelizmente, entretanto, a aplicação de tal abordagem no cenário em nuvem é pouco viável, pois pode levar à perda de informações importantes caso a VM ou contêiner seja desativada, tendo seus recursos liberados.
 %
 
 %Ainda na coleta de informações, os autores \cite{Reichert_Auto_acquisition:2015} e \cite{George_DF2CE:2012} sugerem a abordagem de forense ao vivo onde os dados são constantemente coletados sem distinção do antes ou depois do fato. 
 Existem ainda trabalhos voltados à coleta de informações durante a execução do sistema, nos quais os dados são constantemente coletados sem distinção do que aconteceu antes ou depois do fato de interesse.
 %
-Esse é o caso de trabalhos como \cite{Poisel_VMI:2013,Dykstra_FROST:2013,Sang_Log_approach:2013}, que adotam a estratégia de isolar e parar a máquina virtual para em seguida realizar o processo de coleta. 
+Esse é o caso de trabalhos como \cite{Poisel_VMI:2013,Dykstra_FROST:2013,Sang_Log_approach:2013}, que adotam a estratégia de isolar e parar a VM para em seguida realizar o processo de coleta. 
 %
 %Nas duas estratégias citadas anteriormente, o problema do grande volume de informações coletadas não é abordado pelo autores nem o cenário onde é necessário coletar evidências de uma máquina virtual que já foi despejada do pool e os recursos liberados. 
 Embora interessantes, as abordagens descritas nesses trabalhos podem levar a um elevado volume de dados coletados, além de também não tratarem o cenário em que é necessário coletar evidências quando os recursos virtuais contendo tais informações são liberados.
@@ -594,7 +596,8 @@ Se, durante uma análise forense, analistas diferentes obtêm resultados distint
 %
 Por essa razão, a reprodutibilidade do processo de coleta é uma parte importante da geração de evidências para análise forense.
 %
-Infelizmente, entretanto, nenhuma das propostas encontradas na literatura atualmente permite tal reprodutibilidade em cenários de nuvem em que máquinas virtuais ou contêineres são desativados e seus recursos físicos liberados: todas elas dependem da existência do recurso virtual para a repetição do processo de coleta.
+Infelizmente, entretanto, nenhuma das propostas encontradas na literatura atualmente permite tal reprodutibilidade em cenários de nuvem em que VMs ou contêineres são desativados e seus recursos físicos liberados: todas elas dependem da existência do recurso virtual para a repetição do processo de coleta.
+
 
 \subsection{Não violar privacidade ou jurisdição das partes não envolvidas na investigação}
 
@@ -605,39 +608,6 @@ Diversos trabalhos na literatura tratam esse problema adequadamente, por meio da
 Depender do provedor de serviços de nuvem é uma estratégia pouco recomendada, entretanto, pois (1) o volume de dados de usuários pode forçar os provedores a limitar o tamanho dos \textit{logs} armazenados, e (2) caso ocorra uma indisponibilidade causada por um ataque, o objetivo do provedor será o de restabelecer o serviço, não necessariamente o de preservar evidências\cite{Clarke_Review_of_Challenges:2015}. 
 
 
-\subsection{Garantir a cadeia de custódia da evidência}
-
-Dentre os trabalhos analisados, apenas \cite{Sang_Log_approach:2013} aborda a questão da garantia da cadeia de custódia. 
-%
-Especificamente, o trabalho emprega \textit{hashes} para verificar a integridade da evidência, permitindo a detecção de alterações na mesma, embora não explique os mecanismos que poderiam ser utilizados para impedir acesso não autorizado (e, assim, potencial alteração) aos próprios hashes. 
-%
-As propostas dos outros autores concentram-se apenas no aspecto técnico da coleta, sem discutir claramente garantia de custódia mas apenas mencionando que as evidências devem ser coletadas de forma ``forensicamente aceitável''.
-
-\subsection{Resumo}
-
-A Tabela \ref{tab:related-work} mostra um comparativo das soluções estudadas, considerando os aspectos discutidos nesta seção, posicionando as contribuições da proposta apresentada neste trabalho.
-
-\begin{table}[htb!]
-\centering
-\caption{Comparativo de soluções de coleta de informações de memória de máquinas em nuvem para análise forense}
-\label{tab:related-work}
-\renewcommand{\arraystretch}{2}
-\begin{tabular}{p{3.0cm}|L|L|L|L}
-\cline{2-5}
-\textbf{}															& \rotatebox{90}{\textbf{Coleta  é contínua?}}      & \rotatebox{90}{\textbf{Reproduz o processo sem a VM?}} & \rotatebox{90}{\textbf{Garante cadeia de custódia?}}     		& \rotatebox{90}{\textbf{Preserva jurisdição e privacidade?}}          \\ \hline
-\fancyname (esta proposta)						& \checkfig	  & \checkfig               & \checkfig                  & \checkfig                             \\ \hline
-\cite{George_DF2CE:2012}							& \xfig		  	& \xfig                   & \xfig                      & \checkfig                             \\ \hline
-\cite{Poisel_VMI:2013}								& \xfig       & \xfig                   & \xfig                      & \checkfig                             \\ \hline
-\cite{Dykstra_FROST:2013}							& \xfig       & \xfig                   & \xfig                      & \checkfig                             \\ \hline
-\cite{Do_Desafio:2014}								& \xfig		    & \xfig                   & \xfig                      & \checkfig                             \\ \hline
-\cite{Reichert_Auto_acquisition:2015}	& \xfig  	    & \xfig                   & \checkfig                  & \checkfig                             \\ \hline
-\cite{Sang_Log_approach:2013}					& \checkfig   & \xfig	             			& \checkfig                  & \checkfig                             \\ \hline
-\cite{Dolan-Gavitt_Semantic_Gap:2011}	& \xfig       & \xfig                   & \xfig                      & \checkfig                             \\ \hline
-\cite{Aljaedi_Comparative:2011}				& \xfig       & \xfig                   & \xfig                      & \checkfig                             \\ \hline
-\cite{Dezfouli_Backup_approach:2012}	& \checkfig   & \xfig                   & \xfig                      & \checkfig                             \\ \hline
-\cite{VanBaar_FAAS:2014}							& \checkfig   & \xfig                   & \checkfig                  & \checkfig                             \\
-\end{tabular}
-\end{table}
 
 \section{Solução proposta: \fancyname}
 \label{sec:proposal}
@@ -662,7 +632,10 @@ Para conseguir correlacionar uma evidência a sua origem volátil, é necessári
 %
 Embora um contêiner seja um \textit{software} e, portanto, também volátil, cada imagem compilada e sua execução na forma de contêiner são normalmente atrelados a um \textit{hash} que identifica univocamente essa relação.
 %
-O contêiner também permite identificar com mais precisão a fonte de uma evidência, uma vez que é possível dividir as partes de um sistema em contêineres: por exemplo, um contêiner para o motor de páginas dinâmicas (e.g., Apache \cite{Tomcat}), outro com a lógica de negócios (e.g., \textit{golang} \cite{Google}) e um terceiro para um banco de dados (e.g., \textit{Cassandra} \cite{Cassandra}).
+O contêiner também permite identificar com mais precisão a fonte de uma evidência, uma vez que é possível dividir as partes de um sistema em contêineres: por exemplo, um contêiner para o motor de páginas dinâmicas (e.g., Apache%\cite{Tomcat}
+), outro com a lógica de negócios (e.g., \textit{golang}%\cite{Google}
+) e um terceiro para um banco de dados (e.g., \textit{Cassandra}%\cite{Cassandra}
+).
 
 %\marcosT{O parágrafo estava muito grande, então quebrei aqui. O problema é que falta uma frase para ligar a frase a seguir ao contexto da discussão... Coloque uma frase aqui, deixando claro qual requisito você quer satisfazer com essa ideia de ``interromper temporariamente a execução do contêiner''. Aplique isso para TUDO que for proposta: o leitor tem que saber de antemão pra que você está fazendo alguma coisa, ou vai ficar se perguntando ``Espera, mas pra que fazer isso?!'' - Hamilton: Feito}
 A cópia de memória não é uma atividade atômica, pois ela é executada em conjunto com outros processos. 
@@ -671,7 +644,7 @@ Portanto, caso um desses processos seja um código malicioso apagando traços de
 %
 Com o objetivo de deixar o processo de cópia da memória mais atômico, \fancyname interrompe temporariamente a execução do contêiner, realiza a cópia de sua memória, e em seguida retoma sua execução. 
 %
-Essa técnica, que é semelhante àquela adotada em \cite{Rafique_Static_Live_Digital_Forensics:2013} para máquinas virtuais, produz um instantâneo da memória volátil do contêiner; isso permite sua análise em um estado de repouso, ou seja, sem a necessidade de ter o contêiner em execução.
+Essa técnica, que é semelhante àquela adotada em \cite{Rafique_Static_Live_Digital_Forensics:2013} para VMs, produz um instantâneo da memória volátil do contêiner; isso permite sua análise em um estado de repouso, ou seja, sem a necessidade de ter o contêiner em execução.
 %
 Ao realizar a coleta em intervalos de tempo adequados, é possível construir um histórico do estado da memória durante a execução no contêiner.
 %
@@ -685,7 +658,7 @@ Para mitigar essa dificuldade, em \fancyname são adotadas duas estratégias: a 
 %
 Para detectar e analisar intrusões na memória de processos, é necessário ter uma cópia da memória antes e depois da intrusão \cite{Case_Memory_Forensics:2014}. 
 %
-Assim, a solução proposta implementa uma janela de instantâneos de memória cobrindo um intervalo de tempo pré-definido, como ilustrado na Figura \ref{fig:janela}. 
+Assim, a solução proposta implementa uma janela de instantâneos de memória cobrindo um intervalo de tempo pré-definido, como ilustrado na Fig. \ref{fig:janela}. 
 %
 Em condições normais de operação, as evidências são coletadas com certa periodicidade e coletas que atingem uma determinada idade são descartadas.
 %
@@ -695,8 +668,9 @@ Em contraste, após a detecção de um evento de ataque (e.g., por um sistema de
 %
 
 \begin{figure}[htb!]
+\footnotesize
 \caption{Janela deslizante de coleta de evidência}
-\includegraphics[scale=0.4]{janela.jpg}
+\includegraphics[scale=0.40]{janela.jpg}
 \centering
 \label{fig:janela}
 \end{figure}
@@ -704,7 +678,7 @@ Em contraste, após a detecção de um evento de ataque (e.g., por um sistema de
 %\marcosT{Essa frase não faz sentido: não se ``assina'' nada com um ``hash''. Você pode ``calcular o hash'' ou ``assinar um dado'' (e.g., um dado juntamente com o hash de alguma coisa). Revise essa frase... - Hamilton: Feito}
 Para persistir a relação evidência-origem e garantir a integridade da mesma, a presente proposta calcula o hash do par [evidência, identificador da imagem do contêiner] e armazena a tripla [hash, identificador da imagem do contêiner, evidência].
 %
-Para evitar eventuais problemas com o armazenamento desses dados em países com jurisdições diferentes daquelas que devem ser aplicadas na investigação em questão, as evidências coletadas são armazenadas em um local físico fora da nuvem, após serem transportadas por meio de um canal seguro (e.g., usando o protocolo \textit{Transport Layer Security} -- TLS \cite{DierksT2008}).
+Para evitar eventuais problemas com o armazenamento desses dados em países com jurisdições diferentes daquelas que devem ser aplicadas na investigação em questão, as evidências coletadas são armazenadas em um local físico fora da nuvem, após serem transportadas por meio de um canal seguro (e.g., via \textit{Transport Layer Security} -- TLS \cite{DierksT2008}).
 %
 
 \subsection{Implementação}
@@ -713,23 +687,29 @@ Para evitar eventuais problemas com o armazenamento desses dados em países com 
 %\marcosT{CLAREZA: quais ataques? Onde estão esses objetivos (diga a seção!!!)? Perceba que não tem qualquer seção com esse nome: você espera realmente que o leitor procure no seu texto onde eles estão...? - Hamilton: Feito}
 
 \begin{figure}[htb!]
-\caption{Desenho completo da solução Dizang}
-\includegraphics[scale=0.25]{solucao.jpg}
+\footnotesize
+\caption{Arquitetura geral da solução Dizang}
+\includegraphics[scale=0.41]{solucao.jpg}
+\centering
 \label{fig:Solucao}
 \end{figure}
 
 
-Os métodos propostos foram implementados em uma plataforma de testes visando avaliar a eficácia de \fancyname em coletar as informações de memória dos contêineres de forma reprodutível, garantindo a cadeia de custódia sem violar jurisdições ou a privacidade de usuários.
+Os métodos propostos foram implementados em uma plataforma de testes visando avaliar a eficácia de \fancyname em coletar as informações de memória dos contêineres de forma reprodutível, sem violar jurisdições ou a privacidade de usuários.
 %
-A solução, ilustrada na Figura \ref{fig:Solucao}, consistiu na criação de 1 máquina virtual usando o Oracle Virtual Box 5.0 \cite{VirtualBox} em um notebook Intel i5 de 2.30Mhz e 4Gb de RAM com sistema operacional de 64 bits.
+A solução, ilustrada na Fig. \ref{fig:Solucao}, consistiu na criação de 1 VM usando o Oracle Virtual Box 5.0%\cite{VirtualBox} 
+em um notebook Intel i5 de 2.30Mhz e 4Gb de RAM com sistema operacional de 64 bits.
 %
-Essas máquinas virtuais possuem 2 Gb de memória RAM e emulam apenas 1 processador, e em cada uma delas foi instalado o Docker Engine 1.10 \cite{DockerInc} e a API Docker 1.21 \cite{DockerInc}, com os quais foram criados 3 contêineres executando o nginx 1.0 \cite{nginx} em diferentes portas. 
+Essas VMs possuem 2 Gb de memória RAM e emulam apenas 1 processador, e em cada uma delas foi instalado o Docker Engine 1.10%\cite{DockerInc} 
+e a API Docker 1.21%\cite{DockerInc}
+, com os quais foram criados 3 contêineres executando o nginx 1.0%\cite{nginx}
+ em diferentes portas. 
 %
-Usando uma aplicação Java que descobre o identificador de processo associado a cada contêiner, pode-se copiar conteúdo do \textit{descritor de alocação de memória não uniforme} (\textbf{/proc/pid/numa\_maps}), o qual contém a alocação das páginas de memória, os nós que estão associados a essas páginas, o que está alocado e suas respectivas políticas de acesso\cite{UnixManPages_numa_maps}.
+Usando uma aplicação Java que descobre o identificador de processo associado a cada contêiner, pode-se copiar conteúdo do \textit{descritor de alocação de memória não uniforme} (\textbf{/proc/pid/numa\_maps}), o qual contém a alocação das páginas de memória, os nós que estão associados a essas páginas, o que está alocado e suas respectivas políticas de acesso \cite{UnixManPages_numa_maps}.
 %
-A cópia e gravação desse arquivo acontece da seguinte forma: a cada minuto, a aplicação (1) pausa o contêiner em questão, (2) copia a diretório \textbf{numa\_maps}, (3)  concatena os dados obtidos com o \textit{hash} de identificação da imagem do contêiner, (4) calcula o \textit{hash} do conjunto e (5) salva o resultado em um arquivo cujo nome é o identificador da imagem do contêiner e a extensão é \textbf{.mem}. 
+A cópia e gravação do arquivo é tal que, a cada minuto, a aplicação (1) pausa o contêiner em questão, (2) copia a diretório \textbf{numa\_maps}, (3)  concatena os dados obtidos com o \textit{hash} de identificação da imagem do contêiner, (4) calcula o \textit{hash} do conjunto e (5) salva o resultado em um arquivo cujo nome é o identificador da imagem do contêiner e a extensão é \textbf{.mem}. 
 %
-Após a conclusão do processo de cópia, a mesma aplicação verifica se existem arquivos \textbf{.mem} em disco mais antigos do que um certo intervalo de tempo ``t'', descartando-os.
+Após a conclusão do processo de cópia, a mesma aplicação verifica se existem arquivos \textbf{.mem} em disco mais antigos que um certo intervalo de tempo ``t'', descartando-os.
 %
 
 %\marcosT{IMPORTANTE: discuta em alguns parágrafos os resultados. Até aqui, você só disse o que fez, mas não falou nada sobre o que isso traz de impactos positivos ou negativos. Por exemplo: quanto tempo demora a cópia (isso pode ser crítico para um processo que opera em tempo real, já que ele será pausado...)? Enfim, tire conclusões dos experimentos, porque senão os experimentos não têm qualquer utilidade para o leitor... Quanto mais completa a discussão (não só ``tempos'', mas também memória, quantidade de dados gerados por hora, uso de banda, etc.), melhor. Gráficos e tabelas com dados obtidos são muito bem vindos. - Hamilton: Feito}
@@ -737,11 +717,10 @@ Após a conclusão do processo de cópia, a mesma aplicação verifica se existe
 %\marcosT{IMPORTANTE: Discuta também a relação entre o que foi feito e os ataques de injeção mencionados na introdução. O seu texto inicialmente menciona tais ataques como parte do seu foco, mas nunca mais retoma a existência deles depois que você descreve a solução... Não precisa ser uma discussão longa, mas ao menos algumas considerações sobre o porquê de você conseguir analisar tais ataques usando a técnica proposta - Hamilton: Feito.}
 %
 
-
 \subsection{Resultados experimentais}
 \label{sec:proposal-exp}
 
-Para avaliar a efetividade de \fancyname na coleta de evidências, alguns experimentos foram realizados usando o ambiente implementado conforme descrito na Seção \ref{sec:proposal-impl}.
+Para avaliar a efetividade de \fancyname na coleta de evidências, alguns experimentos foram realizados usando o ambiente implementado (descrito na Seção \ref{sec:proposal-impl}).
 %
 Primeiramente, o sistema foi configurado para realizar coletas de memória em intervalos de 1 minuto, salvá-las em disco externo e apagar amostras coletadas há mais de 5 minutos. 
 %
@@ -752,12 +731,18 @@ A cada coleta, foi executado o comando \texttt{du -sh *.mem} do \textit{Unix} no
 Ao fim do experimento, os contêineres foram removidos.
 
 
-A ocupação em disco devido aos instantâneos de memória capturados durante o experimento é mostrada no gráfico da Figura \ref{fig:evolucao_coleta}. 
+A ocupação em disco devido aos instantâneos de memória capturados durante o experimento é mostrada no gráfico da Fig. \ref{fig:evolucao_coleta}. 
 %
 O gráfico mostra que o aumento do uso do espaço em disco é linear e o crescimento se interrompe quando é atingido o limite de tempo configurado para a janela, pois as coletas com tempo de vida maior que tal limite são apagadas do disco. 
 %
-Pode-se concluir, portanto, que a solução mantém sob controle o espaço em disco ocupado pelas amostras coletadas.
+Assim, que a solução mantém sob controle o espaço em disco ocupado pelas amostras coletadas.
 %
+Ao mesmo tempo, instantâneos de memória salvos pela solução depois que os contêineres são removidos continuam no disco da máquina, podendo ser associados a sua origem (i.e., contêiner e imagem), conforme esperado para uma análise forense.
+%
+Essa capacidade se mantém após a detecção de uma ameaça, pois nesse caso coletas mais antigas deixam de ser apagadas.
+%
+Logo, é possível descrever o estado do sistema antes e depois do incidente \cite{Case_Memory_Forensics:2014}, permitindo-se, por exemplo, que ataques de injeção de código em memória sejam analisados.
+
 
 %\marcos{EVITE REDUNDÂNCIA ENTRE GRÁFICO E TABELA. Faz sentido apenas se um deles for trazer informações adicionais (e, nesses casos, em geral o gráfico/tabela acaba tendo algum highlight, para deixar a utilidade dessa redundância)
 %\begin{table}[htb!]
@@ -801,16 +786,17 @@ Pode-se concluir, portanto, que a solução mantém sob controle o espaço em di
 %\end{table}
 
 \begin{figure*}[htb!]
+\footnotesize
 \caption{Evolução do uso do espaço em disco com o \fancyname.}
-\includegraphics[scale=0.30]{evolucao_coleta.jpg}
+\includegraphics[scale=0.32]{evolucao_coleta.jpg}
 \centering
 \label{fig:evolucao_coleta}
 \end{figure*}
 
 
 
-
-A figura \ref{fig:memoria_salva}, por sua vez, mostra uma listagem de alguns dos instantâneos de memória salvos pela solução depois que os contêineres são removidos. 
+\begin{comment}
+A Fig. \ref{fig:memoria_salva}, por sua vez, mostra uma listagem de alguns dos instantâneos de memória salvos pela solução depois que os contêineres são removidos. 
 %
 Nela pode-se ver que as coletas continuaram no disco da máquina mesmo após a remoção dos contêineres. 
 %
@@ -822,7 +808,8 @@ Assim, é possível descrever o estado do sistema antes e depois do incidente \c
 
 
 \begin{figure*}[htb!]
-\caption{Lista de instantâneos de memória.}
+\footnotesize
+\caption{Exemplo de lista de instantâneos de memória.}
 \fbox{
 \includegraphics[scale=0.30]{memoria_salva.jpg}
 }
@@ -830,6 +817,7 @@ Assim, é possível descrever o estado do sistema antes e depois do incidente \c
 \label{fig:memoria_salva}
 \end{figure*}
 
+\end{comment}
 
 %No evento da detecção de uma ameaça a presente proposta deixa de apagar as coletas mais antigas. 
 %
@@ -842,7 +830,7 @@ Uma potencial limitação da solução proposta é que a pausa de um contêiner 
 %
 Para avaliar esse impacto, durante o experimento foram medidos os tempos de cópia da memória do contêiner.
 %
-Os resultados são mostrados no gráfico da Figura \ref{fig:memoria_copia}.
+Os resultados são mostrados no gráfico da Fig. \ref{fig:memoria_copia}.
 %
 É possível notar que, após a inicialização da aplicação, o tempo para realizar a cópia é bastante reduzido, variando entre 20 e 40 milisegundos. 
 %
@@ -893,7 +881,8 @@ Em especial, para contêineres executando um motor de páginas web dinâmicas, c
 %\end{table}
 
 \begin{figure*}[htb!]
-\caption{Lista de instantâneos de memória.}
+\footnotesize
+\caption{Tempo de cópia da memória de um contêiner}
 \includegraphics[scale=0.30]{memoria_copia.jpg}
 \centering
 \label{fig:memoria_copia}
@@ -999,7 +988,7 @@ Análise de ameaças que realizam manipulação direta dos objetos do kernel (D.
 %
 Ameaças digitais que atuam diretamente na memória de sistema não costumam deixar rastros em disco após terem os recursos correspondentes desalocados, dificultando análises forenses posteriores.
 %
-Esse problema é especialmente notável em sistemas de computação em nuvem, nos quais a alocação e desalocação de recursos virtualizados (e.g., máquinas virtuais e contêineres) é frequente.
+Esse problema é especialmente notável em sistemas de computação em nuvem, nos quais a alocação e desalocação de recursos virtualizados (e.g., VMs e contêineres) é frequente.
 %
 Essa característica, aliada a aspectos como multi-inquilinato e multi-jurisdição de nuvens computacionais, dificulta a coleta de evidências para a investigação de incidentes.
 
@@ -1010,9 +999,14 @@ Para evitar uso excessivo de memória, a quantidade de dados armazenados usa uma
 %
 Combinada com uma ferramenta para identificação de ameaças, essas características de \fancyname o transformam em uma solução poderosa para prover evidências e, assim, viabilizar análises forenses na nuvem.
 %
-Cabe notar, entretanto, que muitas ferramentas de análise malware disponíveis no mercado necessitam que todo o conteúdo da memória da máquina esteja disponível para realização da análise (e.g., FROST \cite{Dykstra_FROST:2013}, Volatility Framework \cite{VolatilityFoundation2014} e FATkit \cite{Fraser2006}), o que inviabiliza seu uso diretamente sobre a memória de processos conforme coletado por \fancyname.
+%Cabe notar, entretanto, que muitas ferramentas de análise malware disponíveis no mercado necessitam que todo o conteúdo da memória da máquina esteja disponível para realização da análise (e.g., FROST \cite{Dykstra_FROST:2013} e Volatility Framework \cite{VolatilityFoundation2014}), o que inviabiliza seu uso diretamente sobre a memória de processos conforme coletado por \fancyname.
 %
-Portanto, como trabalho futuro, pretende-se desenvolver uma ferramenta de detecção de ameaças mais flexível, que, embora potencialmente utilize técnicas similares àquelas adotadas em sistemas atuais, seja capaz de fazê-lo sem necessariamente ter acesso à memória completa da máquina.
+%Portanto, como trabalho futuro, pretende-se desenvolver uma ferramenta de detecção de ameaças mais flexível, que, embora potencialmente utilize técnicas similares àquelas adotadas em sistemas atuais, seja capaz de fazê-lo sem necessariamente ter acesso à memória completa da máquina.
+%
+
+Como trabalho futuro, pretende-se estudar o impacto provocado pela pausa do contêiner no desempenho de um sistema em produção e realizar uma análise da memória dos contêiners deste mesmo sistema utilizando as coletas feitas por \fancyname. 
+%
+Com esses resultados pretende-se implementar uma ferramenta mais flexível, que não precise ter acesso a memória completa da máquina, requisito comum de ferramentas de análise de malware atuais (e.g., FROST \cite{Dykstra_FROST:2013} e Volatility Framework \cite{VolatilityFoundation2014}).
 
 
 

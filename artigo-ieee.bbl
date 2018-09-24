@@ -24,8 +24,9 @@
 \bibitem{Morsy_Cloud_Security:2010}
 \BIBentryALTinterwordspacing
 A.~M. Morsy, J.~Grundy, and I.~Muller, ``{An Analysis of the Cloud Computing
-  Security Problem},'' in \emph{APSEC Cloud Workshop}, Sydney, Australia, 2010.
-  [Online]. Available: \url{https://arxiv.org/abs/1609.01107}
+  Security Problem},'' in \emph{APSEC Cloud Workshop}.\hskip 1em plus 0.5em
+  minus 0.4em\relax Sydney, Australia: Cornell University, 2010. [Online].
+  Available: \url{https://arxiv.org/abs/1609.01107}
 \BIBentrySTDinterwordspacing
 
 \bibitem{Bash_Adv_in_Forensics:2015}
@@ -81,7 +82,7 @@ S.~Piraghaj, A.~Dastjerdi, R.~Calheiros, and R.~Buyya, ``A framework and
 \bibitem{Case_Memory_Forensics:2014}
 A.~Case, M.~Ligh, L.~Jamie, and A.~Walters, \emph{{The Art of Memory Forensics:
   Detecting malware and threats in Windows, Linux and Mac memory}}.\hskip 1em
-  plus 0.5em minus 0.4em\relax Wiley, 2014.
+  plus 0.5em minus 0.4em\relax Hoboken, NJ: Wiley, 2014.
 
 \bibitem{Vomel_Memory_Acquisition:2013}
 \BIBentryALTinterwordspacing
@@ -91,26 +92,17 @@ S.~V\"{o}mel and J.~St\"{u}ttgen, ``An evaluation platform for forensic memory
   \url{http://dx.doi.org/10.1016/j.diin.2013.06.004}
 \BIBentrySTDinterwordspacing
 
-\bibitem{Miller_Remote_Library_Injection:2004}
-M.~Miller and J.~Turkulainen, ``{Remote Library Injection},'' Tech. Report:
-  \urls{www.nologin.org/Downloads/Papers/remote-library-injection.pdf}, 2004.
-
-\bibitem{Fewer_Reflective_Library_Inject:2008}
-B.~S. Fewer, ``{Reflective DLL Injection},'' no. October, 2008.
-
 \bibitem{NIST2011}
 \BIBentryALTinterwordspacing
 P.~Mell and T.~Grance, ``The {NIST} definition of cloud computing,'' NIST SP
-  800-145. \urls{csrc.nist.gov/publications/nistpubs/800-145/SP800-145.pdf},
-  p.~7, 2011. [Online]. Available:
-  \url{www.mendeley.com/research/the-nist-definition-about-cloud-computing/}
+  800-145, p.~7, 2011. [Online]. Available:
+  \url{csrc.nist.gov/publications/nistpubs/800-145/SP800-145.pdf}
 \BIBentrySTDinterwordspacing
 
-\bibitem{Linuxcontainers.org2015}
-\BIBentryALTinterwordspacing
-Linuxcontainers.org, ``{Linux Containers (LXC)},'' 2015. [Online]. Available:
-  \url{https://linuxcontainers.org/lxc/introduction/}
-\BIBentrySTDinterwordspacing
+\bibitem{container-survey:2016}
+{DevOps and ClusterHQ}, ``Container market adoption survey 2016,''
+  \urls{https://clusterhq.com/assets/pdfs/state-of-container-usage-june-2016.pdf},
+  2016.
 
 \bibitem{Poisel_VMI:2013}
 \BIBentryALTinterwordspacing
@@ -121,18 +113,6 @@ R.~Poisel, E.~Malzer, and S.~Tjoa, ``{Evidence and cloud computing: The virtual
   \url{citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.469.937}
 \BIBentrySTDinterwordspacing
 
-\bibitem{Dezfouli_Backup_approach:2012}
-F.~Dezfouli, A.~Dehghantanha, R.~Mahmoud, N.~Sani, and S.~Shamsuddin,
-  ``Volatile memory acquisition using backup for forensic investigation,'' in
-  \emph{Int. Conf. on Cyber Security, Cyber Warfare and Digital Forensic
-  (CyberSec)}, June 2012, pp. 186--189.
-
-\bibitem{Clarke_Review_of_Challenges:2015}
-S.~Alqahtany, N.~Clarke, S.~Furnell, and C.~Reich, ``Cloud forensics: A review
-  of challenges, solutions and open problems,'' in \emph{Int. Conference on
-  Cloud Computing (ICCC)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, April
-  2015, pp. 1--9.
-
 \bibitem{Do_Desafio:2014}
 D.~Barbara, ``{Desafios da per{\'{i}}cia forense em um ambiente de
   computa{\c{c}}{\~{a}}o nas nuvens},'' Univ. do Planalto Catarinense, Tech.
@@ -141,13 +121,21 @@ D.~Barbara, ``{Desafios da per{\'{i}}cia forense em um ambiente de
 \bibitem{Dolan-Gavitt_Semantic_Gap:2011}
 B.~Dolan-Gavitt, T.~Leek, M.~Zhivich, J.~Giffin, and W.~Lee, ``Virtuoso:
   Narrowing the semantic gap in virtual machine introspection,'' in \emph{IEEE
-  Symposium on Security and Privacy}, May 2011, pp. 297--312.
+  Symposium on Security and Privacy}.\hskip 1em plus 0.5em minus 0.4em\relax
+  Plymouth, UK: IEEE, May 2011, pp. 297--312.
 
 \bibitem{Aljaedi_Comparative:2011}
 A.~Aljaedi, D.~Lindskog, P.~Zavarsky, R.~Ruhl, and F.~Almari, ``Comparative
   analysis of volatile memory forensics: Live response vs. memory imaging,'' in
   \emph{IEEE 3rd Int. Conf. on Privacy, Security, Risk and Trust}, 2011, pp.
   1253--1258.
+
+\bibitem{Dezfouli_Backup_approach:2012}
+F.~Dezfouli, A.~Dehghantanha, R.~Mahmoud, N.~Sani, and S.~Shamsuddin,
+  ``Volatile memory acquisition using backup for forensic investigation,'' in
+  \emph{Int. Conf. on Cyber Security, Cyber Warfare and Digital Forensic
+  (CyberSec)}.\hskip 1em plus 0.5em minus 0.4em\relax Plymouth, UK: IEEE, June
+  2012, pp. 186--189.
 
 \bibitem{VanBaar_FAAS:2014}
 \BIBentryALTinterwordspacing
@@ -157,22 +145,11 @@ R.~B. van Baar, H.~M.~A. van Beek, and E.~J. van Eijk, ``{Digital Forensics as
   \url{dx.doi.org/10.1016/j.diin.2014.03.007}
 \BIBentrySTDinterwordspacing
 
-\bibitem{Tomcat}
-\BIBentryALTinterwordspacing
-Apache, ``{Apache-Tomcat},'' 2016. [Online]. Available:
-  \url{tomcat.apache.org/}
-\BIBentrySTDinterwordspacing
-
-\bibitem{Google}
-\BIBentryALTinterwordspacing
-Google, ``{Golang}.'' [Online]. Available: \url{https://golang.org/}
-\BIBentrySTDinterwordspacing
-
-\bibitem{Cassandra}
-\BIBentryALTinterwordspacing
-Apache, ``{Apache-Cassandra},'' 2016. [Online]. Available:
-  \url{cassandra.apache.org/}
-\BIBentrySTDinterwordspacing
+\bibitem{Clarke_Review_of_Challenges:2015}
+S.~Alqahtany, N.~Clarke, S.~Furnell, and C.~Reich, ``Cloud forensics: A review
+  of challenges, solutions and open problems,'' in \emph{Int. Conference on
+  Cloud Computing (ICCC)}.\hskip 1em plus 0.5em minus 0.4em\relax Plymouth, UK:
+  IEEE, April 2015, pp. 1--9.
 
 \bibitem{Rafique_Static_Live_Digital_Forensics:2013}
 \BIBentryALTinterwordspacing
@@ -185,7 +162,9 @@ M.~Rafique and M.~N.~A. Khan, ``{Exploring Static and Live Digital Forensics:
 \bibitem{Simou_Cloud_Chlng:2014}
 S.~Simou, C.~Kalloniatis, E.~Kavakli, and S.~Gritzalis, ``{Cloud forensics:
   Identifying the major issues and challenges},'' in \emph{Advanced Information
-  Systems Engineering (CAiSE 2014)}, vol. 8484, 2014, pp. 271--284.
+  Systems Engineering (CAiSE 2014)}, vol. 8484.\hskip 1em plus 0.5em minus
+  0.4em\relax Cham, CH: Springer International Publishing Switzerland 2014,
+  2014, pp. 271--284.
 
 \bibitem{Bem_Past_Present_Future:2008}
 D.~Bem, F.~Feld, E.~Huebner, and O.~Bem, ``Computer forensics - past , present
@@ -202,36 +181,14 @@ D.~Quick and K.~K.~R. Choo, ``{Impacts of increasing volume of digital forensic
 
 \bibitem{DierksT2008}
 R.~E. {Dierks T}, ``{The Transport Layer Security (TLS) Protocol},'' IETF:
-  \urls{https://tools.ietf.org/html/rfc5246}, 2008.
-
-\bibitem{VirtualBox}
-\BIBentryALTinterwordspacing
-Oracle, ``{Virtual Box 5.1}.'' [Online]. Available:
-  \url{https://www.virtualbox.org/}
-\BIBentrySTDinterwordspacing
-
-\bibitem{DockerInc}
-\BIBentryALTinterwordspacing
-{Docker Inc}, ``{Docker}.'' [Online]. Available: \url{https://www.docker.com/}
-\BIBentrySTDinterwordspacing
-
-\bibitem{nginx}
-\BIBentryALTinterwordspacing
-S.~Igor, ``{NginX}.'' [Online]. Available: \url{https://nginx.org/}
-\BIBentrySTDinterwordspacing
+  \urls{https://tools.ietf.org/html/rfc5246}, Fremont, CA, 2008.
 
 \bibitem{UnixManPages_numa_maps}
 {Unix Man Pages}, ``{Numa Maps - Non Uniform Memory Architecture},''
-  \urls{man7.org/linux/man-pages/man7/numa.7.html}.
+  \urls{man7.org/linux/man-pages/man7/numa.7.html}, acessado em: 24-06-2017.
 
 \bibitem{VolatilityFoundation2014}
 {Volatility Foundation}, ``{Volatility Framework},''
-  \urls{www.volatilityfoundation.org/}, 2014.
-
-\bibitem{Fraser2006}
-T.~Fraser, W.~A. Arbaugh, N.~L. {Petroni Jr}, and W.~Aaron, ``{FATKit: A
-  framework for the extraction and analysis of digital forensic data from
-  volatile system memory},'' \emph{Digital Investigations}, vol.~3, pp.
-  197--210, 2006.
+  \urls{www.volatilityfoundation.org/}, 2014, acessado em: 24-06-2017.
 
 \end{thebibliography}
