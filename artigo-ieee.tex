@@ -703,19 +703,18 @@ Para evitar eventuais problemas com o armazenamento desses dados em países com 
 
 Os métodos propostos foram implementados em uma plataforma de testes visando avaliar a eficácia de \fancyname em coletar as informações de memória dos contêineres de forma reprodutível, sem violar jurisdições ou a privacidade de usuários.
 %
-A solução, ilustrada na Fig. \ref{fig:Solucao}, consistiu na criação de 1 VM usando o Oracle Virtual Box 5.0%\cite{VirtualBox} 
-em um notebook Intel i5 de 2.30Mhz e 4Gb de RAM com sistema operacional de 64 bits.
+A solução, ilustrada na Fig. \ref{fig:Solucao}, consistiu criação de uma instancia \textit{t2.micro} na zona Ohio da AWS com 3.3Mhz, 1Gb de RAM e sistema operacional de 64 bits. 
+%na criação de 1 VM usando o Oracle Virtual Box 5.0%\cite{VirtualBox} em um notebook Intel i5 de 2.30Mhz e 4Gb de RAM com sistema operacional de 64 bits.
 %
-Essas VMs possuem 2 Gb de memória RAM e emulam apenas 1 processador, e em cada uma delas foi instalado o Docker Engine 1.10%\cite{DockerInc} 
-e a API Docker 1.21%\cite{DockerInc}
-, com os quais foram criados 3 contêineres executando o nginx 1.0%\cite{nginx}
- em diferentes portas. 
+Nesa instância AWS foi instalado o Docker Engine 1.10 e a API Docker 1.21, com os quais foram criados 3 contêineres executando o nginx 1.0 em diferentes portas. 
 %
 Usando uma aplicação Java que descobre o identificador de processo associado a cada contêiner, pode-se copiar conteúdo do \textit{descritor de alocação de memória não uniforme} (\textbf{/proc/pid/numa\_maps}), o qual contém a alocação das páginas de memória, os nós que estão associados a essas páginas, o que está alocado e suas respectivas políticas de acesso \cite{UnixManPages_numa_maps}.
 %
 A cópia e gravação do arquivo é tal que, a cada minuto, a aplicação (1) pausa o contêiner em questão, (2) copia a diretório \textbf{numa\_maps}, (3)  concatena os dados obtidos com o \textit{hash} de identificação da imagem do contêiner, (4) calcula o \textit{hash} do conjunto e (5) salva o resultado em um arquivo cujo nome é o identificador da imagem do contêiner e a extensão é \textbf{.mem}. 
 %
-Após a conclusão do processo de cópia, a mesma aplicação verifica se existem arquivos \textbf{.mem} em disco mais antigos que um certo intervalo de tempo ``t'', descartando-os.
+Os arquivos .mem são então transportados via conexão segura para um armazenamento físico fora da nuvem e removidos da instancia AWS que gerou a evidência.
+%
+Após a conclusão do processo de transporte, o armazenamento físico verifica se existem arquivos \textbf{.mem} em disco mais antigos que um certo intervalo de tempo ``t'', descartando-os.
 %
 
 %\marcosT{IMPORTANTE: discuta em alguns parágrafos os resultados. Até aqui, você só disse o que fez, mas não falou nada sobre o que isso traz de impactos positivos ou negativos. Por exemplo: quanto tempo demora a cópia (isso pode ser crítico para um processo que opera em tempo real, já que ele será pausado...)? Enfim, tire conclusões dos experimentos, porque senão os experimentos não têm qualquer utilidade para o leitor... Quanto mais completa a discussão (não só ``tempos'', mas também memória, quantidade de dados gerados por hora, uso de banda, etc.), melhor. Gráficos e tabelas com dados obtidos são muito bem vindos. - Hamilton: Feito}
@@ -732,7 +731,9 @@ Primeiramente, o sistema foi configurado para realizar coletas de memória em in
 %
 O sistema foi então executado por 30 minutos, tempo durante o qual foram coletadas como métricas (1) o uso de espaço em disco utilizado pelos instantâneos de memória salvos e (2) o tempo de pausa no contêiner necessário para a cópia das mesmas.
 %
-A cada coleta, foi executado o comando \texttt{du -sh *.mem} do \textit{Unix} no disco de armazenamento externo, para retornar a lista dos arquivos onde os instantâneos de memória foram armazenados e o espaço em disco ocupado pelos mesmos. 
+A cada coleta, foi executado o comando \texttt{du -sh *.mem} do \textit{Unix} no disco de armazenamento externo, para retornar a lista dos arquivos onde os instantâneos de memória foram armazenados e o espaço em disco ocupado pelos mesmos.
+%
+Um processo em um máquina física fora da nuvem conecta-se via conexção segura à instância AWS e transporta as evidências para a máquina física. 
 %
 Ao fim do experimento, os contêineres foram removidos.
 
@@ -743,7 +744,7 @@ O gráfico mostra que o aumento do uso do espaço em disco é linear e o crescim
 %
 Assim, que a solução mantém sob controle o espaço em disco ocupado pelas amostras coletadas.
 %
-Ao mesmo tempo, instantâneos de memória salvos pela solução depois que os contêineres são removidos continuam no disco da máquina, podendo ser associados a sua origem (i.e., contêiner e imagem), conforme esperado para uma análise forense.
+Ao mesmo tempo, instantâneos de memória salvos pela solução depois que os contêineres e a instância AWS são removidos continuam no disco da máquina física fora da nuvem, podendo ser associados a sua origem, conforme esperado para uma análise forense.
 %
 Essa capacidade se mantém após a detecção de uma ameaça, pois nesse caso coletas mais antigas deixam de ser apagadas.
 %
