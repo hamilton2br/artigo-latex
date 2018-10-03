@@ -340,6 +340,8 @@
 % (Unless specifically asked to do so by the journal or conference you plan
 % to submit to, of course. )
 
+\usepackage{float}
+
 \usepackage{xcolor}
 \newcommand{\marcos}[1]{{\color{blue}{MARCOS: #1}}}
 \newcommand{\marcosT}[1]{{\color{red}{TODO: #1}}}
@@ -690,8 +692,6 @@ Para evitar eventuais problemas com o armazenamento desses dados em países com 
 \subsection{Implementação}
 \label{sec:proposal-impl}
 
-%\marcosT{CLAREZA: quais ataques? Onde estão esses objetivos (diga a seção!!!)? Perceba que não tem qualquer seção com esse nome: você espera realmente que o leitor procure no seu texto onde eles estão...? - Hamilton: Feito}
-
 \begin{figure}[htb!]
 \footnotesize
 \caption{Arquitetura geral da solução Dizang}
@@ -706,20 +706,19 @@ Os métodos propostos foram implementados em uma plataforma de testes visando av
 A solução, ilustrada na Fig. \ref{fig:Solucao}, consistiu criação de uma instancia \textit{t2.micro} na zona Ohio da AWS com 3.3Mhz, 1Gb de RAM e sistema operacional de 64 bits. 
 %na criação de 1 VM usando o Oracle Virtual Box 5.0%\cite{VirtualBox} em um notebook Intel i5 de 2.30Mhz e 4Gb de RAM com sistema operacional de 64 bits.
 %
-Nesa instância AWS foi instalado o Docker Engine 1.10 e a API Docker 1.21, com os quais foram criados 3 contêineres executando o nginx 1.0 em diferentes portas. 
+Nesta instância AWS foi instalado o Docker Engine 1.10 e a API Docker 1.21, com os quais foram criados 3 contêineres executando o nginx 1.0 em diferentes portas. 
 %
 Usando uma aplicação Java que descobre o identificador de processo associado a cada contêiner, pode-se copiar conteúdo do \textit{descritor de alocação de memória não uniforme} (\textbf{/proc/pid/numa\_maps}), o qual contém a alocação das páginas de memória, os nós que estão associados a essas páginas, o que está alocado e suas respectivas políticas de acesso \cite{UnixManPages_numa_maps}.
 %
 A cópia e gravação do arquivo é tal que, a cada minuto, a aplicação (1) pausa o contêiner em questão, (2) copia a diretório \textbf{numa\_maps}, (3)  concatena os dados obtidos com o \textit{hash} de identificação da imagem do contêiner, (4) calcula o \textit{hash} do conjunto e (5) salva o resultado em um arquivo cujo nome é o identificador da imagem do contêiner e a extensão é \textbf{.mem}. 
 %
-Os arquivos .mem são então transportados via conexão segura para um armazenamento físico fora da nuvem e removidos da instancia AWS que gerou a evidência.
+O transporte seguro da evidência para um armazenamento físico fora da AWS foi implementado usando uma instância \textit{t2.micro} na zona Ohio da AWS onde foi instalado um servidor \textit{OpenVPN}.
 %
-Após a conclusão do processo de transporte, o armazenamento físico verifica se existem arquivos \textbf{.mem} em disco mais antigos que um certo intervalo de tempo ``t'', descartando-os.
+A instância EC2 que contém as evidências foi configurada para aceitar conexões apenas de máquinas na VPN.
 %
-
-%\marcosT{IMPORTANTE: discuta em alguns parágrafos os resultados. Até aqui, você só disse o que fez, mas não falou nada sobre o que isso traz de impactos positivos ou negativos. Por exemplo: quanto tempo demora a cópia (isso pode ser crítico para um processo que opera em tempo real, já que ele será pausado...)? Enfim, tire conclusões dos experimentos, porque senão os experimentos não têm qualquer utilidade para o leitor... Quanto mais completa a discussão (não só ``tempos'', mas também memória, quantidade de dados gerados por hora, uso de banda, etc.), melhor. Gráficos e tabelas com dados obtidos são muito bem vindos. - Hamilton: Feito}
-
-%\marcosT{IMPORTANTE: Discuta também a relação entre o que foi feito e os ataques de injeção mencionados na introdução. O seu texto inicialmente menciona tais ataques como parte do seu foco, mas nunca mais retoma a existência deles depois que você descreve a solução... Não precisa ser uma discussão longa, mas ao menos algumas considerações sobre o porquê de você conseguir analisar tais ataques usando a técnica proposta - Hamilton: Feito.}
+Uma máquina fisica fora da AWS, usou o cliente do \textit{OpenVPN} para estabelecer uma conexão VPN com a instância que contém as evidências e as transportou para o disco da máquina física.
+%
+Após a conclusão do processo de transporte, a máquina física verifica se existem arquivos \textbf{.mem} em disco mais antigos que um certo intervalo de tempo ``t'', descartando-os.
 %
 
 \subsection{Resultados experimentais}
@@ -727,13 +726,11 @@ Após a conclusão do processo de transporte, o armazenamento físico verifica s
 
 Para avaliar a efetividade de \fancyname na coleta de evidências, alguns experimentos foram realizados usando o ambiente implementado (descrito na Seção \ref{sec:proposal-impl}).
 %
-Primeiramente, o sistema foi configurado para realizar coletas de memória em intervalos de 1 minuto, salvá-las em disco externo e apagar amostras coletadas há mais de 5 minutos. 
+Primeiramente, o sistema foi configurado para realizar coletas de memória em intervalos de 1 minuto, salvá-las em disco em uma máquina física fora da nuvem e apagar amostras coletadas há mais de 5 minutos. 
 %
-O sistema foi então executado por 30 minutos, tempo durante o qual foram coletadas como métricas (1) o uso de espaço em disco utilizado pelos instantâneos de memória salvos e (2) o tempo de pausa no contêiner necessário para a cópia das mesmas.
+O sistema foi então executado por 30 minutos, tempo durante o qual foram coletadas como métricas (1) o uso de espaço em disco utilizado pelos instantâneos de memória salvos e (2) o tempo de pausa no contêiner necessário para a cópia das mesmas e (3) o tempo o tempo de transporte da evidência para a máquina física fora da nuvem.
 %
-A cada coleta, foi executado o comando \texttt{du -sh *.mem} do \textit{Unix} no disco de armazenamento externo, para retornar a lista dos arquivos onde os instantâneos de memória foram armazenados e o espaço em disco ocupado pelos mesmos.
-%
-Um processo em um máquina física fora da nuvem conecta-se via conexção segura à instância AWS e transporta as evidências para a máquina física. 
+A cada coleta, foi executado o comando \texttt{du -sh *.mem} do \textit{Unix} no disco de armazenamento físico fora da nuvem, para retornar a lista dos arquivos onde os instantâneos de memória foram armazenados e o espaço em disco ocupado pelos mesmos.
 %
 Ao fim do experimento, os contêineres foram removidos.
 
@@ -751,48 +748,7 @@ Essa capacidade se mantém após a detecção de uma ameaça, pois nesse caso co
 Logo, é possível descrever o estado do sistema antes e depois do incidente \cite{Case_Memory_Forensics:2014}, permitindo-se, por exemplo, que ataques de injeção de código em memória sejam analisados.
 
 
-%\marcos{EVITE REDUNDÂNCIA ENTRE GRÁFICO E TABELA. Faz sentido apenas se um deles for trazer informações adicionais (e, nesses casos, em geral o gráfico/tabela acaba tendo algum highlight, para deixar a utilidade dessa redundância)
-%\begin{table}[htb!]
-%\centering
-%\caption{Evolução do uso do espaço em disco}
-%\label{tab:results-size}
-%\begin{tabular}{c|c}
-%\hline
-%Tamanho total ocupado (KBytes) & Tempo (segundos) \\ \hline
-%240                            & 1                \\ \hline
-%480                            & 2                \\ \hline
-%720                            & 3                \\ \hline
-%960                            & 4                \\ \hline
-%1200                           & 5                \\ \hline
-%1200                           & 6                \\ \hline
-%1200                           & 7                \\ \hline
-%1200                           & 8                \\ \hline
-%1200                           & 9                \\ \hline
-%1200                           & 10                \\ \hline
-%1200                           & 11                \\ \hline
-%1200                           & 12                \\ \hline
-%1200                           & 13                \\ \hline
-%1200                           & 14                \\ \hline
-%1200                           & 15                \\ \hline
-%1200                           & 16                \\ \hline
-%1200                           & 17                \\ \hline
-%1200                           & 18                \\ \hline
-%1200                           & 19                \\ \hline
-%1200                           & 20                \\ \hline
-%1200                           & 21                \\ \hline
-%1200                           & 22                \\ \hline
-%1200                           & 23                \\ \hline
-%1200                           & 24                \\ \hline
-%1200                           & 25                \\ \hline
-%1200                           & 26                \\ \hline
-%1200                           & 27                \\ \hline
-%1200                           & 28                \\ \hline
-%1200                           & 29                \\ \hline
-%1200                           & 30                \\ \hline
-%\end{tabular}
-%\end{table}
-
-\begin{figure*}[htb!]
+\begin{figure*}[h!]
 \footnotesize
 \caption{Evolução do uso do espaço em disco com o \fancyname.}
 \includegraphics[scale=0.42]{evolucao_coleta_ieee.png}
@@ -800,38 +756,6 @@ Logo, é possível descrever o estado do sistema antes e depois do incidente \ci
 \label{fig:evolucao_coleta}
 \end{figure*}
 
-
-
-\begin{comment}
-A Fig. \ref{fig:memoria_salva}, por sua vez, mostra uma listagem de alguns dos instantâneos de memória salvos pela solução depois que os contêineres são removidos. 
-%
-Nela pode-se ver que as coletas continuaram no disco da máquina mesmo após a remoção dos contêineres. 
-%
-Usando o identificador do contêiner e da imagem, consegue-se associar a evidência a sua origem (i.e., a imagem e o contêiner), conforme esperado para uma análise forense.
-%
-Essa capacidade se mantém após a detecção de uma ameaça, pois nesse caso coletas mais antigas deixam de ser apagadas.
-%
-Assim, é possível descrever o estado do sistema antes e depois do incidente \cite{Case_Memory_Forensics:2014}, permitindo-se, por exemplo, que ataques de injeção de código em memória sejam analisados.
-
-
-\begin{figure*}[htb!]
-\footnotesize
-\caption{Exemplo de lista de instantâneos de memória.}
-\fbox{
-\includegraphics[scale=0.30]{memoria_salva.jpg}
-}
-\centering
-\label{fig:memoria_salva}
-\end{figure*}
-
-\end{comment}
-
-%No evento da detecção de uma ameaça a presente proposta deixa de apagar as coletas mais antigas. 
-%
-%Desta forma é capaz de descrever a história das alterações da memória do contêiner e com isso viabilizar a análise forense em busca das 4 vulnerabilidades de injeção de código em memória citadas no início do artigo. \marcos{Link bem fraco com introdução... pra que explicar em *detalhes* as vulnerabilidades na Introdução se você vai fazer uma explicação *superficial* de como elas são abordadas... Coloquei en passant para não dar a impressão de que você quis chamar a atenção para aquelas vulnerabilidades (sim, eu tinha pedido para você fazer esse link, mas um link tão fraco joga CONTRA você, não a favor...)}
-%
-%A viabilidade se dá pois consegue descrever o estado do sistema antes e depois do incidente \cite{Case_Memory_Forensics:2014}.
-%
 
 Uma potencial limitação da solução proposta é que a pausa de um contêiner para coleta de dados poder, em princípio, causar perdas no desempenho da aplicação sendo executada. 
 %
@@ -843,57 +767,35 @@ Os resultados são mostrados no gráfico da Fig. \ref{fig:memoria_copia}.
 %
 Em especial, para contêineres executando um motor de páginas web dinâmicas, como é o caso do experimento em questão, essa latência deve ser pouco perceptível por usuários finais.
 
-
-%\marcosT{Essas duas frases não é resultado do experimento, mas apenas característica da sua solução, então não faz muito sentido colocar aqui. Melhor mover essas considerações para o local em que você descreve essas características, fazendo merge com o texto que já esteja lá. Se você já fez essa discussão naquele ponto, então não precisa repetir. Se for fazer o merge, lembre-se (repita 2x ao dia, como um mantra): NÃO USE PRIMEIRA PESSOA EM TEXTOS FORMAIS EM PORTUGUÊS. - Hamilton: Feito. Desulpas, fraquejei :p}
-%
-
-%\begin{table}[htb!]
-%\centering
-%\caption{Tempo de cópia da memória de um contêiner}
-%\label{tab:results-conteiner}
-%\begin{tabular}{c|c}
-%\hline
-%Tempo de cópia (Milisegundos) & Coleta           \\ \hline
-%149                           & 1                \\ \hline
-%59                            & 2                \\ \hline
-%23                            & 3                \\ \hline
-%32                            & 4                \\ \hline
-%35                            & 5                \\ \hline
-%21                            & 6                \\ \hline
-%17                            & 7                \\ \hline
-%38                            & 8                \\ \hline
-%16                            & 9                \\ \hline
-%33                            & 10               \\ \hline
-%17                            & 11               \\ \hline
-%36                            & 12               \\ \hline
-%18                            & 13               \\ \hline
-%25                            & 14               \\ \hline
-%31                            & 15               \\ \hline
-%14                            & 16               \\ \hline
-%33                            & 17               \\ \hline
-%19                            & 18               \\ \hline
-%13                            & 19               \\ \hline
-%20                            & 20               \\ \hline
-%18                            & 21               \\ \hline
-%24                            & 22               \\ \hline
-%8                             & 23               \\ \hline
-%9                             & 24               \\ \hline
-%19                            & 25               \\ \hline
-%7                             & 26               \\ \hline
-%8                             & 27               \\ \hline
-%11                            & 28               \\ \hline
-%35                            & 29               \\ \hline
-%13                            & 30               \\ \hline
-%\end{tabular}
-%\end{table}
-
-\begin{figure*}[htb!]
+\begin{figure*}[h!]
 \footnotesize
 \caption{Tempo de cópia da memória de um contêiner}
 \includegraphics[scale=0.40]{memoria_copia_ieee.png}
 \centering
 \label{fig:memoria_copia}
 \end{figure*}
+
+
+Outra preocupação levantada está relacionado ao tempo de transporte das evidências para o armazenamento fora da nuvem.
+%
+O transporte da evidência pode levar mais tempo que o intervalo de geração levando a perdas da evidências durante o transporte. 
+%
+Para avaliar esse impacto, durante o experimento foram medidos os tempos de transporte das evidências para o armazenamento fora da nuvem.
+%
+Os resultados são mostrados no gráfico da Fig. \ref{fig:evidencia_transporte}.
+%
+É possível notar que o tempo de transporte estabiliza após atingido o tamanho da janela. O tempo de transporte da evidência fica, em média proximo dos 30 segundos. 
+%
+Este tempo pode diminuir escolhendo-se uma topologia de rede diferente. Neste experimento o gerador de evidências estava na América do Norte enquanto que a máquina física para onde as evidências foram transportadas estava na América do Sul.
+
+\begin{figure*}[htb!]
+\footnotesize
+\caption{Tempo de cópia da memória de um contêiner}
+\includegraphics[scale=0.40]{evidencia_download_ieee.png}
+\centering
+\label{fig:evidencia_transporte}
+\end{figure*}
+
 
 \subsection{Limitações}
 
