@@ -425,7 +425,7 @@ Arquiteturas em nuvem são cada vez mais comuns, e também o número de problema
 %
 Infelizmente, devido à natureza volátil de recursos na nuvem, a coleta de evidências para análise forense nesse ambiente tem esbarrado em desafios práticos e legais.
 %
-Este trabalho, com foco técnico, analisa propostas voltadas a resolver os desafios existentes na coleta evidências na nuvem, discute suas limitações, e então apresenta uma solução visando suplantá-las.
+Este trabalho, com foco técnico, analisa propostas voltadas a resolver os desafios existentes na coleta de evidências na nuvem, discute suas limitações, e então apresenta uma solução visando suplantá-las.
 %
 Especificamente, a proposta tem como foco a reprodutibilidade do processo de coleta, sem com isso violar jurisdições ou a privacidade dos não envolvidos na investigação.
 
@@ -708,7 +708,7 @@ A solução, ilustrada na Fig. \ref{fig:Solucao}, consistiu criação de uma ins
 %
 Nesta instância AWS foi instalado o Docker Engine 1.10 e a API Docker 1.21, com os quais foram criados 3 contêineres executando o nginx 1.0 em diferentes portas. 
 %
-Usando uma aplicação Java que descobre o identificador de processo associado a cada contêiner, pode-se copiar conteúdo do \textit{descritor de alocação de memória não uniforme} (\textbf{/proc/pid/numa\_maps}), o qual contém a alocação das páginas de memória, os nós que estão associados a essas páginas, o que está alocado e suas respectivas políticas de acesso \cite{UnixManPages_numa_maps}.
+Usando uma aplicação Java que descobre o identificador de processo associado a cada contêiner, pôde-se copiar conteúdo do \textit{descritor de alocação de memória não uniforme} (\textbf{/proc/pid/numa\_maps}), o qual contém a alocação das páginas de memória, os nós que estão associados a essas páginas, o que está alocado e suas respectivas políticas de acesso \cite{UnixManPages_numa_maps}.
 %
 A cópia e gravação do arquivo é tal que, a cada minuto, a aplicação (1) pausa o contêiner em questão, (2) copia a diretório \textbf{numa\_maps}, (3)  concatena os dados obtidos com o \textit{hash} de identificação da imagem do contêiner, (4) calcula o \textit{hash} do conjunto e (5) salva o resultado em um arquivo cujo nome é o identificador da imagem do contêiner e a extensão é \textbf{.mem}. 
 %
@@ -728,18 +728,17 @@ Para avaliar a efetividade de \fancyname na coleta de evidências, alguns experi
 %
 Primeiramente, o sistema foi configurado para realizar coletas de memória em intervalos de 1 minuto, salvá-las em disco em uma máquina física fora da nuvem e apagar amostras coletadas há mais de 5 minutos. 
 %
-O sistema foi então executado por 30 minutos, tempo durante o qual foram coletadas como métricas (1) o uso de espaço em disco utilizado pelos instantâneos de memória salvos e (2) o tempo de pausa no contêiner necessário para a cópia das mesmas e (3) o tempo o tempo de transporte da evidência para a máquina física fora da nuvem.
+O sistema foi então executado por 30 minutos, tempo durante o qual foram coletadas como métricas (1) o uso de espaço em disco utilizado pelos instantâneos de memória salvos, (2) o tempo de pausa no contêiner necessário para a cópia das mesmas e (3) o tempo de transporte da evidência para a máquina física fora da nuvem.
 %
 A cada coleta, foi executado o comando \texttt{du -sh *.mem} do \textit{Unix} no disco de armazenamento físico fora da nuvem, para retornar a lista dos arquivos onde os instantâneos de memória foram armazenados e o espaço em disco ocupado pelos mesmos.
 %
-Ao fim do experimento, os contêineres foram removidos.
 
 
 A ocupação em disco devido aos instantâneos de memória capturados durante o experimento é mostrada no gráfico da Fig. \ref{fig:evolucao_coleta}. 
 %
 O gráfico mostra que o aumento do uso do espaço em disco é linear e o crescimento se interrompe quando é atingido o limite de tempo configurado para a janela, pois as coletas com tempo de vida maior que tal limite são apagadas do disco. 
 %
-Assim, que a solução mantém sob controle o espaço em disco ocupado pelas amostras coletadas.
+Assim, a solução mantém sob controle o espaço em disco ocupado pelas amostras coletadas.
 %
 Ao mesmo tempo, instantâneos de memória salvos pela solução depois que os contêineres e a instância AWS são removidos continuam no disco da máquina física fora da nuvem, podendo ser associados a sua origem, conforme esperado para uma análise forense.
 %
@@ -776,7 +775,7 @@ Em especial, para contêineres executando um motor de páginas web dinâmicas, c
 \end{figure*}
 
 
-Outra preocupação levantada está relacionado ao tempo de transporte das evidências para o armazenamento fora da nuvem.
+Outra preocupação é o tempo de transporte das evidências para o armazenamento fora da nuvem.
 %
 O transporte da evidência pode levar mais tempo que o intervalo de geração levando a perdas da evidências durante o transporte. 
 %
@@ -786,7 +785,9 @@ Os resultados são mostrados no gráfico da Fig. \ref{fig:evidencia_transporte}.
 %
 É possível notar que o tempo de transporte estabiliza após atingido o tamanho da janela. O tempo de transporte da evidência fica, em média proximo dos 30 segundos. 
 %
-Este tempo pode diminuir escolhendo-se uma topologia de rede diferente. Neste experimento o gerador de evidências estava na América do Norte enquanto que a máquina física para onde as evidências foram transportadas estava na América do Sul.
+A topologia é um fator que pode contrubuir tanto positiva quanto negativamente no tempo de transporte. 
+%
+Neste experimento o gerador de evidências está na América do Norte enquanto que a máquina física para onde as evidências foram transportadas está na América do Sul.
 
 \begin{figure*}[htb!]
 \footnotesize
