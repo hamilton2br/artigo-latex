@@ -315,7 +315,8 @@
 
 %*** para suportar acentuação ***
 \usepackage[utf8]{inputenc}
-\usepackage[brazil]{babel}
+%\usepackage[brazil]{babel}
+\usepackage[USenglish]{babel}
 
 %*** para suportar tabelas com colunas mergeadas ***
 \usepackage{multirow}
@@ -365,7 +366,7 @@
 % can use linebreaks \\ within to get better formatting as desired
 % Do not put math or special symbols in the title.
 %\title{Coletando dados de memória de máquina em nuvem para análise forense de ataques de injeção de código}
-\title{\fancynameX: Uma solução para coleta de evidências forenses de ataques de injeção na nuvem}
+\title{\fancynameX: A solution for collecting forensic evidences of cloud malware injection attack}
 
 
 % author names and affiliations
@@ -421,13 +422,13 @@ Email: hamiltonii@gmail.com, mjunior@larc.usp.br}
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
 \begin{abstract}
-Arquiteturas em nuvem são cada vez mais comuns, e também o número de problemas de segurança envolvendo essa tecnologia. 
+Cloud architectures are increasingly more common, as is the number of security problems involving this technology. 
 %
-Infelizmente, devido à natureza volátil de recursos na nuvem, a coleta de evidências para análise forense nesse ambiente tem esbarrado em desafios práticos e legais.
+Unfortunately, due to the volatile nature of resources in the cloud, the collection of evidences for forensic analysis has faced practical and legal challenges.
 %
-Este trabalho, com foco técnico, analisa propostas voltadas a resolver os desafios existentes na coleta de evidências na nuvem, discute suas limitações, e então apresenta uma solução visando suplantá-las.
+With a technical focus, this work analyzes proposals aimed at meeting the challenges posed by the collection of evidences in the cloud, discusses their limitations and presents a solution to overcome them.
 %
-Especificamente, a proposta tem como foco a reprodutibilidade do processo de coleta, sem com isso violar jurisdições ou a privacidade dos não envolvidos na investigação.
+The proposal specifically focuses on the reproducibility of the collection process, without violating jurisdictions or the privacy of those not involved in the investigation.
 
 \end{abstract}
 
@@ -446,116 +447,107 @@ Especificamente, a proposta tem como foco a reprodutibilidade do processo de col
 % creates the second title. It will be ignored for other modes.
 \IEEEpeerreviewmaketitle
 
-\section{Introdução}
+\section{Introduction}
 
 %==== CONTEXTO GERAL: Nuvem e volatilidade de VMs ====
 %
-Técnicas de virtualização, replicação de serviços e compartilhamento de recursos entre múltiplos usuários (multi-inquilinato) dão a nuvens computacionais alta escalabilidade \cite{Morsy_Cloud_Security:2010}.
+Visualization techniques, replication of services and resource sharing among multiple users (multitenancy) provide the computational clouds with high scalability \cite{Morsy_Cloud_Security:2010}.
 %
-Porém, tais mecanismos também levam à volatilidade dos recursos virtuais que executam aplicações.
+Yet these mechanisms also lead to the volatility of the virtual resources that execute the applications.
 %
-Afinal, quando submetida a uma carga elevada, uma aplicação hospedada na nuvem pode criar clones das máquinas virtuais (\textit{virtual machines} -- VMs) que a hospedam e balancear a carga entre elas, buscando atender à demanda sem prejuízos na qualidade do serviço oferecido. 
+After all, when submitted to a high load, an application hosted in the cloud may create clones of the virtual machines (VMs) hosting it and balance the load between them, seeking to meet the demand without harming the quality of the service offered. 
 %
-Após esse pico, as VMs clonadas são normalmente desativadas, seus recursos liberados e o sistema retorna à capacidade anterior, evitando-se custos desnecessários.
+After this peak, the cloned VMs are usually deactivated, their resources are released and the system returns to the previous capacity, preventing unnecessary costs.
 
 
 %==== CONTEXTO ESPECÍFICO + PROBLEMA GERAL: Forense na nuvem vs. volatilidade + multitenancy + multidomains ====
 %
-Embora interessante do ponto de vista de eficiência e custos, do ponto de vista forense a volatilidade da nuvem traz problemas em caso de ataques.
+Despite interesting from the efficiency and cost viewpoints, from the forensic point of view, the volatility of the cloud causes problems in case of attacks.
 %
-Por exemplo, caso uma das instâncias de processamento virtuais criadas temporariamente seja alvo de ameaças que atuam diretamente na sua memória, sem deixar rastros em discos (e.g., arquivos de \textit{log}), as evidências desse evento podem ser completamente perdidas após elas serem desativadas e terem seus recursos liberados.
+For example, in case one of the virtual processing instances temporarily created undergoes threats that act directly on its memory, without leaving traces in disks (e.g. log files), the evidences of this event may be completely lost after they are deactivated and their resources are released.
 %
-Essa dificuldade é ainda agravada por aspectos como multi-inquilinato e multi-jurisdição típicas de soluções em nuvem \cite{Bash_Adv_in_Forensics:2015}.
+This difficulty is further aggravated by aspects such as multitenancy and multi-jurisdiction, typical of cloud solutions \cite{Bash_Adv_in_Forensics:2015}.
 %
-Especificamente, o aspecto multi-inquilino dificulta a obtenção do \textit{hardware} que executa as aplicações de interesse, pois, como ele é compartilhado por vários usuários, removê-los para análise poderia levar a uma violação de privacidade dos usuários não relacionados à investigação. 
+Particularly, the multitenancy aspect hinders identifying the hardware executing the applications of interest; since it is shared by a number of users, removing them for analysis could lead to a violation of privacy of the users not related to the investigation. 
 %
-Já a natureza distribuída da nuvem pode levar à alocação de informações relevantes à investigação em vários países, dificultando a obtenção das mesmas em especial quando não existem acordos de cooperação entre as entidades envolvidas \cite{Dykstra_Acquiring_for_IAAS:2012}.
+Moreover, the distributed nature of the cloud may lead to allocating information relevant to the investigation in different countries, thus hindering obtaining this information, especially when there are no cooperation agreements among the entities involved \cite{Dykstra_Acquiring_for_IAAS:2012}.
 %
-Combinadas, tais características dificultam a coleta de evidências com a credibilidade necessária para que elas possam ser aceitas em processos legais,  o que exige o respeito à privacidade, à jurisdição e à cadeia de custódia, bem como a reprodutibilidade do processo de coleta \cite{Rahman_Live_Forensics_Techniques:2015}.
-%Combinadas, tais características dificultam a coleta de evidências com a credibilidade necessária para que elas possam ser usadas em processos legais,  o que exige o respeito à privacidade, à jurisdição e à cadeia de custódia, bem como a reprodutibilidade do processo de coleta \cite{Rahman_Live_Forensics_Techniques:2015}.
+Combined, these characteristics hinder collection of evidences with the necessary credibility so that they can be accepted in legal processes, which require respect to privacy, to the jurisdiction and to the chain of custody, as well as to the reproducibility of the collection process \cite{Rahman_Live_Forensics_Techniques:2015}.
 
 
 %==== O QUE EXISTE E PORQUE NÃO É SUFICIENTE: ??? ====
 %
-Embora existam soluções na literatura voltadas à coleta de informações na nuvem para a análise forense, a maioria delas aborda a coleta, o transporte e o armazenamento de forma isolada.
+Although the literature presents solutions aimed at collecting information in the cloud for forensic analysis, most of them approach collection, transport and storage in an isolated manner.
 %
-Por exemplo, trabalhos como \cite{Dykstra_FROST:2013} e \cite{Reichert_Auto_acquisition:2015} tratam de fatores como multi-inquilinato e multi-jurisdição, discutindo formas de coleta e preservação da evidência fora da nuvem.
+Works such as \cite{Dykstra_FROST:2013} and \cite{Reichert_Auto_acquisition:2015} deal with factors such as multitenancy and multi-jurisdiction, discussing forms of collecting and preserving evidence outside the cloud.
 %
-Já estudos como \cite{George_DF2CE:2012} se concentram na análise forense para a coleta de evidência de VMs enquanto elas estão em execução, enquanto trabalhos como \cite{Sang_Log_approach:2013} tratam a garantia de cadeia de custódia durante o transporte da evidência.
+Works such as \cite{George_DF2CE:2012} concentrate on forensic analysis to collect evidence from VMs while they are being executed, whereas works such as \cite{Sang_Log_approach:2013} deal with guaranteeing the chain of custody for transporting the evidence.
 %
-%abordam os problemas descritos anteriormente \marcosT{QUAIS, CARA PÁLIDA? VOCÊ LISTOU 4 TIPOS DE ATAQUE E DEIXOU UM PROBLEMA GERAL: COMO O LEITOR VAI SABER QUAIS EXATAMENTE SÃO ABORDADOS? Seja mais preciso: clareza acima de tudo!!!} de forma isolada.
-%
-%Alguns propõem soluções para o os fatores multi-inquilino e multi-jurisdição, outros abordam apenas a coleta de evidência de máquinas virtuais e por fim temos as que descrevem apenas os processos de garantia de cadeia de custodia. \marcosT{Er... você não me deu sequer um exemplo, então eu sou obrigado a acreditar em você sem que você apresente argumentos... lembre-se que revisores são seres amargos e cruéis, que não acreditam em nada, então melhor não arriscar e dar exemplos claros.}
-%
-Por outro lado, não foram identificadas propostas que (1) descrevam como o dado é coletado e armazenado observando a cadeia de custódia, e (2) permitam que, mesmo que um recurso virtualizado seja desalocado, haja condições de se reproduzir o processo de coleta de evidências.
+However, none of the proposals identified (1) describe how data are collected and stored observing the chain of custody, and (2) allow the conditions for reproducing the evidence collection process even if a virtualized resource is removed.
 
 
 
 %==== O QUE FAZEMOS: Ataques de injeção ====
 %
-O presente trabalho visa suplantar tais limitações, apresentando uma proposta com foco: (1) na reprodutibilidade do processo de coleta, (2) no estabelecimento de vínculo entre a evidência coletada e sua origem, (3) na preservação da jurisdição e da privacidade dos não envolvidos na investigação.
+This work aims to overcome these limitations, presenting a proposal focusing on: (1) the reproducibility of the collection process, (2) establishing a link between the evidence collected and its origin, (3) preserving the jurisdiction and the privacy of those not involved in the investigation.
 %
-Em suma, a solução descrita provê uma forma de correlacionar evidências e sua origem virtual, permitindo transportar e armazenar tais dados de modo a preservar sua credibilidade e assim contribuir para sua aceitabilidade em um processo legal.
+In sum, the solution described provides a way of correlating evidences and their virtual origin so as to preserve their credibility and thus contribute to their acceptability in a legal process.
 %
-Por fim, gestão de incidentes, que cada vez mais compartilha processos e ferramentas com a forense digital, pode se beneficiar de uma solução de coleta e preservação de evidências que esteja pronta na fase de \textit{preparação ao incidente} e seja capaz de preservar as evidências para a fase \textit{pós-incidente} permitindo assim que na fase de \textit{detecção e análise} não seja necessário se preocupar com perda parcial ou total das mesmas.
+Lastly, Incident Management, which increasingly shares processes and tools with digital forensics, may benefit from a ready-to-use solution for collecting and preserving evidences at the \textit{preparation for the incident} stage. It should also be able to preserve evidences for the \textit{post-incident} stage, thus making it unnecessary to be concerned with their partial or total loss at the \textit{detection and analysis stages}.
 %
-Para isso, supõe-se que o sistema sendo monitorado é executado dentro de um recurso em nuvem univocamente identificável.
-%Para isso, supõe-se que o sistema sendo monitorado é executado dentro de um contêiner, abordagem que se justifica pelo crescimento da adoção de conteinerização nos últimos anos, bem como pela previsão de que este será o modelo de implementação mais usado no futuro \cite{Piraghaj_Container_Cloud_Computing:2016}.
+For this, the system is supposed to be monitored and executed within a cloud resource univocally identifiable.
 %
-A solução tem como alvo específico ataques de injeção de código \cite{Case_Memory_Forensics:2014}, pois estes, quando usados contra uma arquitetura em nuvem, não deixam rastros quando recursos de processamento virtuais são desativados e sua memória é liberada \cite{Vomel_Memory_Acquisition:2013}, \cite{Case_Memory_Forensics:2014}.
+The solution specifically targets code injection attacks \cite{Case_Memory_Forensics:2014}, seeing that, when these are used against the cloud architecture, they leave no traces when virtual processing resources are deactivated and their memory is released \cite{Vomel_Memory_Acquisition:2013}, \cite{Case_Memory_Forensics:2014}.
 %
-%Em particular, têm especial interesse quatro tipos específicos dessa família de ameaças \cite{Case_Memory_Forensics:2014}:
 
 
-Este documento está assim organizado.
+This paper is organized as follows.
 %
-A Seção \ref{sec:cloud} discute brevemente soluções em nuvem e suas características.
+Section \ref{sec:cloud} briefly discusses cloud solutions and their characteristics.
 %
-A Seção \ref{sec:related} analisa os trabalhos relacionados na área de forense de memória.
+Section \ref{sec:related} analyzes the works related to the forensic memory area.
 %
-A Seção \ref{sec:proposal} detalha a solução proposta e avalia como ela trata os desafios alvo deste trabalho.
+Section \ref{sec:proposal} details the solution proposed and assesses how it deals with the target challenges of this work. 
 %
-A Seção \ref{sec:conclusion} apresenta as conclusões do estudo.
+Section \ref{sec:conclusion} presents the conclusions.
 
 
 
-\section{Adoção de arquiteturas em nuvem e contêineres}
+\section{Adoption of Cloud Architecture and Containers}
 \label{sec:cloud}
 
 
-Uma nuvem computacional é um modelo de infraestrutura no qual recursos compartilhados em quantidade configurável, acessíveis via rede, são alocados e desalocados com esforço mínimo de gerenciamento por parte de um provedor de serviços. \cite{NIST2011}
-%A infraestrutura é composta de máquinas físicas contendo cada uma um número variável de máquinas virtuais que implementam este serviço \cite{Sousa_Computacao_Nuvem:2009}. 
+A computational cloud is an infrastructure model in which resources shared at a configurable number, accessible via net, are allocated and removed by a service provider with minimum management effort \cite{NIST2011}.
 %
-Há três modelos principais de comercialização de uso da nuvem \cite{NIST2011}: \textit{software} como serviço (\textit{Software as a Service} -- SaaS), na qual se provê o \textit{software} que será usado pelo cliente; plataforma como serviço (\textit{Platform as a Service} -- PaaS), na qual se provê o ambiente para que o cliente desenvolva, teste e execute seu \textit{software}; e, o tipo mais pertinente para este trabalho, Infraestrutura como serviço (\textit{Infrastructure as a Service} -- IaaS), na qual são fornecidos recursos computacionais básicos, como processamento e memória, em geral de forma virtualizada.
+There are three main models for trading use in the cloud \cite{NIST2011}: software as a service (SaaS), in which the software to be used by the client is provided; platform as a service (PaaS), in which an environment is provided for clients to develop, test and execute their software; and the most pertinent type for this work, infrastructure as a service (IaaS), in which basic computational resources are provided, such as processing and memory, generally in a virtualized way.
 
 
-A virtualização de recursos na nuvem, embora tradicionalmente feita por meio de VMs, vem sendo crescentemente feita também na forma de contêineres.
+The virtualization of resources in the cloud, despite traditionally conducted by means of VMs, has also increasingly been peformed in the form of containers.
 %
-De fato, segundo estudo realizado em 2016 com 235 empresas que têm desenvolvimento de software como sua atividade fim ou como suporte à atividade fim \cite{container-survey:2016}, 76\% dos respondentes utilizam contêineres para melhorar a eficiência do processo de desenvolvimento e em suas arquiteturas de micro-serviços em nuvem.
+According to a study conducted in 2016 with 235 companies having software development as their end activity or as a support to the end activity \cite{container-survey:2016}, 76\% of the respondents use containers to improve the efficiency of the development process and in their architecture of cloud micro-services.
 %
-Diferentemente de VMs, que envolvem a criação de um \textit{hardware} virtual e também de um SO acima do sistema nativo, a virtualização com contêineres é feita no nível do SO nativo, tem uma implementação mais simples eliminado camadas entre o aplicativo executado e o \textit{hardware} físico.
+Differently from VMs, which involve creating a virtual hardware and also a SO on top of the native system, the virtualization with containers is conducted at the level of the native SO, which has a simpler implementation, thus eliminating layers between the application executed and the physical hardware.
 %
-Uma tecnologia bastante utilizada para esse propósito são Contêineres Linux (LXC)%\cite{Linuxcontainers.org2015}
-, que aproveitam-se de funcionalidades como cgroups e namespacing do kernel do Linux para auxiliar no gerenciamento e isolamento de recursos virtuais.
+A technology widely used for this purpose is the Linux Containers (LXC), which takes advantage of functionalities such as cgroups and namespacing of the Linux kernel to help managing and isolating virtual resources.
 
 
 
-\section{Trabalhos relacionados}
+\section{Related works}
 \label{sec:related}
 
-Existem vários aspectos relativos à análise forense na nuvem, indo desde a coleta de informações até a garantia da cadeia de custódia de evidências.
+There are a number of aspects related to forensic analysis in the cloud, going from information collection to guaranteeing the evidence chain of custody.
 %
-Para uma discussão mais estruturada dos trabalhos disponíveis na literatura sobre o tema, resumidos na Tabela \ref{tab:related-work}, a seguir eles são apresentados com base nos diferentes aspectos que abordam.
+For a better structured discussion of the works available in the literature, summarized in Table \ref{tab:related-work}, they are presented as follows, based on the different aspects they approach.
 
 \begin{table}[htb!]
 \centering
-\caption{Comparativo de soluções de coleta de informações de memória de máquinas em nuvem para análise forense}
+\caption{Comparison of solutions for collecting memory information from cloud machines for forensic analysis}
 \label{tab:related-work}
 \renewcommand{\arraystretch}{2}
 \begin{tabular}{p{3.0cm}|L|L|L|L}
 \cline{2-5}
-\textbf{}															& \rotatebox{90}{\textbf{Coleta  é contínua?}}      & \rotatebox{90}{\textbf{Reproduz o processo sem a VM?}} & \rotatebox{90}{\textbf{Garante cadeia de custódia?}}     		& \rotatebox{90}{\textbf{Preserva jurisdição e privacidade?}}          \\ \hline
-\fancyname (esta proposta)						& \cfig	  & \cfig               & \cfig                  & \cfig                             \\ \hline
+\textbf{}															& \rotatebox{90}{\textbf{Is the collection continous?}}      & \rotatebox{90}{\textbf{Can it reproduce the process without the VM?}} & \rotatebox{90}{\textbf{Does it guarantee the chain of custody?}}     		& \rotatebox{90}{\textbf{Does it preserve jurisdiction and privacy?}}          \\ \hline
+\fancyname (this proposal)						& \cfig	  & \cfig               & \cfig                  & \cfig                             \\ \hline
 \cite{George_DF2CE:2012}							& \xfig		  	& \xfig                   & \xfig                      & \cfig                             \\ \hline
 \cite{Poisel_VMI:2013}								& \xfig       & \xfig                   & \xfig                      & \cfig                             \\ \hline
 \cite{Dykstra_FROST:2013}							& \xfig       & \xfig                   & \xfig                      & \cfig                             \\ \hline
@@ -571,241 +563,225 @@ Para uma discussão mais estruturada dos trabalhos disponíveis na literatura so
 
 
 
-\subsection{Acessar e coletar as informações de memória na nuvem}
+\subsection{Accessing and collecting information about memory in the cloud}
 
-Diversos trabalhos de análise forense na nuvem se concentram na coleta de dados ``após o fato'', ou seja, após a intrusão ser detectada \cite{Reichert_Auto_acquisition:2015,Poisel_VMI:2013,Dykstra_FROST:2013,George_DF2CE:2012,Sang_Log_approach:2013}. 
+Different works on forensic analysis in the cloud concentrate on collecting data “after the fact”, i.e., after the intrusion has been detected \cite{Reichert_Auto_acquisition:2015,Poisel_VMI:2013,Dykstra_FROST:2013,George_DF2CE:2012,Sang_Log_approach:2013}. 
 %
-Os processos de coleta descritos nesses trabalhos podem ser iniciados de forma manual ou automaticamente, via integração com um mecanismo de detecção de intrusão. 
+The collection processes described in those works can be started manually or automatically, by integrating them with an intrusion detection mechanism. 
 %
-No caso específico de memória volátil, tal forma de coleta não consegue descrever como era a memória antes da intrusão, pois o processo só é acionado depois da detecção do ataque. 
+In the specific case of volatile memory, that form of collection cannot describe what the memory was like before the intrusion, since the process is only activated after the attack has been detected. 
 %
-%A capacidade de saber como era a memória antes do fato é descrita por \cite{Case_Memory_Forensics:2014} como necessária para viabilizar a abordagem de coletar o suficiente para realizar a investigação pois permite comparar dois instantâneos de memória e minimizar o volume coletado antes do fato. 
-Tal limitação pode trazer prejuízos à investigação, dado que algumas análises dependem exatamente da capacidade de se comparar dois momentos da memória \cite{Case_Memory_Forensics:2014}. 
+This limitation can be harmful to the investigation, given that some analyses depend exactly on their ability to compare two moments of the memory \cite{Case_Memory_Forensics:2014}. 
 %
-Entre os trabalhos estudados, a única proposta encontrada que leva tal necessidade em consideração é \cite{Dezfouli_Backup_approach:2012}, que propõe que o dado seja armazenado no próprio equipamento sob análise.
+Among the works studied, the only proposal found that considers this need is \cite{Dezfouli_Backup_approach:2012}, which proposes that the data are stored in the very equipment under analysis.
 %
-%Infelizmente, entretanto, essa abordagem não é aplicável ao cenário em nuvem, pois leva a perda de informações importantes caso a máquina virtual seja despejada e seus recursos liberados.
-Infelizmente, entretanto, a aplicação de tal abordagem no cenário em nuvem é pouco viável, pois pode levar à perda de informações importantes caso a VM ou contêiner seja desativada, tendo seus recursos liberados.
+Unfortunately, however, the application of this approach to the cloud scenario is not very viable, since it can lead to losing important information in case the VM or the container comes to be deactivated and has its resources released.
 %
 
-%Ainda na coleta de informações, os autores \cite{Reichert_Auto_acquisition:2015} e \cite{George_DF2CE:2012} sugerem a abordagem de forense ao vivo onde os dados são constantemente coletados sem distinção do antes ou depois do fato. 
-Existem ainda trabalhos voltados à coleta de informações durante a execução do sistema, nos quais os dados são constantemente coletados sem distinção do que aconteceu antes ou depois do fato de interesse.
+There are also works aimed at collecting information during the system execution, in which data are constantly collected with no distinction between what happened before or after the event of interest.
 %
-Esse é o caso de trabalhos como \cite{Poisel_VMI:2013,Dykstra_FROST:2013,Sang_Log_approach:2013}, que adotam a estratégia de isolar e parar a VM para em seguida realizar o processo de coleta. 
+This is the case of works such as \cite{Poisel_VMI:2013,Dykstra_FROST:2013,Sang_Log_approach:2013}, which adopt the strategy of isolating and halting the VM for then conducting the collection process. 
 %
-%Nas duas estratégias citadas anteriormente, o problema do grande volume de informações coletadas não é abordado pelo autores nem o cenário onde é necessário coletar evidências de uma máquina virtual que já foi despejada do pool e os recursos liberados. 
-Embora interessantes, as abordagens descritas nesses trabalhos podem levar a um elevado volume de dados coletados, além de também não tratarem o cenário em que é necessário coletar evidências quando os recursos virtuais contendo tais informações são liberados.
+Albeit interesting, the approaches described in these works may lead to a massive volume of data collected, besides not treating the scenario from which evidence has to be collected when the virtual resources containing the information are released.
 
 
-\subsection{Capacidade de reproduzir o processo e obter os mesmos resultados}
+\subsection{Ability to reproduce the process and to obtain the same results}
 
-Se, durante uma análise forense, analistas diferentes obtêm resultados distintos ao executar o mesmo procedimento de coleta, a evidência gerada não tem credibilidade podendo levar a sua não aceitação em um processo legal. 
+If, during a forensic analysis, different analysts obtain distinct results when executing the same collection procedure, the evidence generated has no credibility and may come not to be accepted in a legal process. 
 %
-Por essa razão, a reprodutibilidade do processo de coleta é uma parte importante da geração de evidências para análise forense.
+For this reason, the reproducibility of the collection process is an important part in evidence generation for forensic analysis.
 %
-Infelizmente, entretanto, nenhuma das propostas encontradas na literatura atualmente permite tal reprodutibilidade em cenários de nuvem em que VMs ou contêineres são desativados e seus recursos físicos liberados: todas elas dependem da existência do recurso virtual para a repetição do processo de coleta.
+None of the proposals currently found in the literature allows this reproducibility in cloud scenarios in which VMs or containers are deactivated and their physical resources are released; they all depend on the existence of the virtual resource for repeating the collection process.
 
 
-\subsection{Não violar privacidade ou jurisdição das partes não envolvidas na investigação}
+\subsection{Not violating the privacy or jurisdiction of the parts not involved in the investigation}
 
-Em um ambiente de nuvem pública, remover o \textit{hardware} para análise posterior pode levar à violação de privacidade de usuários, uma vez que o multi-inquilinato desse cenário faz com que uma mesma máquina física guarde informações de diversos clientes, alguns dos quais podem não estar envolvidos na investigação em curso.
+In a public cloud environment, removing the hardware for later analysis may lead to violating the privacy of users, once this scenario multitenancy makes the same physical machine store information about different clients, some of which may not be involved in the investigation in course.
 %
-Diversos trabalhos na literatura tratam esse problema adequadamente, por meio das duas estratégias principais: a primeira, adotada em \cite{Reichert_Auto_acquisition:2015,George_DF2CE:2012,Poisel_VMI:2013,Dykstra_FROST:2013}, consiste em coletar dados pertinentes à investigação e armazená-los fora da nuvem; a segunda, empregada em \cite{Sang_Log_approach:2013} e que constitui um caso específico de \cite{George_DF2CE:2012}, depende da cooperação do provedor de serviços de nuvem para conseguir as informações necessárias à investigação. 
+Different works in the literature adequately deal with this issue using two major strategies: the first, adopted by \cite{Reichert_Auto_acquisition:2015,George_DF2CE:2012,Poisel_VMI:2013,Dykstra_FROST:2013}, consists in collecting data pertinent to the investigation and in storing them outside the cloud.; the second, employed in \cite{Sang_Log_approach:2013}, which consists of a specific case of \cite{George_DF2CE:2012}, depends on the cooperation of the cloud service provider for obtaining  the information necessary to the investigation. 
 %
-Depender do provedor de serviços de nuvem é uma estratégia pouco recomendada, entretanto, pois (1) o volume de dados de usuários pode forçar os provedores a limitar o tamanho dos \textit{logs} armazenados, e (2) caso ocorra uma indisponibilidade causada por um ataque, o objetivo do provedor será o de restabelecer o serviço, não necessariamente o de preservar evidências\cite{Clarke_Review_of_Challenges:2015}. 
+Yet depending on the cloud service provider is not a recommended strategy because (1) the volume of users’ data may force the providers to limit the size of the logs stored, and (2) in case unavailability caused by an attack occurs, the goal of the provider will be that of restoring the service, rather than preserving evidences \cite{Clarke_Review_of_Challenges:2015}. 
 
 
 
-\section{Solução proposta: \fancyname}
+\section{Solution proposed: \fancyname}
 \label{sec:proposal}
 
-A presente proposta tem como objetivo principal coletar memória de recursos computacionais virtuais de modo a conseguir: 
-(1) identificar a fonte da evidência, mesmo se o recurso virtual não existir mais; 
-(2) descrever o sistema antes e depois do incidente;
-(3) transportar e armazenar a memória coletada de uma forma que garanta sua integridade e confidencialidade; e
-(4) não violar a jurisdição e a privacidade de outros usuários que porventura tenham recursos alocados no mesmo servidor físico.
+This proposal aims mainly at collecting memory from virtual computational resources so as to succeed in: 
+(1) identifying the evidence source, even if the virtual resource no longer exists; 
+(2) describing the system before and after the incident;
+(3) transporting and storing the memory collected so as to guarantee its integrity and confidentiality; and
+(4) not violating the jurisdiction and privacy of other users that might have resources allocated in the same physical server.
 %
-A solução aqui apresentada, denominada \fancyname, é descrita em detalhes a seguir.
+The solution here presented, called Dizang, is described in detail as follows.
 
 
-\subsection{Descrição}
+\subsection{Description}
 \label{sec:proposal-desc}
 
-Em sistemas computacionais executados sobre uma infraestrutura física (i.e., não virtualizada), pode-se fazer uma associação direta entre um recurso qualquer, como uma informação da memória, imagem de disco ou pacotes trafegando na rede, e sua origem correspondente.
+In computational systems executed on a physical infrastructure (i.e., non-virtualized), a direct association can be made between any resource, such as memory information, disk image or packets travelling in the network, and their corresponding origin.
 %
-Já em sistemas construídos sobre uma infraestrutura virtual, em especial quando esta é auto-escalável, os recursos computacionais são altamente voláteis e, portanto, podem ser desalocados a qualquer momento.
+In systems built in a virtual infrastructure, especially when it is self-scalable, the computational resources are highly volatile and can thus be removed at any time.
 %
-Para conseguir correlacionar uma evidência a sua origem volátil, esta implementação faz uso de contêineres linux (LXC) para persistir a relação fonte-evidência.
-%Para conseguir correlacionar uma evidência a sua origem volátil, é necessário utilizar outro elemento em que persista a relação fonte-evidência, o que na presente proposta é feito por meio de contêineres linux (LXC).
+To succeed in correlating a piece of evidence to its volatile origin, this implementation uses Linux containers (LXC) to persist in the source-evidence relationship.
 %
-Embora um contêiner seja um \textit{software} e, portanto, também volátil, cada imagem compilada e sua execução na forma de contêiner são normalmente atrelados a um \textit{hash} que identifica univocamente essa relação.
+Although a container is a type of software, and is thus also volatile, each image compiled and its execution in the form of a container are normally linked to a hash that univocally identifies this relationship.
 %
-O contêiner também permite identificar com mais precisão a fonte de uma evidência, uma vez que é possível dividir as partes de um sistema em contêineres: por exemplo, um contêiner para o motor de páginas dinâmicas (e.g., Apache%\cite{Tomcat}
-), outro com a lógica de negócios (e.g., \textit{golang}%\cite{Google}
-) e um terceiro para um banco de dados (e.g., \textit{Cassandra}%\cite{Cassandra}
-).
+The container also allows more precisely identifying the source of a piece of evidence, once it is possible to divide the parts of a system into containers; for example, one container for the engine of dynamic web pages (e.g. Apache), another with business logics (e.g. Golang) and a third one for a databank (e.g. Cassandra).
 
-%\marcosT{O parágrafo estava muito grande, então quebrei aqui. O problema é que falta uma frase para ligar a frase a seguir ao contexto da discussão... Coloque uma frase aqui, deixando claro qual requisito você quer satisfazer com essa ideia de ``interromper temporariamente a execução do contêiner''. Aplique isso para TUDO que for proposta: o leitor tem que saber de antemão pra que você está fazendo alguma coisa, ou vai ficar se perguntando ``Espera, mas pra que fazer isso?!'' - Hamilton: Feito}
-A cópia de memória não é uma atividade atômica, pois ela é executada em conjunto com outros processos. 
-%
-Portanto, caso um desses processos seja um código malicioso apagando traços de sua existência da memória do contêiner, informações possivelmente importantes para a investigação podem acabar sendo perdidas. 
-%
-Com o objetivo de deixar o processo de cópia da memória mais atômico, \fancyname interrompe temporariamente a execução do contêiner, realiza a cópia de sua memória, e em seguida retoma sua execução. 
-%
-Essa técnica, que é semelhante àquela adotada em \cite{Rafique_Static_Live_Digital_Forensics:2013} para VMs, produz um instantâneo da memória volátil do contêiner; isso permite sua análise em um estado de repouso, ou seja, sem a necessidade de ter o contêiner em execução.
-%
-Ao realizar a coleta em intervalos de tempo adequados, é possível construir um histórico do estado da memória durante a execução no contêiner.
-%
-%\marcosT{A ligação entre as frases anterior e a seguir está bem ruim... você parece estar mudando completamente de assunto... Acredito que faltou uma frase dizendo que ``''salvar toda a memória'' pode se tornar um problema, reforçar isso com as duas frases que já estão a seguir, e depois dizer que você vai resolver.}
 
-A maioria das técnicas forenses mais usadas atualmente são voltadas à obtenção da informação em sua totalidade, seja via cópia bit a bit, seja por meio da obtenção do \textit{hardware} físico \cite{Simou_Cloud_Chlng:2014} \cite{Bem_Past_Present_Future:2008}. 
+Memory copy is not an atomic activity, since it is executed jointly with other processes.
 %
-Embora tais técnicas possam parecer interessantes à primeira vista, elas muitas vezes acabam sendo responsáveis por um problema: o crescente volume de informações que os investigadores precisam analisar \cite{Quick_Increase_Volume_Impact:2014}.
+Hence, in case one of these processes is a malicious code erasing traces of its existence from the container memory, possibly important information may eventually be lost. 
 %
-Para mitigar essa dificuldade, em \fancyname são adotadas duas estratégias: a primeira é a definição de um volume de dados que possa ser considerado \textit{suficiente} para a realização de uma investigação; a segunda é a definição de uma \textit{idade máxima} para a evidência enquanto o sistema trabalha em condições normais, isto é, quando não está sob ataque.
+Aiming to make the memory copy process more atomic, \fancyname temporarily interrupts the execution of the container, makes a copy of its memory and then resumes its execution. 
 %
-Para detectar e analisar intrusões na memória de processos, é necessário ter uma cópia da memória antes e depois da intrusão \cite{Case_Memory_Forensics:2014}. 
+This technique, similar to that adopted by \cite{Rafique_Static_Live_Digital_Forensics:2013} for VMs, produces a photograph of the container volatile memory; this allows its analysis at a repose state, that is, without the need of having the container at work.
 %
-Assim, a solução proposta implementa uma janela de instantâneos de memória cobrindo um intervalo de tempo pré-definido, como ilustrado na Fig. \ref{fig:janela}. 
+When conducting the data collection at adequate time intervals, it is possible to build the history of the memory state during its execution in the container.
 %
-Em condições normais de operação, as evidências são coletadas com certa periodicidade e coletas que atingem uma determinada idade são descartadas.
+
+Most of the forensic techniques currently most widely employed are directed to obtaining information in its totality, be it via bit by bit copy, be it by obtaining the physical hardware \cite{Simou_Cloud_Chlng:2014} \cite{Bem_Past_Present_Future:2008}. 
 %
-Em contraste, após a detecção de um evento de ataque (e.g., por um sistema de detecção de intrusões), \fancyname deixa de descartar as coletas mais antigas do \textit{log} de monitoramento, sendo possível conhecer o sistema antes e depois do ataque e, assim, avaliar sua evolução.
+Even though these techniques may sound interesting at first, many times they are eventually responsible for a problem: the growing volume of information investigators have to analyze \cite{Quick_Increase_Volume_Impact:2014}.
 %
-%\marcosR{Não sei por que você está utilizando $\backslash\backslash$ no final das suas frases, mas pare de fazer isso... deixe o LaTeX se virar com a formatação. No final, quando você tiver tudo escrito, aí pode fazer algum sentido se preocupar com formatação, mas não antes disso... - Hamilton: é pra formatação mesmo :-) OK vou deixar o latex se virar}
+To mitigate this difficulty, \fancyname adopts two strategies. The first is defining a volume of data that may be considered enough for conducting an investigation; the second is defining a maximum age for the evidence while the system works under normal conditions, i.e., when it is not under attack.
+%
+To detect and to analyze intrusions in the processes memory, it is necessary to have a copy of the memory before and after the intrusion \cite{Case_Memory_Forensics:2014}. 
+%
+The solution proposed thus implements a window of memory photographs covering a pre-defined time interval, as illustrated in Fig. \ref{fig:janela}. 
+%
+In normal operation conditions, the pieces of evidence are collected with a certain periodicity and collections reaching a given age are discarded.
+%
+In contrast, after an attack event is detected, (e.g. by an intrusion detection system), \fancyname stops discarding the oldest collections from the monitoring log, enabling to know the system before and after the attack and hence assess its evolution.
 %
 
 \begin{figure}[htb!]
 \footnotesize
-\caption{Janela deslizante de coleta de evidência}
+\caption{Sliding window of evidence collection}
 \includegraphics[scale=0.40]{janela_ieee.jpg}
 \centering
 \label{fig:janela}
 \end{figure}
 
-%\marcosT{Essa frase não faz sentido: não se ``assina'' nada com um ``hash''. Você pode ``calcular o hash'' ou ``assinar um dado'' (e.g., um dado juntamente com o hash de alguma coisa). Revise essa frase... - Hamilton: Feito}
-Para persistir a relação evidência-origem e garantir a integridade da mesma, a presente proposta calcula o hash do par [evidência, identificador da imagem do contêiner] e armazena a tripla [hash, identificador da imagem do contêiner, evidência].
+To persist in the evidence-origin relationship and to guarantee its integrity, this proposal calculates the pair hash [evidence, container image identifier] and stores the triple [hash, container image identifier, evidence].
 %
-Para evitar eventuais problemas com o armazenamento desses dados em países com jurisdições diferentes daquelas que devem ser aplicadas na investigação em questão, as evidências coletadas são armazenadas em um local físico fora da nuvem, após serem transportadas por meio de um canal seguro (e.g., via \textit{Transport Layer Security} -- TLS \cite{DierksT2008}).
+To prevent possible problems with the storage of these data in countries with different jurisdictions from those in which they must be applied in the investigation in question, the evidence collected is stored in a physical place outside the cloud, after being transported by a safe channel (e.g. via Transport Layer Security – TLS \cite{DierksT2008}).
 %
 
-\subsection{Implementação}
+\subsection{Implementation}
 \label{sec:proposal-impl}
 
 \begin{figure}[htb!]
 \footnotesize
-\caption{Arquitetura geral da solução Dizang}
+\caption{General architecture of the \fancyname solution}
 \includegraphics[scale=0.31]{solucao.jpg}
 \centering
 \label{fig:Solucao}
 \end{figure}
 
 
-Os métodos propostos foram implementados em uma plataforma de testes visando avaliar a eficácia de \fancyname em coletar as informações de memória dos contêineres de forma reprodutível, sem violar jurisdições ou a privacidade de usuários.
+The methods proposed were implemented in a test platform aiming to assess the \fancyname efficacy in collecting the memory information from the containers in a reproducible way, without violating jurisdictions or users’ privacy.
 %
-A solução, ilustrada na Fig. \ref{fig:Solucao}, consistiu criação de uma instancia \textit{t2.micro} na zona Ohio da AWS com 3.3Mhz, 1Gb de RAM e sistema operacional de 64 bits. 
-%na criação de 1 VM usando o Oracle Virtual Box 5.0%\cite{VirtualBox} em um notebook Intel i5 de 2.30Mhz e 4Gb de RAM com sistema operacional de 64 bits.
+The solution, illustrated in Fig. \ref{fig:Solucao}, consisted in creating a t2.micro instance in the Ohio zone of the AWS with 3.3 Mhz, 1Gb RAM and 64-bit operational system. 
 %
-Nesta instância AWS foi instalado o Docker Engine 1.10 e a API Docker 1.21, com os quais foram criados 3 contêineres executando o nginx 1.0 em diferentes portas. 
+At this AWS instance, Docker Engine 1.10 and API Docker 1.21 were installed, from which 3 containers were created, executing nginx 1.0 at different ports. 
 %
-Usando uma aplicação Java que descobre o identificador de processo associado a cada contêiner, pôde-se copiar conteúdo do \textit{descritor de alocação de memória não uniforme} (\textbf{/proc/pid/numa\_maps}), o qual contém a alocação das páginas de memória, os nós que estão associados a essas páginas, o que está alocado e suas respectivas políticas de acesso \cite{UnixManPages_numa_maps}.
+Using a Java application that discovers the process identifier associated to each container, it was possible to copy the content of the \textit{non-uniform memory allocation descriptor} (\textbf{/proc/pid/numa\_maps}), containing the allocation of the memory pages, the nodes associated to these pages and what was allocated in their respective access policies \cite{UnixManPages_numa_maps}.
 %
-A cópia e gravação do arquivo é tal que, a cada minuto, a aplicação (1) pausa o contêiner em questão, (2) copia a diretório \textbf{numa\_maps}, (3)  concatena os dados obtidos com o \textit{hash} de identificação da imagem do contêiner, (4) calcula o \textit{hash} do conjunto e (5) salva o resultado em um arquivo cujo nome é o identificador da imagem do contêiner e a extensão é \textbf{.mem}. 
+The copy and recording of the file is such that, every minute, the application (1) pauses the container in question, (2) copies the \textbf{numa\_maps} directory, (3) concatenates the data obtained with the container image identification hash, (4) calculates the set hash, and (5) saves the result in a file whose name is the container image identifier and whose extension is \textbf{.mem}. 
 %
-O transporte seguro da evidência para um armazenamento físico fora da AWS foi implementado usando uma instância \textit{t2.micro} na zona Ohio da AWS onde foi instalado um servidor \textit{OpenVPN}.
+The safe transport of the evidence to a physical storage outside the AWS was implemented using a t2.micro instance in the AWS Ohio zone whereby an OpenVPN server had been installed.
 %
-A instância EC2 que contém as evidências foi configurada para aceitar conexões apenas de máquinas na VPN.
+The EC2 instance containing the evidence was configured to accept connections solely from machines in the VPN.
 %
-Uma máquina fisica fora da AWS, usou o cliente do \textit{OpenVPN} para estabelecer uma conexão VPN com a instância que contém as evidências e as transportou para o disco da máquina física.
+A physical machine outside the AWS used the OpenVPN client to establish a VPN connection with the instance containing the evidence and transported it to the disk of the physical machine.
 %
-Após a conclusão do processo de transporte, a máquina física verifica se existem arquivos \textbf{.mem} em disco mais antigos que um certo intervalo de tempo ``t'', descartando-os.
+After concluding the transport process, the physical machine verifies whether there are .mem files in disk older than a certain “t” time interval, and discards them.
 %
 
-\subsection{Resultados experimentais}
+\subsection{Experimental results}
 \label{sec:proposal-exp}
 
-Para avaliar a efetividade de \fancyname na coleta de evidências, alguns experimentos foram realizados usando o ambiente implementado (descrito na Seção \ref{sec:proposal-impl}).
+To assess the \fancyname efficacy in collecting evidence, some experiments were performed using the environment implemented (described in Section \ref{sec:proposal-impl}).
 %
-Primeiramente, o sistema foi configurado para realizar coletas de memória em intervalos de 1 minuto, salvá-las em disco em uma máquina física fora da nuvem e apagar amostras coletadas há mais de 5 minutos. 
+Firstly, the system was configured for memory collections at 1-minute intervals, to save them in a disk in a physical machine outside the cloud and to erase the samples collected over 5 minutes before. 
 %
-O sistema foi então executado por 30 minutos, tempo durante o qual foram coletadas como métricas (1) o uso de espaço em disco utilizado pelos instantâneos de memória salvos, (2) o tempo de pausa no contêiner necessário para a cópia das mesmas e (3) o tempo de transporte da evidência para a máquina física fora da nuvem.
+The system was then executed for 30 minutes, a time along which the following were collected as metrics: (1) the use of space in disks used by the memory photographs saved, (2) the time necessary for pausing the container for copying them, and (3) the time taken for transporting the evidence to the physical machine outside the cloud.
 %
-A cada coleta, foi executado o comando \texttt{du -sh *.mem} do \textit{Unix} no disco de armazenamento físico fora da nuvem, para retornar a lista dos arquivos onde os instantâneos de memória foram armazenados e o espaço em disco ocupado pelos mesmos.
+At each collection, command \texttt{du -sh *.mem} do \textit{Unix} was executed in the physical storage disk outside the cloud to return the list of the files in which the memory photographs were stored and the disk space they occupied.
 %
 
 
-A ocupação em disco devido aos instantâneos de memória capturados durante o experimento é mostrada no gráfico da Fig. \ref{fig:evolucao_coleta}. 
+The disk space occupied by the memory photographs captured during the experiment is shown in Fig. \ref{fig:evolucao_coleta}. 
 %
-O gráfico mostra que o aumento do uso do espaço em disco é linear e o crescimento se interrompe quando é atingido o limite de tempo configurado para a janela, pois as coletas com tempo de vida maior que tal limite são apagadas do disco. 
+The graph shows that the increase in use of the disk space is linear and the growth ceases when the time limit configured for the window is reached, once the collections with a lifespan larger than that limit are erased from the disk. 
 %
-Assim, a solução mantém sob controle o espaço em disco ocupado pelas amostras coletadas.
+The solution thus keeps the disk space occupied by the samples collected under control.
 %
-Ao mesmo tempo, instantâneos de memória salvos pela solução depois que os contêineres e a instância AWS são removidos continuam no disco da máquina física fora da nuvem, podendo ser associados a sua origem, conforme esperado para uma análise forense.
+Concurrently, memory photographs saved by the solution after the containers and the AWS instance are removed and kept in the disk of the physical machine outside the cloud; they may be associated to their origin, as expected for a forensic analysis. 
 %
-Essa capacidade se mantém após a detecção de uma ameaça, pois nesse caso coletas mais antigas deixam de ser apagadas.
-%
-Logo, é possível descrever o estado do sistema antes e depois do incidente \cite{Case_Memory_Forensics:2014}, permitindo-se, por exemplo, que ataques de injeção de código em memória sejam analisados.
+This ability is kept after a threat has been detected since, in this case, older collections stop being erased so it is possible to describe the state of the system before and after the incident \cite{Case_Memory_Forensics:2014}, allowing, for example, code injection attacks to the memory to be analyzed..
 
 
 \begin{figure*}[h!]
 \footnotesize
-\caption{Evolução do uso do espaço em disco com o \fancyname.}
+\caption{Evolution of disk space use under \fancyname.}
 \includegraphics[scale=0.42]{evolucao_coleta_ieee.png}
 \centering
 \label{fig:evolucao_coleta}
 \end{figure*}
 
 
-Uma potencial limitação da solução proposta é que a pausa de um contêiner para coleta de dados poder, em princípio, causar perdas no desempenho da aplicação sendo executada. 
+A potential limitation of the solution proposed is that the pause of a container to collect data may, in principle, cause performance losses of the application being executed. 
 %
-Para avaliar esse impacto, durante o experimento foram medidos os tempos de cópia da memória do contêiner.
+To assess this impact, the times for copying the container memory were measured along the experiment.
 %
-Os resultados são mostrados no gráfico da Fig. \ref{fig:memoria_copia}.
+The results are shown in the graph of Fig. \ref{fig:memoria_copia}.
 %
-É possível notar que, após a inicialização da aplicação, o tempo para realizar a cópia é bastante reduzido, variando entre 20 e 40 milisegundos. 
+Note that, after the application is initialized, the time for making a copy is very small, varying between 20 and 40 milliseconds. 
 %
-Em especial, para contêineres executando um motor de páginas web dinâmicas, como é o caso do experimento em questão, essa latência deve ser pouco perceptível por usuários finais.
+Especially for containers executing the engine of dynamic web pages, as is the case of the experiment in question, this latency can be not very perceptible by end users.
 
 \begin{figure*}[h!]
 \footnotesize
-\caption{Tempo de cópia da memória de um contêiner}
+\caption{Time for copying the container}
 \includegraphics[scale=0.40]{memoria_copia_ieee.png}
 \centering
 \label{fig:memoria_copia}
 \end{figure*}
 
 
-Outra preocupação é o tempo de transporte das evidências para o armazenamento fora da nuvem.
+Another concern is the time for transporting the evidence to the storage outside the cloud.
 %
-O transporte da evidência pode levar mais tempo que o intervalo de geração levando a perdas da evidências durante o transporte. 
+The evidence transport to the storage outside the cloud can take longer than generation interval, leading to evidence loss during transport. 
 %
-Para avaliar esse impacto, durante o experimento foram medidos os tempos de transporte das evidências para o armazenamento fora da nuvem.
+To assess this impact, the evidence transport times for storage outside the cloud were measured along the experiment, as shown by the results in the graph of Fig. \ref{fig:evidencia_transporte}.
 %
-Os resultados são mostrados no gráfico da Fig. \ref{fig:evidencia_transporte}.
+The transport time is verified to stabilize after the window size is reached. 
 %
-É possível notar que o tempo de transporte estabiliza após atingido o tamanho da janela. O tempo de transporte da evidência fica, em média proximo dos 30 segundos. 
+The time for transporting evidence is approximately 30 seconds on average. 
 %
-A topologia é um fator que pode contrubuir tanto positiva quanto negativamente no tempo de transporte. 
+The topology is a factor that may contribute both positively and negatively to the transport time. 
 %
-Neste experimento o gerador de evidências está na América do Norte enquanto que a máquina física para onde as evidências foram transportadas está na América do Sul.
+In this experiment, the evidence generator is in North America, whereas the physical machine where the evidence was transported to is in South America.
 
 \begin{figure*}[htb!]
 \footnotesize
-\caption{Tempo de cópia da memória de um contêiner}
+\caption{Evidence transport time}
 \includegraphics[scale=0.40]{evidencia_download_ieee.png}
 \centering
 \label{fig:evidencia_transporte}
 \end{figure*}
 
 
-\subsection{Limitações}
+\subsection{Limitations}
 
-Como a solução descrita tem como foco coletar informações de memória no espaço do usuário (\textit{user space}), ela não consegue acessar o espaço de kernel (\textit{kernel space}). 
+Since the solution described focuses on collecting memory information from the user space, it cannot access the kernel space. 
 %
-Assim, \fancyname em princípio não provê suporte a técnicas de investigação de malware que se baseiam em informações do \textit{kernel space}, como, por exemplo, a comparação de informações do bloco do ambiente do processo (\textit{Process Environment Block -- PEB}), que ficam no \textit{user space}, com informações do descritor de endereços de memória virtual (\textit{Virtual Address Descriptor -- VAD}), que fica no \textit{kernel space}. 
+In principle, therefore, \fancyname does not provide support to malware investigation techniques based on information from the kernel space, such as comparing the information from the Process Environment Block (PEB), which are in the user space, with information from the Virtual Address Descriptor, which lies in the kernel space. 
 %
-Análise de ameaças que realizam manipulação direta dos objetos do kernel (D.K.O.M.-- \textit{Direct Kernel Object Manipulation}) também não se beneficiam com a solução aqui proposta. 
-%\marcosT{Não entendi a ``associação com o contêiner'' aqui. Você quer dizer que ``não se beneficiam com a solução aqui proposta'' ou outra coisa? Você não definiu o que seria a tal ``associação com o contêiner'' fora do contexto da sua solução, então ficou confuso - Hamilton: Feito}.
+Analyses of threats that directly manipulate the objects of the kernel (D.K.O.M – Direct Kernel Object Manipulation) do not benefit from the solution proposed, either. 
 
 
 % An example of a floating figure using the graphicx package.
@@ -891,32 +867,26 @@ Análise de ameaças que realizam manipulação direta dos objetos do kernel (D.
 % footnotes above bottom floats. This can be corrected via the \fnbelowfloat
 % command of the stfloats package.
 
-\section{Considerações Finais}
+\section{Final Considerations}
 \label{sec:conclusion}
 
-%\marcosT{Uma boa conclusão retoma, logo na primeira frase, o problema que ela se propunha a resolver. Comece com uma ou mais frases nesse sentido, (nota: \textbf{sem} copiar+colar de outro ponto do texto). - Hamilton: Feito} \marcosT{Só que não: eu disse para você retomar o \textbf{problema} na sua primeira frase. Sua frase começa retomando a \textbf{solução}. Essa que você colocou como primeira seria boa como uma segunda frase, em que você reforça como resolve o problema - Hamilton: Acho que agora foi :)}
+Digital threats acting directly on the system memory do not usually leave traces in disk after their corresponding resources are removed, hindering later forensic analyses.
 %
-Ameaças digitais que atuam diretamente na memória de sistema não costumam deixar rastros em disco após terem os recursos correspondentes desalocados, dificultando análises forenses posteriores.
+This problem is especially notable in cloud computing systems, in which the allocation and removal of virtualized resources (e.g. VMs and containers) are frequent.
 %
-Esse problema é especialmente notável em sistemas de computação em nuvem, nos quais a alocação e desalocação de recursos virtualizados (e.g., VMs e contêineres) é frequente.
-%
-Essa característica, aliada a aspectos como multi-inquilinato e multi-jurisdição de nuvens computacionais, dificulta a coleta de evidências para a investigação de incidentes.
+This characteristic, together with aspects such as multitenancy and multi-jurisdiction of computational clouds, hinders evidence collection for investigating incidents.
 
 
-Nesse cenário, a proposta apresentada visa relacionar o instantâneo de memória a sua origem, utilizando o \textit{hash} calculado da imagem do contêiner como identificador da evidência armazenada.
+In this scenario, the proposal presented aims to relate the memory photograph to its origin, using the calculated hash of the container image as a stored evidence identifier.
 %
-Para evitar uso excessivo de memória, a quantidade de dados armazenados usa uma janela de armazenamento, o que permite descrever a memória antes e depois de um ataque (e.g., de injeção de memória). 
+To prevent an excessive use of disk space, the volume of data stored uses a storage window, which allows describing the memory before and after an attack (e.g. memory injection).
 %
-Combinada com uma ferramenta para identificação de ameaças, essas características de \fancyname o transformam em uma solução poderosa para prover evidências e, assim, viabilizar análises forenses na nuvem.
-%
-%Cabe notar, entretanto, que muitas ferramentas de análise malware disponíveis no mercado necessitam que todo o conteúdo da memória da máquina esteja disponível para realização da análise (e.g., FROST \cite{Dykstra_FROST:2013} e Volatility Framework \cite{VolatilityFoundation2014}), o que inviabiliza seu uso diretamente sobre a memória de processos conforme coletado por \fancyname.
-%
-%Portanto, como trabalho futuro, pretende-se desenvolver uma ferramenta de detecção de ameaças mais flexível, que, embora potencialmente utilize técnicas similares àquelas adotadas em sistemas atuais, seja capaz de fazê-lo sem necessariamente ter acesso à memória completa da máquina.
+Combined with a tool for identifying threats, these \fancyname characteristics make it a robust solution to provide evidence and thus make forensic analyses in the cloud viable.
 %
 
-Como trabalho futuro, pretende-se estudar o impacto provocado pela pausa do contêiner no desempenho de um sistema em produção e realizar uma análise da memória dos contêiners deste mesmo sistema utilizando as coletas feitas por \fancyname. 
+As future work, we intend to analyze the containers memory of the same system using the collections made by \fancyname. 
 %
-Com esses resultados pretende-se implementar uma ferramenta mais flexível, que não precise ter acesso a memória completa da máquina, requisito comum de ferramentas de análise de malware atuais (e.g., FROST \cite{Dykstra_FROST:2013} e Volatility Framework \cite{VolatilityFoundation2014}).
+With these results, the intention is to implement a more flexible tool, which dispenses with accessing the machine full memory, a common requirement of the current malware analysis tools (e.g., FROST \cite{Dykstra_FROST:2013} e Volatility Framework \cite{VolatilityFoundation2014}).
 
 
 
