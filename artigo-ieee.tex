@@ -493,7 +493,7 @@ This work aims to overcome these limitations, presenting a proposal focusing on:
 %
 In sum, the solution described provides a way of correlating evidences and their virtual origin so as to preserve their credibility and thus contribute to their acceptability in a legal process.
 %
-Lastly, Incident Management, which increasingly shares processes and tools with digital forensics, may benefit from a ready-to-use solution for collecting and preserving evidences at the \textit{preparation for the incident} stage. It should also be able to preserve evidences for the \textit{post-incident} stage, thus making it unnecessary to be concerned with their partial or total loss at the \textit{detection and analysis stages}.
+Lastly, \textit{Incident Management}, which increasingly shares processes and tools with \textit{Digital Forensics}, may benefit from a ready-to-use solution for collecting and preserving evidences at the \textit{preparation for the incident} stage. It should also be able to preserve evidences for the \textit{post-incident} stage, thus making it unnecessary to be concerned with their partial or total loss at the \textit{detection and analysis stages}.
 %
 For this, the system is supposed to be monitored and executed within a cloud resource univocally identifiable.
 %
@@ -526,9 +526,9 @@ The virtualization of resources in the cloud, despite traditionally conducted by
 %
 According to a study conducted in 2016 with 235 companies having software development as their end activity or as a support to the end activity \cite{container-survey:2016}, 76\% of the respondents use containers to improve the efficiency of the development process and in their architecture of cloud micro-services.
 %
-Differently from VMs, which involve creating a virtual hardware and also a SO on top of the native system, the virtualization with containers is conducted at the level of the native SO, which has a simpler implementation, thus eliminating layers between the application executed and the physical hardware.
+Differently from VMs, which involve creating a virtual hardware and also a O.S. on top of the native system, the virtualization with containers is conducted at the level of the native O.S., which has a simpler implementation, thus eliminating layers between the application executed and the physical hardware.
 %
-A technology widely used for this purpose is the Linux Containers (LXC), which takes advantage of functionalities such as cgroups and namespacing of the Linux kernel to help managing and isolating virtual resources.
+A technology widely used for this purpose is the Linux Containers (LXC), which takes advantage of functionalities such as \textit{cgroups} and \textit{namespacing} of the Linux kernel to help managing and isolating virtual resources.
 
 
 
@@ -600,7 +600,7 @@ In a public cloud environment, removing the hardware for later analysis may lead
 %
 Different works in the literature adequately deal with this issue using two major strategies: the first, adopted by \cite{Reichert_Auto_acquisition:2015,George_DF2CE:2012,Poisel_VMI:2013,Dykstra_FROST:2013}, consists in collecting data pertinent to the investigation and in storing them outside the cloud.; the second, employed in \cite{Sang_Log_approach:2013}, which consists of a specific case of \cite{George_DF2CE:2012}, depends on the cooperation of the cloud service provider for obtaining  the information necessary to the investigation. 
 %
-Yet depending on the cloud service provider is not a recommended strategy because (1) the volume of users’ data may force the providers to limit the size of the logs stored, and (2) in case unavailability caused by an attack occurs, the goal of the provider will be that of restoring the service, rather than preserving evidences \cite{Clarke_Review_of_Challenges:2015}. 
+Yet depending on the cloud service provider is not a recommended strategy because (1) the volume of user's data may force the providers to limit the size of the logs stored, and (2) in case unavailability caused by an attack occurs, the goal of the provider will be that of restoring the service, rather than preserving evidences \cite{Clarke_Review_of_Challenges:2015}. 
 
 
 
@@ -627,7 +627,7 @@ To succeed in correlating a piece of evidence to its volatile origin, this imple
 %
 Although a container is a type of software, and is thus also volatile, each image compiled and its execution in the form of a container are normally linked to a hash that univocally identifies this relationship.
 %
-The container also allows more precisely identifying the source of a piece of evidence, once it is possible to divide the parts of a system into containers; for example, one container for the engine of dynamic web pages (e.g. Apache), another with business logics (e.g. Golang) and a third one for a databank (e.g. Cassandra).
+The container also allows more precisely identifying the source of a piece of evidence, once it is possible to divide the parts of a system into containers; for example, one container for the engine of dynamic web pages (e.g. \textit{Apache}), another with business logics (e.g. \textit{Golang}) and a third one for a database (e.g. \textit{Cassandra}).
 
 
 Memory copy is not an atomic activity, since it is executed jointly with other processes.
@@ -666,7 +666,7 @@ In contrast, after an attack event is detected, (e.g. by an intrusion detection 
 
 To persist in the evidence-origin relationship and to guarantee its integrity, this proposal calculates the pair hash [evidence, container image identifier] and stores the triple [hash, container image identifier, evidence].
 %
-To prevent possible problems with the storage of these data in countries with different jurisdictions from those in which they must be applied in the investigation in question, the evidence collected is stored in a physical place outside the cloud, after being transported by a safe channel (e.g. via Transport Layer Security – TLS \cite{DierksT2008}).
+To prevent possible problems with the storage of these data in countries with different jurisdictions from those in which they must be applied in the investigation in question, the evidence collected is stored in a physical place outside the cloud, after being transported by a safe channel (e.g. via \textit{Transport Layer Security} – TLS \cite{DierksT2008}).
 %
 
 \subsection{Implementation}
@@ -687,7 +687,7 @@ The solution, illustrated in Fig. \ref{fig:Solucao}, consisted in creating a t2.
 %
 At this AWS instance, Docker Engine 1.10 and API Docker 1.21 were installed, from which 3 containers were created, executing nginx 1.0 at different ports. 
 %
-Using a Java application that discovers the process identifier associated to each container, it was possible to copy the content of the \textit{non-uniform memory allocation descriptor} (\textbf{/proc/pid/numa\_maps}), containing the allocation of the memory pages, the nodes associated to these pages and what was allocated in their respective access policies \cite{UnixManPages_numa_maps}.
+Using a Java application that discovers the process identifier associated to each container, it was possible to copy the content of the \textit{Non-Uniform Memory Allocation descriptor} (\textbf{/proc/pid/numa\_maps}), containing the allocation of the memory pages, the nodes associated to these pages and what was allocated in their respective access policies \cite{UnixManPages_numa_maps}.
 %
 The copy and recording of the file is such that, every minute, the application (1) pauses the container in question, (2) copies the \textbf{numa\_maps} directory, (3) concatenates the data obtained with the container image identification hash, (4) calculates the set hash, and (5) saves the result in a file whose name is the container image identifier and whose extension is \textbf{.mem}. 
 %
@@ -709,7 +709,7 @@ Firstly, the system was configured for memory collections at 1-minute intervals,
 %
 The system was then executed for 30 minutes, a time along which the following were collected as metrics: (1) the use of space in disks used by the memory photographs saved, (2) the time necessary for pausing the container for copying them, and (3) the time taken for transporting the evidence to the physical machine outside the cloud.
 %
-At each collection, command \texttt{du -sh *.mem} do \textit{Unix} was executed in the physical storage disk outside the cloud to return the list of the files in which the memory photographs were stored and the disk space they occupied.
+At each collection, \textit{Unix} command \texttt{du -sh *.mem} was executed in the physical storage disk outside the cloud to return the list of the files in which the memory photographs were stored and the disk space they occupied.
 %
 
 
@@ -724,7 +724,7 @@ Concurrently, memory photographs saved by the solution after the containers and 
 This ability is kept after a threat has been detected since, in this case, older collections stop being erased so it is possible to describe the state of the system before and after the incident \cite{Case_Memory_Forensics:2014}, allowing, for example, code injection attacks to the memory to be analyzed..
 
 
-\begin{figure*}[h!]
+\begin{figure*}[htb!]
 \footnotesize
 \caption{Evolution of disk space use under \fancyname.}
 \includegraphics[scale=0.42]{evolucao_coleta_ieee.png}
@@ -743,7 +743,7 @@ Note that, after the application is initialized, the time for making a copy is v
 %
 Especially for containers executing the engine of dynamic web pages, as is the case of the experiment in question, this latency can be not very perceptible by end users.
 
-\begin{figure*}[h!]
+\begin{figure*}[htb!]
 \footnotesize
 \caption{Time for copying the container}
 \includegraphics[scale=0.40]{memoria_copia_ieee.png}
@@ -779,9 +779,9 @@ In this experiment, the evidence generator is in North America, whereas the phys
 
 Since the solution described focuses on collecting memory information from the user space, it cannot access the kernel space. 
 %
-In principle, therefore, \fancyname does not provide support to malware investigation techniques based on information from the kernel space, such as comparing the information from the Process Environment Block (PEB), which are in the user space, with information from the Virtual Address Descriptor, which lies in the kernel space. 
+In principle, therefore, \fancyname does not provide support to malware investigation techniques based on information from the kernel space, such as comparing the information from the \textit{Process Environment Block} (PEB), which are in the user space, with information from the \textit{Virtual Address Descriptor}, which lies in the kernel space. 
 %
-Analyses of threats that directly manipulate the objects of the kernel (D.K.O.M – Direct Kernel Object Manipulation) do not benefit from the solution proposed, either. 
+Analyses of threats that directly manipulate the objects of the kernel (D.K.O.M – \textit{Direct Kernel Object Manipulation}) do not benefit from the solution proposed, either. 
 
 
 % An example of a floating figure using the graphicx package.
@@ -886,7 +886,7 @@ Combined with a tool for identifying threats, these \fancyname characteristics m
 
 As future work, we intend to analyze the containers memory of the same system using the collections made by \fancyname. 
 %
-With these results, the intention is to implement a more flexible tool, which dispenses with accessing the machine full memory, a common requirement of the current malware analysis tools (e.g., FROST \cite{Dykstra_FROST:2013} e Volatility Framework \cite{VolatilityFoundation2014}).
+With these results, the intention is to implement a more flexible tool, which dispenses with accessing the machine full memory, a common requirement of the current malware analysis tools. %(e.g., FROST \cite{Dykstra_FROST:2013} e Volatility Framework \cite{VolatilityFoundation2014}).
 
 
 

@@ -181,8 +181,4 @@ R.~E. {Dierks T}, ``{The Transport Layer Security (TLS) Protocol},'' IETF:
 {Unix Man Pages}, ``{Numa Maps - Non Uniform Memory Architecture},''
   \urls{man7.org/linux/man-pages/man7/numa.7.html}, acessado em: 24-06-2017.
 
-\bibitem{VolatilityFoundation2014}
-{Volatility Foundation}, ``{Volatility Framework},''
-  \urls{www.volatilityfoundation.org/}, 2014, acessado em: 24-06-2017.
-
 \end{thebibliography}
