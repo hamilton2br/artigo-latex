@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  15 OCT 2018 20:26
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  17 OCT 2018 14:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -732,21 +732,20 @@ File: check.png Graphic file (type png)
  <use check.png>
 Package pdftex.def Info: check.png used on input line 560.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
- [2 <./check.png> <./x.png>] <janela_ieee.jpg, id=18, 614.295pt x 447.92343pt>
-File: janela_ieee.jpg Graphic file (type jpg)
+ [2 <./check.png> <./x.png>] <janela_ieee-eng.jpg, id=18, 501.875pt x 407.5225p
+t>
+File: janela_ieee-eng.jpg Graphic file (type jpg)
 
-<use janela_ieee.jpg>
-Package pdftex.def Info: janela_ieee.jpg used on input line 662.
-(pdftex.def)             Requested size: 245.71364pt x 179.1662pt.
- <solucao.jpg, id=19, 788.9475pt x 654.445pt>
-File: solucao.jpg Graphic file (type jpg)
+<use janela_ieee-eng.jpg>
+Package pdftex.def Info: janela_ieee-eng.jpg used on input line 662.
+(pdftex.def)             Requested size: 225.84166pt x 183.38342pt.
+ <solucao-eng.jpg, id=19, 798.985pt x 654.445pt>
+File: solucao-eng.jpg Graphic file (type jpg)
 
-<use solucao.jpg>
-Package pdftex.def Info: solucao.jpg used on input line 678.
-(pdftex.def)             Requested size: 244.57118pt x 202.87585pt.
+<use solucao-eng.jpg>
+Package pdftex.def Info: solucao-eng.jpg used on input line 678.
+(pdftex.def)             Requested size: 247.68279pt x 202.87585pt.
  [3]
-Underfull \vbox (badness 1400) has occurred while \output is active []
-
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 712.
 
 
@@ -766,7 +765,7 @@ File: memoria_copia_ieee.png Graphic file (type png)
 <use memoria_copia_ieee.png>
 Package pdftex.def Info: memoria_copia_ieee.png used on input line 749.
 (pdftex.def)             Requested size: 483.79893pt x 210.78375pt.
- [4 <./janela_ieee.jpg> <./solucao.jpg>]
+ [4 <./janela_ieee-eng.jpg> <./solucao-eng.jpg>]
 <evidencia_download_ieee.png, id=29, 1209.51875pt x 526.96875pt>
 File: evidencia_download_ieee.png Graphic file (type png)
 
@@ -808,7 +807,7 @@ Before submitting the final camera ready copy, remember to:
 y)>] [8 <./evidencia_download_ieee.png (PNG copy)>] (./artigo-ieee.aux) ) 
 Here is how much of TeX's memory you used:
  3969 strings out of 493304
- 58358 string characters out of 6139871
+ 58398 string characters out of 6139871
  146070 words of memory out of 5000000
  7348 multiletter control sequences out of 15000+600000
  40419 words of font info for 75 fonts, out of 8000000 for 9000
@@ -821,7 +820,7 @@ nts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
 /times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on artigo-ieee.pdf (8 pages, 339327 bytes).
+Output written on artigo-ieee.pdf (8 pages, 298396 bytes).
 PDF statistics:
  66 PDF objects out of 1000 (max. 8388607)
  40 compressed objects within 1 object stream
