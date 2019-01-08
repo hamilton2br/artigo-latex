@@ -17,6 +17,8 @@
 \@writefile{lof}{\select@language{USenglish}}
 \@writefile{lot}{\select@language{USenglish}}
 \@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}}
+\@writefile{toc}{\contentsline {section}{\numberline {II}Computational Clouds and Containers}{1}}
+\newlabel{sec:cloud}{{II}{1}}
 \citation{container-survey:2016}
 \citation{George_DF2CE:2012}
 \citation{Poisel_VMI:2013}
@@ -38,14 +40,11 @@
 \citation{Poisel_VMI:2013}
 \citation{Dykstra_FROST:2013}
 \citation{Sang_Log_approach:2013}
-\@writefile{toc}{\contentsline {section}{\numberline {II}Adoption of Cloud Architecture and Containers}{2}}
-\newlabel{sec:cloud}{{II}{2}}
 \@writefile{toc}{\contentsline {section}{\numberline {III}Related works}{2}}
 \newlabel{sec:related}{{III}{2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-A}}Accessing and collecting information about memory in the cloud}{2}}
-\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Comparison of solutions for collecting memory information from cloud machines for forensic analysis}}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-A}}Accessing and collecting memory-related information in the cloud}{2}}
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Solutions for collecting memory information from cloud machines for forensic analysis}}{2}}
 \newlabel{tab:related-work}{{I}{2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-B}}Ability to reproduce the process and to obtain the same results}{2}}
 \citation{Reichert_Auto_acquisition:2015}
 \citation{George_DF2CE:2012}
 \citation{Poisel_VMI:2013}
@@ -59,30 +58,32 @@
 \citation{Quick_Increase_Volume_Impact:2014}
 \citation{Case_Memory_Forensics:2014}
 \citation{DierksT2008}
-\citation{UnixManPages_numa_maps}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-C}}Not violating the privacy or jurisdiction of the parts not involved in the investigation}{3}}
-\@writefile{toc}{\contentsline {section}{\numberline {IV}Solution proposed: Dizang }{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-B}}Ability to reproduce the process and to obtain the same results}{3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-C}}Avoiding violating privacy or jurisdiction of parties not involved in the investigation}{3}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Proposed solution: Dizang }{3}}
 \newlabel{sec:proposal}{{IV}{3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}}Description}{3}}
 \newlabel{sec:proposal-desc}{{\unhbox \voidb@x \hbox {IV-A}}{3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-B}}Implementation}{3}}
-\newlabel{sec:proposal-impl}{{\unhbox \voidb@x \hbox {IV-B}}{3}}
+\citation{UnixManPages_numa_maps}
 \citation{Case_Memory_Forensics:2014}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Sliding window of evidence collection}}{4}}
 \newlabel{fig:janela}{{1}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-B}}Implementation}{4}}
+\newlabel{sec:proposal-impl}{{\unhbox \voidb@x \hbox {IV-B}}{4}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces General architecture of the Dizang solution}}{4}}
 \newlabel{fig:Solucao}{{2}{4}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}}Experimental results}{4}}
 \newlabel{sec:proposal-exp}{{\unhbox \voidb@x \hbox {IV-C}}{4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Evolution of disk space use under Dizang .}}{5}}
-\newlabel{fig:evolucao_coleta}{{3}{5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Time for copying the container}}{5}}
-\newlabel{fig:memoria_copia}{{4}{5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-D}}Limitations}{5}}
 \bibstyle{IEEEtran}
 \bibdata{artigo-ieee}
 \bibcite{Morsy_Cloud_Security:2010}{1}
 \bibcite{Bash_Adv_in_Forensics:2015}{2}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Evolution of disk space use under Dizang .}}{5}}
+\newlabel{fig:evolucao_coleta}{{3}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-D}}Limitations}{5}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Final Considerations}{5}}
+\newlabel{sec:conclusion}{{V}{5}}
+\@writefile{toc}{\contentsline {section}{References}{5}}
 \bibcite{Dykstra_Acquiring_for_IAAS:2012}{3}
 \bibcite{Rahman_Live_Forensics_Techniques:2015}{4}
 \bibcite{Dykstra_FROST:2013}{5}
@@ -94,15 +95,14 @@
 \bibcite{NIST2011}{11}
 \bibcite{container-survey:2016}{12}
 \bibcite{Poisel_VMI:2013}{13}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Time for copying the container}}{6}}
+\newlabel{fig:memoria_copia}{{4}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Evidence transport time}}{6}}
+\newlabel{fig:evidencia_transporte}{{5}{6}}
 \bibcite{Do_Desafio:2014}{14}
 \bibcite{Dolan-Gavitt_Semantic_Gap:2011}{15}
 \bibcite{Aljaedi_Comparative:2011}{16}
 \bibcite{Dezfouli_Backup_approach:2012}{17}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Evidence transport time}}{6}}
-\newlabel{fig:evidencia_transporte}{{5}{6}}
-\@writefile{toc}{\contentsline {section}{\numberline {V}Final Considerations}{6}}
-\newlabel{sec:conclusion}{{V}{6}}
-\@writefile{toc}{\contentsline {section}{References}{6}}
 \bibcite{VanBaar_FAAS:2014}{18}
 \bibcite{Clarke_Review_of_Challenges:2015}{19}
 \bibcite{Rafique_Static_Live_Digital_Forensics:2013}{20}
