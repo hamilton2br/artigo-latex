@@ -756,9 +756,9 @@ After concluding the transport process, the physical machine verifies whether th
 \subsection{Experimental results}
 \label{sec:proposal-exp}
 
-To assess the \fancyname efficacy in collecting evidence, some experiments were performed using the environment implemented (described in Section \ref{sec:proposal-impl}).
+To assess the \fancyname efficacy in collecting evidence, \textcolor{blue}{two experiments} were performed using the environment implemented (described in Section \ref{sec:proposal-impl}).
 %
-Firstly, the system was configured for memory collections at 1-minute intervals, to save them in a disk in a physical machine outside the cloud and to erase the samples collected over 5 minutes before. 
+\textcolor{blue}{For the first experiment}, the system was configured for memory collections at 1-minute intervals, to save them in a disk in a physical machine outside the cloud and to erase the samples collected over 5 minutes before. 
 %
 The system was then executed for 30 minutes, a time along which the following were collected as metrics: (1) the use of space in disks used by the memory photographs saved, (2) the time necessary for pausing the container for copying them, and (3) the time taken for transporting the evidence to the physical machine outside the cloud.
 %
@@ -786,7 +786,7 @@ This ability is kept after a threat has been detected since, in this case, older
 \end{figure*}
 
 
-A potential limitation of the solution proposed is that the pause of a container to collect data may, in principle, cause performance losses of the application being executed. 
+A potential limitation of the proposed solution is that the pause of a container to collect data may, in principle, cause performance losses of the application being executed. 
 %
 To assess this impact, the times for copying the container memory were measured along the experiment.
 %
@@ -795,6 +795,10 @@ The results are shown in the graph of Fig. \ref{fig:memoria_copia}.
 Note that, after the application is initialized, the time for making a copy is very small, varying between 20 and 40 milliseconds. 
 %
 Especially for containers executing the engine of dynamic web pages, as is the case of the experiment in question, this latency can be not very perceptible by end users.
+%
+\textcolor{blue}{For the cases in which the interruption of the computational resource's execution for a short time causes problems of availability, it is possible to perform the collection procedure in separate moments of time. 
+%
+Thus, instead of suspending the execution of all computational resources to carry out the collection simultaneously, the procedure interrupts them sequentially.}
 
 \begin{figure*}[htb!]
 \footnotesize
@@ -828,13 +832,79 @@ In this experiment, the evidence generator is in North America, whereas the phys
 \end{figure*}
 
 
+\textcolor{blue}{A second experiment aimed to determine if it is possible, through the analysis of the collected evidence, to identify malware injection in the container memory.
+%
+To this end a library named \textbf{libexample.so} simulating a malware was injected into one of the containers.
+%
+After five minutes of \fancyname collecting evidence, a library mentioned berfore was injected into the memory of one of the containers. 
+%
+After the injection the solution was allowed to continue collecting for another 5 minutes.
+%
+In addition to collecting directory content \textbf{/proc/pid/numa\_maps}, a raw copy of the process memory of the container was also performed using the Linux \textit{GDB} utility via the command described in Figure \ref{fig:comando-copia}.}
+
+\begin{figure*}[htb!]
+\footnotesize
+\caption{Command to generate a raw copy of the process conteiner memory}
+\includegraphics[scale=0.65]{comando-copia-memoria-gdb.png}
+\centering
+\label{fig:comando-copia}
+\end{figure*}
+
+
+\textcolor{blue}{With the collection of the \textbf{/proc/pid/numa\_maps} directory, two distinct moments were compared in the life of the container, before and after the injection of the library.
+%
+Figures \ref{fig:antes-injecao} and \ref{fig:apos-injecao} show \textbf{libexample.so} it is possible to see the malware between addresses \textbf{7fbb52a50000} and \textbf{7fbb52c51000} in the snapshot after the injection
+%
+Therefore, it is possible to identify the injection of a malware via evidence collected by \fancyname from the \textbf{/proc/pid/numa\_maps} directory, allowing, for example, code injection attacks to be identified.}
+
+\begin{figure*}[htb!]
+\footnotesize
+\caption{Part of \textbf{/proc/pid/numa\_maps} file BEFORE injection }
+\includegraphics[scale=0.65]{antes-injecao.png}
+\centering
+\label{fig:antes-injecao}
+\end{figure*}
+
+
+\begin{figure*}[htb!]
+\footnotesize
+\caption{Part of \textbf{/proc/pid/numa\_maps} file AFTER injection }
+\includegraphics[scale=0.65]{apos-injecao.png}
+\centering
+\label{fig:apos-injecao}
+\end{figure*}
+
+
+\textcolor{blue}{Despite the successful collection by copying the \textbf{/proc/pid/numa\_maps}, it was not possible to copy the contents of the process memory from the container via \textit{ptrace}.
+%
+According to \cite{cgroupsxptrace}, this happens because the system calls used by tools such as \textit{ptrace} and \textit{htop} were created before the implementation of \textit{cgroups} in the linux \textit{kernel} and thus are not aware of the existence of isolation between processes.
+%
+When \textit{ptrace} tries to access an area of memory isolated by \textit{cgroups}, the kernel sends a memory access violation signal, the result is shown in Figure \ref{fig:erro-copia-gdb}.
+%
+The Docker Engine \cite{capabilities} documentation mentions the command \texttt{--cap-add=SYS\_PTRACE --security-opt-seccomp=unconfined} which allows \textit{ptrace} to access the memory of a process inside the container but does not allow the host machine or other container to access
+%
+Still according to \cite{cgroupsxptrace} an alternative to enable the monitoring and access to memory information would be to expose such information in the structure of \textbf{/sys/fs/cgroup/} in the same way that it is made to \textbf{/proc/pid/}.}
+
+\begin{figure*}[htb!]
+\footnotesize
+\caption{Error while attempting to copy the memory of a process inside a contêiner}
+\includegraphics[scale=0.65]{nao-consido-dumpar-memoria.png}
+\centering
+\label{fig:erro-copia-gdb}
+\end{figure*}
+
+
 \subsection{Limitations}
 
-Since the solution described focuses on collecting memory information from the user space, it cannot access the kernel space. 
+\textcolor{blue}{The described proposal calls for the cloud resource to be uniquely identifiable in order to make the association between evidence and its origin.
+%
+During the course of this project this unique for of identification was only possible through the hash of the container image. This was the only feature that, submitted to the build process from the same recipe resulted in the same hash of the image.
+%
+So, the implementation for validating the proposed solution can only collect memory information in user space (\ textit {user space}).
 %
 In principle, therefore, \fancyname does not provide support to malware investigation techniques based on information from the kernel space, such as comparing the information from the \textit{Process Environment Block} (PEB), which are in the user space, with information from the \textit{Virtual Address Descriptor}, which lies in the kernel space. 
 %
-Analyses of threats that directly manipulate the objects of the kernel (D.K.O.M – \textit{Direct Kernel Object Manipulation}) do not benefit from the solution proposed, either. 
+Analyses of threats that directly manipulate the objects of the kernel (D.K.O.M – \textit{Direct Kernel Object Manipulation}) do not benefit from the solution proposed, either.}
 
 
 % An example of a floating figure using the graphicx package.
@@ -937,20 +1007,11 @@ To prevent an excessive use of disk space, the volume of data stored uses a stor
 Combined with a tool for identifying threats, these \fancyname characteristics make it a robust solution to provide evidence and thus make forensic analyses in the cloud viable.
 %
 
-As future work, we intend to analyze the containers memory of the same system using the collections made by \fancyname. 
+\textcolor{blue}{As mentioned before, it was not possible to copy the contents of the process running inside the container.
 %
-With these results, the intention is to implement a more flexible tool, which dispenses with accessing the machine full memory, a common requirement of the current malware analysis tools. %(e.g., FROST \cite{Dykstra_FROST:2013} e Volatility Framework \cite{VolatilityFoundation2014}).
+Due to the complexity and knowledge required to perform the suggested modification and the process for accepting it in the linux code base, it is recommended for future work to incorporate into \fancyname a way of solving access to the contents of the memory of a container from the host system.}
 
 
-
-%\marcosR{As próximas frases, como escritas, são ``tiros no pé'': você fica falando das limitações que não são da sua proposta, mas sim do universo onde sua proposta se encaixa... Deixe a propaganda negativa para seus concorrentes fazerem, não para você... Refraseei para manter o mesmo conteúdo, mas de forma positiva em vez de negativa.}
-%Apesar do sucesso em salvar a memória relacionadas ao contêiner e sua associação com a origem, não foi possível até o momento realizar uma análise das ameaças. 
-%
-%As ferramentas de análise de memória disponíveis no mercado necessitam que todo o conteúdo da memória da máquina esteja disponível para realização da análise. 
-%
-%Como é coletada apenas a memória relacionada aos processos, o ferramental não funciona. 
-%
-%É necessário o desenvolvimento de uma ferramenta que trabalhe sem a memória completa da máquina.
 
 % trigger a \newpage just before the given reference
 % number - used to balance the columns on the last page
