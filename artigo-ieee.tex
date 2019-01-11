@@ -832,13 +832,13 @@ In this experiment, the evidence generator is in North America, whereas the phys
 \end{figure*}
 
 
-\textcolor{blue}{A second experiment aimed to determine if it is possible, through the analysis of the collected evidence, to identify malware injection in the container memory.
+\textcolor{blue}{A second experiment aimed to determine if it is possible, through the analysis of the collected evidence, to identify malware injection in the container memory was made.
 %
-To this end a library named \textbf{libexample.so} simulating a malware was injected into one of the containers.
+To this end, a library named \textbf{libexample.so} simulating a malware in the form of a library was injected into one of the containers.
 %
-After five minutes of \fancyname collecting evidence, a library mentioned berfore was injected into the memory of one of the containers. 
+After five minutes of \fancyname collecting evidence, the library mentioned berfore was injected into the memory of one of the containers. 
 %
-After the injection the solution was allowed to continue collecting for another 5 minutes.
+After the injection the solution was allowed to continue collecting memory snapshots for another 5 minutes.
 %
 In addition to collecting directory content \textbf{/proc/pid/numa\_maps}, a raw copy of the process memory of the container was also performed using the Linux \textit{GDB} utility via the command described in Figure \ref{fig:comando-copia}.}
 
@@ -851,11 +851,15 @@ In addition to collecting directory content \textbf{/proc/pid/numa\_maps}, a raw
 \end{figure*}
 
 
-\textcolor{blue}{With the collection of the \textbf{/proc/pid/numa\_maps} directory, two distinct moments were compared in the life of the container, before and after the injection of the library.
+\textcolor{blue}{Two distinct moments were compared in the life of the container, before and after the injection of the library.
 %
-Figures \ref{fig:antes-injecao} and \ref{fig:apos-injecao} show \textbf{libexample.so} it is possible to see the malware between addresses \textbf{7fbb52a50000} and \textbf{7fbb52c51000} in the snapshot after the injection
+Figure \ref{fig:antes-injecao} shows part of the memory before the injection and Figure \ref{fig:apos-injecao} shows part of the memory after the injection.
 %
-Therefore, it is possible to identify the injection of a malware via evidence collected by \fancyname from the \textbf{/proc/pid/numa\_maps} directory, allowing, for example, code injection attacks to be identified.}
+It is possible to see the injected \textbf{libexample.so} library between addresses \textbf{7fbb52a50000} and \textbf{7fbb52c51000} in the snapshot after the injection.
+%
+Therefore, it is possible to identify the injection of a malware in the form of a library via evidence collected by \fancyname from the \textbf{/proc/pid/numa\_maps} directory via comparison between two memory snapshots.
+%
+This allows code injection attacks to be identified.}
 
 \begin{figure*}[htb!]
 \footnotesize
@@ -881,7 +885,7 @@ According to \cite{cgroupsxptrace}, this happens because the system calls used b
 %
 When \textit{ptrace} tries to access an area of memory isolated by \textit{cgroups}, the kernel sends a memory access violation signal, the result is shown in Figure \ref{fig:erro-copia-gdb}.
 %
-The Docker Engine \cite{capabilities} documentation mentions the command \texttt{--cap-add=SYS\_PTRACE --security-opt-seccomp=unconfined} which allows \textit{ptrace} to access the memory of a process inside the container but does not allow the host machine or other container to access
+The Docker Engine \cite{capabilities} documentation mentions the command \texttt{--cap-add=SYS\_PTRACE --security-opt-seccomp=unconfined} which allows \textit{ptrace} to access the memory of a process inside the container but does not allow the host machine or other container to access it.
 %
 Still according to \cite{cgroupsxptrace} an alternative to enable the monitoring and access to memory information would be to expose such information in the structure of \textbf{/sys/fs/cgroup/} in the same way that it is made to \textbf{/proc/pid/}.}
 
@@ -898,11 +902,11 @@ Still according to \cite{cgroupsxptrace} an alternative to enable the monitoring
 
 \textcolor{blue}{The described proposal calls for the cloud resource to be uniquely identifiable in order to make the association between evidence and its origin.
 %
-During the course of this project this unique for of identification was only possible through the hash of the container image. This was the only feature that, submitted to the build process from the same recipe resulted in the same hash of the image.
+During the course of this project this unique form of identification was only possible through the hash of the container image. This was the only feature that, submitted to the build process from the same recipe resulted in the same hash of the image.
 %
-So, the implementation for validating the proposed solution can only collect memory information in user space (\ textit {user space}).
+So, the implementation for validating the proposed solution can only collect memory information in \textit{user space}.
 %
-In principle, therefore, \fancyname does not provide support to malware investigation techniques based on information from the kernel space, such as comparing the information from the \textit{Process Environment Block} (PEB), which are in the user space, with information from the \textit{Virtual Address Descriptor}, which lies in the kernel space. 
+In principle, therefore, \fancyname does not provide support to malware investigation techniques based on information from the kernel space, such as comparing the information from the \textit{Process Environment Block} (PEB), which are in the user space, with information from the \textit{Virtual Address Descriptor} (VAD), which lies in the kernel space. 
 %
 Analyses of threats that directly manipulate the objects of the kernel (D.K.O.M – \textit{Direct Kernel Object Manipulation}) do not benefit from the solution proposed, either.}
 
