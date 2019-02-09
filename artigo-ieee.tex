@@ -320,6 +320,9 @@
 
 %*** para suportar tabelas com colunas mergeadas ***
 \usepackage{multirow}
+\usepackage{adjustbox}
+
+
 
 %*** Para inclusão de imagens e permitir rotacionar texto ***
 \usepackage{graphicx}			% Inclusão de gráficos
@@ -344,17 +347,27 @@
 \usepackage{float}
 
 \usepackage{xcolor}
-\newcommand{\marcos}[1]{{\color{blue}{MARCOS: #1}}}
+\newcommand{\marcos}[1]{{\color{green}{MARCOS: #1}}}
 \newcommand{\marcosT}[1]{{\color{red}{TODO: #1}}}
 \newcommand{\marcosR}[1]{{\color{brown}{COMMENT: #1}}}
 \newcommand{\fancyname}{Dizang }
 \newcommand{\fancynameX}{\fancyname}
 
 %shortcuts
+\newcommand{\mr}[2]{\multirow{#1}{*}{#2}}
+\newcommand{\mc}[2]{\multicolumn{#1}{|L|}{#2}}
 \newcommand{\xfig}{\includegraphics[scale=0.007]{x.png}}
+%\newcommand{\xfig}{\mc{2}{\includegraphics[scale=0.007]{x.png}}}
 \newcommand{\cfig}{\includegraphics[scale=0.015]{check.png}}
-\newcommand{\rot}[1]{\rotatebox{90}{#1}}
+%\newcommand{\cfig}{\mc{2}{\includegraphics[scale=0.015]{check.png}}}
+%\newcommand{\rotb}[1]{\rotatebox{90}{\parbox{3.0cm}{\textbf{#1}}}}
+\newcommand{\rotb}[1]{\adjustbox{minipage=3.2cm,rotate=90}{{\textbf{#1}}}}
+
 \newcommand{\urls}[1]{{\footnotesize{\url{#1}}}}
+\newcommand{\tab}{\ \ \ }
+\newcommand{\tabX}{\tab\tab}
+\newcommand{\tabXL}{\tabX\tabX}
+
 
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
@@ -467,7 +480,7 @@ Despite interesting from the efficiency and cost viewpoints, such volatility of 
 %
 For example, if a temporary virtual processing instance undergoes an attack that directly affects its memory, without leaving traces in permanent storage (e.g., log files), the evidences of this event may be completely lost after such instances are deactivated and their resources are released.
 %
-This difficulty is further aggravated by aspects such as multitenancy and multi-jurisdiction, typical of cloud solutions \cite{Bash_Adv_in_Forensics:2015}.
+This issue is further aggravated by aspects such as multitenancy and multi-jurisdiction, typical of cloud solutions \cite{Bash_Adv_in_Forensics:2015}.
 %
 Particularly, the multitenancy aspect makes it harder to isolate the hardware executing the applications of interest: since each piece of hardware is shared by a number of users, physically removing them for analysis could lead to privacy violation of users not related to the investigation. 
 %
@@ -491,6 +504,7 @@ For example, \cite{Dykstra_FROST:2013} and \cite{Reichert_Auto_acquisition:2015}
 In comparison, \cite{George_DF2CE:2012} concentrates on forensic analysis to collect evidence from VMs while they are being executed, whereas \cite{Sang_Log_approach:2013} deals with ensuring the chain of custody when transporting evidences.
 %
 However, none of the proposals identified in the literature (1) describe how data are collected and stored observing the chain of custody, and (2) create the required conditions for reproducing the evidence collection process even if a virtualized resource is removed.
+However, none of the proposals identified in the literature (1) describe how data are collected and stored observing the chain of custody, and (2) create the required conditions for reproducing the evidence collection process even if a virtualized resource is removed.
 
 
 
@@ -510,7 +524,6 @@ In addition, these characteristics contribute to the credibility of collected ev
 When compared with similar-purpose solutions, \fancyname is particularly useful against code injection attacks \cite{Case_Memory_Forensics:2014}, which would normally leave no traces when cloud-based virtual instances are deactivated and their memory is released \cite{Vomel_Memory_Acquisition:2013,Case_Memory_Forensics:2014}.
 
 
-
 The rest of this paper is organized as follows.
 %
 Section \ref{sec:cloud} briefly discusses cloud solutions and their characteristics.
@@ -523,7 +536,7 @@ Section \ref{sec:conclusion} presents our final considerations.
 
 
 
-\section{Computational Clouds and Containers}
+\section{Problem statement: virtualization vs. forensics in the cloud}
 \label{sec:cloud}
 
 
@@ -534,21 +547,54 @@ Depending on which resources are provided to clients (also called tenants), thre
 In this work, we focus on the IaaS service model, where clients have further control over the underlying cloud resources.
 
 
-
 The traditional way of virtualizing IaaS resources in the cloud is to rely on virtual machines (VMs) \marcos{CITACAO BEM VINDA: algum trabalho que explica VMs}.
 %
 More recently, however, there has been an increasing interest in using containers for this purpose.
 %
-Indeed, according to a study conducted in 2016 with 235 companies involved with software development \cite{container-survey:2016}, 76\% of the respondents used containers to improve the efficiency of the development process and in their cloud micro-services architecture.
-
-
-Both VMs and containers create a highly volatile memory environment, since the cloud's on-demand nature implies that computational resources are allocated and released following the actual system's load.
+Indeed, according to a study conducted in 2016 with 235 companies involved with software development \cite{container-survey:2016}, 76\% of the respondents used containers to improve the efficiency of their development process and of their cloud micro-services architecture.
 %
-However, whereas VMs involve creating a virtual hardware and also an operating system (OS) on top of the native system, virtualization with containers is conducted at the level of the native OS.
+However, whereas VMs involve instantiating a virtual hardware and also an operating system (OS) on top of the native system, virtualization with containers is conducted at the level of the native OS.
 %
 Therefore, containers allow a simpler implementation and better resource usage, eliminating layers between the application being executed and the physical hardware.
 %
-In this work, we leverage such characteristics of containers in our implementation of \fancyname (although a VM-based implementation would also be possible).
+\marcos{TODO: seria bom inclur 1 ou 2 frases com benchmarks de conteineres vs. VMs, ou qualquer outra coisa que motive melhor o uso de conteineres (números seriam o ideal)}
+
+
+Whichever the virtualization technology employed, the result is a highly volatile memory environment.
+%
+This happens because the cloud's on-demand nature implies that computational resources are allocated and released following the actual system's load.
+%
+Therefore, it is not uncommon that attack response teams are unable to access all possible evidences of a breach because the pieces of volatile memory containing those evidences have already been released as part of the cloud's automatic scaling policies.
+%
+From a forensic perspective, this is specially troublesome when dealing with injection attacks that operate directly on the target's volatile memory, without affecting the long term storage of VMs or containers \cite{Case_Memory_Forensics:2014}. 
+%
+Examples include:
+
+\begin{itemize}
+ \item \textit{Remote library injection}: A malicious process forces the target process to load a library into its memory space \cite{Miller_Remote_Library_Injection:2004}.
+ %
+ As a result, that code inside that library is executed wit the same privileges as the target process. 
+ %
+ This strategy, commonly used for enabling a malware to be installed in a victim's machine, may also involve storing the malicious library in the system so it can be loaded by different processes.
+ %
+ \item \textit{Inline Hooking}: A malicious process writes a piece of code directly into the target process's memory space, as a sequence of bytes, so the victim that code as if it was part of its own design \cite{inline-hooking:2008}.
+%
+This is commonly employed to force the execution of shell scripts, giving the attacker remote control over the target machine.
+
+ %
+ \item \textit{Reflective library injection}: a malicious process directly access the target process's memory and writes into it the bytecode corresponding to a library, forcing the victim to execute the injected instructions \cite{reflective-lib-injection:2008}.
+ %
+ In this case, the malicious library is not stored in the system and its loading is not registered by the operation system's logs, making this kind of attack harder to detect.
+\end{itemize}	
+
+
+
+The ability to analyze the state of volatile memory is, thus, an important requirement for enabling an effective incident response procedure and for a post-mortem analysis of such attacks.
+%
+On the other hand, balancing the conflicts between this security need and the performance requirements met via rapid elasticity is a challenging task. 
+%
+We discuss some of the proposals in the literature that address this issue in the next section.
+
 
 
 %This trend motivates the design of solutions that take into account the particularities of containers, and able to leverage its characteristics.
@@ -567,21 +613,26 @@ In this work, we leverage such characteristics of containers in our implementati
 %A technology widely used for this purpose is the Linux Containers (LXC), which takes advantage of functionalities such as \textit{cgroups} and \textit{namespacing} of the Linux kernel to help managing and isolating virtual resources.
 
 
+
 \section{Related works}
 \label{sec:related}
 
+
+\marcos{TODO: Existem 4 critérios na sua tabela, mas apenas 3 deles são discutidos nas sub-seções: PRECISA DISCUTIR O 4o também!!!}
+
 There is a number of aspects that need to be taken into account when performing forensic analysis in the cloud, going from information collection to guaranteeing the evidence's chain of custody.
 %
-For a more structured discussion of the works available in the literature, which summarized in Table \ref{tab:related-work}, we present them considering their approach to each of such aspects.
+For a structured discussion of the works available in the literature, which are summarized in Table \ref{tab:related-work}, we present them considering their approach to each of such aspects.
 
 \begin{table}[htb!]
 \centering
 \caption{Solutions for collecting memory information from cloud machines for forensic analysis}
 \label{tab:related-work}
 \renewcommand{\arraystretch}{2}
-\begin{tabular}{p{3.0cm}|L|L|L|L}
+\begin{tabular}{p{3.0cm}|L|L|L|L|}
 \cline{2-5}
-\textbf{}															& \rotatebox{90}{\textbf{Continuous collection}}      & \rotatebox{90}{\textbf{Collection process reproducible without the VM}} & \rotatebox{90}{\textbf{Chain of custody guarantees}}     		& \rotatebox{90}{\textbf{Jurisdiction and privacy preservation}}          \\ \hline
+\textbf{}															& \rotb{Continuous collection}      & \rotb{Collection process \\ reproducible without VM} & \rotb{Chain of custody \\ guarantees}     		& \rotb{Jurisdiction and \\ privacy preservation}          \\ \hline
+
 \fancyname (this proposal)						& \cfig	  & \cfig               & \cfig                  & \cfig                             \\ \hline
 \cite{George_DF2CE:2012}							& \xfig		  	& \xfig                   & \xfig                      & \cfig                             \\ \hline
 \cite{Poisel_VMI:2013}								& \xfig       & \xfig                   & \xfig                      & \cfig                             \\ \hline
@@ -592,12 +643,39 @@ For a more structured discussion of the works available in the literature, which
 \cite{Dolan-Gavitt_Semantic_Gap:2011}	& \xfig       & \xfig                   & \xfig                      & \cfig                             \\ \hline
 \cite{Aljaedi_Comparative:2011}				& \xfig       & \xfig                   & \xfig                      & \cfig                             \\ \hline
 \cite{Dezfouli_Backup_approach:2012}	& \cfig   & \xfig                   & \xfig                      & \cfig                             \\ \hline
-\cite{VanBaar_FAAS:2014}							& \cfig   & \xfig                   & \cfig                  & \cfig                             \\
+\cite{VanBaar_FAAS:2014}							& \cfig   & \xfig                   & \cfig                  & \cfig                             \\\hline
 \end{tabular}
 \end{table}
 
 
+
+%\begin{table}[htb!]
+%\centering
+%\caption{Solutions for collecting memory information from cloud machines for forensic analysis}
+%\label{tab:related-work}
+%\renewcommand{\arraystretch}{2}
+%\begin{tabular}{p{3.0cm}|LL|LL|LL|LL}
+%\cline{2-5}
+%\textbf{}															& \rotb{Continuous}      & \rotb{Collection process} 			& \rotb{Chain of custody}   & \rotb{Jurisdiction and}          
+																			%& \rotb{collection}      & \rotb{reproducible without VM} & \rotb{guarantees}     		& \rotb{privacy preservation}      \\ \hline
+%
+%\fancyname (this proposal)						& \cfig	  & \cfig               & \cfig                  & \cfig                             \\ \hline
+%\cite{George_DF2CE:2012}							& \xfig		  	& \xfig                   & \xfig                      & \cfig                             \\ \hline
+%\cite{Poisel_VMI:2013}								& \xfig       & \xfig                   & \xfig                      & \cfig                             \\ \hline
+%\cite{Dykstra_FROST:2013}							& \xfig       & \xfig                   & \xfig                      & \cfig                             \\ \hline
+%\cite{Do_Desafio:2014}								& \xfig		    & \xfig                   & \xfig                      & \cfig                             \\ \hline
+%\cite{Reichert_Auto_acquisition:2015}	& \xfig  	    & \xfig                   & \cfig                  & \cfig                             \\ \hline
+%\cite{Sang_Log_approach:2013}					& \cfig   & \xfig	             			& \cfig                  & \cfig                             \\ \hline
+%\cite{Dolan-Gavitt_Semantic_Gap:2011}	& \xfig       & \xfig                   & \xfig                      & \cfig                             \\ \hline
+%\cite{Aljaedi_Comparative:2011}				& \xfig       & \xfig                   & \xfig                      & \cfig                             \\ \hline
+%\cite{Dezfouli_Backup_approach:2012}	& \cfig   & \xfig                   & \xfig                      & \cfig                             \\ \hline
+%\cite{VanBaar_FAAS:2014}							& \cfig   & \xfig                   & \cfig                  & \cfig                             \\
+%\end{tabular}
+%\end{table}
+
+
 \subsection{Accessing and collecting memory-related information in the cloud}
+
 
 Different works on forensic analysis in the cloud concentrate on collecting data “after the fact”, i.e., after an intrusion has been detected \cite{Reichert_Auto_acquisition:2015,Poisel_VMI:2013,Dykstra_FROST:2013,George_DF2CE:2012,Sang_Log_approach:2013}. 
 %
@@ -652,7 +730,7 @@ The second, employed in \cite{Sang_Log_approach:2013} and consisting in a specif
 %
 Depending on the cloud service provider, however, is not a highly recommended strategy, for at least two reasons: 
 (1) the volume of user's data may force the providers to limit the size of the logs stored; and 
-(2) in case of unavailability due to attacks, the goal of the provider will most likely be to restore the service, rather than preserving evidences \cite{Clarke_Review_of_Challenges:2015}. 
+(2) in case of unavailability due to attacks, the goal of the provider will most likely be restoring the service, not necessarily preserving evidences \cite{Clarke_Review_of_Challenges:2015}. 
 
 
 \section{Proposed solution: \fancyname}
@@ -673,6 +751,8 @@ The solution here presented, called Dizang, is described in detail as follows.
 In computational systems executed on a physical infrastructure (i.e., non-virtualized), a direct association can be made between any resource, such as memory information, disk image or packets traveling in the network, and their corresponding origin.
 %
 In systems built in a virtual infrastructure, especially when it is self-scalable, the computational resources are highly volatile and can thus be removed at any time.
+%
+\marcos{Dizer aqui que focamos em conteineres por ser mais fácil rotulá-los de forma única. A frase original era (e precisa ser mudada para melhorar o contexto: In this work, we focus primarily on containers for our implementation of \fancyname, although a VM-based implementation of the proposed architecture would also be possible}
 %
 To succeed in correlating a piece of evidence to its volatile origin, this implementation uses Linux containers (LXC) to persist in the source-evidence relationship.
 %
@@ -774,12 +854,12 @@ The solution thus keeps the disk space occupied by the samples collected under c
 %
 Concurrently, memory photographs saved by the solution after the containers and the AWS instance are removed and kept in the disk of the physical machine outside the cloud; they may be associated to their origin, as expected for a forensic analysis. 
 %
-This ability is kept after a threat has been detected since, in this case, older collections stop being erased so it is possible to describe the state of the system before and after the incident \cite{Case_Memory_Forensics:2014}, allowing, for example, code injection attacks to the memory to be analyzed..
+This ability is kept after a threat has been detected since, in this case, older collections stop being erased so it is possible to describe the state of the system before and after the incident \cite{Case_Memory_Forensics:2014}, allowing, for example, code injection attacks to the memory to be analyzed.
 
 
 \begin{figure*}[htb!]
 \footnotesize
-\caption{Evolution of disk space use under \fancyname.}
+\caption{Evolution of disk space usage while running \fancyname. \marcosT{Melhor reduzir o tamanho da figura pra 1 coluna, aumentando a fonte do texto mas reduzindo a distância horizontal. Senão passa a impressão de desperdício de espaço.}}
 \includegraphics[scale=0.42]{evolucao_coleta_ieee.png}
 \centering
 \label{fig:evolucao_coleta}
@@ -800,9 +880,9 @@ Especially for containers executing the engine of dynamic web pages, as is the c
 %
 Thus, instead of suspending the execution of all computational resources to carry out the collection simultaneously, the procedure interrupts them sequentially.}
 
-\begin{figure*}[htb!]
+\begin{figure*}[tb!]
 \footnotesize
-\caption{Time for copying the container}
+\caption{Time for copying the container. \marcos{Está escrito ``conteiner'' na figura... deveria ser ``container''.}}
 \includegraphics[scale=0.40]{memoria_copia_ieee.png}
 \centering
 \label{fig:memoria_copia}
@@ -891,7 +971,7 @@ Still according to \cite{cgroupsxptrace} an alternative to enable the monitoring
 
 \begin{figure*}[htb!]
 \footnotesize
-\caption{Error while attempting to copy the memory of a process inside a contêiner}
+\caption{Error while attempting to copy the memory of a process inside a container}
 \includegraphics[scale=0.30]{nao-consido-dumpar-memoria.jpg}
 \centering
 \label{fig:erro-copia-gdb}
