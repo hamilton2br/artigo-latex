@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  11 JAN 2019 21:53
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  8 FEB 2019 22:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -730,30 +730,36 @@ File: check.png Graphic file (type png)
  <use check.png>
 Package pdftex.def Info: check.png used on input line 595.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
- [2 <./check.png> <./x.png>] <janela_ieee-eng.jpg, id=18, 501.875pt x 407.5225p
-t>
+ [2 <./check.png> <./x.png>] <janela_ieee-eng.jpg, id=18, 811.3512pt x 599.1183
+pt>
 File: janela_ieee-eng.jpg Graphic file (type jpg)
 
 <use janela_ieee-eng.jpg>
 Package pdftex.def Info: janela_ieee-eng.jpg used on input line 715.
-(pdftex.def)             Requested size: 225.84166pt x 183.38342pt.
- [3] <solucao-eng.jpg, id=22, 798.985pt x 654.445pt>
-File: solucao-eng.jpg Graphic file (type jpg)
+(pdftex.def)             Requested size: 324.53473pt x 239.64307pt.
 
-<use solucao-eng.jpg>
+Overfull \hbox (72.53473pt too wide) in paragraph at lines 715--718
+ [][] 
+ []
+
+[3] <solucao-eng.jpg, id=22, 894.7026pt x 636.4578pt>
+File: solucao-eng.jpg Graphic file (type jpg)
+ <use solucao-eng.jpg>
 Package pdftex.def Info: solucao-eng.jpg used on input line 731.
-(pdftex.def)             Requested size: 247.68279pt x 202.87585pt.
+(pdftex.def)             Requested size: 250.51501pt x 178.20695pt.
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 765.
 
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-) <evolucao_coleta_ieee.png, id=23, 1205.50375pt x 528.97626pt>
+) [4 <./janela_ieee-eng.jpg> <./solucao-eng.jpg>]
+<evolucao_coleta_ieee.png, id=27, 1205.50375pt x 528.97626pt>
 File: evolucao_coleta_ieee.png Graphic file (type png)
 
 <use evolucao_coleta_ieee.png>
 Package pdftex.def Info: evolucao_coleta_ieee.png used on input line 783.
 (pdftex.def)             Requested size: 506.30814pt x 222.1685pt.
- [4 <./janela_ieee-eng.jpg> <./solucao-eng.jpg>]
+
 <memoria_copia_ieee.png, id=28, 1209.51875pt x 526.96875pt>
 File: memoria_copia_ieee.png Graphic file (type png)
 
@@ -768,27 +774,24 @@ File: evidencia_download_ieee.png Graphic file (type png)
 Package pdftex.def Info: evidencia_download_ieee.png used on input line 829.
 (pdftex.def)             Requested size: 483.79893pt x 210.78375pt.
 
-Underfull \vbox (badness 4582) has occurred while \output is active []
+<comando-copia-memoria-gdb.jpg, id=30, 912.7701pt x 182.6022pt>
+File: comando-copia-memoria-gdb.jpg Graphic file (type jpg)
 
+<use comando-copia-memoria-gdb.jpg>
+Package pdftex.def Info: comando-copia-memoria-gdb.jpg used on input line 848.
+(pdftex.def)             Requested size: 365.10156pt x 73.03958pt.
 
-<comando-copia-memoria-gdb.png, id=30, 639.13782pt x 51.94406pt>
-File: comando-copia-memoria-gdb.png Graphic file (type png)
+<antes-injecao.jpg, id=31, 811.3512pt x 599.1183pt>
+File: antes-injecao.jpg Graphic file (type jpg)
+ <use antes-injecao.jpg>
+Package pdftex.def Info: antes-injecao.jpg used on input line 867.
+(pdftex.def)             Requested size: 324.53473pt x 239.64307pt.
 
-<use comando-copia-memoria-gdb.png>
-Package pdftex.def Info: comando-copia-memoria-gdb.png used on input line 848.
-(pdftex.def)             Requested size: 415.43466pt x 33.76323pt.
-
-<antes-injecao.png, id=31, 653.44125pt x 252.945pt>
-File: antes-injecao.png Graphic file (type png)
- <use antes-injecao.png>
-Package pdftex.def Info: antes-injecao.png used on input line 867.
-(pdftex.def)             Requested size: 424.73178pt x 164.4123pt.
-
-<apos-injecao.png, id=32, 619.56468pt x 310.15875pt>
-File: apos-injecao.png Graphic file (type png)
- <use apos-injecao.png>
-Package pdftex.def Info: apos-injecao.png used on input line 876.
-(pdftex.def)             Requested size: 402.71227pt x 201.6008pt.
+<apos-injecao.jpg, id=32, 1195.1049pt x 845.0772pt>
+File: apos-injecao.jpg Graphic file (type jpg)
+ <use apos-injecao.jpg>
+Package pdftex.def Info: apos-injecao.jpg used on input line 876.
+(pdftex.def)             Requested size: 358.53424pt x 253.52512pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 890--891
 [][]\OT1/ptm/m/n/10 Despite the suc-cess-ful col-lec-tion by copy-ing the
@@ -810,33 +813,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 890--891
 \OT1/pcr/m/n/10 --security-opt-seccomp=unconfined \OT1/ptm/m/n/10 which
  []
 
+<nao-consido-dumpar-memoria.jpg, id=33, 1195.1049pt x 845.0772pt>
+File: nao-consido-dumpar-memoria.jpg Graphic file (type jpg)
 
-Underfull \vbox (badness 4582) has occurred while \output is active []
+<use nao-consido-dumpar-memoria.jpg>
+Package pdftex.def Info: nao-consido-dumpar-memoria.jpg used on input line 895.
 
- [5 <./evolucao_coleta_ieee.png (PNG copy)>]
-<nao-consido-dumpar-memoria.png, id=36, 526.96875pt x 268.75406pt>
-File: nao-consido-dumpar-memoria.png Graphic file (type png)
-
-<use nao-consido-dumpar-memoria.png>
-Package pdftex.def Info: nao-consido-dumpar-memoria.png used on input line 895.
-
-(pdftex.def)             Requested size: 342.52562pt x 174.68806pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [6 <./memoria_copia_ieee.png (PNG copy)> <./evidencia_download_ieee.png (PNG c
-opy)> <./comando-copia-memoria-gdb.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [7 <./antes-injecao.png> <./apos-injecao.png> <./nao-consido-dumpar-memoria.pn
-g>]
-(./artigo-ieee.bbl
+(pdftex.def)             Requested size: 358.53424pt x 253.52512pt.
+ [5] (./artigo-ieee.bbl [6 <./evolucao_coleta_ieee.png (PNG copy)> <./memoria_c
+opia_ieee.png (PNG copy)>] [7 <./evidencia_download_ieee.png (PNG copy)> <./com
+ando-copia-memoria-gdb.jpg> <./antes-injecao.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 97--100
 \OT1/ptm/m/n/8 https : / / clusterhq . com / assets / pdfs / state-[]of-[]conta
 iner-[]usage-[]june-[]2016 .
  []
 
-
+[8 <./apos-injecao.jpg> <./nao-consido-dumpar-memoria.jpg>]
 Overfull \hbox (22.17947pt too wide) in paragraph at lines 150--155
 []\OT1/ptm/m/n/8 5CExploring-[]Static-[]and-[]Live-[]Digital-[]Forensic-[]Metho
 ds-[]Practices-[]and-[]Tools .
@@ -876,7 +868,9 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[8] (./artigo-ieee.aux) ) 
+[9
+
+] (./artigo-ieee.aux) ) 
 Here is how much of TeX's memory you used:
  3995 strings out of 493304
  59022 string characters out of 6139871
@@ -885,17 +879,17 @@ Here is how much of TeX's memory you used:
  40419 words of font info for 75 fonts, out of 8000000 for 9000
  960 hyphenation exceptions out of 8191
  38i,16n,35p,550b,335s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r
-.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
-rw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8
-a.pfb>
-Output written on artigo-ieee.pdf (8 pages, 535651 bytes).
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.e
+nc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
+/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.
+pfb>
+Output written on artigo-ieee.pdf (9 pages, 4818267 bytes).
 PDF statistics:
- 74 PDF objects out of 1000 (max. 8388607)
- 40 compressed objects within 1 object stream
+ 73 PDF objects out of 1000 (max. 8388607)
+ 42 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
