@@ -547,7 +547,7 @@ Depending on which resources are provided to clients (also called tenants), thre
 In this work, we focus on the IaaS service model, where clients have further control over the underlying cloud resources.
 
 
-The traditional way of virtualizing IaaS resources in the cloud is to rely on virtual machines (VMs) \marcos{CITACAO BEM VINDA: algum trabalho que explica VMs}.
+The traditional way of virtualizing IaaS resources in the cloud is to rely on virtual machines (VMs) \cite{Diamanti:2018}.
 %
 More recently, however, there has been an increasing interest in using containers for this purpose.
 %
@@ -555,10 +555,10 @@ Indeed, according to a study conducted in 2016 with 235 companies involved with 
 %
 However, whereas VMs involve instantiating a virtual hardware and also an operating system (OS) on top of the native system, virtualization with containers is conducted at the level of the native OS.
 %
-Therefore, containers allow a simpler implementation and better resource usage, eliminating layers between the application being executed and the physical hardware.
+According do \cite{Diamanti:2018}, containers allow for a simpler implementation and better resource usage, eliminating layers between the application being executed and the physical hardware.
 %
-\marcos{TODO: seria bom inclur 1 ou 2 frases com benchmarks de conteineres vs. VMs, ou qualquer outra coisa que motive melhor o uso de conteineres (números seriam o ideal)}
-
+They also have a lower total cost and a more predictable performance.
+%
 
 Whichever the virtualization technology employed, the result is a highly volatile memory environment.
 %
@@ -857,13 +857,13 @@ Concurrently, memory photographs saved by the solution after the containers and 
 This ability is kept after a threat has been detected since, in this case, older collections stop being erased so it is possible to describe the state of the system before and after the incident \cite{Case_Memory_Forensics:2014}, allowing, for example, code injection attacks to the memory to be analyzed.
 
 
-\begin{figure*}[htb!]
+\begin{figure}[htb!]
 \footnotesize
-\caption{Evolution of disk space usage while running \fancyname. \marcosT{Melhor reduzir o tamanho da figura pra 1 coluna, aumentando a fonte do texto mas reduzindo a distância horizontal. Senão passa a impressão de desperdício de espaço.}}
-\includegraphics[scale=0.42]{evolucao_coleta_ieee.png}
+\caption{Evolution of disk space usage while running \fancyname.}
+\includegraphics[scale=0.55]{evolucao_coleta_ieee.png}
 \centering
 \label{fig:evolucao_coleta}
-\end{figure*}
+\end{figure}
 
 
 A potential limitation of the proposed solution is that the pause of a container to collect data may, in principle, cause performance losses of the application being executed. 
@@ -880,13 +880,13 @@ Especially for containers executing the engine of dynamic web pages, as is the c
 %
 Thus, instead of suspending the execution of all computational resources to carry out the collection simultaneously, the procedure interrupts them sequentially.}
 
-\begin{figure*}[tb!]
+\begin{figure}[tb!]
 \footnotesize
-\caption{Time for copying the container. \marcos{Está escrito ``conteiner'' na figura... deveria ser ``container''.}}
-\includegraphics[scale=0.40]{memoria_copia_ieee.png}
+\caption{Time for copying the container.}
+\includegraphics[scale=0.44]{memoria_copia_ieee.png}
 \centering
 \label{fig:memoria_copia}
-\end{figure*}
+\end{figure}
 
 
 Another concern is the time for transporting the evidence to the storage outside the cloud.
@@ -903,13 +903,13 @@ The topology is a factor that may contribute both positively and negatively to t
 %
 In this experiment, the evidence generator is in North America, whereas the physical machine where the evidence was transported to is in South America.
 
-\begin{figure*}[htb!]
+\begin{figure}[htb!]
 \footnotesize
 \caption{Evidence transport time}
-\includegraphics[scale=0.40]{evidencia_download_ieee.png}
+\includegraphics[scale=0.43]{evidencia_download_ieee.png}
 \centering
 \label{fig:evidencia_transporte}
-\end{figure*}
+\end{figure}
 
 
 \textcolor{blue}{A second experiment aimed to determine if it is possible, through the analysis of the collected evidence, to identify malware injection in the container memory was made.
@@ -924,7 +924,7 @@ In addition to collecting directory content \textbf{/proc/pid/numa\_maps}, a raw
 
 \begin{figure*}[htb!]
 \footnotesize
-\caption{Command to generate a raw copy of the process conteiner memory}
+\caption{Command to generate a raw copy of the process container memory}
 \includegraphics[scale=0.40]{comando-copia-memoria-gdb.jpg}
 \centering
 \label{fig:comando-copia}
@@ -941,22 +941,22 @@ Therefore, it is possible to identify the injection of a malware in the form of 
 %
 This allows code injection attacks to be identified.}
 
-\begin{figure*}[htb!]
+\begin{figure}[htb!]
 \footnotesize
 \caption{Part of \textbf{/proc/pid/numa\_maps} file BEFORE injection }
-\includegraphics[scale=0.40]{antes-injecao.jpg}
+\includegraphics[scale=0.31]{antes-injecao.jpg}
 \centering
 \label{fig:antes-injecao}
-\end{figure*}
+\end{figure}
 
 
-\begin{figure*}[htb!]
+\begin{figure}[htb!]
 \footnotesize
 \caption{Part of \textbf{/proc/pid/numa\_maps} file AFTER injection }
-\includegraphics[scale=0.30]{apos-injecao.jpg}
+\includegraphics[scale=0.21]{apos-injecao.jpg}
 \centering
 \label{fig:apos-injecao}
-\end{figure*}
+\end{figure}
 
 
 \textcolor{blue}{Despite the successful collection by copying the \textbf{/proc/pid/numa\_maps}, it was not possible to copy the contents of the process memory from the container via \textit{ptrace}.
@@ -969,13 +969,13 @@ The Docker Engine \cite{capabilities} documentation mentions the command \texttt
 %
 Still according to \cite{cgroupsxptrace} an alternative to enable the monitoring and access to memory information would be to expose such information in the structure of \textbf{/sys/fs/cgroup/} in the same way that it is made to \textbf{/proc/pid/}.}
 
-\begin{figure*}[htb!]
+\begin{figure}[htb!]
 \footnotesize
 \caption{Error while attempting to copy the memory of a process inside a container}
-\includegraphics[scale=0.30]{nao-consido-dumpar-memoria.jpg}
+\includegraphics[scale=0.21]{nao-consido-dumpar-memoria.jpg}
 \centering
 \label{fig:erro-copia-gdb}
-\end{figure*}
+\end{figure}
 
 
 \subsection{Limitations}

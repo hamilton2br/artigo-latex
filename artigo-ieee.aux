@@ -18,7 +18,9 @@
 \@writefile{lof}{\select@language{USenglish}}
 \@writefile{lot}{\select@language{USenglish}}
 \@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}}
+\citation{Diamanti:2018}
 \citation{container-survey:2016}
+\citation{Diamanti:2018}
 \citation{Case_Memory_Forensics:2014}
 \citation{Miller_Remote_Library_Injection:2004}
 \citation{inline-hooking:2008}
@@ -77,28 +79,22 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces General architecture of the Dizang solution}}{4}}
 \newlabel{fig:Solucao}{{2}{4}}
 \citation{Case_Memory_Forensics:2014}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}}Experimental results}{5}}
+\newlabel{sec:proposal-exp}{{\unhbox \voidb@x \hbox {IV-C}}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Evolution of disk space usage while running Dizang .}}{5}}
+\newlabel{fig:evolucao_coleta}{{3}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Time for copying the container.}}{5}}
+\newlabel{fig:memoria_copia}{{4}{5}}
 \citation{cgroupsxptrace}
 \citation{capabilities}
 \citation{cgroupsxptrace}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-C}}Experimental results}{5}}
-\newlabel{sec:proposal-exp}{{\unhbox \voidb@x \hbox {IV-C}}{5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Evolution of disk space usage while running Dizang . {\color  {red}{TODO: Melhor reduzir o tamanho da figura pra 1 coluna, aumentando a fonte do texto mas reduzindo a dist\IeC {\^a}ncia horizontal. Sen\IeC {\~a}o passa a impress\IeC {\~a}o de desperd\IeC {\'\i }cio de espa\IeC {\c c}o.}}}}{6}}
-\newlabel{fig:evolucao_coleta}{{3}{6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Time for copying the container. {\color  {green}{MARCOS: Est\IeC {\'a} escrito ``conteiner'' na figura... deveria ser ``container''.}}}}{6}}
-\newlabel{fig:memoria_copia}{{4}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Evidence transport time}}{6}}
+\newlabel{fig:evidencia_transporte}{{5}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Part of \textbf  {/proc/pid/numa\_maps} file BEFORE injection }}{6}}
+\newlabel{fig:antes-injecao}{{7}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Part of \textbf  {/proc/pid/numa\_maps} file AFTER injection }}{6}}
+\newlabel{fig:apos-injecao}{{8}{6}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-D}}Limitations}{6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Evidence transport time}}{7}}
-\newlabel{fig:evidencia_transporte}{{5}{7}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Command to generate a raw copy of the process conteiner memory}}{7}}
-\newlabel{fig:comando-copia}{{6}{7}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Part of \textbf  {/proc/pid/numa\_maps} file BEFORE injection }}{7}}
-\newlabel{fig:antes-injecao}{{7}{7}}
-\@writefile{toc}{\contentsline {section}{\numberline {V}Final Considerations}{7}}
-\newlabel{sec:conclusion}{{V}{7}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Part of \textbf  {/proc/pid/numa\_maps} file AFTER injection }}{8}}
-\newlabel{fig:apos-injecao}{{8}{8}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Error while attempting to copy the memory of a process inside a container}}{8}}
-\newlabel{fig:erro-copia-gdb}{{9}{8}}
 \bibstyle{IEEEtran}
 \bibdata{artigo-ieee}
 \bibcite{Morsy_Cloud_Security:2010}{1}
@@ -112,23 +108,30 @@
 \bibcite{Case_Memory_Forensics:2014}{9}
 \bibcite{Vomel_Memory_Acquisition:2013}{10}
 \bibcite{NIST2011}{11}
-\bibcite{container-survey:2016}{12}
-\bibcite{Miller_Remote_Library_Injection:2004}{13}
-\bibcite{inline-hooking:2008}{14}
-\bibcite{reflective-lib-injection:2008}{15}
-\bibcite{Poisel_VMI:2013}{16}
-\bibcite{Do_Desafio:2014}{17}
-\bibcite{Dolan-Gavitt_Semantic_Gap:2011}{18}
-\bibcite{Aljaedi_Comparative:2011}{19}
-\bibcite{Dezfouli_Backup_approach:2012}{20}
-\bibcite{VanBaar_FAAS:2014}{21}
-\bibcite{Clarke_Review_of_Challenges:2015}{22}
-\bibcite{Rafique_Static_Live_Digital_Forensics:2013}{23}
-\bibcite{Simou_Cloud_Chlng:2014}{24}
-\bibcite{Bem_Past_Present_Future:2008}{25}
-\bibcite{Quick_Increase_Volume_Impact:2014}{26}
-\bibcite{DierksT2008}{27}
-\bibcite{UnixManPages_numa_maps}{28}
-\bibcite{cgroupsxptrace}{29}
-\bibcite{capabilities}{30}
-\@writefile{toc}{\contentsline {section}{References}{9}}
+\bibcite{Diamanti:2018}{12}
+\bibcite{container-survey:2016}{13}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Command to generate a raw copy of the process container memory}}{7}}
+\newlabel{fig:comando-copia}{{6}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Error while attempting to copy the memory of a process inside a container}}{7}}
+\newlabel{fig:erro-copia-gdb}{{9}{7}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Final Considerations}{7}}
+\newlabel{sec:conclusion}{{V}{7}}
+\@writefile{toc}{\contentsline {section}{References}{7}}
+\bibcite{Miller_Remote_Library_Injection:2004}{14}
+\bibcite{inline-hooking:2008}{15}
+\bibcite{reflective-lib-injection:2008}{16}
+\bibcite{Poisel_VMI:2013}{17}
+\bibcite{Do_Desafio:2014}{18}
+\bibcite{Dolan-Gavitt_Semantic_Gap:2011}{19}
+\bibcite{Aljaedi_Comparative:2011}{20}
+\bibcite{Dezfouli_Backup_approach:2012}{21}
+\bibcite{VanBaar_FAAS:2014}{22}
+\bibcite{Clarke_Review_of_Challenges:2015}{23}
+\bibcite{Rafique_Static_Live_Digital_Forensics:2013}{24}
+\bibcite{Simou_Cloud_Chlng:2014}{25}
+\bibcite{Bem_Past_Present_Future:2008}{26}
+\bibcite{Quick_Increase_Volume_Impact:2014}{27}
+\bibcite{DierksT2008}{28}
+\bibcite{UnixManPages_numa_maps}{29}
+\bibcite{cgroupsxptrace}{30}
+\bibcite{capabilities}{31}

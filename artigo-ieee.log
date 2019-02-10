@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  8 FEB 2019 23:30
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  10 FEB 2019 14:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -778,8 +778,11 @@ File: check.png Graphic file (type png)
  <use check.png>
 Package pdftex.def Info: check.png used on input line 646.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
- [2] [3 <./check.png> <./x.png>] <janela_ieee-eng.jpg, id=22, 811.3512pt x 599.
-1183pt>
+ [2]
+Underfull \vbox (badness 4242) has occurred while \output is active []
+
+ [3 <./check.png> <./x.png>] <janela_ieee-eng.jpg, id=22, 811.3512pt x 599.1183
+pt>
 File: janela_ieee-eng.jpg Graphic file (type jpg)
 
 <use janela_ieee-eng.jpg>
@@ -803,45 +806,58 @@ LaTeX Font Info:    Try loading font information for OT1+pcr on input line 845.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-<evolucao_coleta_ieee.png, id=27, 1205.50375pt x 528.97626pt>
+<evolucao_coleta_ieee.png, id=27, 460.72125pt x 398.99063pt>
 File: evolucao_coleta_ieee.png Graphic file (type png)
 
 <use evolucao_coleta_ieee.png>
 Package pdftex.def Info: evolucao_coleta_ieee.png used on input line 863.
-(pdftex.def)             Requested size: 506.30814pt x 222.1685pt.
+(pdftex.def)             Requested size: 253.39746pt x 219.44553pt.
 
-<memoria_copia_ieee.png, id=28, 1209.51875pt x 526.96875pt>
+Overfull \hbox (1.39746pt too wide) in paragraph at lines 863--866
+ [][] 
+ []
+
+<memoria_copia_ieee.png, id=28, 574.39594pt x 397.485pt>
 File: memoria_copia_ieee.png Graphic file (type png)
 
 <use memoria_copia_ieee.png>
 Package pdftex.def Info: memoria_copia_ieee.png used on input line 886.
-(pdftex.def)             Requested size: 483.79893pt x 210.78375pt.
+(pdftex.def)             Requested size: 252.73499pt x 174.89394pt.
 
-<evidencia_download_ieee.png, id=29, 1209.51875pt x 526.96875pt>
+Overfull \hbox (0.73499pt too wide) in paragraph at lines 886--889
+ [][] 
+ []
+
+[5 <./evolucao_coleta_ieee.png> <./memoria_copia_ieee.png>]
+<evidencia_download_ieee.png, id=35, 588.69937pt x 438.13687pt>
 File: evidencia_download_ieee.png Graphic file (type png)
 
 <use evidencia_download_ieee.png>
 Package pdftex.def Info: evidencia_download_ieee.png used on input line 909.
-(pdftex.def)             Requested size: 483.79893pt x 210.78375pt.
+(pdftex.def)             Requested size: 253.13579pt x 188.39517pt.
 
-<comando-copia-memoria-gdb.jpg, id=30, 912.7701pt x 182.6022pt>
+Overfull \hbox (1.13579pt too wide) in paragraph at lines 909--912
+ [][] 
+ []
+
+<comando-copia-memoria-gdb.jpg, id=36, 912.7701pt x 182.6022pt>
 File: comando-copia-memoria-gdb.jpg Graphic file (type jpg)
 
 <use comando-copia-memoria-gdb.jpg>
 Package pdftex.def Info: comando-copia-memoria-gdb.jpg used on input line 928.
 (pdftex.def)             Requested size: 365.10156pt x 73.03958pt.
 
-<antes-injecao.jpg, id=31, 811.3512pt x 599.1183pt>
+<antes-injecao.jpg, id=37, 811.3512pt x 599.1183pt>
 File: antes-injecao.jpg Graphic file (type jpg)
  <use antes-injecao.jpg>
 Package pdftex.def Info: antes-injecao.jpg used on input line 947.
-(pdftex.def)             Requested size: 324.53473pt x 239.64307pt.
+(pdftex.def)             Requested size: 251.51627pt x 185.72475pt.
 
-<apos-injecao.jpg, id=32, 1195.1049pt x 845.0772pt>
+<apos-injecao.jpg, id=38, 1195.1049pt x 845.0772pt>
 File: apos-injecao.jpg Graphic file (type jpg)
  <use apos-injecao.jpg>
 Package pdftex.def Info: apos-injecao.jpg used on input line 956.
-(pdftex.def)             Requested size: 358.53424pt x 253.52512pt.
+(pdftex.def)             Requested size: 250.97943pt x 177.47145pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 970--971
 [][]\OT1/ptm/m/n/10 Despite the suc-cess-ful col-lec-tion by copy-ing the
@@ -863,58 +879,68 @@ Underfull \hbox (badness 10000) in paragraph at lines 970--971
 \OT1/pcr/m/n/10 --security-opt-seccomp=unconfined \OT1/ptm/m/n/10 which
  []
 
-[5] <nao-consido-dumpar-memoria.jpg, id=37, 1195.1049pt x 845.0772pt>
+<nao-consido-dumpar-memoria.jpg, id=39, 1195.1049pt x 845.0772pt>
 File: nao-consido-dumpar-memoria.jpg Graphic file (type jpg)
 
 <use nao-consido-dumpar-memoria.jpg>
 Package pdftex.def Info: nao-consido-dumpar-memoria.jpg used on input line 975.
 
-(pdftex.def)             Requested size: 358.53424pt x 253.52512pt.
+(pdftex.def)             Requested size: 250.97943pt x 177.47145pt.
+ [6 <./evidencia_download_ieee.png> <./antes-injecao.jpg> <./apos-injecao.jpg>]
+ (./artigo-ieee.bbl
+Underfull \hbox (badness 6910) in paragraph at lines 97--100
+[]\OT1/ptm/m/n/8 Diamanti, ``Five rea-sons you should run con-tain-ers on bare
+ []
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [6 <./evolucao_coleta_ieee.png (PNG copy)> <./memoria_copia_ieee.png (PNG copy
-)>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [7 <./evidencia_download_ieee.png (PNG copy)> <./comando-copia-memoria-gdb.jpg
-> <./antes-injecao.jpg>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [8 <./apos-injecao.jpg> <./nao-consido-dumpar-memoria.jpg>] (./artigo-ieee.bbl
 
 Underfull \hbox (badness 10000) in paragraph at lines 97--100
+\OT1/ptm/m/n/8 metal, not vms,'' Dia-manti, Tech. Rep., 2018, avail-able:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--100
+\OT1/ptm/m/n/8 https : / / diamanti . com / wp-[]content / uploads / 2018 / 07 
+/ Diamanti\OMS/cmsy/m/n/8 fn[] [] \OT1/ptm/m/n/8 WP\OMS/cmsy/m/n/8 fn[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--100
+[] \OT1/ptm/m/n/8 Five\OMS/cmsy/m/n/8 fn[] [] \OT1/ptm/m/n/8 Reasons\OMS/cmsy/m
+/n/8 fn[] [] \OT1/ptm/m/n/8 You\OMS/cmsy/m/n/8 fn[] [] \OT1/ptm/m/n/8 Should\OM
+S/cmsy/m/n/8 fn[] [] \OT1/ptm/m/n/8 Run\OMS/cmsy/m/n/8 fn[] [] \OT1/ptm/m/n/8 C
+ontainers\OMS/cmsy/m/n/8 fn[] []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--105
 \OT1/ptm/m/n/8 https : / / clusterhq . com / assets / pdfs / state-[]of-[]conta
 iner-[]usage-[]june-[]2016 .
  []
 
-
-Overfull \hbox (22.17947pt too wide) in paragraph at lines 164--169
+[7 <./comando-copia-memoria-gdb.jpg> <./nao-consido-dumpar-memoria.jpg>]
+Overfull \hbox (22.17947pt too wide) in paragraph at lines 169--174
 []\OT1/ptm/m/n/8 5CExploring-[]Static-[]and-[]Live-[]Digital-[]Forensic-[]Metho
 ds-[]Practices-[]and-[]Tools .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--202
+Underfull \hbox (badness 10000) in paragraph at lines 204--207
 []\OT1/ptm/m/n/8 Fabio Kung, ``Mem-ory in-side LInux con-tain-ers,''
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--202
+Underfull \hbox (badness 10000) in paragraph at lines 204--207
 \OT1/ptm/m/n/8 https://fabiokung.com/2014/03/13/memory-inside-linux-containers/
 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 204--206
+Underfull \hbox (badness 10000) in paragraph at lines 209--211
 []\OT1/ptm/m/n/8 Docker, ``Run-time priv-i-lege and Linux ca-pa-bil-i-ties,''
  []
 
 
-Underfull \hbox (badness 7151) in paragraph at lines 204--206
+Underfull \hbox (badness 7151) in paragraph at lines 209--211
 \OT1/ptm/m/n/8 https://docs.docker.com/engine/reference/run/, aces-sado em: 30-
 11-
  []
@@ -931,26 +957,28 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[9] (./artigo-ieee.aux) ) 
+[8
+
+] (./artigo-ieee.aux) ) 
 Here is how much of TeX's memory you used:
  4728 strings out of 493304
- 70815 string characters out of 6139871
- 165161 words of memory out of 5000000
+ 70822 string characters out of 6139871
+ 164166 words of memory out of 5000000
  8072 multiletter control sequences out of 15000+600000
  40419 words of font info for 75 fonts, out of 8000000 for 9000
  960 hyphenation exceptions out of 8191
  40i,16n,35p,550b,369s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r
-.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
-s/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on artigo-ieee.pdf (9 pages, 4829207 bytes).
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.e
+nc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/
+utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on artigo-ieee.pdf (8 pages, 4864459 bytes).
 PDF statistics:
  77 PDF objects out of 1000 (max. 8388607)
- 45 compressed objects within 1 object stream
+ 43 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
