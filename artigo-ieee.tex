@@ -618,7 +618,7 @@ We discuss some of the proposals in the literature that address this issue in th
 \label{sec:related}
 
 
-\marcos{TODO: Existem 4 critérios na sua tabela, mas apenas 3 deles são discutidos nas sub-seções: PRECISA DISCUTIR O 4o também!!!}
+\marcos{TODO: Existem 4 critérios na sua tabela, mas apenas 3 deles são discutidos nas sub-seções: PRECISA DISCUTIR O 4o também!!! - Hamilton: Done}
 
 There is a number of aspects that need to be taken into account when performing forensic analysis in the cloud, going from information collection to guaranteeing the evidence's chain of custody.
 %
@@ -672,6 +672,36 @@ For a structured discussion of the works available in the literature, which are 
 %\cite{VanBaar_FAAS:2014}							& \cfig   & \xfig                   & \cfig                  & \cfig                             \\
 %\end{tabular}
 %\end{table}
+
+
+\subsection{Avoiding the problem of large volume of data to analyse}
+
+
+The evidence-gathering process in digital forensics inherited its practices from the traditional forensics, where crime scene is isolated and evidence is collected.
+%
+By transporting this method to digital forensics, the practice of bit wise copy of the evidence to be analysed was introduced. 
+%
+In the past, with solutions manipulating much smaller amounts of memory, disk and traffic, such practice was not considered very problematic. 
+%
+However, in today's cloud solutions, applications and architectures, the volume of data is considerably larger \cite{Quick_Increase_Volume_Impact:2014}. 
+%
+After all, access to storage and processing resources, such as virtual machines, load balancers, firewalls and other evidence-generating elements became much easier. 
+%
+This problem is illustrated in \cite{Quick_Increase_Volume_Impact:2014}, where the amount of data to be analyzed for digital forensic purposes would take 6 months in average. 
+%
+Finding a way to store less information and thus make the analysis phase faster and more efficient is an important step in ensuring the speed of forensic investigations.
+
+
+Among the works studied, the only proposal found that considers this need are \cite{Dezfouli_Backup_approach:2012} and \cite{Sang_Log_approach:2013}. 
+%
+Unfortunately, however, neither of them are viable on a cloud cenario.
+%
+The first one is mobile-oriented and has the disadvantage of not storing the history of memory changes. 
+%
+The second one has the disadvantage of not distinguishing what happened before or after the fact of interest but constantly collects information from the virtual machine. 
+%
+Another limitation is that the framework depends on the cooperation of the cloud provider which is considered a weak strategy by the forensic community because the priority of CSP is to guarantee the availability of the service, not to collect evidence.
+
 
 
 \subsection{Accessing and collecting memory-related information in the cloud}
@@ -752,7 +782,9 @@ In computational systems executed on a physical infrastructure (i.e., non-virtua
 %
 In systems built in a virtual infrastructure, especially when it is self-scalable, the computational resources are highly volatile and can thus be removed at any time.
 %
-\marcos{Dizer aqui que focamos em conteineres por ser mais fácil rotulá-los de forma única. A frase original era (e precisa ser mudada para melhorar o contexto: In this work, we focus primarily on containers for our implementation of \fancyname, although a VM-based implementation of the proposed architecture would also be possible}
+In this work, although a VM-based implementation of the proposed architecture would also be possible, we chose to use containers because its identification is hash calculated based on the containers content as opposed to a random serial alpha-numeric identification used on most VM implementations.
+%
+\marcos{Dizer aqui que focamos em conteineres por ser mais fácil rotulá-los de forma única. A frase original era (e precisa ser mudada para melhorar o contexto: In this work, we focus primarily on containers for our implementation of \fancyname, although a VM-based implementation of the proposed architecture would also be possible - Hamilton: Done, o que acha? (acredito que precisa de uma referência certo?}
 %
 To succeed in correlating a piece of evidence to its volatile origin, this implementation uses Linux containers (LXC) to persist in the source-evidence relationship.
 %

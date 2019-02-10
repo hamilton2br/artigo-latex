@@ -158,6 +158,14 @@ R.~B. van Baar, H.~M.~A. van Beek, and E.~J. van Eijk, ``{Digital Forensics as
   \url{dx.doi.org/10.1016/j.diin.2014.03.007}
 \BIBentrySTDinterwordspacing
 
+\bibitem{Quick_Increase_Volume_Impact:2014}
+\BIBentryALTinterwordspacing
+D.~Quick and K.~K.~R. Choo, ``{Impacts of increasing volume of digital forensic
+  data: A survey and future research challenges},'' \emph{Digital
+  Investigation}, vol.~11, no.~4, pp. 273--294, 2014. [Online]. Available:
+  \url{dx.doi.org/10.1016/j.diin.2014.09.002}
+\BIBentrySTDinterwordspacing
+
 \bibitem{Clarke_Review_of_Challenges:2015}
 S.~Alqahtany, N.~Clarke, S.~Furnell, and C.~Reich, ``Cloud forensics: A review
   of challenges, solutions and open problems,'' in \emph{Int. Conference on
@@ -183,14 +191,6 @@ S.~Simou, C.~Kalloniatis, E.~Kavakli, and S.~Gritzalis, ``{Cloud forensics:
 D.~Bem, F.~Feld, E.~Huebner, and O.~Bem, ``Computer forensics - past , present
   and future,'' \emph{Journal of Information Science and Technology}, vol.~5,
   no.~3, pp. 43--59, 2008.
-
-\bibitem{Quick_Increase_Volume_Impact:2014}
-\BIBentryALTinterwordspacing
-D.~Quick and K.~K.~R. Choo, ``{Impacts of increasing volume of digital forensic
-  data: A survey and future research challenges},'' \emph{Digital
-  Investigation}, vol.~11, no.~4, pp. 273--294, 2014. [Online]. Available:
-  \url{dx.doi.org/10.1016/j.diin.2014.09.002}
-\BIBentrySTDinterwordspacing
 
 \bibitem{DierksT2008}
 R.~E. {Dierks T}, ``{The Transport Layer Security (TLS) Protocol},'' IETF:
