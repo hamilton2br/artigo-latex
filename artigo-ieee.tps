@@ -17,8 +17,8 @@ Class=LaTeXView
 Document=artigo-ieee.tex
 
 [Frame0_View0,0]
-TopLine=594
-Cursor=29623
+TopLine=805
+Cursor=38002
 
 [Frame1]
 Flags=0
@@ -53,8 +53,8 @@ Class=BibTeXView
 Document=artigo-sbc.bib
 
 [Frame2_View0,0]
-TopLine=664
-Cursor=47806
+TopLine=268
+Cursor=18368
 
 [SessionInfo]
 FrameCount=3

@@ -349,7 +349,8 @@
 \usepackage{xcolor}
 \newcommand{\marcos}[1]{{\color{green}{MARCOS: #1}}}
 \newcommand{\marcosT}[1]{{\color{red}{TODO: #1}}}
-\newcommand{\marcosR}[1]{{\color{brown}{COMMENT: #1}}}
+%\newcommand{\marcosR}[1]{{\color{brown}{COMMENT: #1}}}
+\newcommand{\hamilton}[1]{{\color{brown}{#1}}}
 \newcommand{\fancyname}{Dizang }
 \newcommand{\fancynameX}{\fancyname}
 
@@ -465,46 +466,49 @@ As such, it should be a useful tool for analyzing the causes of security inciden
 
 %==== CONTEXTO GERAL: Nuvem e volatilidade de VMs ====
 %
-Virtualization techniques, replication of services and resource sharing among multiple users (multitenancy) are key factors for the high scalability of computational clouds \cite{Morsy_Cloud_Security:2010}.
+Virtualization techniques, replication of services and resource sharing among multiple users (multitenancy) are key enablers for the high scalability of computational clouds \cite{Morsy_Cloud_Security:2010}.
 %
 At the same time, however, these mechanisms also lead to the volatility of the virtual resources executing cloud-based applications.
 %
-After all, when submitted to a high load, a cloud application may create clones of the virtual machines (VMs) or containers hosting it and balance the load among them; this behavior is expected to meet the demand without harming the quality of the service offered.
+After all, when submitted to a high load, a cloud application may create clones of the virtual machines (VMs) or containers hosting it, and then balance the load among those copies; this auto-scaling behavior is expected to avoid any degradation of the quality provided by the service.
 %
 After the load subsides, the cloned instances are usually deactivated, their resources are released and the system returns to the previous capacity, thus avoiding unnecessary costs.
 
 
 %==== CONTEXTO ESPECÍFICO + PROBLEMA GERAL: Forense na nuvem vs. volatilidade + multitenancy + multidomains ====
 %
-Despite interesting from the efficiency and cost viewpoints, such volatility of the cloud is likely to causes problems from the forensic perspective when attacks occur.
+Despite interesting from the efficiency and cost viewpoints, such volatility of the cloud is likely to causes problems from the perspective of attack response teams and forensic experts.
 %
-For example, if a temporary virtual processing instance undergoes an attack that directly affects its memory, without leaving traces in permanent storage (e.g., log files), the evidences of this event may be completely lost after such instances are deactivated and their resources are released.
+For example, suppose that a temporary virtual processing instance undergoes an attack that directly affects its memory, without leaving traces in permanent storage (e.g., log files).
+%
+In this case, the evidences of this event may be completely lost after such instances are deactivated and their resources are released.
 %
 This issue is further aggravated by aspects such as multitenancy and multi-jurisdiction, typical of cloud solutions \cite{Bash_Adv_in_Forensics:2015}.
 %
 Particularly, the multitenancy aspect makes it harder to isolate the hardware executing the applications of interest: since each piece of hardware is shared by a number of users, physically removing them for analysis could lead to privacy violation of users not related to the investigation. 
 %
-Moreover, due the distributed nature of the cloud, information relevant to the investigation may be allocated in different countries.
+Moreover, due the distributed nature of the cloud, data relevant to the investigation may be allocated in different countries.
 %
-In practice, this encumbers the acquisition of such information, especially when there are no cooperation agreements among the entities involved \cite{Dykstra_Acquiring_for_IAAS:2012}.
+In practice, this encumbers the acquisition of the corresponding information, especially when there are no cooperation agreements among the entities involved \cite{Dykstra_Acquiring_for_IAAS:2012}.
 %
 %Moreover, the distributed nature of the cloud may lead to allocating information relevant to the investigation in different countries, thus hindering obtaining this information, especially when there are no cooperation agreements among the entities involved \cite{Dykstra_Acquiring_for_IAAS:2012}.
 %
-Combined, these characteristics hinder the implementation of a evidence collection process with the necessary credibility so that they can be accepted in legal processes.
+Combined, these characteristics hinder the implementation of an evidence collection process.
 %
-In particular, it becomes harder to comply with privacy, jurisdiction and chain of custody requirements, as well as to ensure the reproducibility of the collection process \cite{Rahman_Live_Forensics_Techniques:2015}.
+As a result, the response to memory-oriented attacks may be delayed, and evidences collected afterward may not have the necessary credibility so that they can be accepted in legal processes.
+%
+In particular, it becomes harder for forensic experts to comply with privacy, jurisdiction and chain of custody requirements, as well as to ensure the reproducibility of the collection process \cite{Rahman_Live_Forensics_Techniques:2015}.
 
 
 %==== O QUE EXISTE E PORQUE NÃO É SUFICIENTE: ??? ====
 %
-Although the literature include solutions aimed at collecting information in the cloud for forensic analysis, most of them handle collection, transport and storage in an isolated manner.
+Even though the literature include solutions aimed at collecting information in the cloud for forensic analysis, most of them handle collection, transport and storage in an isolated manner.
 %
 For example, \cite{Dykstra_FROST:2013} and \cite{Reichert_Auto_acquisition:2015} deal with factors such as multitenancy and multi-jurisdiction, discussing forms of collecting and preserving evidence outside the cloud.
 %
 In comparison, \cite{George_DF2CE:2012} concentrates on forensic analysis to collect evidence from VMs while they are being executed, whereas \cite{Sang_Log_approach:2013} deals with ensuring the chain of custody when transporting evidences.
 %
-However, none of the proposals identified in the literature (1) describe how data are collected and stored observing the chain of custody, and (2) create the required conditions for reproducing the evidence collection process even if a virtualized resource is removed.
-However, none of the proposals identified in the literature (1) describe how data are collected and stored observing the chain of custody, and (2) create the required conditions for reproducing the evidence collection process even if a virtualized resource is removed.
+However, none of the proposals identified in the literature (1) describe how data are collected and stored observing the chain of custody, and (2) create the required conditions for reproducing the evidence collection process even if a virtualized resource is decommissioned.
 
 
 
@@ -558,7 +562,7 @@ However, whereas VMs involve instantiating a virtual hardware and also an operat
 According do \cite{Diamanti:2018}, containers allow for a simpler implementation and better resource usage, eliminating layers between the application being executed and the physical hardware.
 %
 They also have a lower total cost and a more predictable performance.
-%
+
 
 Whichever the virtualization technology employed, the result is a highly volatile memory environment.
 %
@@ -576,12 +580,13 @@ Examples include:
  As a result, that code inside that library is executed wit the same privileges as the target process. 
  %
  This strategy, commonly used for enabling a malware to be installed in a victim's machine, may also involve storing the malicious library in the system so it can be loaded by different processes.
- %
+ 
+
  \item \textit{Inline Hooking}: A malicious process writes a piece of code directly into the target process's memory space, as a sequence of bytes, so the victim that code as if it was part of its own design \cite{inline-hooking:2008}.
 %
 This is commonly employed to force the execution of shell scripts, giving the attacker remote control over the target machine.
 
- %
+
  \item \textit{Reflective library injection}: a malicious process directly access the target process's memory and writes into it the bytecode corresponding to a library, forcing the victim to execute the injected instructions \cite{reflective-lib-injection:2008}.
  %
  In this case, the malicious library is not stored in the system and its loading is not registered by the operation system's logs, making this kind of attack harder to detect.
@@ -589,11 +594,11 @@ This is commonly employed to force the execution of shell scripts, giving the at
 
 
 
-The ability to analyze the state of volatile memory is, thus, an important requirement for enabling an effective incident response procedure and for a post-mortem analysis of such attacks.
+The ability to analyze the state of volatile memory is, thus, an important requirement for enabling an effective incident response procedure, as well as post-mortem analyses of such attacks.
 %
-On the other hand, balancing the conflicts between this security need and the performance requirements met via rapid elasticity is a challenging task. 
+However, it is challenging task to balance the conflicts between (1) this security need and (2) the cloud's performance requirements, usually met via rapid elasticity. 
 %
-We discuss some of the proposals in the literature that address this issue in the next section.
+In the next section, we discuss some of the proposals in the literature aimed at addressing this issue.
 
 
 
@@ -618,11 +623,14 @@ We discuss some of the proposals in the literature that address this issue in th
 \label{sec:related}
 
 
-\marcos{TODO: Existem 4 critérios na sua tabela, mas apenas 3 deles são discutidos nas sub-seções: PRECISA DISCUTIR O 4o também!!! - Hamilton: Done}
+\marcos{TODO: Existem 4 critérios na sua tabela, mas apenas 3 deles são discutidos nas sub-seções: PRECISA DISCUTIR O 4o também!!!} \hamilton{Done} \marcos{Done? Certeza...? Onde está a discussão sobre ``cadeia de custódia'' que justifica as marcações na segunda coluna da tabela...?! E o que seria essa discussão sobre ``Accessing and collecting memory-related information in the cloud'', que não está na tabela?! Seu texto e sua tabela precisam estar condizentes... não é o caso...}
 
-There is a number of aspects that need to be taken into account when performing forensic analysis in the cloud, going from information collection to guaranteeing the evidence's chain of custody.
+
+
+There are a few aspects that need to be taken into account when performing forensic analysis in the cloud, including: their approach for information collection, the reproducibility of this process, which guarantees are provided for the evidence's chain of custody, and how privacy and jurisdiction are preserved.
 %
-For a structured discussion of the works available in the literature, which are summarized in Table \ref{tab:related-work}, we present them considering their approach to each of such aspects.
+For a structured discussion, in this section we analyze the works available in the literature considering these four aspects (see Table \ref{tab:related-work}).
+
 
 \begin{table}[htb!]
 \centering
@@ -631,19 +639,22 @@ For a structured discussion of the works available in the literature, which are 
 \renewcommand{\arraystretch}{2}
 \begin{tabular}{p{3.0cm}|L|L|L|L|}
 \cline{2-5}
-\textbf{}															& \rotb{Continuous collection}      & \rotb{Collection process \\ reproducible without VM} & \rotb{Chain of custody \\ guarantees}     		& \rotb{Jurisdiction and \\ privacy preservation}          \\ \hline
+\textbf{}															& \rotb{Continuous collection \\ of relevant data}	
+																											& \rotb{Chain of custody \\ guarantees}
+																																		& \rotb{Ability to reproduce \\ the evidence collection \\ process} 
+																																									& \rotb{Jurisdiction and \\ privacy preservation}          \\ \hline
 
-\fancyname (this proposal)						& \cfig	  & \cfig               & \cfig                  & \cfig                             \\ \hline
-\cite{George_DF2CE:2012}							& \xfig		  	& \xfig                   & \xfig                      & \cfig                             \\ \hline
-\cite{Poisel_VMI:2013}								& \xfig       & \xfig                   & \xfig                      & \cfig                             \\ \hline
-\cite{Dykstra_FROST:2013}							& \xfig       & \xfig                   & \xfig                      & \cfig                             \\ \hline
-\cite{Do_Desafio:2014}								& \xfig		    & \xfig                   & \xfig                      & \cfig                             \\ \hline
-\cite{Reichert_Auto_acquisition:2015}	& \xfig  	    & \xfig                   & \cfig                  & \cfig                             \\ \hline
-\cite{Sang_Log_approach:2013}					& \cfig   & \xfig	             			& \cfig                  & \cfig                             \\ \hline
-\cite{Dolan-Gavitt_Semantic_Gap:2011}	& \xfig       & \xfig                   & \xfig                      & \cfig                             \\ \hline
-\cite{Aljaedi_Comparative:2011}				& \xfig       & \xfig                   & \xfig                      & \cfig                             \\ \hline
-\cite{Dezfouli_Backup_approach:2012}	& \cfig   & \xfig                   & \xfig                      & \cfig                             \\ \hline
-\cite{VanBaar_FAAS:2014}							& \cfig   & \xfig                   & \cfig                  & \cfig                             \\\hline
+\fancyname (this proposal)						& \cfig	  			& \cfig       & \cfig       & \cfig                             \\ \hline
+\cite{George_DF2CE:2012}							& \xfig		  		& \xfig       & \xfig       & \cfig                             \\ \hline
+\cite{Poisel_VMI:2013}								& \xfig       	& \xfig       & \xfig       & \cfig                             \\ \hline
+\cite{Dykstra_FROST:2013}							& \xfig      		& \xfig       & \xfig       & \cfig                             \\ \hline
+\cite{Do_Desafio:2014}								& \xfig		    	& \xfig       & \xfig       & \cfig                             \\ \hline
+\cite{Reichert_Auto_acquisition:2015}	& \xfig  	    	& \cfig       & \xfig       & \cfig                             \\ \hline
+\cite{Sang_Log_approach:2013}					& \cfig   			& \cfig	      & \xfig       & \cfig                             \\ \hline
+\cite{Dolan-Gavitt_Semantic_Gap:2011}	& \xfig       	& \xfig       & \xfig       & \cfig                             \\ \hline
+\cite{Aljaedi_Comparative:2011}				& \xfig       	& \xfig       & \xfig       & \cfig                             \\ \hline
+\cite{Dezfouli_Backup_approach:2012}	& \cfig   			& \xfig       & \xfig       & \cfig                             \\ \hline
+\cite{VanBaar_FAAS:2014}							& \cfig   			& \cfig       & \xfig       & \cfig                             \\\hline
 \end{tabular}
 \end{table}
 
@@ -674,40 +685,51 @@ For a structured discussion of the works available in the literature, which are 
 %\end{table}
 
 
-\subsection{Avoiding the problem of large volume of data to analyse}
+\subsection{Continuous collection of relevant data}
+\label{sec:related-continuousCollection}
+\marcos{OK o tópico: ``continuous collection''. PORÉM: na tabela fala que \cite{VanBaar_FAAS:2014} também cobre esse aspecto, então cadê a discussão sobre isso aqui?!?! - Hamilton: Adicionado}
 
-
-The evidence-gathering process in digital forensics inherited its practices from the traditional forensics, where the crime scene is isolated and evidence is collected.
+The evidence-gathering process in traditional forensics consists basically in isolating a crime scene and then collecting all data that seem relevant for later analysis.
 %
-By transporting this method to digital forensics, the practice of bit wise copy of the evidence to be analysed was introduced. 
+A straightforward translation of this practice to the context of digital forensics is, thus, performing the bitwise copy of the (virtual or physical) machines's memory.
 %
-In the past, with solutions manipulating much smaller amounts of memory, disk and traffic, such practice was not considered very problematic. 
+In the past, when computing services manipulated much smaller amounts of memory, disk and traffic than what is seen today, such practice was not considered very problematic. 
 %
-However, in today's cloud solutions, applications and architectures, the volume of data is considerably larger \cite{Quick_Increase_Volume_Impact:2014}. 
+However, in today's cloud systems and applications, the volume of data is considerably larger \cite{Quick_Increase_Volume_Impact:2014}. 
 %
-After all, access to storage and processing resources, such as virtual machines, load balancers, firewalls and other evidence-generating elements became much easier. 
+After all, one of the main advantages of cloud solutions is exactly to facilitate access to storage and processing resources, such as virtual machines, load balancers, firewalls and other evidence-generating elements.
 %
-This problem is illustrated in \cite{Quick_Increase_Volume_Impact:2014}, where the amount of data to be analyzed for digital forensic purposes would take 6 months in average. 
+The result is that digital forensics laboratories are often overloaded, which leads to backlogs that amount for months \cite{Quick_Increase_Volume_Impact:2014}.
 %
-Finding a way to store less information and thus make the analysis phase faster and more efficient is an important step in ensuring the speed of forensic investigations.
-
-
-Among the works studied, the only proposal found that considers this need are \cite{Dezfouli_Backup_approach:2012} and \cite{Sang_Log_approach:2013}. 
-%
-Unfortunately, however, neither of them are viable on a cloud cenario.
-%
-The first one is mobile-oriented and has the disadvantage of not storing the history of memory changes. 
-%
-The second one has the disadvantage of not distinguishing what happened before or after the fact of interest but constantly collects information from the virtual machine. 
-%
-Another limitation is the framework depends on the cooperation of the cloud provider. Such strategy is considered a weak by the forensic community because the priority of CSP is to guarantee the availability of the service, not to collect evidence.
+An important step for enabling more efficient incident response and forensic investigations is, thus, finding a way to store less, more relevant information for analysis.
 
 
 
-\subsection{Accessing and collecting memory-related information in the cloud}
+Among the solutions found in the literature, the only proposals for digital forensics that clearly consider this need are \cite{Dezfouli_Backup_approach:2012}, \cite{Sang_Log_approach:2013} and \cite{VanBaar_FAAS:2014}.
+%
+Unfortunately, however, neither of them is viable for used in a cloud scenario.
+%
+Namely, \cite{Dezfouli_Backup_approach:2012} focuses on mobile environments, and has the disadvantage of not storing the history of memory changes; hence, it would not cope with the high volatility of the cloud.
+%
+Conversely, the cloud-oriented work from \cite{Sang_Log_approach:2013} constantly collects information from the virtual machine, not distinguishing between what happened before or after the fact of interest. 
+%
+This is likely to generate a large amount of (not necessarily useful) data for analysis.
+%
+Finally, \cite{VanBaar_FAAS:2014} relies on indexing, pre-processing and knowledge sharing of the evidence to optimize analysis.
+%
+Although this approach aids the problem in the short term, in the long run, with the amount of data continually growing, the problem will recur again.
+%
+\marcos{Esta frase já é colocada na seção \ref{sec:related-privacy}. Repetir em dois pontos o mesmo problema indica falta de foco... Vai aqui ou lá? Onde faz mais sentido? (obs.: o texto na na seção \ref{sec:related-privacy} me parece mais claro, então onde quer que seja colocado, melhor usar o outro texto) - Hamilton: Concordo} 
+%
+%In addition, \cite{Sang_Log_approach:2013} depends on the active cooperation of the cloud provider, which may be troublesome because cloud providers' priority in case of attacks would be to guarantee the availability of the service, not to collect evidence. \marcos{Já é falado na }
 
 
-Different works on forensic analysis in the cloud concentrate on collecting data “after the fact”, i.e., after an intrusion has been detected \cite{Reichert_Auto_acquisition:2015,Poisel_VMI:2013,Dykstra_FROST:2013,George_DF2CE:2012,Sang_Log_approach:2013}. 
+\subsection{Chain of custody garantees}
+\label{sec:related-chainofcustody}
+
+\marcos{TODO: Esse aqui tem a ver com cadeia de custódia?! Não tem essa métrica de ``Accessing and collecting memory-related information in the cloud'' na tabela... Ou a tabela está errada ou esta seção está errada... Ou talvez precise incluir um terceiro critério na tabela? Enfim, tá confuso... - Hamilton: Sincronizei os títulos}
+
+Many research efforts focused on forensic analysis in the cloud concentrate on collecting data ``after the fact'', i.e., after an intrusion has been detected \cite{Reichert_Auto_acquisition:2015,Poisel_VMI:2013,Dykstra_FROST:2013,George_DF2CE:2012,Sang_Log_approach:2013}. 
 %
 The collection processes described in those works can be started manually, or automatically by integrating them with an intrusion detection system. 
 %
@@ -716,7 +738,7 @@ In the specific case of volatile memory, that form of collection cannot describe
 This limitation can be harmful to investigations, given that some analyses depend exactly on their ability to compare two memory snapshots \cite{Case_Memory_Forensics:2014}. 
 
 
-Among the works studied, the only proposal found that considers this need is \cite{Dezfouli_Backup_approach:2012}, which proposes that the data are stored in the very equipment under analysis.
+Among the works studied, the only solution found that considers this need is \cite{Dezfouli_Backup_approach:2012}, which proposes that the data are stored in the very equipment under analysis.
 %
 Unfortunately, however, the application of this approach to the cloud scenario is not completely viable.
 %
@@ -734,18 +756,24 @@ Albeit interesting, the approaches described in these works may lead to a massiv
 In addition, they do not treat the scenario in which the evidence to be collected refers to data in virtual resources that have been released.
 
 
-\subsection{Ability to reproduce the process and to obtain the same results}
+\subsection{Ability to reproduce the evidence collection process}
+\label{sec:related-reproducibility}
+\marcos{OK: ``Collection process reproducible without VM''}
 
-If, during a forensic analysis, different analysts obtain distinct results when executing the same collection procedure, the evidence generated has no credibility and may come not to be accepted in a legal process. 
+
+If, during a forensic analysis, different analysts obtain distinct results when executing the same collection procedure, the evidence generated has no credibility and may be considered unacceptable in a legal process. 
 %
 For this reason, the reproducibility of the collection process is an important part in evidence generation for forensic analysis.
-%
+
+
 None of the proposals found in the literature allows such reproducibility in cloud scenarios in which virtual instances are deactivated and their physical resources are released.
 %
 More precisely, they all depend on the existence of the virtual resource for repeating the collection process.
 
 
-\subsection{Avoiding violating privacy or jurisdiction of parties not involved in the investigation}
+
+\subsection{Jurisdiction and privacy preservation}
+\label{sec:related-privacy}
 
 In a public cloud environment, removing the hardware for later analysis may lead to violating the privacy of users.
 %
