@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  23 FEB 2019 18:11
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  24 FEB 2019 21:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -792,19 +792,19 @@ Underfull \vbox (badness 1394) has occurred while \output is active []
 File: janela_ieee-eng.jpg Graphic file (type jpg)
 
 <use janela_ieee-eng.jpg>
-Package pdftex.def Info: janela_ieee-eng.jpg used on input line 866.
+Package pdftex.def Info: janela_ieee-eng.jpg used on input line 863.
 (pdftex.def)             Requested size: 324.53473pt x 239.64307pt.
 
-Overfull \hbox (72.53473pt too wide) in paragraph at lines 866--869
+Overfull \hbox (72.53473pt too wide) in paragraph at lines 863--866
  [][] 
  []
 
 <solucao-eng.jpg, id=26, 894.7026pt x 636.4578pt>
 File: solucao-eng.jpg Graphic file (type jpg)
  <use solucao-eng.jpg>
-Package pdftex.def Info: solucao-eng.jpg used on input line 882.
+Package pdftex.def Info: solucao-eng.jpg used on input line 879.
 (pdftex.def)             Requested size: 250.51501pt x 178.20695pt.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 916.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 913.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
@@ -814,10 +814,10 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 File: evolucao_coleta_ieee.png Graphic file (type png)
 
 <use evolucao_coleta_ieee.png>
-Package pdftex.def Info: evolucao_coleta_ieee.png used on input line 934.
+Package pdftex.def Info: evolucao_coleta_ieee.png used on input line 931.
 (pdftex.def)             Requested size: 253.39746pt x 219.44553pt.
 
-Overfull \hbox (1.39746pt too wide) in paragraph at lines 934--937
+Overfull \hbox (1.39746pt too wide) in paragraph at lines 931--934
  [][] 
  []
 
@@ -825,10 +825,10 @@ Overfull \hbox (1.39746pt too wide) in paragraph at lines 934--937
 File: memoria_copia_ieee.png Graphic file (type png)
 
 <use memoria_copia_ieee.png>
-Package pdftex.def Info: memoria_copia_ieee.png used on input line 957.
+Package pdftex.def Info: memoria_copia_ieee.png used on input line 954.
 (pdftex.def)             Requested size: 252.73499pt x 174.89394pt.
 
-Overfull \hbox (0.73499pt too wide) in paragraph at lines 957--960
+Overfull \hbox (0.73499pt too wide) in paragraph at lines 954--957
  [][] 
  []
 
@@ -836,10 +836,10 @@ Overfull \hbox (0.73499pt too wide) in paragraph at lines 957--960
 File: evidencia_download_ieee.png Graphic file (type png)
 
 <use evidencia_download_ieee.png>
-Package pdftex.def Info: evidencia_download_ieee.png used on input line 980.
+Package pdftex.def Info: evidencia_download_ieee.png used on input line 977.
 (pdftex.def)             Requested size: 253.13579pt x 188.39517pt.
 
-Overfull \hbox (1.13579pt too wide) in paragraph at lines 980--983
+Overfull \hbox (1.13579pt too wide) in paragraph at lines 977--980
  [][] 
  []
 
@@ -848,38 +848,38 @@ d_ieee.png>] <comando-copia-memoria-gdb.jpg, id=40, 912.7701pt x 182.6022pt>
 File: comando-copia-memoria-gdb.jpg Graphic file (type jpg)
 
 <use comando-copia-memoria-gdb.jpg>
-Package pdftex.def Info: comando-copia-memoria-gdb.jpg used on input line 999.
+Package pdftex.def Info: comando-copia-memoria-gdb.jpg used on input line 996.
 (pdftex.def)             Requested size: 365.10156pt x 73.03958pt.
 
 <antes-injecao.jpg, id=41, 811.3512pt x 599.1183pt>
 File: antes-injecao.jpg Graphic file (type jpg)
  <use antes-injecao.jpg>
-Package pdftex.def Info: antes-injecao.jpg used on input line 1018.
+Package pdftex.def Info: antes-injecao.jpg used on input line 1015.
 (pdftex.def)             Requested size: 251.51627pt x 185.72475pt.
 
 <apos-injecao.jpg, id=42, 1195.1049pt x 845.0772pt>
 File: apos-injecao.jpg Graphic file (type jpg)
  <use apos-injecao.jpg>
-Package pdftex.def Info: apos-injecao.jpg used on input line 1027.
+Package pdftex.def Info: apos-injecao.jpg used on input line 1024.
 (pdftex.def)             Requested size: 250.97943pt x 177.47145pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1041--1042
+Underfull \hbox (badness 10000) in paragraph at lines 1038--1039
 [][]\OT1/ptm/m/n/10 Despite the suc-cess-ful col-lec-tion by copy-ing the
  []
 
 
-Underfull \hbox (badness 1406) in paragraph at lines 1041--1042
+Underfull \hbox (badness 1406) in paragraph at lines 1038--1039
 \OT1/ptm/b/n/10 /proc/pid/numa[]maps\OT1/ptm/m/n/10 , it was not pos-si-ble to 
 copy the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1041--1042
+Underfull \hbox (badness 10000) in paragraph at lines 1038--1039
 \OT1/ptm/m/n/10 men-tions the com-mand \OT1/pcr/m/n/10 --cap-add=SYS_PTRACE
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1041--1042
+Underfull \hbox (badness 10000) in paragraph at lines 1038--1039
 \OT1/pcr/m/n/10 --security-opt-seccomp=unconfined \OT1/ptm/m/n/10 which
  []
 
@@ -887,11 +887,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 1041--1042
 File: nao-consido-dumpar-memoria.jpg Graphic file (type jpg)
 
 <use nao-consido-dumpar-memoria.jpg>
-Package pdftex.def Info: nao-consido-dumpar-memoria.jpg used on input line 1046
+Package pdftex.def Info: nao-consido-dumpar-memoria.jpg used on input line 1043
 .
 (pdftex.def)             Requested size: 250.97943pt x 177.47145pt.
+
+Underfull \vbox (badness 1354) has occurred while \output is active []
+
  [7 <./antes-injecao.jpg> <./apos-injecao.jpg> <./nao-consido-dumpar-memoria.jp
-g>] (./artigo-ieee.bbl
+g>]
+(./artigo-ieee.bbl
 Underfull \hbox (badness 6910) in paragraph at lines 97--100
 []\OT1/ptm/m/n/8 Diamanti, ``Five rea-sons you should run con-tain-ers on bare
  []
@@ -979,7 +983,7 @@ r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share
 f-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/
 utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on artigo-ieee.pdf (9 pages, 4868448 bytes).
+Output written on artigo-ieee.pdf (9 pages, 4868376 bytes).
 PDF statistics:
  80 PDF objects out of 1000 (max. 8388607)
  45 compressed objects within 1 object stream

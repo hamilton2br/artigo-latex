@@ -729,29 +729,26 @@ Although this approach aids the problem in the short term, in the long run, with
 
 \marcos{TODO: Esse aqui tem a ver com cadeia de custódia?! Não tem essa métrica de ``Accessing and collecting memory-related information in the cloud'' na tabela... Ou a tabela está errada ou esta seção está errada... Ou talvez precise incluir um terceiro critério na tabela? Enfim, tá confuso... - Hamilton: Agora sim}
 
-One of the most pertinent parts of this work is the preservation of evidence, which must be collected so that they are accepted in a legal process and do not have their credibility questioned in the course of it.
+One of the most pertinent parts of forensics work is the handling of the evidence, which must be collected, transported and stored so that they are accepted in a legal process and not have their credibility questioned in the course of it.
 %
 To achieve this goal, we must ensure the evidence's chain of custody.
 
 
 In a physical infrastructure, the collection of evidence can be done by removing the physical resource, transporting it to a laboratory and there analyze the data. 
 %
-To limit the exposure of evidence it may be kept in a safe room, to which access is controlled.
-%
-The reproducibility of the collection process and the maintenance of the integrity of the evidence are then very straightforward tasks.
+To limit the exposure of evidence it may be kept in a safe room, to which access is controlled and it is safe from tampering.
 %
 In a scenario of cloud computing, especially those of self-scalable infrastructure, there are a number of new challenges. 
 %
-First, in contrast with traditional infrastructures, the physical resource can not in principle be removed, those resources may contain information from users not related to the investigation in progress, doing so would constitute a violation of privacy. 
+In contrast with traditional infrastructures, the physical resource can not be removed, these resources may contain information from users not related to the investigation in progress, doing so would constitute a violation of privacy. 
 %
-The volatility of the computational resource turns the verification of the evidence's origin a more complex process, because the resource that generates the evidence may cease to exist some time after the collection takes place \cite{Simou_Cloud_Chlng:2014}.
+The integrity of the evidence also ends up being a non-trivial task, as it needs to be collected, transported and stored without its integrity or content being compromised. 
 %
-The integrity of the evidence also ends up being a non-trivial task, as it needs to be collected, transported and stored, which characterizes the need to preserve the chain of custody. 
+Finally, the volatility of the computational resource turns the verification of the evidence's origin a more complex process, because the resource that generates the evidence may cease to exist some time after the collection takes place \cite{Simou_Cloud_Chlng:2014}.
 %
 Violation of any of these characteristics may put into question the credibility of the evidence. 
 %
 Although the admissibility of the evidence in a legal process is a decision of the judge the credibility of the same has a important role in his decision.
-
 
 
 Among the papers analyzed, only \cite{Sang_Log_approach:2013} and \cite{VanBaar_FAAS:2014} addresses the issue of chain-of-custody although not completely. 
