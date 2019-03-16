@@ -179,6 +179,10 @@ S.~Alqahtany, N.~Clarke, S.~Furnell, and C.~Reich, ``Cloud forensics: A review
   Cloud Computing (ICCC)}.\hskip 1em plus 0.5em minus 0.4em\relax Plymouth, UK:
   IEEE, April 2015, pp. 1--9.
 
+\bibitem{dockeridentification}
+{Nigel Brown}, ``{Explaining Docker Image IDs},''
+  https://windsock.io/explaining-docker-image-ids/, acessado em: 16-03-2019.
+
 \bibitem{Rafique_Static_Live_Digital_Forensics:2013}
 \BIBentryALTinterwordspacing
 M.~Rafique and M.~N.~A. Khan, ``{Exploring Static and Live Digital Forensics:

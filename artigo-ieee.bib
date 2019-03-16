@@ -33,6 +33,14 @@ year				= {2008},
 month				= {Oct},
 }
 
+@misc{dockeridentification,
+abstract = {A docker image is a read-only template for creating containers, and provides a filesystem based on an ordered union of multiple layers of files and directories, which can be shared with other images and containers. Sharing of image layers is a fundamental component of the Docker platform, and is possible through the implementation of a copy-on-write (COW) mechanism. During its lifetime, if a container needs to change a file from the read-only image that provides its filesystem, it copies the file up to its own private read-write layer before making the change.},
+author = {{Nigel Brown}},
+title = {{Explaining Docker Image IDs}},
+howpublished = {https://windsock.io/explaining-docker-image-ids/},
+note = {Acessado em: 16-03-2019} 
+}
+
 @misc{capabilities,
 abstract = {By default, Docker containers are unprivileged and cannot, for example, run a Docker daemon inside a Docker container. This is because by default a container is not allowed to access any devices, but a privileged container is given access to all devices (see the documentation on cgroups devices).},
 author = {{Docker}},

@@ -731,7 +731,7 @@ Although this approach aids the problem in the short term, in the long run, with
 
 One of the most pertinent parts of forensics work is the handling of the evidence, which must be collected, transported and stored so that they are accepted in a legal process and not have their credibility questioned in the course of it.
 %
-To achieve this goal, we must ensure the evidence's chain of custody.
+To achieve this goal, one must ensure the evidence's chain of custody.
 
 
 In a physical infrastructure, the collection of evidence can be done by removing the physical resource, transporting it to a laboratory and there analyze the data. 
@@ -818,9 +818,9 @@ In computational systems executed on a physical infrastructure (i.e., non-virtua
 %
 In systems built in a virtual infrastructure, especially when it is self-scalable, the computational resources are highly volatile and can thus be removed at any time.
 %
-In this work, although a VM-based implementation of the proposed architecture would also be possible, we chose to use containers because its identification is hash calculated based on the containers content as opposed to a random serial alpha-numeric identification used on most VM implementations.
+In this work, although a VM-based implementation of the proposed architecture would also be possible, we chose to use containers because its identification is hash calculated based on the containers content as opposed to a random serial alpha-numeric identification used on most VM implementations \cite{dockeridentification}.
 %
-\marcos{Dizer aqui que focamos em conteineres por ser mais fácil rotulá-los de forma única. A frase original era (e precisa ser mudada para melhorar o contexto: In this work, we focus primarily on containers for our implementation of \fancyname, although a VM-based implementation of the proposed architecture would also be possible - Hamilton: Done, o que acha? (acredito que precisa de uma referência certo?}
+\marcos{Dizer aqui que focamos em conteineres por ser mais fácil rotulá-los de forma única. A frase original era (e precisa ser mudada para melhorar o contexto: In this work, we focus primarily on containers for our implementation of \fancyname, although a VM-based implementation of the proposed architecture would also be possible - Hamilton: Done, o que acha?}
 %
 To succeed in correlating a piece of evidence to its volatile origin, this implementation uses Linux containers (LXC) to persist in the source-evidence relationship.
 %
