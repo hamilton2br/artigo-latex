@@ -179,10 +179,6 @@ S.~Alqahtany, N.~Clarke, S.~Furnell, and C.~Reich, ``Cloud forensics: A review
   Cloud Computing (ICCC)}.\hskip 1em plus 0.5em minus 0.4em\relax Plymouth, UK:
   IEEE, April 2015, pp. 1--9.
 
-\bibitem{dockeridentification}
-{Nigel Brown}, ``{Explaining Docker Image IDs},''
-  https://windsock.io/explaining-docker-image-ids/, acessado em: 16-03-2019.
-
 \bibitem{Rafique_Static_Live_Digital_Forensics:2013}
 \BIBentryALTinterwordspacing
 M.~Rafique and M.~N.~A. Khan, ``{Exploring Static and Live Digital Forensics:
@@ -190,11 +186,6 @@ M.~Rafique and M.~N.~A. Khan, ``{Exploring Static and Live Digital Forensics:
   1048--1056, 2013. [Online]. Available:
   \url{www.ijser.org/researchpaper{\%}5CExploring-Static-and-Live-Digital-Forensic-Methods-Practices-and-Tools.pdf}
 \BIBentrySTDinterwordspacing
-
-\bibitem{Bem_Past_Present_Future:2008}
-D.~Bem, F.~Feld, E.~Huebner, and O.~Bem, ``Computer forensics - past , present
-  and future,'' \emph{Journal of Information Science and Technology}, vol.~5,
-  no.~3, pp. 43--59, 2008.
 
 \bibitem{DierksT2008}
 R.~E. {Dierks T}, ``{The Transport Layer Security (TLS) Protocol},'' IETF:

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  16 MAR 2019 17:05
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  16 MAR 2019 17:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -501,7 +501,11 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 )
-(./artigo-ieee.aux)
+(./artigo-ieee.aux
+
+LaTeX Warning: Label `sec:proposal-desc-memcpy' multiply defined.
+
+)
 \openout1 = `artigo-ieee.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 377.
@@ -516,8 +520,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 377.
 LaTeX Font Info:    ... okay on input line 377.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 377.
 LaTeX Font Info:    ... okay on input line 377.
-
-(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+ (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count108
 \scratchdimen=\dimen142
@@ -585,56 +588,40 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 ]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 578.
+(Font)              <7> on input line 579.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 578.
+(Font)              <5> on input line 579.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 640.
+(Font)              <8> on input line 641.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 640.
+(Font)              <6> on input line 641.
 
-Overfull \hbox (3.80034pt too wide) in paragraph at lines 644--645
+Overfull \hbox (3.80034pt too wide) in paragraph at lines 645--646
  []|[]| 
  []
 
 <check.png, id=9, 602.25pt x 602.25pt>
 File: check.png Graphic file (type png)
  <use check.png>
-Package pdftex.def Info: check.png used on input line 647.
+Package pdftex.def Info: check.png used on input line 648.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 File: check.png Graphic file (type png)
  <use check.png>
-Package pdftex.def Info: check.png used on input line 647.
+Package pdftex.def Info: check.png used on input line 648.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 File: check.png Graphic file (type png)
 
 <use check.png>
-Package pdftex.def Info: check.png used on input line 647.
+Package pdftex.def Info: check.png used on input line 648.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 File: check.png Graphic file (type png)
  <use check.png>
-Package pdftex.def Info: check.png used on input line 647.
+Package pdftex.def Info: check.png used on input line 648.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
  <x.png, id=11, 1027.84pt x 1027.84pt>
 File: x.png Graphic file (type png)
 
 <use x.png>
-Package pdftex.def Info: x.png used on input line 648.
-(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
-File: x.png Graphic file (type png)
- <use x.png>
-Package pdftex.def Info: x.png used on input line 648.
-(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
-File: x.png Graphic file (type png)
- <use x.png>
-Package pdftex.def Info: x.png used on input line 648.
-(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
-File: check.png Graphic file (type png)
- <use check.png>
-Package pdftex.def Info: check.png used on input line 648.
-(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
-File: x.png Graphic file (type png)
- <use x.png>
 Package pdftex.def Info: x.png used on input line 649.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: x.png Graphic file (type png)
@@ -642,8 +629,7 @@ File: x.png Graphic file (type png)
 Package pdftex.def Info: x.png used on input line 649.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: x.png Graphic file (type png)
-
-<use x.png>
+ <use x.png>
 Package pdftex.def Info: x.png used on input line 649.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: check.png Graphic file (type png)
@@ -659,12 +645,12 @@ File: x.png Graphic file (type png)
 Package pdftex.def Info: x.png used on input line 650.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: x.png Graphic file (type png)
- <use x.png>
+
+<use x.png>
 Package pdftex.def Info: x.png used on input line 650.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: check.png Graphic file (type png)
-
-<use check.png>
+ <use check.png>
 Package pdftex.def Info: check.png used on input line 650.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 File: x.png Graphic file (type png)
@@ -680,18 +666,18 @@ File: x.png Graphic file (type png)
 Package pdftex.def Info: x.png used on input line 651.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: check.png Graphic file (type png)
- <use check.png>
+
+<use check.png>
 Package pdftex.def Info: check.png used on input line 651.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 File: x.png Graphic file (type png)
-
-<use x.png>
+ <use x.png>
 Package pdftex.def Info: x.png used on input line 652.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
-File: check.png Graphic file (type png)
- <use check.png>
-Package pdftex.def Info: check.png used on input line 652.
-(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 652.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: x.png Graphic file (type png)
  <use x.png>
 Package pdftex.def Info: x.png used on input line 652.
@@ -700,13 +686,13 @@ File: check.png Graphic file (type png)
  <use check.png>
 Package pdftex.def Info: check.png used on input line 652.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: x.png Graphic file (type png)
+
+<use x.png>
+Package pdftex.def Info: x.png used on input line 653.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: check.png Graphic file (type png)
  <use check.png>
-Package pdftex.def Info: check.png used on input line 653.
-(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
-File: check.png Graphic file (type png)
-
-<use check.png>
 Package pdftex.def Info: check.png used on input line 653.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 File: x.png Graphic file (type png)
@@ -717,17 +703,17 @@ File: check.png Graphic file (type png)
  <use check.png>
 Package pdftex.def Info: check.png used on input line 653.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
-File: x.png Graphic file (type png)
- <use x.png>
-Package pdftex.def Info: x.png used on input line 654.
-(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
-File: x.png Graphic file (type png)
- <use x.png>
-Package pdftex.def Info: x.png used on input line 654.
-(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
-File: x.png Graphic file (type png)
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 654.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: check.png Graphic file (type png)
 
-<use x.png>
+<use check.png>
+Package pdftex.def Info: check.png used on input line 654.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: x.png Graphic file (type png)
+ <use x.png>
 Package pdftex.def Info: x.png used on input line 654.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: check.png Graphic file (type png)
@@ -743,18 +729,14 @@ File: x.png Graphic file (type png)
 Package pdftex.def Info: x.png used on input line 655.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: x.png Graphic file (type png)
- <use x.png>
+
+<use x.png>
 Package pdftex.def Info: x.png used on input line 655.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: check.png Graphic file (type png)
-
-<use check.png>
+ <use check.png>
 Package pdftex.def Info: check.png used on input line 655.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
-File: check.png Graphic file (type png)
- <use check.png>
-Package pdftex.def Info: check.png used on input line 656.
-(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 File: x.png Graphic file (type png)
  <use x.png>
 Package pdftex.def Info: x.png used on input line 656.
@@ -763,14 +745,14 @@ File: x.png Graphic file (type png)
  <use x.png>
 Package pdftex.def Info: x.png used on input line 656.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
-File: check.png Graphic file (type png)
- <use check.png>
-Package pdftex.def Info: check.png used on input line 656.
-(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 656.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: check.png Graphic file (type png)
 
 <use check.png>
-Package pdftex.def Info: check.png used on input line 657.
+Package pdftex.def Info: check.png used on input line 656.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 File: check.png Graphic file (type png)
  <use check.png>
@@ -780,121 +762,152 @@ File: x.png Graphic file (type png)
  <use x.png>
 Package pdftex.def Info: x.png used on input line 657.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 657.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: check.png Graphic file (type png)
  <use check.png>
 Package pdftex.def Info: check.png used on input line 657.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
- [2]
-Underfull \vbox (badness 1394) has occurred while \output is active []
+File: check.png Graphic file (type png)
 
- [3 <./check.png> <./x.png>] [4] <janela_ieee-eng.jpg, id=25, 811.3512pt x 599.
-1183pt>
+<use check.png>
+Package pdftex.def Info: check.png used on input line 658.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 658.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 658.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 658.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+ [2] [3 <./check.png> <./x.png>]
+
+LaTeX Warning: Reference `sec:sec:related-continuousCollection' on page 4 undef
+ined on input line 858.
+
+<janela_ieee-eng.jpg, id=22, 811.3512pt x 599.1183pt>
 File: janela_ieee-eng.jpg Graphic file (type jpg)
 
 <use janela_ieee-eng.jpg>
-Package pdftex.def Info: janela_ieee-eng.jpg used on input line 863.
+Package pdftex.def Info: janela_ieee-eng.jpg used on input line 888.
 (pdftex.def)             Requested size: 324.53473pt x 239.64307pt.
 
-Overfull \hbox (72.53473pt too wide) in paragraph at lines 863--866
+Overfull \hbox (72.53473pt too wide) in paragraph at lines 888--891
  [][] 
  []
 
-<solucao-eng.jpg, id=26, 894.7026pt x 636.4578pt>
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 901.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 901.
+
+<solucao-eng.jpg, id=23, 894.7026pt x 636.4578pt>
 File: solucao-eng.jpg Graphic file (type jpg)
  <use solucao-eng.jpg>
-Package pdftex.def Info: solucao-eng.jpg used on input line 879.
+Package pdftex.def Info: solucao-eng.jpg used on input line 917.
 (pdftex.def)             Requested size: 250.51501pt x 178.20695pt.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 913.
+
+[4 <./janela_ieee-eng.jpg>]
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 966.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-) [5 <./janela_ieee-eng.jpg> <./solucao-eng.jpg>]
-<evolucao_coleta_ieee.png, id=31, 460.72125pt x 398.99063pt>
+)
+<evolucao_coleta_ieee.png, id=29, 460.72125pt x 398.99063pt>
 File: evolucao_coleta_ieee.png Graphic file (type png)
 
 <use evolucao_coleta_ieee.png>
-Package pdftex.def Info: evolucao_coleta_ieee.png used on input line 931.
+Package pdftex.def Info: evolucao_coleta_ieee.png used on input line 985.
 (pdftex.def)             Requested size: 253.39746pt x 219.44553pt.
 
-Overfull \hbox (1.39746pt too wide) in paragraph at lines 931--934
+Overfull \hbox (1.39746pt too wide) in paragraph at lines 985--988
  [][] 
  []
 
-<memoria_copia_ieee.png, id=32, 574.39594pt x 397.485pt>
+[5 <./solucao-eng.jpg> <./evolucao_coleta_ieee.png>]
+<memoria_copia_ieee.png, id=35, 574.39594pt x 397.485pt>
 File: memoria_copia_ieee.png Graphic file (type png)
 
 <use memoria_copia_ieee.png>
-Package pdftex.def Info: memoria_copia_ieee.png used on input line 954.
+Package pdftex.def Info: memoria_copia_ieee.png used on input line 1010.
 (pdftex.def)             Requested size: 252.73499pt x 174.89394pt.
 
-Overfull \hbox (0.73499pt too wide) in paragraph at lines 954--957
+Overfull \hbox (0.73499pt too wide) in paragraph at lines 1010--1013
  [][] 
  []
 
-<evidencia_download_ieee.png, id=33, 588.69937pt x 438.13687pt>
+<evidencia_download_ieee.png, id=36, 588.69937pt x 438.13687pt>
 File: evidencia_download_ieee.png Graphic file (type png)
 
 <use evidencia_download_ieee.png>
-Package pdftex.def Info: evidencia_download_ieee.png used on input line 977.
+Package pdftex.def Info: evidencia_download_ieee.png used on input line 1033.
 (pdftex.def)             Requested size: 253.13579pt x 188.39517pt.
 
-Overfull \hbox (1.13579pt too wide) in paragraph at lines 977--980
+Overfull \hbox (1.13579pt too wide) in paragraph at lines 1033--1036
  [][] 
  []
 
-[6 <./evolucao_coleta_ieee.png> <./memoria_copia_ieee.png> <./evidencia_downloa
-d_ieee.png>] <comando-copia-memoria-gdb.jpg, id=40, 912.7701pt x 182.6022pt>
+<comando-copia-memoria-gdb.jpg, id=37, 912.7701pt x 182.6022pt>
 File: comando-copia-memoria-gdb.jpg Graphic file (type jpg)
 
 <use comando-copia-memoria-gdb.jpg>
-Package pdftex.def Info: comando-copia-memoria-gdb.jpg used on input line 996.
+Package pdftex.def Info: comando-copia-memoria-gdb.jpg used on input line 1052.
+
 (pdftex.def)             Requested size: 365.10156pt x 73.03958pt.
 
-<antes-injecao.jpg, id=41, 811.3512pt x 599.1183pt>
+<antes-injecao.jpg, id=38, 811.3512pt x 599.1183pt>
 File: antes-injecao.jpg Graphic file (type jpg)
  <use antes-injecao.jpg>
-Package pdftex.def Info: antes-injecao.jpg used on input line 1015.
+Package pdftex.def Info: antes-injecao.jpg used on input line 1071.
 (pdftex.def)             Requested size: 251.51627pt x 185.72475pt.
 
-<apos-injecao.jpg, id=42, 1195.1049pt x 845.0772pt>
+<apos-injecao.jpg, id=39, 1195.1049pt x 845.0772pt>
 File: apos-injecao.jpg Graphic file (type jpg)
  <use apos-injecao.jpg>
-Package pdftex.def Info: apos-injecao.jpg used on input line 1024.
+Package pdftex.def Info: apos-injecao.jpg used on input line 1080.
 (pdftex.def)             Requested size: 250.97943pt x 177.47145pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1038--1039
+Underfull \hbox (badness 10000) in paragraph at lines 1094--1095
 [][]\OT1/ptm/m/n/10 Despite the suc-cess-ful col-lec-tion by copy-ing the
  []
 
 
-Underfull \hbox (badness 1406) in paragraph at lines 1038--1039
+Underfull \hbox (badness 1406) in paragraph at lines 1094--1095
 \OT1/ptm/b/n/10 /proc/pid/numa[]maps\OT1/ptm/m/n/10 , it was not pos-si-ble to 
 copy the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1038--1039
+Underfull \hbox (badness 10000) in paragraph at lines 1094--1095
 \OT1/ptm/m/n/10 men-tions the com-mand \OT1/pcr/m/n/10 --cap-add=SYS_PTRACE
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1038--1039
+Underfull \hbox (badness 10000) in paragraph at lines 1094--1095
 \OT1/pcr/m/n/10 --security-opt-seccomp=unconfined \OT1/ptm/m/n/10 which
  []
 
-<nao-consido-dumpar-memoria.jpg, id=43, 1195.1049pt x 845.0772pt>
+[6 <./memoria_copia_ieee.png> <./evidencia_download_ieee.png>]
+<nao-consido-dumpar-memoria.jpg, id=45, 1195.1049pt x 845.0772pt>
 File: nao-consido-dumpar-memoria.jpg Graphic file (type jpg)
 
 <use nao-consido-dumpar-memoria.jpg>
-Package pdftex.def Info: nao-consido-dumpar-memoria.jpg used on input line 1043
+Package pdftex.def Info: nao-consido-dumpar-memoria.jpg used on input line 1099
 .
 (pdftex.def)             Requested size: 250.97943pt x 177.47145pt.
-
-Underfull \vbox (badness 1354) has occurred while \output is active []
-
- [7 <./antes-injecao.jpg> <./apos-injecao.jpg> <./nao-consido-dumpar-memoria.jp
-g>]
+ [7 <./comando-copia-memoria-gdb.jpg> <./antes-injecao.jpg> <./apos-injecao.jpg
+> <./nao-consido-dumpar-memoria.jpg>]
 (./artigo-ieee.bbl
 Underfull \hbox (badness 6910) in paragraph at lines 97--100
 []\OT1/ptm/m/n/8 Diamanti, ``Five rea-sons you should run con-tain-ers on bare
@@ -925,41 +938,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 102--105
 iner-[]usage-[]june-[]2016 .
  []
 
-[8 <./comando-copia-memoria-gdb.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 183--185
-[]\OT1/ptm/m/n/8 Nigel Brown, ``Ex-plain-ing Docker Im-age IDs,''
- []
 
-
-Underfull \hbox (badness 6592) in paragraph at lines 183--185
-\OT1/ptm/m/n/8 https://windsock.io/explaining-docker-image-ids/, aces-sado em: 
-16-
- []
-
-
-Overfull \hbox (22.17947pt too wide) in paragraph at lines 188--193
+Overfull \hbox (22.17947pt too wide) in paragraph at lines 184--189
 []\OT1/ptm/m/n/8 5CExploring-[]Static-[]and-[]Live-[]Digital-[]Forensic-[]Metho
 ds-[]Practices-[]and-[]Tools .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 208--211
+Underfull \hbox (badness 10000) in paragraph at lines 199--202
 []\OT1/ptm/m/n/8 Fabio Kung, ``Mem-ory in-side LInux con-tain-ers,''
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 208--211
+Underfull \hbox (badness 10000) in paragraph at lines 199--202
 \OT1/ptm/m/n/8 https://fabiokung.com/2014/03/13/memory-inside-linux-containers/
 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 213--215
+Underfull \hbox (badness 10000) in paragraph at lines 204--206
 []\OT1/ptm/m/n/8 Docker, ``Run-time priv-i-lege and Linux ca-pa-bil-i-ties,''
  []
 
 
-Underfull \hbox (badness 7151) in paragraph at lines 213--215
+Underfull \hbox (badness 7151) in paragraph at lines 204--206
 \OT1/ptm/m/n/8 https://docs.docker.com/engine/reference/run/, aces-sado em: 30-
 11-
  []
@@ -976,28 +978,35 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[9
+[8] (./artigo-ieee.aux)
 
-] (./artigo-ieee.aux) ) 
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 4736 strings out of 493304
- 70981 string characters out of 6139871
- 165230 words of memory out of 5000000
- 8080 multiletter control sequences out of 15000+600000
+ 4758 strings out of 493304
+ 71380 string characters out of 6139871
+ 166284 words of memory out of 5000000
+ 8099 multiletter control sequences out of 15000+600000
  40419 words of font info for 75 fonts, out of 8000000 for 9000
  960 hyphenation exceptions out of 8191
- 40i,16n,35p,550b,369s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.e
-nc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/
-utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on artigo-ieee.pdf (9 pages, 4868425 bytes).
+ 40i,16n,35p,647b,369s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
+rw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb
+8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on artigo-ieee.pdf (8 pages, 4882040 bytes).
 PDF statistics:
- 80 PDF objects out of 1000 (max. 8388607)
- 45 compressed objects within 1 object stream
+ 85 PDF objects out of 1000 (max. 8388607)
+ 49 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

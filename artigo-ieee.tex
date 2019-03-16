@@ -351,7 +351,7 @@
 \newcommand{\marcosT}[1]{{\color{red}{TODO: #1}}}
 %\newcommand{\marcosR}[1]{{\color{brown}{COMMENT: #1}}}
 \newcommand{\hamilton}[1]{{\color{brown}{#1}}}
-\newcommand{\fancyname}{Dizang }
+\newcommand{\fancyname}{Dizang}
 \newcommand{\fancynameX}{\fancyname}
 
 %shortcuts
@@ -380,7 +380,7 @@
 % can use linebreaks \\ within to get better formatting as desired
 % Do not put math or special symbols in the title.
 %\title{Coletando dados de memória de máquina em nuvem para análise forense de ataques de injeção de código}
-\title{\fancynameX: A solution for collecting forensic evidences on cloud environments}
+\title{\fancyname: A solution for collecting forensic evidences in cloud environments}
 
 
 % author names and affiliations
@@ -463,6 +463,7 @@ As such, it should be a useful tool for analyzing the causes of security inciden
 \IEEEpeerreviewmaketitle
 
 \section{Introduction}
+\label{sec:intro}
 
 %==== CONTEXTO GERAL: Nuvem e volatilidade de VMs ====
 %
@@ -514,7 +515,7 @@ However, none of the proposals identified in the literature (1) describe how dat
 
 %==== O QUE FAZEMOS: Ataques de injeção ====
 %
-Aiming to overcome these limitations, this work presents \fancynameX, a proposal focusing on: (1) the reproducibility of the collection process; (2) establishing a link between the evidence collected and its origin (assuming the cloud resource is univocally identifiable); and (3) preserving the jurisdiction and the privacy of those not involved in the investigation.
+Aiming to overcome these limitations, this work presents \fancyname, a proposal focusing on: (1) the reproducibility of the collection process; (2) establishing a link between the evidence collected and its origin (assuming the cloud resource is univocally identifiable); and (3) preserving the jurisdiction and the privacy of those not involved in the investigation.
 %\marcos{Em algum lugar deste parágrafo, precisamos dizer que a solução é voltada a conteineres e a razao para isso. Coloquei uma razão acima, no item 2, mas não sei se está 100\% correta... provavelmente precisará melhorar}
 %
 As such, the proposed solution can be used as tool for incident management, safeguarding evidences for analysis during a post-incident stage.
@@ -525,7 +526,7 @@ In addition, these characteristics contribute to the credibility of collected ev
 %
 %For this, the system is supposed to be monitored and executed within a cloud resource univocally identifiable.
 %
-When compared with similar-purpose solutions, \fancyname is particularly useful against code injection attacks \cite{Case_Memory_Forensics:2014}, which would normally leave no traces when cloud-based virtual instances are deactivated and their memory is released \cite{Vomel_Memory_Acquisition:2013,Case_Memory_Forensics:2014}.
+When compared with similar-purpose solutions, \fancyname\ is particularly useful against code injection attacks \cite{Case_Memory_Forensics:2014}, which would normally leave no traces when cloud-based virtual instances are deactivated and their memory is released \cite{Vomel_Memory_Acquisition:2013,Case_Memory_Forensics:2014}.
 
 
 The rest of this paper is organized as follows.
@@ -623,7 +624,7 @@ In the next section, we discuss some of the proposals in the literature aimed at
 \label{sec:related}
 
 
-\marcos{TODO: Existem 4 critérios na sua tabela, mas apenas 3 deles são discutidos nas sub-seções: PRECISA DISCUTIR O 4o também!!!} \hamilton{Done} \marcos{Done? Certeza...? Onde está a discussão sobre ``cadeia de custódia'' que justifica as marcações na segunda coluna da tabela...?! E o que seria essa discussão sobre ``Accessing and collecting memory-related information in the cloud'', que não está na tabela?! Seu texto e sua tabela precisam estar condizentes... não é o caso...}
+%\marcos{TODO: Existem 4 critérios na sua tabela, mas apenas 3 deles são discutidos nas sub-seções: PRECISA DISCUTIR O 4o também!!!} \hamilton{Done} \marcos{Done? Certeza...? Onde está a discussão sobre ``cadeia de custódia'' que justifica as marcações na segunda coluna da tabela...?! E o que seria essa discussão sobre ``Accessing and collecting memory-related information in the cloud'', que não está na tabela?! Seu texto e sua tabela precisam estar condizentes... não é o caso...}
 
 
 
@@ -644,7 +645,7 @@ For a structured discussion, in this section we analyze the works available in t
 																																		& \rotb{Ability to reproduce \\ the evidence collection \\ process} 
 																																									& \rotb{Jurisdiction and \\ privacy preservation}          \\ \hline
 
-\fancyname (this proposal)						& \cfig	  			& \cfig       & \cfig       & \cfig                             \\ \hline
+\fancyname\ (this proposal)						& \cfig	  			& \cfig       & \cfig       & \cfig                             \\ \hline
 \cite{George_DF2CE:2012}							& \xfig		  		& \xfig       & \xfig       & \cfig                             \\ \hline
 \cite{Poisel_VMI:2013}								& \xfig       	& \xfig       & \xfig       & \cfig                             \\ \hline
 \cite{Dykstra_FROST:2013}							& \xfig      		& \xfig       & \xfig       & \cfig                             \\ \hline
@@ -687,7 +688,7 @@ For a structured discussion, in this section we analyze the works available in t
 
 \subsection{Continuous collection of relevant data}
 \label{sec:related-continuousCollection}
-\marcos{OK o tópico: ``continuous collection''. PORÉM: na tabela fala que \cite{VanBaar_FAAS:2014} também cobre esse aspecto, então cadê a discussão sobre isso aqui?!?! - Hamilton: Adicionado}
+
 
 The evidence-gathering process in traditional forensics consists basically in isolating a crime scene and then collecting all data that seem relevant for later analysis.
 %
@@ -699,7 +700,7 @@ However, in today's cloud systems and applications, the volume of data is consid
 %
 After all, one of the main advantages of cloud solutions is exactly to facilitate access to storage and processing resources, such as virtual machines, load balancers, firewalls and other evidence-generating elements.
 %
-The result is that digital forensics laboratories are often overloaded, which leads to backlogs that amount for months \cite{Quick_Increase_Volume_Impact:2014}.
+The result is that digital forensics laboratories are often overloaded, with backlogs that may reach a few months \cite{Quick_Increase_Volume_Impact:2014}.
 %
 An important step for enabling more efficient incident response and forensic investigations is, thus, finding a way to store less, more relevant information for analysis.
 
@@ -707,66 +708,63 @@ An important step for enabling more efficient incident response and forensic inv
 
 Among the solutions found in the literature, the only proposals for digital forensics that clearly consider this need are \cite{Dezfouli_Backup_approach:2012}, \cite{Sang_Log_approach:2013} and \cite{VanBaar_FAAS:2014}.
 %
-Unfortunately, however, neither of them is viable for used in a cloud scenario.
+Unfortunately, however, they all have limitations when considering the particularities of the cloud scenario.
 %
 Namely, \cite{Dezfouli_Backup_approach:2012} focuses on mobile environments, and has the disadvantage of not storing the history of memory changes; hence, it would not cope with the high volatility of the cloud.
 %
-Conversely, the cloud-oriented work from \cite{Sang_Log_approach:2013} constantly collects information from the virtual machine, not distinguishing between what happened before or after the fact of interest. 
+Conversely, the cloud-oriented work from \cite{Sang_Log_approach:2013} constantly collects information from virtual machines, not distinguishing between what happened before or after the fact of interest. 
 %
 This is likely to generate a large amount of (not necessarily useful) data for analysis.
 %
 Finally, \cite{VanBaar_FAAS:2014} relies on indexing, pre-processing and knowledge sharing of the evidence to optimize analysis time.
 %
-Although this approach aids the problem in the short term, in the long run, with the amount of data continually growing, the problem will recur again.
-%
-\marcos{Esta frase já é colocada na seção \ref{sec:related-privacy}. Repetir em dois pontos o mesmo problema indica falta de foco... Vai aqui ou lá? Onde faz mais sentido? (obs.: o texto na na seção \ref{sec:related-privacy} me parece mais claro, então onde quer que seja colocado, melhor usar o outro texto) - Hamilton: Concordo} 
-%
-%In addition, \cite{Sang_Log_approach:2013} depends on the active cooperation of the cloud provider, which may be troublesome because cloud providers' priority in case of attacks would be to guarantee the availability of the service, not to collect evidence. \marcos{Já é falado na }
+Although this approach limits the amount of data gathered in the short term, it still allows its continuous growth; therefore, in the long run, backlogs are still likely to accumulate.
 
 
 \subsection{Chain of custody garantees}
 \label{sec:related-chainofcustody}
 
-\marcos{TODO: Esse aqui tem a ver com cadeia de custódia?! Não tem essa métrica de ``Accessing and collecting memory-related information in the cloud'' na tabela... Ou a tabela está errada ou esta seção está errada... Ou talvez precise incluir um terceiro critério na tabela? Enfim, tá confuso... - Hamilton: Agora sim}
+%\marcos{TODO: Esse aqui tem a ver com cadeia de custódia?! Não tem essa métrica de ``Accessing and collecting memory-related information in the cloud'' na tabela... Ou a tabela está errada ou esta seção está errada... Ou talvez precise incluir um terceiro critério na tabela? Enfim, tá confuso... - Hamilton: Agora sim}
 
-One of the most pertinent parts of forensics work is the handling of the evidence, which must be collected, transported and stored so that they are accepted in a legal process and not have their credibility questioned in the course of it.
+One important aspect in (digital) forensics is how the process by means of which evidence is handled.
 %
-To achieve this goal, one must ensure the evidence's chain of custody.
-
-
-In a physical infrastructure, the collection of evidence can be done by removing the physical resource, transporting it to a laboratory and there analyze the data. 
+Specifically, evidences must collected, transported and stored in such a manner that it would be acceptable in a legal process, rather than having their credibility questioned later.
 %
-To limit the exposure of evidence it may be kept in a safe room, to which access is controlled and it is safe from tampering.
-%
-In a scenario of cloud computing, especially those of self-scalable infrastructure, there are a number of new challenges. 
-%
-In contrast with traditional infrastructures, the physical resource can not be removed, these resources may contain information from users not related to the investigation in progress, doing so would constitute a violation of privacy. 
-%
-The integrity of the evidence also ends up being a non-trivial task, as it needs to be collected, transported and stored without its integrity or content being compromised. 
-%
-Finally, the volatility of the computational resource turns the verification of the evidence's origin a more complex process, because the resource that generates the evidence may cease to exist some time after the collection takes place \cite{Simou_Cloud_Chlng:2014}.
-%
-Violation of any of these characteristics may put into question the credibility of the evidence. 
-%
-Although the admissibility of the evidence in a legal process is a decision of the judge the credibility of the same has a important role in his decision.
+To achieve this goal, digital forensic tools must ensure the evidence's chain of custody.
 
 
-Among the papers analyzed, only \cite{Sang_Log_approach:2013} and \cite{VanBaar_FAAS:2014} addresses the issue of chain-of-custody although not completely. 
+In a physical infrastructure, the collection of evidence can be done by removing the physical resource, transporting it to a laboratory and thereby analyzing the data. 
 %
-Namely, \cite{Sang_Log_approach:2013} employs hashes to check the integrity of the evidence, allowing the detection of changes. 
+To limit the evidence's exposure to tampering, it may be kept in a safe room, to which access is controlled.
+
+
+Conversely, in a cloud computing scenario, a number of new challenges appear. 
 %
-A limitation however, is that it does not make explicit the mechanisms that could be used to prevent unauthorized access (and thus potential change) to the hashes themselves. 
+In contrast with traditional infrastructures, physical resources shared among different cloud tenants cannot be removed due to privacy issues. 
 %
-On the other hand, \cite{VanBaar_FAAS:2014} show concerns whith who has access to the evidence but does not describe how the evidence is transported or its integrity is secured.
+Preserving evidence's integrity while it is collected, transported and stored becomes, thus, another task that requires some care to ensure modification attempts do not go unnoticed.
 %
-The proposals of the other authors focus only on the technical aspect of the collection, without discussing in detail the chain of custody.
+Finally, due to the volatility of computational resources, the verification of an evidence's origin becomes a complex process, in particular after the resource that generated the evidence ceases to exist \cite{Simou_Cloud_Chlng:2014}.
 %
-In general, these works only mention the need of a forensically acceptable collection process.
+Violation of any of these characteristics may put the evidence's credibility into question, hindering its admissibility by a judging authority.
+
+
+Among the papers analyzed, only \cite{Sang_Log_approach:2013} and \cite{VanBaar_FAAS:2014} address the issue of chain-of-custody, although not completely. 
+%
+Specifically, \cite{Sang_Log_approach:2013} employs hashes to check the integrity of the evidence, allowing the detection of changes. 
+%
+One limitation, however, is that it does not clarify the mechanisms that should be employed to prevent unauthorized access (and, thus, potential change) to the hashes themselves.
+%
+Meanwhile, \cite{VanBaar_FAAS:2014} display some concerns with who is allowed access to the evidence, but does the solution does not describe how the evidence is transported or its integrity is secured.
+%
+In comparison, the other proposals listed in Table \ref{tab:related-work} focus only on the technical aspects of data collection, without discussing in detail the chain of custody.
+%
+In general, these works only mention the need of a forensically acceptable collection process, without discussing how that would be conceived.
 
 
 \subsection{Ability to reproduce the evidence collection process}
 \label{sec:related-reproducibility}
-\marcos{OK: ``Collection process reproducible without VM''}
+%\marcos{OK: ``Collection process reproducible without VM''}
 
 
 If, during a forensic analysis, different analysts obtain distinct results when executing the same collection procedure, the evidence generated has no credibility and may be considered unacceptable in a legal process. 
@@ -783,81 +781,108 @@ More precisely, they all depend on the existence of the virtual resource for rep
 \subsection{Jurisdiction and privacy preservation}
 \label{sec:related-privacy}
 
-In a public cloud environment, removing the hardware for later analysis may lead to violating the privacy of users.
+As aforementioned, one challenges of digital forensics in a public cloud environment is that removing the hardware for later analysis may lead to privacy violations.
 %
 After all, in such a multitenant scenario, the same physical machine stores information about different clients, some of which may not be involved in the investigation in course.
 
 
-Different works in the literature adequately deal with this issue using two major strategies.
+Different works in the literature adequately deal with this specific issue by means of two main strategies.
 %
-The first, adopted by \cite{Reichert_Auto_acquisition:2015,George_DF2CE:2012,Poisel_VMI:2013,Dykstra_FROST:2013}, involves collecting data pertinent to the investigation and in storing them outside the cloud.
+The first, adopted by \cite{Reichert_Auto_acquisition:2015,George_DF2CE:2012,Poisel_VMI:2013,Dykstra_FROST:2013}, involves collecting data pertinent to the investigation and storing them outside the cloud.
 %
 The second, employed in \cite{Sang_Log_approach:2013} and consisting in a specific case of \cite{George_DF2CE:2012}, depends on the cooperation of the cloud service provider for obtaining the information necessary to the investigation. 
 %
-Depending on the cloud service provider, however, is not a highly recommended strategy, for at least two reasons: 
+Depending on the cloud service provider, however, the latter is not a highly recommended strategy, for at least two reasons: 
 (1) the volume of user's data may force the providers to limit the size of the logs stored; and 
 (2) in case of unavailability due to attacks, the goal of the provider will most likely be restoring the service, not necessarily preserving evidences \cite{Clarke_Review_of_Challenges:2015}. 
+
 
 
 \section{Proposed solution: \fancyname}
 \label{sec:proposal}
 
-This proposal aims mainly at collecting memory from virtual computational resources so as to succeed in: 
+The main goal of the hereby proposed solution, called \fancyname, is to enable evidence collection in highly volatile cloud environments while:
 (1) identifying the evidence source, even if the virtual resource no longer exists; 
 (2) describing the system before and after the incident;
-(3) transporting and storing the memory collected so as to guarantee its integrity and confidentiality; and
+(3) transporting and storing the data collected so as to guarantee its integrity and confidentiality; and
 (4) not violating the jurisdiction and privacy of other users that might have resources allocated in the same physical server.
-%
-The solution here presented, called Dizang, is described in detail as follows.
 
 
-\subsection{Description}
-\label{sec:proposal-desc}
-
-In computational systems executed on a physical infrastructure (i.e., non-virtualized), a direct association can be made between any resource, such as memory information, disk image or packets traveling in the network, and their corresponding origin.
-%
-In systems built in a virtual infrastructure, especially when it is self-scalable, the computational resources are highly volatile and can thus be removed at any time.
-%
-In this work, although a VM-based implementation of the proposed architecture would also be possible, we chose to use containers because its identification is hash calculated based on the containers content as opposed to a random serial alpha-numeric identification used on most VM implementations \cite{dockeridentification}.
-%
-\marcos{Dizer aqui que focamos em conteineres por ser mais fácil rotulá-los de forma única. A frase original era (e precisa ser mudada para melhorar o contexto: In this work, we focus primarily on containers for our implementation of \fancyname, although a VM-based implementation of the proposed architecture would also be possible - Hamilton: Done, o que acha?}
-%
-To succeed in correlating a piece of evidence to its volatile origin, this implementation uses Linux containers (LXC) to persist in the source-evidence relationship.
-%
-Basically, LXC takes advantage of functionalities such as \textit{cgroups} and \textit{namespacing} of the Linux kernel to help managing and isolating virtual resources.
-%
-Although the resulting container is still a software artifact, and is thus also volatile, each image compiled and its execution in the form of a container are normally linked to a hash that univocally identifies this relationship.
-%
-The container also allows more precisely identifying the source of a piece of evidence, once it is possible to divide the parts of a system into containers; for example, one container for the engine of dynamic web pages (e.g. \textit{Apache}), another with business logic (e.g. \textit{Golang}) and a third one for a database (e.g. \textit{Cassandra}).
+The mechanisms employed by \fancyname\ for these purposes are described in detail in this section.
 
 
-Memory copy is not an atomic activity, since it is executed jointly with other processes.
+\subsection{Resource identification}
+\label{sec:proposal-desc-id}
+
+In a physical (i.e., non-virtualized) infrastructure, a direct association can usually be made between any resource and its corresponding origin.
 %
-Hence, in case one of these processes is a malicious code erasing traces of its existence from the container memory, possibly important information may eventually be lost. 
+This is the case, for example, of memory information, disk images and packets traveling in the network.
 %
-Aiming to make the memory copy process more atomic, \fancyname temporarily interrupts the execution of the container, makes a copy of its memory and then resumes its execution. 
+In contrast, when the system is built upon a virtual infrastructure, especially when it is self-scalable, the high volatility of computational resources can lead to their removal at any time.
 %
-This technique, similar to that adopted by \cite{Rafique_Static_Live_Digital_Forensics:2013} for VMs, produces a photograph of the container volatile memory; this allows its analysis at a repose state, that is, without the need of having the container at work.
+When that occurs, it becomes hard to trace the origin of any data generated by such resources.
+
+
+To address this issue, cloud-oriented digital forensic solutions require cloud virtualized resources to be unequivocally identifiable.
 %
-When conducting the data collection at adequate time intervals, it is possible to build the history of the memory state during its execution in the container.
+Fortunately, most container-based cloud environments already provide such capability: usually, a container's identifier corresponds to a hash calculated over that container's contents.
+%
+This contrasts with VM-based implementations, in which random alphanumeric numbers are commonly used as identifiers.
+%
+Hence, and even though a VM-based implementation of \fancyname\ would also be possible, the proposed architecture focus on container-oriented clouds.
+%
+In particular, \fancyname\ can take advantage of Linux containers (LXC) to persist the source-evidence relationship.
+%to correlate a piece of evidence to its volatile origin, 
+%
+Basically, LXC uses \textit{cgroups} and \textit{namespacing} of the Linux kernel for managing and isolating virtual resources; the resulting containers, albeit still volatile, univocally identify the compiled images being executed.
+%
+%Although the resulting containers are still software artifacts (and, thus, also volatile), each compiled image  and its execution in the form of a container are normally linked to a hash that univocally identifies this relationship.
+%
+%The container also allows more precisely identifying the source of a piece of evidence, since it is possible to divide the parts of a system into containers; for example, one container for the engine of dynamic web pages (e.g. \textit{Apache}), another with business logic (e.g. \textit{Golang}) and a third one for a database (e.g. \textit{Cassandra}).
+
+\subsection{Memory copying}
+\label{sec:proposal-desc-memcpy}
+
+Memory copying is usually not an atomic activity, since it is executed jointly with processes that may be modifying the very memory parts being copied.
+%
+Hence, if one of such processes maliciously erases traces of its existence from the container memory, important information may eventually be lost.
+
+
+Aiming to improve the atomicity of a memory copy process, \fancyname temporarily interrupts the execution of the container, makes a copies its contents, and then resumes its execution. 
+%
+This technique is similar to that adopted by \cite{Rafique_Static_Live_Digital_Forensics:2013} for VMs, producing a photograph of the container's volatile memory for latter analysis.
+
+
+As long as such data collection process is repeated periodically, in short time intervals, it is possible to build an accurate history of the container's memory state during execution.
+%
+However, as discussed in Section \ref{sec:sec:related-continuousCollection}, this may also lead to a huge volume of information to be stored and analyzed.
+%
+%Most of the forensic techniques currently most widely employed are directed to obtaining information in its totality, be it via bit by bit copy, be it by obtaining the physical hardware \cite{Simou_Cloud_Chlng:2014} \cite{Bem_Past_Present_Future:2008}. 
+%
+%Even though these techniques may sound interesting at first, many times they are eventually responsible for a problem: the growing volume of information investigators have to analyze \cite{Quick_Increase_Volume_Impact:2014}.
+%
+To mitigate this issue, \fancyname\ employs a time window that limits the number of memory photographs stored while the system operates under normal circumstances, i.e., while it is not under attack.
+%
+Memory copies reaching a given age are periodically discarded, opening space for new photographs.
+%
+However, after an attack event is detected (e.g., by an intrusion detection system), \fancyname\ stops discarding older pieces of memory from the monitoring log.
+%
+This approach, illustrated in Figure \ref{fig:janela}, gives forensic analysts the ability to analyze memory copies from before and after the intrusion, as well as assess the system's evolution during this period.
+
+
+%
+%The first consists in defining how much data is considered enough for conducting an investigation; the second is defining a maximum age for the evidence while the system works under normal conditions, i.e., when it is not under attack.
+%%
+%To detect and to analyze intrusions in the processes memory, it is necessary to have a copy of the memory before and after the intrusion \cite{Case_Memory_Forensics:2014}. 
+%%
+%The solution proposed thus implements a window of memory photographs covering a pre-defined time interval, as illustrated in Fig. \ref{fig:janela}. 
+%%
+%In normal operation conditions, the pieces of evidence are collected with a certain periodicity and collections reaching a given age are discarded.
+%%
+%In contrast, after an attack event is detected, (e.g. by an intrusion detection system), \fancyname stops discarding the oldest collections from the monitoring log, enabling to know the system before and after the attack and hence assess its evolution.
 %
 
-Most of the forensic techniques currently most widely employed are directed to obtaining information in its totality, be it via bit by bit copy, be it by obtaining the physical hardware \cite{Simou_Cloud_Chlng:2014} \cite{Bem_Past_Present_Future:2008}. 
-%
-Even though these techniques may sound interesting at first, many times they are eventually responsible for a problem: the growing volume of information investigators have to analyze \cite{Quick_Increase_Volume_Impact:2014}.
-%
-To mitigate this difficulty, \fancyname adopts two strategies. The first is defining a volume of data that may be considered enough for conducting an investigation; the second is defining a maximum age for the evidence while the system works under normal conditions, i.e., when it is not under attack.
-%
-To detect and to analyze intrusions in the processes memory, it is necessary to have a copy of the memory before and after the intrusion \cite{Case_Memory_Forensics:2014}. 
-%
-The solution proposed thus implements a window of memory photographs covering a pre-defined time interval, as illustrated in Fig. \ref{fig:janela}. 
-%
-In normal operation conditions, the pieces of evidence are collected with a certain periodicity and collections reaching a given age are discarded.
-%
-In contrast, after an attack event is detected, (e.g. by an intrusion detection system), \fancyname stops discarding the oldest collections from the monitoring log, enabling to know the system before and after the attack and hence assess its evolution.
-%
-
-\begin{figure}[htb!]
+\begin{figure}[tb!]
 \footnotesize
 \caption{Sliding window of evidence collection}
 \includegraphics[scale=0.40]{janela_ieee-eng.jpg}
@@ -865,64 +890,93 @@ In contrast, after an attack event is detected, (e.g. by an intrusion detection 
 \label{fig:janela}
 \end{figure}
 
-To persist in the evidence-origin relationship and to guarantee its integrity, this proposal calculates the pair hash [evidence, container image identifier] and stores the triple [hash, container image identifier, evidence].
-%
-To prevent possible problems with the storage of these data in countries with different jurisdictions from those in which they must be applied in the investigation in question, the evidence collected is stored in a physical place outside the cloud, after being transported by a safe channel (e.g. via \textit{Transport Layer Security} – TLS \cite{DierksT2008}).
-%
 
-\subsection{Implementation}
+
+\subsection{Secure data storage}
+\label{sec:proposal-desc-memcpy}
+
+
+%Aiming to persist the evidence-origin relationship, as well as to guarantee data integrity, \fancyname\ calculates the hash of the pair \{evidence, container image identifier\} and stores the triple \{hash, container image identifier, evidence\}.
+%
+Aiming to persist the evidence-origin relationship, as well as to guarantee data integrity, \fancyname\ calculates the hash $H$ of the pair \{memory photograph, resource identifier\} and stores the triple \{$H$, memory photograph, resource identifier\}.
+%
+The place of storage should be defined by the client and the cloud provider, and included in a service-level agreement (SLA).
+%
+If such SLA dictates that evidences must be stored outside the cloud environment, it is important to have the data transported using a secure channel (e.g. via \textit{Transport Layer Security} – TLS \cite{DierksT2008}).
+
+%avoid possible problems with the storage of these data in countries with different jurisdictions from those in which they must be applied in the investigation in question, the evidence collected is stored in a physical place outside the cloud, after being transported by a secure channel (e.g. via \textit{Transport Layer Security} – TLS \cite{DierksT2008}).
+
+
+
+\section{Experimental analysis}
 \label{sec:proposal-impl}
 
 \begin{figure}[htb!]
 \footnotesize
-\caption{General architecture of the \fancyname solution}
+\caption{\fancyname's general architecture. \marcos{Não precisa copiar 3x os mesmos blocos para explicar a solução... 1x basta... E por favor (1) aumente a fonte do texto na figura e (2) crie uma imagem vetorizada em pdf (e.g., no Visio dá para exportar como pdf)}}
 \includegraphics[scale=0.28]{solucao-eng.jpg}
 \centering
 \label{fig:Solucao}
 \end{figure}
 
 
-The methods proposed were implemented in a test platform aiming to assess the \fancyname efficacy in collecting the memory information from the containers in a reproducible way, without violating jurisdictions or users’ privacy.
+The \fancyname\ architecture was implemented in a testing platform, aiming to assess its efficacy and efficiency.
+%in collecting the memory information from containers
 %
-The solution, illustrated in Fig. \ref{fig:Solucao}, consisted in creating a t2.micro instance in the Ohio zone of the AWS with 3.3 Mhz, 1Gb RAM and 64-bit operational system. 
+The testbed employed, illustrated in Fig. \ref{fig:Solucao}, consists in creating a t2.micro instance (3.3 Mhz, 1GiB RAM and Linux 64-bit) at Amazon Web Services (AWS).
 %
-At this AWS instance, Docker Engine 1.10 and API Docker 1.21 were installed, from which 3 containers were created, executing nginx 1.0 at different ports. 
+In this AWS instance, we installed Docker Engine 1.10 and API Docker 1.21, and then created 3 containers for executing the nginx 1.0 web server in different ports. 
 %
-Using a Java application that discovers the process identifier associated to each container, it was possible to copy the content of the \textit{Non-Uniform Memory Allocation descriptor} (\textbf{/proc/pid/numa\_maps}), containing the allocation of the memory pages, the nodes associated to these pages and what was allocated in their respective access policies \cite{UnixManPages_numa_maps}.
+Using a Java application that discovers the process identifier associated to each container \marcos{o que seria essa ``a Java application''? Você que desenvolveu? Tem que deixar claro se você usou algo ou desenvolveu esse algo}, we accessed the content \marcos{of that container's (é isso mesmo?? É do container ou é do sistema como um todo?)} \textit{Non-Uniform Memory Allocation descriptor} (\textbf{/proc/pid/numa\_maps}), containing the allocation of the memory pages, the nodes associated to these pages and what was allocated in their respective access policies \cite{UnixManPages_numa_maps}.
 %
-The copy and recording of the file is such that, every minute, the application (1) pauses the container in question, (2) copies the \textbf{numa\_maps} directory, (3) concatenates the data obtained with the container image identification hash, (4) calculates the set hash, and (5) saves the result in a file whose name is the container image identifier and whose extension is \textbf{.mem}. 
-%
-The safe transport of the evidence to a physical storage outside the AWS was implemented using a t2.micro instance in the AWS Ohio zone whereby an OpenVPN server had been installed.
-%
-The EC2 instance containing the evidence was configured to accept connections solely from machines in the VPN.
-%
-A physical machine outside the AWS used the OpenVPN client to establish a VPN connection with the instance containing the evidence and transported it to the disk of the physical machine.
-%
-After concluding the transport process, the physical machine verifies whether there are .mem files in disk older than a certain “t” time interval, and discards them.
-%
+The copy and recording of the file is such that, every minute, the application (1) pauses the container in question, (2) copies the \textbf{numa\_maps} directory, (3) concatenates the data obtained with the container's image identifier, (4) calculates the hash $H$ for this set, and (5) saves the result in a \textbf{.mem} file named after the container's identifier.
 
-\subsection{Experimental results}
+
+The secure transportation of the evidence to a physical storage outside AWS employs another t2.micro instance, whereby an OpenVPN server is installed.
+%
+As a basic form of access control, the EC2 instance containing the evidence is configured to accept connections solely from machines in the VPN.
+%
+A physical machine outside AWS then uses an OpenVPN client to establish a VPN connection with the instance containing the evidence, obtaining the corresponding data.
+%
+After concluding the data acquisition process, the physical machine verifies whether there are local .mem files that older than a certain time interval, and discards them.
+
+
+Using this testbed, two experiments were performed: the first focus on performance aspects, whereas the second evaluates \fancyname's ability to aid in identifying malware injection attacks.
+%
+Both experiments are described in the following sub-sections.
+
+\subsection{Performance}
 \label{sec:proposal-exp}
 
-To assess the \fancyname efficacy in collecting evidence, \textcolor{blue}{two experiments} were performed using the environment implemented (described in Section \ref{sec:proposal-impl}).
+%To assess the \fancyname efficacy in collecting evidence, \textcolor{blue}{two experiments} were performed using the environment implemented (described in Section \ref{sec:proposal-impl}).
 %
-\textcolor{blue}{For the first experiment}, the system was configured for memory collections at 1-minute intervals, to save them in a disk in a physical machine outside the cloud and to erase the samples collected over 5 minutes before. 
+For the first experiment, the system was configured to collect memory photographs in 1-minute intervals and send them to the physical machine outside the cloud.
 %
-The system was then executed for 30 minutes, a time along which the following were collected as metrics: (1) the use of space in disks used by the memory photographs saved, (2) the time necessary for pausing the container for copying them, and (3) the time taken for transporting the evidence to the physical machine outside the cloud.
+The data collection time window was set to 5 minutes, meaning that samples older than that are erased from the physical machine's disk.
 %
-At each collection, \textit{Unix} command \texttt{du -sh *.mem} was executed in the physical storage disk outside the cloud to return the list of the files in which the memory photographs were stored and the disk space they occupied.
+The system was then executed for 30 minutes, and the following metrics were collected: 
+(1) the disks space required for storing the memory photographs; 
+(2) the time necessary for pausing a container and copying its contents; and 
+(3) the time taken for transporting the evidence to the physical machine outside the cloud.
+%
+%After each data collection, the \textit{Unix} command \texttt{du -sh *.mem} was executed in the physical machine outside the cloud to return the list of the files in which the memory photographs were stored and the disk space they occupied. \marcos{fica repetitivo com o que já foi falado e com o que é falado na sequência}
 %
 
 
-The disk space occupied by the memory photographs captured during the experiment is shown in Fig. \ref{fig:evolucao_coleta}. 
+The disk space occupied by the memory photographs captured during the experiment, obtained via the \textit{Unix} command \texttt{du -sh *.mem}, is shown in Fig. \ref{fig:evolucao_coleta}. 
 %
-The graph shows that the increase in use of the disk space is linear and the growth ceases when the time limit configured for the window is reached, once the collections with a lifespan larger than that limit are erased from the disk. 
+This figure shows that, as expected, the disk space usage increases linearly until the time window is reached, and then stays constant due to older samples being discarded \marcos{Qual o tamanho de 1 sample? Essa info me parece relevante mencionar aqui}.
 %
-The solution thus keeps the disk space occupied by the samples collected under control.
+The discarding process can be halted at any time by the physical machine itself (e.g., after an attack is detected).
 %
-Concurrently, memory photographs saved by the solution after the containers and the AWS instance are removed and kept in the disk of the physical machine outside the cloud; they may be associated to their origin, as expected for a forensic analysis. 
+It is, thus, possible to describe the state of the system before and after an incident is detected, even after the corresponding cloud instances are erased.
+
+
+%The solution thus keeps the disk space occupied by the samples collected under control.
 %
-This ability is kept after a threat has been detected since, in this case, older collections stop being erased so it is possible to describe the state of the system before and after the incident \cite{Case_Memory_Forensics:2014}, allowing, for example, code injection attacks to the memory to be analyzed.
+%Concurrently, memory photographs saved by the solution after the containers and the AWS instance are removed and kept in the disk of the physical machine outside the cloud; they may be associated to their origin, as expected for a forensic analysis. 
+%
+%This ability is kept after a threat has been detected since, in this case, older collections stop being erased so it is possible to describe the state of the system before and after the incident \cite{Case_Memory_Forensics:2014}, allowing, for example, code injection attacks to the memory to be analyzed.
 
 
 \begin{figure}[htb!]
@@ -934,23 +988,25 @@ This ability is kept after a threat has been detected since, in this case, older
 \end{figure}
 
 
-A potential limitation of the proposed solution is that the pause of a container to collect data may, in principle, cause performance losses of the application being executed. 
+A potential issue of the proposed solution is that pausing a container to collect data may, at least in principle, cause efficiency losses of the application being executed.
 %
-To assess this impact, the times for copying the container memory were measured along the experiment.
+To assess this overhead, the times for copying the container memory were measured along the experiment.
 %
-The results are shown in the graph of Fig. \ref{fig:memoria_copia}.
+The results are shown in Figure \ref{fig:memoria_copia}.
 %
-Note that, after the application is initialized, the time for making a copy is very small, varying between 20 and 40 milliseconds. 
+Note that, after the application is initialized \marcos{O que você quer dizer com ``after the application is initialized''? Qual application (Dizang? WebServer? Outro?)? Aliás, se remover esse pedaço da sentença dá na mesma não? Enfim, é lógico que o tempo para fazer a cópia é medido depois de inicializado o processo de cópia (donde a dúvida de qual é a ``aplicação'' que você menciona)}, the time for making a copy is quite short, varying between 20 and 40 milliseconds. 
 %
 Especially for containers executing the engine of dynamic web pages, as is the case of the experiment in question, this latency can be not very perceptible by end users.
 %
 \textcolor{blue}{For the cases in which the interruption of the computational resource's execution for a short time causes problems of availability, it is possible to perform the collection procedure in separate moments of time. 
 %
 Thus, instead of suspending the execution of all computational resources to carry out the collection simultaneously, the procedure interrupts them sequentially.}
+%
+\marcos{Você quer dizer que aproveitaria o load-balancing e pararia 1 instância das 3 a cada instante, em round-robin? Eu entendi isso do texto, mas não ficou 100\% claro se é isso mesmo}
 
 \begin{figure}[tb!]
 \footnotesize
-\caption{Time for copying the container.}
+\caption{Time for copying the container \marcos{Aqui é ``median'' (=mediana) mesmo, ou é ``average'' (=média)? São duas coisas diferentes do ponto de vista de estatística}.}
 \includegraphics[scale=0.44]{memoria_copia_ieee.png}
 \centering
 \label{fig:memoria_copia}
