@@ -848,7 +848,7 @@ Memory copying is usually not an atomic activity, since it is executed jointly w
 Hence, if one of such processes maliciously erases traces of its existence from the container memory, important information may eventually be lost.
 
 
-Aiming to improve the atomicity of a memory copy process, \fancyname temporarily interrupts the execution of the container, makes a copies its contents, and then resumes its execution. 
+Aiming to improve the atomicity of a memory copy process, \fancyname\ temporarily interrupts the execution of the container, makes a copies its contents, and then resumes its execution. 
 %
 This technique is similar to that adopted by \cite{Rafique_Static_Live_Digital_Forensics:2013} for VMs, producing a photograph of the container's volatile memory for latter analysis.
 
@@ -913,7 +913,7 @@ If such SLA dictates that evidences must be stored outside the cloud environment
 
 \begin{figure}[htb!]
 \footnotesize
-\caption{\fancyname's general architecture. \marcos{Não precisa copiar 3x os mesmos blocos para explicar a solução... 1x basta... E por favor (1) aumente a fonte do texto na figura e (2) crie uma imagem vetorizada em pdf (e.g., no Visio dá para exportar como pdf)}}
+\caption{\fancyname's general architecture. \marcos{Não precisa copiar 3x os mesmos blocos para explicar a solução... 1x basta... Hamilton: Era pra passar a ideia de que não é uma solução de coleta centralizada. Pelo seu comentário suspeito que fracassei em passar a ideia. E por favor (1) aumente a fonte do texto na figura Hamilton: Done e (2) crie uma imagem vetorizada em pdf (e.g., no Visio dá para exportar como pdf) Hamilton: Está vetorizado mas fiz no Corel e exporto como jpeg. PDF é melhor?}}
 \includegraphics[scale=0.28]{solucao-eng.jpg}
 \centering
 \label{fig:Solucao}
@@ -1006,7 +1006,7 @@ Thus, instead of suspending the execution of all computational resources to carr
 
 \begin{figure}[tb!]
 \footnotesize
-\caption{Time for copying the container \marcos{Aqui é ``median'' (=mediana) mesmo, ou é ``average'' (=média)? São duas coisas diferentes do ponto de vista de estatística}.}
+\caption{Time for copying the container \marcos{Aqui é ``median'' (=mediana) mesmo, ou é ``average'' (=média)? São duas coisas diferentes do ponto de vista de estatística - Hamilton: é average}.}
 \includegraphics[scale=0.44]{memoria_copia_ieee.png}
 \centering
 \label{fig:memoria_copia}
@@ -1030,7 +1030,7 @@ In this experiment, the evidence generator is in North America, whereas the phys
 \begin{figure}[htb!]
 \footnotesize
 \caption{Evidence transport time}
-\includegraphics[scale=0.43]{evidencia_download_ieee.png}
+\includegraphics[scale=0.44]{evidencia_download_ieee.png}
 \centering
 \label{fig:evidencia_transporte}
 \end{figure}
@@ -1040,7 +1040,7 @@ In this experiment, the evidence generator is in North America, whereas the phys
 %
 To this end, a library named \textbf{libexample.so} simulating a malware in the form of a library was injected into one of the containers.
 %
-After five minutes of \fancyname collecting evidence, the library mentioned berfore was injected into the memory of one of the containers. 
+After five minutes of \fancyname\ collecting evidence, the library mentioned berfore was injected into the memory of one of the containers. 
 %
 After the injection the solution was allowed to continue collecting memory snapshots for another 5 minutes.
 %
@@ -1061,7 +1061,7 @@ Figure \ref{fig:antes-injecao} shows part of the memory before the injection and
 %
 It is possible to see the injected \textbf{libexample.so} library between addresses \textbf{7fbb52a50000} and \textbf{7fbb52c51000} in the snapshot after the injection.
 %
-Therefore, it is possible to identify the injection of a malware in the form of a library via evidence collected by \fancyname from the \textbf{/proc/pid/numa\_maps} directory via comparison between two memory snapshots.
+Therefore, it is possible to identify the injection of a malware in the form of a library via evidence collected by \fancyname\ from the \textbf{/proc/pid/numa\_maps} directory via comparison between two memory snapshots.
 %
 This allows code injection attacks to be identified.}
 
@@ -1110,7 +1110,7 @@ During the course of this project this unique form of identification was only po
 %
 So, the implementation for validating the proposed solution can only collect memory information in \textit{user space}.
 %
-In principle, therefore, \fancyname does not provide support to malware investigation techniques based on information from the kernel space, such as comparing the information from the \textit{Process Environment Block} (PEB), which are in the user space, with information from the \textit{Virtual Address Descriptor} (VAD), which lies in the kernel space. 
+In principle, therefore, \fancyname\ does not provide support to malware investigation techniques based on information from the kernel space, such as comparing the information from the \textit{Process Environment Block} (PEB), which are in the user space, with information from the \textit{Virtual Address Descriptor} (VAD), which lies in the kernel space. 
 %
 Analyses of threats that directly manipulate the objects of the kernel (D.K.O.M – \textit{Direct Kernel Object Manipulation}) do not benefit from the solution proposed, either.}
 
@@ -1212,12 +1212,12 @@ In this scenario, the proposal presented aims to relate the memory photograph to
 %
 To prevent an excessive use of disk space, the volume of data stored uses a storage window, which allows describing the memory before and after an attack (e.g. memory injection).
 %
-Combined with a tool for identifying threats, these \fancyname characteristics make it a robust solution to provide evidence and thus make forensic analyses in the cloud viable.
+Combined with a tool for identifying threats, these \fancyname\ characteristics make it a robust solution to provide evidence and thus make forensic analyses in the cloud viable.
 %
 
 \textcolor{blue}{As mentioned before, it was not possible to copy the contents of the process running inside the container.
 %
-Due to the complexity and knowledge required to perform the suggested modification and the process for accepting it in the linux code base, it is recommended for future work to incorporate into \fancyname a way of solving access to the contents of the memory of a container from the host system.}
+Due to the complexity and knowledge required to perform the suggested modification and the process for accepting it in the linux code base, it is recommended for future work to incorporate into \fancyname\ a way of solving access to the contents of the memory of a container from the host system.}
 
 
 
