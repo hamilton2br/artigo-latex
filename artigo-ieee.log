@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  19 MAR 2019 22:27
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  21 MAR 2019 19:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -865,14 +865,15 @@ File: comando-copia-memoria-gdb.jpg Graphic file (type jpg)
 Package pdftex.def Info: comando-copia-memoria-gdb.jpg used on input line 1052.
 
 (pdftex.def)             Requested size: 365.10156pt x 73.03958pt.
-
-<antes-injecao.jpg, id=37, 811.3512pt x 599.1183pt>
+ [6 <./evolucao_coleta_ieee.png> <./memoria_copia_ieee.png> <./evidencia_downlo
+ad_ieee.png>]
+<antes-injecao.jpg, id=43, 811.3512pt x 599.1183pt>
 File: antes-injecao.jpg Graphic file (type jpg)
  <use antes-injecao.jpg>
 Package pdftex.def Info: antes-injecao.jpg used on input line 1071.
 (pdftex.def)             Requested size: 251.51627pt x 185.72475pt.
 
-<apos-injecao.jpg, id=38, 1195.1049pt x 845.0772pt>
+<apos-injecao.jpg, id=44, 1195.1049pt x 845.0772pt>
 File: apos-injecao.jpg Graphic file (type jpg)
  <use apos-injecao.jpg>
 Package pdftex.def Info: apos-injecao.jpg used on input line 1080.
@@ -897,11 +898,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 1094--1095
 Underfull \hbox (badness 10000) in paragraph at lines 1094--1095
 \OT1/pcr/m/n/10 --security-opt-seccomp=unconfined \OT1/ptm/m/n/10 which
  []
-
-[6 <./evolucao_coleta_ieee.png> <./memoria_copia_ieee.png> <./evidencia_downloa
-d_ieee.png>]
-Underfull \vbox (badness 1515) has occurred while \output is active []
-
 
 <nao-consido-dumpar-memoria.jpg, id=45, 1195.1049pt x 845.0772pt>
 File: nao-consido-dumpar-memoria.jpg Graphic file (type jpg)
@@ -970,7 +966,7 @@ Underfull \hbox (badness 7151) in paragraph at lines 204--206
 11-
  []
 
-)
+[8])
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -982,7 +978,9 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[8] (./artigo-ieee.aux)
+[9
+
+] (./artigo-ieee.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -997,7 +995,7 @@ Here is how much of TeX's memory you used:
  8097 multiletter control sequences out of 15000+600000
  40419 words of font info for 75 fonts, out of 8000000 for 9000
  960 hyphenation exceptions out of 8191
- 40i,16n,35p,723b,369s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 40i,16n,35p,880b,369s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
@@ -1007,10 +1005,10 @@ rw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb
 8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on artigo-ieee.pdf (8 pages, 5069504 bytes).
+Output written on artigo-ieee.pdf (9 pages, 5070349 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
- 49 compressed objects within 1 object stream
+ 88 PDF objects out of 1000 (max. 8388607)
+ 51 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

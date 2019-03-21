@@ -927,7 +927,7 @@ The testbed employed, illustrated in Fig. \ref{fig:Solucao}, consists in creatin
 %
 In this AWS instance, we installed Docker Engine 1.10 and API Docker 1.21, and then created 3 containers for executing the nginx 1.0 web server in different ports. 
 %
-Using a Java application that discovers the process identifier associated to each container \marcos{o que seria essa ``a Java application''? Você que desenvolveu? Tem que deixar claro se você usou algo ou desenvolveu esse algo}, we accessed the content \marcos{of that container's (é isso mesmo?? É do container ou é do sistema como um todo?)} \textit{Non-Uniform Memory Allocation descriptor} (\textbf{/proc/pid/numa\_maps}), containing the allocation of the memory pages, the nodes associated to these pages and what was allocated in their respective access policies \cite{UnixManPages_numa_maps}.
+We developed a Java application, which is executed on the host O.S., that discovers the process identifier associated to each container \marcos{o que seria essa ``a Java application''? Você que desenvolveu? Tem que deixar claro se você usou algo ou desenvolveu esse algo - Hamilton: Done} and accesses the content of the container's \marcos{of that container's (é isso mesmo?? É do container ou é do sistema como um todo?) - Hamilton: Sim, é do conteiner, é a parte que consigo identificar unicamente. Porém faltou mencionar que Java application é executada no S.O. host.} \textit{Non-Uniform Memory Allocation descriptor} (\textbf{/proc/pid/numa\_maps}), containing the allocation of the memory pages, the nodes associated to these pages and what was allocated in their respective access policies \cite{UnixManPages_numa_maps}.
 %
 The copy and recording of the file is such that, every minute, the application (1) pauses the container in question, (2) copies the \textbf{numa\_maps} directory, (3) concatenates the data obtained with the container's image identifier, (4) calculates the hash $H$ for this set, and (5) saves the result in a \textbf{.mem} file named after the container's identifier.
 
@@ -963,9 +963,9 @@ The system was then executed for 30 minutes, and the following metrics were coll
 %
 
 
-The disk space occupied by the memory photographs captured during the experiment, obtained via the \textit{Unix} command \texttt{du -sh *.mem}, is shown in Fig. \ref{fig:evolucao_coleta}. 
+The disk space occupied by the memory photographs captured during the experiment, having 244 kbytes each, obtained via the \textit{Unix} command \texttt{du -sh *.mem}, is shown in Fig. \ref{fig:evolucao_coleta}. 
 %
-This figure shows that, as expected, the disk space usage increases linearly until the time window is reached, and then stays constant due to older samples being discarded \marcos{Qual o tamanho de 1 sample? Essa info me parece relevante mencionar aqui}.
+This figure shows that, as expected, the disk space usage increases linearly until the time window is reached, and then stays constant due to older samples being discarded \marcos{Qual o tamanho de 1 sample? Essa info me parece relevante mencionar aqui - Hamilton: Done}.
 %
 The discarding process can be halted at any time by the physical machine itself (e.g., after an attack is detected).
 %
@@ -994,15 +994,15 @@ To assess this overhead, the times for copying the container memory were measure
 %
 The results are shown in Figure \ref{fig:memoria_copia}.
 %
-Note that, after the application is initialized \marcos{O que você quer dizer com ``after the application is initialized''? Qual application (Dizang? WebServer? Outro?)? Aliás, se remover esse pedaço da sentença dá na mesma não? Enfim, é lógico que o tempo para fazer a cópia é medido depois de inicializado o processo de cópia (donde a dúvida de qual é a ``aplicação'' que você menciona)}, the time for making a copy is quite short, varying between 20 and 40 milliseconds. 
+Note that, \marcos{O que você quer dizer com ``after the application is initialized''? Qual application (Dizang? WebServer? Outro?)? Aliás, se remover esse pedaço da sentença dá na mesma não? Enfim, é lógico que o tempo para fazer a cópia é medido depois de inicializado o processo de cópia (donde a dúvida de qual é a ``aplicação'' que você menciona - Hamilton: Sua observação é correta, removido) } the time for making a copy is quite short, varying between 20 and 40 milliseconds. 
 %
 Especially for containers executing the engine of dynamic web pages, as is the case of the experiment in question, this latency can be not very perceptible by end users.
 %
 \textcolor{blue}{For the cases in which the interruption of the computational resource's execution for a short time causes problems of availability, it is possible to perform the collection procedure in separate moments of time. 
 %
-Thus, instead of suspending the execution of all computational resources to carry out the collection simultaneously, the procedure interrupts them sequentially.}
+Thus, instead of suspending the execution of all computational resources to carry out the collection simultaneously, the procedure interrupts them sequentially in round-robin fashion.}
 %
-\marcos{Você quer dizer que aproveitaria o load-balancing e pararia 1 instância das 3 a cada instante, em round-robin? Eu entendi isso do texto, mas não ficou 100\% claro se é isso mesmo}
+\marcos{Você quer dizer que aproveitaria o load-balancing e pararia 1 instância das 3 a cada instante, em round-robin? Eu entendi isso do texto, mas não ficou 100\% claro se é isso mesmo - Hamilton: Embora sim, seja de uma forma de round-robin (fiz a alteração), não mencionei o load balancer pois tive medo que fosse interpretado como uma necessidade dos conteiners terem a mesma função. No experimento 2 eu uso um contêiner que não é um motor de páginas web junto com os 3 contêiners do primeiro experimento.}
 
 \begin{figure}[tb!]
 \footnotesize
