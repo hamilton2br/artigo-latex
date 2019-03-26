@@ -843,7 +843,9 @@ Basically, LXC uses \textit{cgroups} and \textit{namespacing} of the Linux kerne
 \subsection{Memory copying}
 \label{sec:proposal-desc-memcpy}
 
-Memory copying is usually not an atomic activity, since it is executed jointly with processes that may be modifying the very memory parts being copied.
+Memory copying is usually not an atomic activity.
+%
+Instead, it is executed jointly with processes that may modify the very memory parts being copied.
 %
 Hence, if one of such processes maliciously erases traces of its existence from the container memory, important information may eventually be lost.
 
@@ -853,19 +855,19 @@ Aiming to improve the atomicity of a memory copy process, \fancyname\ temporaril
 This technique is similar to that adopted by \cite{Rafique_Static_Live_Digital_Forensics:2013} for VMs, producing a photograph of the container's volatile memory for latter analysis.
 
 
-As long as such data collection process is repeated periodically, in short time intervals, it is possible to build an accurate history of the container's memory state during execution.
+As long as such data collection process is repeated periodically, in short time intervals, it is possible to build a reasonably accurate history of the container's memory state during execution.
 %
-However, as discussed in Section \ref{sec:sec:related-continuousCollection}, this may also lead to a huge volume of information to be stored and analyzed.
+However, as discussed in Section \ref{sec:related-continuousCollection}, this may also lead to a huge volume of information to be stored and analyzed.
 %
 %Most of the forensic techniques currently most widely employed are directed to obtaining information in its totality, be it via bit by bit copy, be it by obtaining the physical hardware \cite{Simou_Cloud_Chlng:2014} \cite{Bem_Past_Present_Future:2008}. 
 %
 %Even though these techniques may sound interesting at first, many times they are eventually responsible for a problem: the growing volume of information investigators have to analyze \cite{Quick_Increase_Volume_Impact:2014}.
 %
-To mitigate this issue, \fancyname\ employs a time window that limits the number of memory photographs stored while the system operates under normal circumstances, i.e., while it is not under attack.
+To mitigate this issue, \fancyname\ employs a time window that limits the number of memory photographs stored while the system operates under normal circumstances, i.e., when it is not under attack.
 %
 Memory copies reaching a given age are periodically discarded, opening space for new photographs.
 %
-However, after an attack event is detected (e.g., by an intrusion detection system), \fancyname\ stops discarding older pieces of memory from the monitoring log.
+After an attack event is detected (e.g., by an intrusion detection system), though, \fancyname\ stops discarding older pieces of memory from the monitoring log.
 %
 This approach, illustrated in Figure \ref{fig:janela}, gives forensic analysts the ability to analyze memory copies from before and after the intrusion, as well as assess the system's evolution during this period.
 
@@ -884,7 +886,7 @@ This approach, illustrated in Figure \ref{fig:janela}, gives forensic analysts t
 
 \begin{figure}[tb!]
 \footnotesize
-\caption{Sliding window of evidence collection}
+\caption{Sliding window of evidence collection \marcos{Essa imagem tem MUITO espaço em branco nos arredores: fica esquisito no slide... Melhor cortar esse monte de branco}}
 \includegraphics[scale=0.40]{janela_ieee-eng.jpg}
 \centering
 \label{fig:janela}
@@ -913,7 +915,11 @@ If such SLA dictates that evidences must be stored outside the cloud environment
 
 \begin{figure}[htb!]
 \footnotesize
-\caption{\fancyname's general architecture. \marcos{Não precisa copiar 3x os mesmos blocos para explicar a solução... 1x basta... Hamilton: Era pra passar a ideia de que não é uma solução de coleta centralizada. Pelo seu comentário suspeito que não consegui. E por favor (1) aumente a fonte do texto na figura Hamilton: Done e (2) crie uma imagem vetorizada em pdf (e.g., no Visio dá para exportar como pdf) Hamilton: Está vetorizado mas fiz no Corel e exporto como jpeg. PDF é melhor?}}
+\caption{\fancyname's inner working for a single container. 
+%\marcos{Não precisa copiar 3x os mesmos blocos para explicar a solução... 1x basta... Hamilton: Era pra passar a ideia de que não é uma solução de coleta centralizada. Pelo seu comentário suspeito que não consegui. Marcos: mais fácil dizer que isso é para 1 container, como fiz agora no label}
+\marcos{E por favor (1) aumente a fonte do texto na figura Hamilton: Done. Marcos: Faltou aumentar a fonte de ``User A''}
+\marcos{E (2) crie uma imagem vetorizada em pdf (e.g., no Visio dá para exportar como pdf) Hamilton: Está vetorizado mas fiz no Corel e exporto como jpeg. PDF é melhor? Marcos: pdf é vetorizado; jpeg não é. Não adianta criar vetorizado e colocar no artigo um export não vetorizado, pois o resultado é tão não-vetorizado quanto se você tivesse desenhado no paint...}
+}
 \includegraphics[scale=0.34]{solucao-eng-small.jpg}
 \centering
 \label{fig:Solucao}
@@ -927,9 +933,16 @@ The testbed employed, illustrated in Fig. \ref{fig:Solucao}, consists in creatin
 %
 In this AWS instance, we installed Docker Engine 1.10 and API Docker 1.21, and then created 3 containers for executing the nginx 1.0 web server in different ports. 
 %
-We developed a Java application, which is executed on the host O.S., that discovers the process identifier associated to each container \marcos{o que seria essa ``a Java application''? Você que desenvolveu? Tem que deixar claro se você usou algo ou desenvolveu esse algo - Hamilton: Done} and accesses the content of the container's \marcos{of that container's (é isso mesmo?? É do container ou é do sistema como um todo?) - Hamilton: Sim, é do conteiner, é a parte que consigo identificar unicamente. Porém faltou mencionar que Java application é executada no S.O. host.} \textit{Non-Uniform Memory Allocation descriptor} (\textbf{/proc/pid/numa\_maps}), containing the allocation of the memory pages, the nodes associated to these pages and what was allocated in their respective access policies \cite{UnixManPages_numa_maps}.
+We developed a Java application, which is executed on the host OS to: 
+(1) discover the process identifier associated to each container, and then 
+(2) access the container's 
+%\marcos{o que seria essa ``a Java application''? Você que desenvolveu? Tem que deixar claro se você usou algo ou desenvolveu esse algo - Hamilton: Done} 
+%\marcos{of that container's (é isso mesmo?? É do container ou é do sistema como um todo?) - Hamilton: Sim, é do conteiner, é a parte que consigo identificar unicamente. Porém faltou mencionar que Java application é executada no S.O. host.} 
+\textit{Non-Uniform Memory Allocation descriptor} (\textbf{/proc/pid/numa\_maps}).
 %
-The copy and recording of the file is such that, every minute, the application (1) pauses the container in question, (2) copies the \textbf{numa\_maps} directory, (3) concatenates the data obtained with the container's image identifier, (4) calculates the hash $H$ for this set, and (5) saves the result in a \textbf{.mem} file named after the container's identifier.
+The latter contains the allocation of the memory pages, the nodes associated to these pages and what was allocated in their respective access policies \cite{UnixManPages_numa_maps}.
+%
+The copy and recording of the file is such that, in every time interval $t$, the application (1) pauses the container in question, (2) copies the \textbf{numa\_maps} directory, (3) concatenates the data obtained with the container's image identifier, (4) calculates the hash $H$ for this set, and (5) saves the result in a \textbf{.mem} file named after the container's identifier.
 
 
 The secure transportation of the evidence to a physical storage outside AWS employs another t2.micro instance, whereby an OpenVPN server is installed.
@@ -938,34 +951,37 @@ As a basic form of access control, the EC2 instance containing the evidence is c
 %
 A physical machine outside AWS then uses an OpenVPN client to establish a VPN connection with the instance containing the evidence, obtaining the corresponding data.
 %
-After concluding the data acquisition process, the physical machine verifies whether there are local .mem files that older than a certain time interval, and discards them.
+After concluding the data acquisition process, the physical machine verifies whether there are local .mem files that are older than a certain time interval, and discards them.
 
 
-Using this testbed, two experiments were performed: the first focus on performance aspects, whereas the second evaluates \fancyname's ability to aid in identifying malware injection attacks.
+Using this testbed, two sets of experiments were performed: the first set focus on performance aspects, whereas the second evaluates \fancyname's ability to aid in identifying malware injection attacks.
 %
 Both experiments are described in the following sub-sections.
 
-\subsection{Performance}
+\subsection{Performance Analysis}
 \label{sec:proposal-exp}
 
 %To assess the \fancyname efficacy in collecting evidence, \textcolor{blue}{two experiments} were performed using the environment implemented (described in Section \ref{sec:proposal-impl}).
 %
-For the first experiment, the system was configured to collect memory photographs in 1-minute intervals and send them to the physical machine outside the cloud.
+For the first experiment, the system was configured to collect memory photographs in $t=1$ minute intervals and send them to the physical machine outside the cloud.
 %
-The data collection time window was set to 5 minutes, meaning that samples older than that are erased from the physical machine's disk.
+The data collection time window was set to $w=5$ minutes, so samples that are older than $w$ are erased from the physical machine's disk.
 %
 The system was then executed for 30 minutes, and the following metrics were collected: 
-(1) the disks space required for storing the memory photographs; 
+(1) the disk space required for storing the memory photographs; 
 (2) the time necessary for pausing a container and copying its contents; and 
 (3) the time taken for transporting the evidence to the physical machine outside the cloud.
 %
 %After each data collection, the \textit{Unix} command \texttt{du -sh *.mem} was executed in the physical machine outside the cloud to return the list of the files in which the memory photographs were stored and the disk space they occupied. \marcos{fica repetitivo com o que já foi falado e com o que é falado na sequência}
 %
 
+\subsubsection{Memory}
 
-The disk space occupied by the memory photographs captured during the experiment, having 244 kbytes each, obtained via the \textit{Unix} command \texttt{du -sh *.mem}, is shown in Fig. \ref{fig:evolucao_coleta}. 
+In our testbed, each memory photograph takes 244-kbytes of storage.
 %
-This figure shows that, as expected, the disk space usage increases linearly until the time window is reached, and then stays constant due to older samples being discarded \marcos{Qual o tamanho de 1 sample? Essa info me parece relevante mencionar aqui - Hamilton: Done}.
+Fig. \ref{fig:evolucao_coleta} shows the total disk space occupied during the experiment for all photographs, as obtained via the \textit{Unix} command \texttt{du -sh *.mem}. 
+%
+This figure shows that, as expected, the disk space usage increases linearly until the time window is reached, and then stays constant due to older samples being discarded.
 %
 The discarding process can be halted at any time by the physical machine itself (e.g., after an attack is detected).
 %
@@ -988,63 +1004,83 @@ It is, thus, possible to describe the state of the system before and after an in
 \end{figure}
 
 
-A potential issue of the proposed solution is that pausing a container to collect data may, at least in principle, cause efficiency losses of the application being executed.
+\subsubsection{Latency overhead}
+A potential issue of the proposed solution is that pausing a container to collect data may, at least in principle, degrade the efficiency of the application being executed.
 %
 To assess this overhead, the times for copying the container memory were measured along the experiment.
 %
-The results are shown in Figure \ref{fig:memoria_copia}.
+The results are depicted in Figure \ref{fig:memoria_copia}.
 %
-Note that, \marcos{O que você quer dizer com ``after the application is initialized''? Qual application (Dizang? WebServer? Outro?)? Aliás, se remover esse pedaço da sentença dá na mesma não? Enfim, é lógico que o tempo para fazer a cópia é medido depois de inicializado o processo de cópia (donde a dúvida de qual é a ``aplicação'' que você menciona - Hamilton: Sua observação é correta, removido) } the time for making a copy is quite short, varying between 20 and 40 milliseconds. 
+This figure shows that the time for making a copy is quite short, varying between 20 and 40 milliseconds. 
 %
-Especially for containers executing the engine of dynamic web pages, as is the case of the experiment in question, this latency can be not very perceptible by end users.
+Especially for containers executing the engine of dynamic web pages, as is the case of the experiment in question, this latency is unlikely to be perceptible by end users.
 %
-\textcolor{blue}{For the cases in which the interruption of the computational resource's execution for a short time causes problems of availability, it is possible to perform the collection procedure in separate moments of time. 
+Nevertheless, an even lower latency can be obtained if the collection procedure for each instance is performed in different moments of time.
 %
-Thus, instead of suspending the execution of all computational resources to carry out the collection simultaneously, the procedure interrupts them sequentially in round-robin fashion.}
+For example, instead of simultaneously suspending the execution of all computational resources to carry out the data collection task, one could interrupts them sequentially, in round-robin fashion.
 %
-\marcos{Você quer dizer que aproveitaria o load-balancing e pararia 1 instância das 3 a cada instante, em round-robin? Eu entendi isso do texto, mas não ficou 100\% claro se é isso mesmo - Hamilton: Embora sim, seja de uma forma de round-robin (fiz a alteração), não mencionei o load balancer pois tive medo que fosse interpretado como uma necessidade dos conteiners terem a mesma função. No experimento 2 eu uso um contêiner que não é um motor de páginas web junto com os 3 contêiners do primeiro experimento.}
+Therefore, the latency hereby shown can be considered a worst case scenario for our testbed.
+
+%\textcolor{blue}{For the cases in which the interruption of the computational resource's execution for a short time causes problems of availability, it is possible to perform the collection procedure in separate moments of time. 
+%
+%Thus, instead of suspending the execution of all computational resources to carry out the collection simultaneously, the procedure interrupts them sequentially in round-robin fashion.}
+%
+%\marcos{Você quer dizer que aproveitaria o load-balancing e pararia 1 instância das 3 a cada instante, em round-robin? Eu entendi isso do texto, mas não ficou 100\% claro se é isso mesmo - Hamilton: Embora sim, seja de uma forma de round-robin (fiz a alteração), não mencionei o load balancer pois tive medo que fosse interpretado como uma necessidade dos conteiners terem a mesma função. No experimento 2 eu uso um contêiner que não é um motor de páginas web junto com os 3 contêiners do primeiro experimento.}
 
 \begin{figure}[tb!]
 \footnotesize
-\caption{Time for copying the container \marcos{Aqui é ``median'' (=mediana) mesmo, ou é ``average'' (=média)? São duas coisas diferentes do ponto de vista de estatística - Hamilton: é average}.}
+\caption{Average time for copying the container 
+\marcos{Precisa aumentar a fonte das legendas. Por favor faça esse exercício para TODAS as figuras em vez de esperar eu reclamar uma a uma... Se a fonte está menor do que o obtido com {\footnotesize{footnotes}}, então esta errado. Isso vale para qualquer artigo e qualquer formato, então por favor adicione a sua lista de ``conhecimentos adquiridos durante o mestrado''}
+%\marcos{Aqui é ``median'' (=mediana) mesmo, ou é ``average'' (=média)? São duas coisas diferentes do ponto de vista de estatística - Hamilton: é average}.
+}
 \includegraphics[scale=0.44]{memoria_copia_ieee.png}
 \centering
 \label{fig:memoria_copia}
 \end{figure}
 
 
-Another concern is the time for transporting the evidence to the storage outside the cloud.
+\subsubsection{Transfer process}
+If the time required for transporting the evidence to the storage server outside the cloud is longer than generation interval, the system may create a large backlog and messages may be loss.
 %
-The evidence transport to the storage outside the cloud can take longer than generation interval, leading to evidence loss during transport. 
+%The evidence transport to the storage outside the cloud can take longer than generation interval, leading to evidence loss during transport. 
 %
-To assess this impact, the evidence transport times for storage outside the cloud were measured along the experiment, as shown by the results in the graph of Fig. \ref{fig:evidencia_transporte}.
+To evaluate this factor, the evidence transport time was measured along the experiment, as illustrated in Fig. \ref{fig:evidencia_transporte}.
 %
-The transport time is verified to stabilize after the window size is reached. 
+The result obtained is that the time for transporting evidence from the AWS server in North America to our test server in South America is around 30 seconds on average.
 %
-The time for transporting evidence is approximately 30 seconds on average. 
+Obviously, the network itself plays an important role in those numbers, so servers located in closer locations should lead to smaller transfer times.
 %
-The topology is a factor that may contribute both positively and negatively to the transport time. 
+The transport time is verified to stabilize after the window size is reached \marcos{Se for chamar a atenção pra isso, precisa explicar a razão, ou pelo menos tentar dar uma explicação pra isso... pra mim não é óbvio (uma possibilidade é que o tempo inicial foi maior pela demora em estabelecer uma conexão, mas só você pra dizer se esse tempo está ou não incluso no gráfico; além disso, tem o problema do ``0 sample'' que levantei no caption da figura). Uma outra opção é simplesmente suprimir esse comentário (não me parece altamente relevante)}. 
 %
-In this experiment, the evidence generator is in North America, whereas the physical machine where the evidence was transported to is in South America.
+%The time for transporting evidence is approximately 30 seconds on average. 
+%
+%The topology is a factor that may contribute both positively and negatively to the transport time. 
+%
+%In this experiment, the evidence generator is in North America, whereas the physical machine where the evidence was transported to is in South America.
 
 \begin{figure}[htb!]
 \footnotesize
-\caption{Evidence transport time}
+\caption{Evidence transport time \marcos{Não entendi a razão para começar com 0 samples e ter um tempo de ~9 segundos... Enfim, para transportar 0 samples o tempo deveria ser 0, não? Tem algo muito esquisito aqui...}}
 \includegraphics[scale=0.44]{evidencia_download_ieee.png}
 \centering
 \label{fig:evidencia_transporte}
 \end{figure}
 
 
-\textcolor{blue}{A second experiment aimed to determine if it is possible, through the analysis of the collected evidence, to identify malware injection in the container memory was made.
+\subsection{Identifying malware injection}
+
+Our second experiment aims to determine if it is possible, through the analysis of the collected evidence, to identify malware injection in the container memory.
 %
 To this end, a library named \textbf{libexample.so} simulating a malware in the form of a library was injected into one of the containers.
 %
-After five minutes of \fancyname\ collecting evidence, the library mentioned berfore was injected into the memory of one of the containers. 
+After five minutes of \fancyname\ collecting evidence, the aforementioned library was injected into the memory of one of the containers. 
 %
-After the injection the solution was allowed to continue collecting memory snapshots for another 5 minutes.
+After the injection, the solution was allowed to continue collecting memory snapshots for another 5 minutes.
 %
-In addition to collecting directory content \textbf{/proc/pid/numa\_maps}, a raw copy of the process memory of the container was also performed using the Linux \textit{GDB} utility via the command described in Figure \ref{fig:comando-copia}.}
+In addition to collecting the \textbf{/proc/pid/numa\_maps} directory contents, a raw copy of the container's process memory was also acquired using the Linux \textit{GDB} utility, via the following command:
+
+\noindent\texttt{\footnotesize \#reading...\marcos{escreva aqui o comando... usar uma figura pra texto não faz lá muito sentido...}}
+% described in Figure \ref{fig:comando-copia}.
 
 \begin{figure*}[htb!]
 \footnotesize
@@ -1055,15 +1091,15 @@ In addition to collecting directory content \textbf{/proc/pid/numa\_maps}, a raw
 \end{figure*}
 
 
-\textcolor{blue}{Two distinct moments were compared in the life of the container, before and after the injection of the library.
+%We then compared two distinct moments in the containers' lifetime: before and after the library injection
 %
-Figure \ref{fig:antes-injecao} shows part of the memory before the injection and Figure \ref{fig:apos-injecao} shows part of the memory after the injection.
+Figures \ref{fig:antes-injecao} and \ref{fig:apos-injecao} show part of the container's memory before and after the injection, respectively.
 %
-It is possible to see the injected \textbf{libexample.so} library between addresses \textbf{7fbb52a50000} and \textbf{7fbb52c51000} in the snapshot after the injection.
+As expected, it is possible to see the injected \textbf{libexample.so} library between addresses \textbf{7fbb52a50000} and \textbf{7fbb52c51000} in the snapshot after the injection.
 %
-Therefore, it is possible to identify the injection of a malware in the form of a library via evidence collected by \fancyname\ from the \textbf{/proc/pid/numa\_maps} directory via comparison between two memory snapshots.
+%Therefore, it is possible to identify the injection of a malware in the form of a library via evidence collected by \fancyname\ from the \textbf{/proc/pid/numa\_maps} directory via comparison between two memory snapshots.
 %
-This allows code injection attacks to be identified.}
+%This allows code injection attacks to be identified.}
 
 \begin{figure}[htb!]
 \footnotesize
@@ -1082,7 +1118,9 @@ This allows code injection attacks to be identified.}
 \label{fig:apos-injecao}
 \end{figure}
 
+%\marcos{xxx Not fully revised from this point on}
 
+\marcos{Não tenho certeza se entendi: que ideia você quer passar com esse parágrafo exatamente? Não consegui enxergar o que a discussão tem a ver com o seu trabalho em si: ela apenas fala de uma ferramenta que (1) você não tinha mencionado antes e (2) não funciona para seus propósitos, sem que isso seja uma limitação do seu trabalho... Enfim, parece meio fora de foco isso...}
 \textcolor{blue}{Despite the successful collection by copying the \textbf{/proc/pid/numa\_maps}, it was not possible to copy the contents of the process memory from the container via \textit{ptrace}.
 %
 According to \cite{cgroupsxptrace}, this happens because the system calls used by tools such as \textit{ptrace} and \textit{htop} were created before the implementation of \textit{cgroups} in the linux \textit{kernel} and thus are not aware of the existence of isolation between processes.
@@ -1095,7 +1133,7 @@ Still according to \cite{cgroupsxptrace} an alternative to enable the monitoring
 
 \begin{figure}[htb!]
 \footnotesize
-\caption{Error while attempting to copy the memory of a process inside a container}
+\caption{Error while attempting to copy the memory of a process inside a container \marcos{Er... o que texto em português está fazendo nesta figura?!?!?!!?}}
 \includegraphics[scale=0.21]{nao-consido-dumpar-memoria.jpg}
 \centering
 \label{fig:erro-copia-gdb}
@@ -1103,14 +1141,16 @@ Still according to \cite{cgroupsxptrace} an alternative to enable the monitoring
 
 
 \subsection{Limitations}
-
-\textcolor{blue}{The described proposal calls for the cloud resource to be uniquely identifiable in order to make the association between evidence and its origin.
+\marcos{Me parece uma boa discussão como trabalho futuro, não exatamente como ``limitação''.}
+\textcolor{blue}{The proposed architecture calls for the cloud resource to be uniquely identifiable in order to make the association between evidence and its origin.
 %
-During the course of this project this unique form of identification was only possible through the hash of the container image. This was the only feature that, submitted to the build process from the same recipe resulted in the same hash of the image.
+During our analysis, this unique form of identification was only possible through the hash of the container image. 
+%
+This was the only feature that, submitted to the build process from the same recipe resulted in the same hash of the image.
 %
 So, the implementation for validating the proposed solution can only collect memory information in \textit{user space}.
 %
-In principle, therefore, \fancyname\ does not provide support to malware investigation techniques based on information from the kernel space, such as comparing the information from the \textit{Process Environment Block} (PEB), which are in the user space, with information from the \textit{Virtual Address Descriptor} (VAD), which lies in the kernel space. 
+Therefore, in principle \fancyname\ does not provide support to malware investigation techniques based on information from the kernel space, such as comparing the information from the \textit{Process Environment Block} (PEB), which are in the user space, with information from the \textit{Virtual Address Descriptor} (VAD), which lies in the kernel space. 
 %
 Analyses of threats that directly manipulate the objects of the kernel (D.K.O.M – \textit{Direct Kernel Object Manipulation}) do not benefit from the solution proposed, either.}
 
@@ -1212,10 +1252,10 @@ In this scenario, the proposal presented aims to relate the memory photograph to
 %
 To prevent an excessive use of disk space, the volume of data stored uses a storage window, which allows describing the memory before and after an attack (e.g. memory injection).
 %
-Combined with a tool for identifying threats, these \fancyname\ characteristics make it a robust solution to provide evidence and thus make forensic analyses in the cloud viable.
+Combined with a tool for identifying threats, these \fancyname\ characteristics make it a robust solution for evidence collection and thus make forensic analyses in the cloud viable.
 %
 
-\textcolor{blue}{As mentioned before, it was not possible to copy the contents of the process running inside the container.
+\textcolor{blue}{As mentioned before \marcos{Onde, cara pálida...? Tem 7 páginas antes desse ponto, então o leitor deveria caçar uma a uma?! Diga o número da seção... Isso tem a ver com a seção ``limitations''? Em caso positivo, acho que o melhor é mover o conteúdo daquela seção pra cá de uma vez: como comentei por lá, fica mais interessante deixar aquele texto como ``future work'' do que como ``limitation''}, it was not possible to copy the contents of the process running inside the container.
 %
 Due to the complexity and knowledge required to perform the suggested modification and the process for accepting it in the linux code base, it is recommended for future work to incorporate into \fancyname\ a way of solving access to the contents of the memory of a container from the host system.}
 
