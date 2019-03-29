@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  26 MAR 2019 06:33
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  28 MAR 2019 21:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -787,15 +787,15 @@ File: check.png Graphic file (type png)
  <use check.png>
 Package pdftex.def Info: check.png used on input line 658.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
- [2] [3 <./check.png> <./x.png>] <janela_ieee-eng.jpg, id=22, 811.3512pt x 599.
-1183pt>
+ [2] [3 <./check.png> <./x.png>] <janela_ieee-eng.jpg, id=22, 640.64343pt x 481
+.8pt>
 File: janela_ieee-eng.jpg Graphic file (type jpg)
 
 <use janela_ieee-eng.jpg>
 Package pdftex.def Info: janela_ieee-eng.jpg used on input line 890.
-(pdftex.def)             Requested size: 324.53473pt x 239.64307pt.
+(pdftex.def)             Requested size: 256.25282pt x 192.71658pt.
 
-Overfull \hbox (72.53473pt too wide) in paragraph at lines 890--893
+Overfull \hbox (4.25282pt too wide) in paragraph at lines 890--893
  [][] 
  []
 
@@ -814,45 +814,34 @@ File: solucao-eng-small.jpg Graphic file (type jpg)
 Package pdftex.def Info: solucao-eng-small.jpg used on input line 923.
 (pdftex.def)             Requested size: 252.11357pt x 84.46445pt.
  [4 <./janela_ieee-eng.jpg>]
-Underfull \vbox (badness 2213) has occurred while \output is active []
-
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 982.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-<evolucao_coleta_ieee.png, id=29, 460.72125pt x 398.99063pt>
+<evolucao_coleta_ieee.png, id=29, 458.46281pt x 395.97937pt>
 File: evolucao_coleta_ieee.png Graphic file (type png)
 
 <use evolucao_coleta_ieee.png>
 Package pdftex.def Info: evolucao_coleta_ieee.png used on input line 1001.
-(pdftex.def)             Requested size: 253.39746pt x 219.44553pt.
-
-Overfull \hbox (1.39746pt too wide) in paragraph at lines 1001--1004
- [][] 
- []
-
-[5 <./solucao-eng-small.jpg> <./evolucao_coleta_ieee.png>]
-<memoria_copia_ieee.png, id=36, 575.14874pt x 398.99063pt>
+(pdftex.def)             Requested size: 252.15532pt x 217.78932pt.
+ [5 <./solucao-eng-small.jpg> <./evolucao_coleta_ieee.png>] <memoria_copia_ieee
+.png, id=36, 570.63188pt x 395.22656pt>
 File: memoria_copia_ieee.png Graphic file (type png)
 
 <use memoria_copia_ieee.png>
 Package pdftex.def Info: memoria_copia_ieee.png used on input line 1036.
-(pdftex.def)             Requested size: 253.06622pt x 175.55641pt.
+(pdftex.def)             Requested size: 251.0788pt x 173.9002pt.
 
-Overfull \hbox (1.06622pt too wide) in paragraph at lines 1036--1039
- [][] 
- []
-
-<evidencia_download_ieee.png, id=37, 588.69937pt x 438.8897pt>
+<evidencia_download_ieee.png, id=37, 586.44093pt x 434.37282pt>
 File: evidencia_download_ieee.png Graphic file (type png)
 
 <use evidencia_download_ieee.png>
 Package pdftex.def Info: evidencia_download_ieee.png used on input line 1064.
-(pdftex.def)             Requested size: 259.02852pt x 193.11206pt.
+(pdftex.def)             Requested size: 258.03479pt x 191.12462pt.
 
-Overfull \hbox (7.02852pt too wide) in paragraph at lines 1064--1067
+Overfull \hbox (6.03479pt too wide) in paragraph at lines 1064--1067
  [][] 
  []
 
@@ -987,7 +976,7 @@ ier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/urw/times/utmri8a.pfb>
-Output written on artigo-ieee.pdf (8 pages, 4352194 bytes).
+Output written on artigo-ieee.pdf (8 pages, 4077332 bytes).
 PDF statistics:
  89 PDF objects out of 1000 (max. 8388607)
  52 compressed objects within 1 object stream
