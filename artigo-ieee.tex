@@ -320,7 +320,7 @@
 
 %*** para suportar tabelas com colunas mergeadas ***
 \usepackage{multirow}
-\usepackage{adjustbox}
+\usepackage[export]{adjustbox}
 
 
 
@@ -887,7 +887,7 @@ This approach, illustrated in Figure \ref{fig:janela}, gives forensic analysts t
 \begin{figure}[tb!]
 \footnotesize
 \caption{Sliding window of evidence collection \marcos{Essa imagem tem MUITO espaço em branco nos arredores: fica esquisito no slide... Melhor cortar esse monte de branco - Hamilton: Done}}
-\includegraphics[scale=0.40]{janela_ieee-eng.jpg}
+\includegraphics[center,scale=0.35]{janela_ieee-eng.pdf}
 \centering
 \label{fig:janela}
 \end{figure}
@@ -908,8 +908,6 @@ If such SLA dictates that evidences must be stored outside the cloud environment
 
 %avoid possible problems with the storage of these data in countries with different jurisdictions from those in which they must be applied in the investigation in question, the evidence collected is stored in a physical place outside the cloud, after being transported by a secure channel (e.g. via \textit{Transport Layer Security} – TLS \cite{DierksT2008}).
 
-
-
 \section{Experimental analysis}
 \label{sec:proposal-impl}
 
@@ -918,9 +916,9 @@ If such SLA dictates that evidences must be stored outside the cloud environment
 \caption{\fancyname's inner working for a single container. 
 %\marcos{Não precisa copiar 3x os mesmos blocos para explicar a solução... 1x basta... Hamilton: Era pra passar a ideia de que não é uma solução de coleta centralizada. Pelo seu comentário suspeito que não consegui. Marcos: mais fácil dizer que isso é para 1 container, como fiz agora no label}
 \marcos{E por favor (1) aumente a fonte do texto na figura Hamilton: Done. Marcos: Faltou aumentar a fonte de ``User A''}
-\marcos{E (2) crie uma imagem vetorizada em pdf (e.g., no Visio dá para exportar como pdf) Hamilton: Está vetorizado mas fiz no Corel e exporto como jpeg. PDF é melhor? Marcos: pdf é vetorizado; jpeg não é. Não adianta criar vetorizado e colocar no artigo um export não vetorizado, pois o resultado é tão não-vetorizado quanto se você tivesse desenhado no paint...}
+\marcos{E (2) crie uma imagem vetorizada em pdf (e.g., no Visio dá para exportar como pdf) Hamilton: Está vetorizado mas fiz no Corel e exporto como jpeg. PDF é melhor? Marcos: pdf é vetorizado; jpeg não é. Não adianta criar vetorizado e colocar no artigo um export não vetorizado, pois o resultado é tão não-vetorizado quanto se você tivesse desenhado no paint... - Hamilton: Todas as imagens em PDF}
 }
-\includegraphics[scale=0.34]{solucao-eng-small.jpg}
+\includegraphics[center,scale=0.30]{solucao-eng-small.pdf}
 \centering
 \label{fig:Solucao}
 \end{figure}
@@ -998,7 +996,7 @@ It is, thus, possible to describe the state of the system before and after an in
 \begin{figure}[htb!]
 \footnotesize
 \caption{Evolution of disk space usage while running \fancyname.}
-\includegraphics[scale=0.55]{evolucao_coleta_ieee.png}
+\includegraphics[center,scale=0.40]{evolucao_coleta_ieee.pdf}
 \centering
 \label{fig:evolucao_coleta}
 \end{figure}
@@ -1030,10 +1028,10 @@ Therefore, the latency hereby shown can be considered a worst case scenario for 
 \begin{figure}[tb!]
 \footnotesize
 \caption{Average time for copying the container 
-\marcos{Precisa aumentar a fonte das legendas. Por favor faça esse exercício para TODAS as figuras em vez de esperar eu reclamar uma a uma... Se a fonte está menor do que o obtido com {\footnotesize{footnotes}}, então esta errado. Isso vale para qualquer artigo e qualquer formato, então por favor adicione a sua lista de ``conhecimentos adquiridos durante o mestrado'' - Hamilton: então, eu já tinha aumentado antes :( Fiz de novo me guiando pelo footnote }
+\marcos{Precisa aumentar a fonte das legendas. Por favor faça esse exercício para TODAS as figuras em vez de esperar eu reclamar uma a uma... Se a fonte está menor do que o obtido com {\footnotesize{footnotes}}, então esta errado. Isso vale para qualquer artigo e qualquer formato, então por favor adicione a sua lista de ``conhecimentos adquiridos durante o mestrado'' - Hamilton: então, eu já tinha aumentado antes :( Fiz de novo me guiando pelo footnote e transformei tudo em vetor (pdf)}
 %\marcos{Aqui é ``median'' (=mediana) mesmo, ou é ``average'' (=média)? São duas coisas diferentes do ponto de vista de estatística - Hamilton: é average}.
 }
-\includegraphics[scale=0.44]{memoria_copia_ieee.png}
+\includegraphics[center,scale=0.33]{memoria_copia_ieee.pdf}
 \centering
 \label{fig:memoria_copia}
 \end{figure}
@@ -1050,7 +1048,9 @@ The result obtained is that the time for transporting evidence from the AWS serv
 %
 Obviously, the network itself plays an important role in those numbers, so servers located in closer locations should lead to smaller transfer times.
 %
-The transport time is verified to stabilize after the window size is reached \marcos{Se for chamar a atenção pra isso, precisa explicar a razão, ou pelo menos tentar dar uma explicação pra isso... pra mim não é óbvio (uma possibilidade é que o tempo inicial foi maior pela demora em estabelecer uma conexão, mas só você pra dizer se esse tempo está ou não incluso no gráfico; além disso, tem o problema do ``0 sample'' que levantei no caption da figura). Uma outra opção é simplesmente suprimir esse comentário (não me parece altamente relevante)}. 
+%The transport time is verified to stabilize after the window size is reached 
+%
+\marcos{Se for chamar a atenção pra isso, precisa explicar a razão, ou pelo menos tentar dar uma explicação pra isso... pra mim não é óbvio (uma possibilidade é que o tempo inicial foi maior pela demora em estabelecer uma conexão, mas só você pra dizer se esse tempo está ou não incluso no gráfico; além disso, tem o problema do ``0 sample'' que levantei no caption da figura). Uma outra opção é simplesmente suprimir esse comentário (não me parece altamente relevante) - Hamilton: Removi}. 
 %
 %The time for transporting evidence is approximately 30 seconds on average. 
 %
@@ -1061,7 +1061,7 @@ The transport time is verified to stabilize after the window size is reached \ma
 \begin{figure}[htb!]
 \footnotesize
 \caption{Evidence transport time \marcos{Não entendi a razão para começar com 0 samples e ter um tempo de ~9 segundos... Enfim, para transportar 0 samples o tempo deveria ser 0, não? Tem algo muito esquisito aqui... - Hamilton: Ajustei o inicio da série}}
-\includegraphics[scale=0.44]{evidencia_download_ieee.png}
+\includegraphics[center,scale=0.35]{evidencia_download_ieee.pdf}
 \centering
 \label{fig:evidencia_transporte}
 \end{figure}
@@ -1079,13 +1079,13 @@ After the injection, the solution was allowed to continue collecting memory snap
 %
 In addition to collecting the \textbf{/proc/pid/numa\_maps} directory contents, a raw copy of the container's process memory was also acquired using the Linux \textit{GDB} utility, via the following command:
 
-\noindent\texttt{\footnotesize \#reading...\marcos{escreva aqui o comando... usar uma figura pra texto não faz lá muito sentido...}}
+\noindent\texttt{\footnotesize \#reading...\marcos{escreva aqui o comando... usar uma figura pra texto não faz lá muito sentido... - Hamilton: mudei a imagem para PDF}}
 % described in Figure \ref{fig:comando-copia}.
 
 \begin{figure*}[htb!]
 \footnotesize
 \caption{Command to generate a raw copy of the process container memory}
-\includegraphics[scale=0.40]{comando-copia-memoria-gdb.jpg}
+\includegraphics[scale=0.50]{comando-copia-memoria-gdb.pdf}
 \centering
 \label{fig:comando-copia}
 \end{figure*}
@@ -1104,7 +1104,7 @@ As expected, it is possible to see the injected \textbf{libexample.so} library b
 \begin{figure}[htb!]
 \footnotesize
 \caption{Part of \textbf{/proc/pid/numa\_maps} file BEFORE injection }
-\includegraphics[scale=0.31]{antes-injecao.jpg}
+\includegraphics[scale=0.35]{antes-injecao.pdf}
 \centering
 \label{fig:antes-injecao}
 \end{figure}
@@ -1113,7 +1113,7 @@ As expected, it is possible to see the injected \textbf{libexample.so} library b
 \begin{figure}[htb!]
 \footnotesize
 \caption{Part of \textbf{/proc/pid/numa\_maps} file AFTER injection }
-\includegraphics[scale=0.21]{apos-injecao.jpg}
+\includegraphics[center,scale=0.32]{apos-injecao.pdf}
 \centering
 \label{fig:apos-injecao}
 \end{figure}
@@ -1133,26 +1133,26 @@ Still according to \cite{cgroupsxptrace} an alternative to enable the monitoring
 
 \begin{figure}[htb!]
 \footnotesize
-\caption{Error while attempting to copy the memory of a process inside a container \marcos{Er... o que texto em português está fazendo nesta figura?!?!?!!?}}
-\includegraphics[scale=0.21]{nao-consido-dumpar-memoria.jpg}
+\caption{Error while attempting to copy the memory of a process inside a container \marcos{Er... o que texto em português está fazendo nesta figura?!?!?!!? - Hamilton: Traduzido}}
+\includegraphics[scale=0.32]{nao-consido-dumpar-memoria.pdf}
 \centering
 \label{fig:erro-copia-gdb}
 \end{figure}
 
 
-\subsection{Limitations}
-\marcos{Me parece uma boa discussão como trabalho futuro, não exatamente como ``limitação''.}
-\textcolor{blue}{The proposed architecture calls for the cloud resource to be uniquely identifiable in order to make the association between evidence and its origin.
+%\subsection{Limitations}
+%\marcos{Me parece uma boa discussão como trabalho futuro, não exatamente como ``limitação''. - Hamilton: concordo, movi para lá}
+%\textcolor{blue}{The proposed architecture calls for the cloud resource to be uniquely identifiable in order to make the association between evidence and its origin.
 %
-During our analysis, this unique form of identification was only possible through the hash of the container image. 
+%During our analysis, this unique form of identification was only possible through the hash of the container image. 
 %
-This was the only feature that, submitted to the build process from the same recipe resulted in the same hash of the image.
+%This was the only feature that, submitted to the build process from the same recipe resulted in the same hash of the image.
 %
-So, the implementation for validating the proposed solution can only collect memory information in \textit{user space}.
+%So, the implementation for validating the proposed solution can only collect memory information in \textit{user space}.
 %
-Therefore, in principle \fancyname\ does not provide support to malware investigation techniques based on information from the kernel space, such as comparing the information from the \textit{Process Environment Block} (PEB), which are in the user space, with information from the \textit{Virtual Address Descriptor} (VAD), which lies in the kernel space. 
+%Therefore, in principle \fancyname\ does not provide support to malware investigation techniques based on information from the kernel space, such as comparing the information from the \textit{Process Environment Block} (PEB), which are in the user space, with information from the \textit{Virtual Address Descriptor} (VAD), which lies in the kernel space. 
 %
-Analyses of threats that directly manipulate the objects of the kernel (D.K.O.M – \textit{Direct Kernel Object Manipulation}) do not benefit from the solution proposed, either.}
+%Analyses of threats that directly manipulate the objects of the kernel (D.K.O.M – \textit{Direct Kernel Object Manipulation}) do not benefit from the solution proposed, either.}
 
 
 % An example of a floating figure using the graphicx package.
@@ -1238,7 +1238,7 @@ Analyses of threats that directly manipulate the objects of the kernel (D.K.O.M 
 % footnotes above bottom floats. This can be corrected via the \fnbelowfloat
 % command of the stfloats package.
 
-\section{Final Considerations}
+\section{Final Considerations and future work}
 \label{sec:conclusion}
 
 Digital threats acting directly on the system memory do not usually leave traces in disk after their corresponding resources are removed, hindering later forensic analyses.
@@ -1253,11 +1253,26 @@ In this scenario, the proposal presented aims to relate the memory photograph to
 To prevent an excessive use of disk space, the volume of data stored uses a storage window, which allows describing the memory before and after an attack (e.g. memory injection).
 %
 Combined with a tool for identifying threats, these \fancyname\ characteristics make it a robust solution for evidence collection and thus make forensic analyses in the cloud viable.
-%
 
-\textcolor{blue}{As mentioned before \marcos{Onde, cara pálida...? Tem 7 páginas antes desse ponto, então o leitor deveria caçar uma a uma?! Diga o número da seção... Isso tem a ver com a seção ``limitations''? Em caso positivo, acho que o melhor é mover o conteúdo daquela seção pra cá de uma vez: como comentei por lá, fica mais interessante deixar aquele texto como ``future work'' do que como ``limitation''}, it was not possible to copy the contents of the process running inside the container.
+
+\textcolor{blue}{The proposed architecture calls for the cloud resource to be uniquely identifiable in order to make the association between evidence and its origin.
 %
-Due to the complexity and knowledge required to perform the suggested modification and the process for accepting it in the linux code base, it is recommended for future work to incorporate into \fancyname\ a way of solving access to the contents of the memory of a container from the host system.}
+During our analysis, this unique form of identification was only possible through the hash of the container image. 
+%
+This was the only feature that, submitted to the build process from the same recipe resulted in the same hash of the image.
+%
+So, the implementation for validating the proposed solution can only collect memory information in \textit{user space}.
+%
+Therefore, in principle \fancyname\ does not provide support to malware investigation techniques based on information from the \textit{kernel space}, such as comparing the information from the \textit{Process Environment Block} (PEB), which are in the user space, with information from the \textit{Virtual Address Descriptor} (VAD), which lies in the \textit{kernel space}. 
+%
+Analyses of threats that directly manipulate the objects of the kernel (D.K.O.M – \textit{Direct Kernel Object Manipulation}) do not benefit from the solution proposed, either.
+%
+It is recommended for future work to find a way to get envidence from \textit{kernel space} associated with a container. }
+
+
+\textcolor{blue}{Also, it was not possible to copy the memory contents of a process running inside the container.
+%
+Due to the complexity and knowledge required to perform the suggested modification and the process for accepting it in the linux code base, it is also recommended for future work to incorporate into \fancyname\ a way of solving access to the contents of the memory of a container from the host system.}
 
 
 
