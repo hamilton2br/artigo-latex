@@ -1120,12 +1120,12 @@ As expected, it is possible to see the injected \textbf{libexample.so} library b
 
 %\marcos{xxx Not fully revised from this point on}
 
-\marcos{Não tenho certeza se entendi: que ideia você quer passar com esse parágrafo exatamente? Não consegui enxergar o que a discussão tem a ver com o seu trabalho em si: ela apenas fala de uma ferramenta que (1) você não tinha mencionado antes e (2) não funciona para seus propósitos, sem que isso seja uma limitação do seu trabalho... Enfim, parece meio fora de foco isso...}
-\textcolor{blue}{Despite the successful collection by copying the \textbf{/proc/pid/numa\_maps}, it was not possible to copy the contents of the process memory from the container via \textit{GDB}.
+\marcos{Não tenho certeza se entendi: que ideia você quer passar com esse parágrafo exatamente? Não consegui enxergar o que a discussão tem a ver com o seu trabalho em si: ela apenas fala de uma ferramenta que (1) você não tinha mencionado antes e (2) não funciona para seus propósitos, sem que isso seja uma limitação do seu trabalho... Enfim, parece meio fora de foco isso... - Hamilton: Ajustei como eu sugeri via email}
+\textcolor{blue}{Despite the successful collection by copying the \textbf{/proc/pid/numa\_maps}, due to a feature of the linux kernel, it was not possible to copy the contents of the process memory from the container via \textit{GDB}.
 %
-According to \cite{cgroupsxptrace}, this happens because the system calls used by tools such as \textit{GDB}, \textit{ptrace} and \textit{htop} were created before the implementation of \textit{cgroups} in the linux \textit{kernel} and thus are not aware of the existence of isolation between processes.
+According to \cite{cgroupsxptrace}, this happens because the system calls used by tools such as \textit{GDB} and \textit{htop} were created before the implementation of \textit{cgroups} in the linux \textit{kernel} and thus are not aware of the existence of isolation between processes.
 %
-When \textit{GDB} tries to access an area of memory isolated by \textit{cgroups}, the kernel sends a memory access violation signal, the result is shown in Figure \ref{fig:erro-copia-gdb}.
+When the system call \textit{ptrace}, employed by \textit{GDB}, tries to access an area of memory isolated by \textit{cgroups}, the kernel sends a memory access violation signal, the result is shown in Figure \ref{fig:erro-copia-gdb}.
 %
 The Docker Engine \cite{capabilities} documentation mentions the command \texttt{--cap-add=SYS\_PTRACE --security-opt-seccomp=unconfined} which allows a tool named \textit{ptrace} employed by \textit{GDB} to access the memory of a process inside the container but does not allow the host machine or other container to access it.
 %
@@ -1270,9 +1270,9 @@ Analyses of threats that directly manipulate the objects of the kernel (D.K.O.M 
 It is recommended for future work to find a way to get envidence from \textit{kernel space} associated with a container. }
 
 
-\textcolor{blue}{Also, it was not possible to copy the memory contents of a process running inside the container.
+%\textcolor{blue}{Also, it was not possible to copy the memory contents of a process running inside the container.
 %
-Due to the complexity and knowledge required to perform the suggested modification mentioned on the second experiment and the process for accepting it in the linux code base, it is also recommended for future work to incorporate into \fancyname\ a way of solving access to the contents of the memory of a container from the host system.}
+%Due to the complexity and knowledge required to perform the suggested modification mentioned on the second experiment and the process for accepting it in the linux code base, it is also recommended for future work to incorporate into \fancyname\ a way of solving access to the contents of the memory of a container from the host system.}
 
 
 
