@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  3 APR 2019 22:15
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  23 APR 2019 21:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -816,26 +816,26 @@ LaTeX Font Info:    Try loading font information for OT1+pcr on input line 980.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-<evolucao_coleta_ieee.pdf, id=33, 845.04686pt x 597.50786pt>
+<evolucao_coleta_ieee.pdf, id=33, 845.19763pt x 597.19112pt>
 File: evolucao_coleta_ieee.pdf Graphic file (type pdf)
 
 <use evolucao_coleta_ieee.pdf>
 Package pdftex.def Info: evolucao_coleta_ieee.pdf used on input line 999.
-(pdftex.def)             Requested size: 845.0448pt x 597.5064pt.
- [5 <./solucao-eng-small.pdf> <./evolucao_coleta_ieee.pdf>] <memoria_copia_ieee
-.pdf, id=44, 845.04686pt x 597.50786pt>
+(pdftex.def)             Requested size: 845.19557pt x 597.18967pt.
+
+<memoria_copia_ieee.pdf, id=34, 845.19763pt x 597.19112pt>
 File: memoria_copia_ieee.pdf Graphic file (type pdf)
 
 <use memoria_copia_ieee.pdf>
 Package pdftex.def Info: memoria_copia_ieee.pdf used on input line 1034.
-(pdftex.def)             Requested size: 845.0448pt x 597.5064pt.
-
-<evidencia_download_ieee.pdf, id=45, 845.04686pt x 597.50786pt>
+(pdftex.def)             Requested size: 845.19557pt x 597.18967pt.
+ [5 <./solucao-eng-small.pdf> <./evolucao_coleta_ieee.pdf>] <evidencia_download
+_ieee.pdf, id=53, 845.19763pt x 597.19112pt>
 File: evidencia_download_ieee.pdf Graphic file (type pdf)
 
 <use evidencia_download_ieee.pdf>
 Package pdftex.def Info: evidencia_download_ieee.pdf used on input line 1064.
-(pdftex.def)             Requested size: 845.0448pt x 597.5064pt.
+(pdftex.def)             Requested size: 845.19557pt x 597.18967pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 1082--1084
 \OT1/pcr/m/n/8 #reading...[]MARCOS: escreva aqui o comando... usar
@@ -846,7 +846,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1082--1084
 \OT1/pcr/m/n/8 uma figura pra texto n[]ao faz l[]a muito sentido... -
  []
 
-<comando-copia-memoria-gdb.pdf, id=46, 845.1575pt x 193.72375pt>
+<comando-copia-memoria-gdb.pdf, id=54, 845.1575pt x 193.72375pt>
 File: comando-copia-memoria-gdb.pdf Graphic file (type pdf)
 
 <use comando-copia-memoria-gdb.pdf>
@@ -854,7 +854,7 @@ Package pdftex.def Info: comando-copia-memoria-gdb.pdf used on input line 1088.
 
 (pdftex.def)             Requested size: 422.57771pt x 96.86163pt.
 
-<antes-injecao.pdf, id=47, 845.1575pt x 501.875pt>
+<antes-injecao.pdf, id=55, 845.1575pt x 501.875pt>
 File: antes-injecao.pdf Graphic file (type pdf)
  <use antes-injecao.pdf>
 Package pdftex.def Info: antes-injecao.pdf used on input line 1107.
@@ -864,7 +864,7 @@ Overfull \hbox (43.80956pt too wide) in paragraph at lines 1107--1110
  [][] 
  []
 
-<apos-injecao.pdf, id=48, 845.1575pt x 705.63625pt>
+<apos-injecao.pdf, id=56, 845.1575pt x 705.63625pt>
 File: apos-injecao.pdf Graphic file (type pdf)
  <use apos-injecao.pdf>
 Package pdftex.def Info: apos-injecao.pdf used on input line 1116.
@@ -879,7 +879,7 @@ Underfull \hbox (badness 6412) in paragraph at lines 1123--1133
 pdfTeX warning: /usr/bin/pdflatex (file ./evidencia_download_ieee.pdf): PDF inc
 lusion: multiple pdfs with page group included in a single page
 > <./antes-injecao.pdf>]
-<nao-consido-dumpar-memoria.pdf, id=60, 845.1575pt x 686.565pt>
+<nao-consido-dumpar-memoria.pdf, id=84, 845.1575pt x 686.565pt>
 File: nao-consido-dumpar-memoria.pdf Graphic file (type pdf)
 
 <use nao-consido-dumpar-memoria.pdf>
@@ -985,10 +985,10 @@ ier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/urw/times/utmri8a.pfb>
-Output written on artigo-ieee.pdf (8 pages, 727531 bytes).
+Output written on artigo-ieee.pdf (8 pages, 1563524 bytes).
 PDF statistics:
- 106 PDF objects out of 1000 (max. 8388607)
- 63 compressed objects within 1 object stream
+ 130 PDF objects out of 1000 (max. 8388607)
+ 84 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
