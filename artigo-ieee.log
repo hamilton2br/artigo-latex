@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  23 APR 2019 21:49
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  26 APR 2019 22:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -816,6 +816,21 @@ LaTeX Font Info:    Try loading font information for OT1+pcr on input line 980.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
+Underfull \hbox (badness 10000) in paragraph at lines 998--998
+\OT1/ptm/m/n/8 Figure 3.  Evo-lu-tion of disk space us-age while run-ning
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 998--998
+\OT1/ptm/m/n/8 Dizang. []MAR-COS: Tran-forme em pdf ve-tor-izado. Leia:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 998--998
+\OT1/ptm/m/n/8 https://www.investintech.com/resources/blog/archives/8125-how-to
+-excel-
+ []
+
 <evolucao_coleta_ieee.pdf, id=33, 845.19763pt x 597.19112pt>
 File: evolucao_coleta_ieee.pdf Graphic file (type pdf)
 
@@ -837,62 +852,111 @@ File: evidencia_download_ieee.pdf Graphic file (type pdf)
 Package pdftex.def Info: evidencia_download_ieee.pdf used on input line 1064.
 (pdftex.def)             Requested size: 845.19557pt x 597.18967pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1082--1084
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Font Info:    Try loading font information for OMS+pcr on input line 1086
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omspcr.fd
+File: omspcr.fd 
+)
+LaTeX Font Info:    Font shape `OMS/pcr/m/n' in size <8> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1086.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1082--1087
+\OT1/pcr/m/n/8 nsenter --target <pid> --mount --uts --ipc --net
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1082--1087
+\OT1/pcr/m/n/8 grep rw-p /proc/<pid>/maps | sed -n
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1082--1087
+\OT1/pcr/m/n/8 's/[]\OMS/cmsy/m/n/8 n\OT1/pcr/m/n/8 ([0-9a-f]*\OMS/cmsy/m/n/8 n
+\OT1/pcr/m/n/8 )-\OMS/cmsy/m/n/8 n\OT1/pcr/m/n/8 ([0-9a-f]*\OMS/cmsy/m/n/8 n\OT
+1/pcr/m/n/8 ) .*$/\OMS/cmsy/m/n/8 n\OT1/pcr/m/n/8 1 \OMS/cmsy/m/n/8 n\OT1/pcr/m
+/n/8 2/p' | while
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1082--1087
+\OT1/pcr/m/n/8 read start stop; do gdb --batch --pid <pid> -ex
+ []
+
+LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <8> not available
+(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 1088.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1088--1090
 \OT1/pcr/m/n/8 #reading...[]MARCOS: escreva aqui o comando... usar
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1082--1084
-\OT1/pcr/m/n/8 uma figura pra texto n[]ao faz l[]a muito sentido... -
+Underfull \hbox (badness 10000) in paragraph at lines 1088--1090
+\OT1/pcr/m/n/8 uma figura pra texto n[]ao faz l[]a muito sentido...
  []
 
-<comando-copia-memoria-gdb.pdf, id=54, 845.1575pt x 193.72375pt>
-File: comando-copia-memoria-gdb.pdf Graphic file (type pdf)
 
-<use comando-copia-memoria-gdb.pdf>
-Package pdftex.def Info: comando-copia-memoria-gdb.pdf used on input line 1088.
+Underfull \hbox (badness 10000) in paragraph at lines 1088--1090
+\OT1/pcr/m/n/8 - Hamilton: mudei a imagem para PDF. Marcos:
+ []
 
-(pdftex.def)             Requested size: 422.57771pt x 96.86163pt.
 
-<antes-injecao.pdf, id=55, 845.1575pt x 501.875pt>
+Underfull \hbox (badness 10000) in paragraph at lines 1088--1090
+\OT1/pcr/m/n/8 adiantou coisa nenhuma... Se o leitor n[]ao consegue
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1088--1090
+\OT1/pcr/m/n/8 copiar+colar, pode ser pdf, jpeg, ou qualquer outro
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1088--1090
+\OT1/pcr/m/n/8 formato j[]a inventado pela humanidade ou por ETs...
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1088--1090
+\OT1/pcr/b/n/8 PRECISA SER TEXTO!!!\OT1/pcr/m/n/8 . Se quiser colocar cor, use 
+o
+ []
+
+<antes-injecao.pdf, id=54, 845.1575pt x 501.875pt>
 File: antes-injecao.pdf Graphic file (type pdf)
  <use antes-injecao.pdf>
-Package pdftex.def Info: antes-injecao.pdf used on input line 1107.
+Package pdftex.def Info: antes-injecao.pdf used on input line 1113.
 (pdftex.def)             Requested size: 295.80956pt x 175.65887pt.
 
-Overfull \hbox (43.80956pt too wide) in paragraph at lines 1107--1110
+Overfull \hbox (43.80956pt too wide) in paragraph at lines 1113--1116
  [][] 
  []
 
-<apos-injecao.pdf, id=56, 845.1575pt x 705.63625pt>
+<apos-injecao.pdf, id=55, 845.1575pt x 705.63625pt>
 File: apos-injecao.pdf Graphic file (type pdf)
  <use apos-injecao.pdf>
-Package pdftex.def Info: apos-injecao.pdf used on input line 1116.
+Package pdftex.def Info: apos-injecao.pdf used on input line 1122.
 (pdftex.def)             Requested size: 845.15544pt x 705.63452pt.
 
-Underfull \hbox (badness 6412) in paragraph at lines 1123--1133
-\OT1/pcr/m/n/10 --security-opt-seccomp=unconfined \OT1/ptm/m/n/10 which al-
+<nao-consido-dumpar-memoria.pdf, id=56, 845.1575pt x 686.565pt>
+File: nao-consido-dumpar-memoria.pdf Graphic file (type pdf)
+
+<use nao-consido-dumpar-memoria.pdf>
+Package pdftex.def Info: nao-consido-dumpar-memoria.pdf used on input line 1146
+.
+(pdftex.def)             Requested size: 270.45592pt x 219.70529pt.
+
+Overfull \hbox (18.45592pt too wide) in paragraph at lines 1146--1149
+ [][] 
  []
 
 [6 <./memoria_copia_ieee.pdf> <./evidencia_download_ieee.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./evidencia_download_ieee.pdf): PDF inc
 lusion: multiple pdfs with page group included in a single page
-> <./antes-injecao.pdf>]
-<nao-consido-dumpar-memoria.pdf, id=84, 845.1575pt x 686.565pt>
-File: nao-consido-dumpar-memoria.pdf Graphic file (type pdf)
-
-<use nao-consido-dumpar-memoria.pdf>
-Package pdftex.def Info: nao-consido-dumpar-memoria.pdf used on input line 1137
-.
-(pdftex.def)             Requested size: 270.45592pt x 219.70529pt.
-
-Overfull \hbox (18.45592pt too wide) in paragraph at lines 1137--1140
- [][] 
- []
-
-[7 <./comando-copia-memoria-gdb.pdf> <./apos-injecao.pdf> <./nao-consido-dumpar
--memoria.pdf>] (./artigo-ieee.bbl
+> <./antes-injecao.pdf>] (./artigo-ieee.bbl
 Underfull \hbox (badness 6910) in paragraph at lines 97--100
 []\OT1/ptm/m/n/8 Diamanti, ``Five rea-sons you should run con-tain-ers on bare
  []
@@ -916,7 +980,7 @@ S/cmsy/m/n/8 fn[] [] \OT1/ptm/m/n/8 Run\OMS/cmsy/m/n/8 fn[] [] \OT1/ptm/m/n/8 C
 ontainers\OMS/cmsy/m/n/8 fn[] []
  []
 
-
+[7 <./apos-injecao.pdf> <./nao-consido-dumpar-memoria.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 102--105
 \OT1/ptm/m/n/8 https : / / clusterhq . com / assets / pdfs / state-[]of-[]conta
 iner-[]usage-[]june-[]2016 .
@@ -926,28 +990,6 @@ iner-[]usage-[]june-[]2016 .
 Overfull \hbox (22.17947pt too wide) in paragraph at lines 184--189
 []\OT1/ptm/m/n/8 5CExploring-[]Static-[]and-[]Live-[]Digital-[]Forensic-[]Metho
 ds-[]Practices-[]and-[]Tools .
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 199--202
-[]\OT1/ptm/m/n/8 Fabio Kung, ``Mem-ory in-side LInux con-tain-ers,''
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 199--202
-\OT1/ptm/m/n/8 https://fabiokung.com/2014/03/13/memory-inside-linux-containers/
-,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 204--206
-[]\OT1/ptm/m/n/8 Docker, ``Run-time priv-i-lege and Linux ca-pa-bil-i-ties,''
- []
-
-
-Underfull \hbox (badness 7151) in paragraph at lines 204--206
-\OT1/ptm/m/n/8 https://docs.docker.com/engine/reference/run/, aces-sado em: 30-
-11-
  []
 
 )
@@ -962,17 +1004,19 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[8] (./artigo-ieee.aux)
+[8
+
+] (./artigo-ieee.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4752 strings out of 493304
- 71044 string characters out of 6139871
- 166232 words of memory out of 5000000
- 8093 multiletter control sequences out of 15000+600000
- 40934 words of font info for 77 fonts, out of 8000000 for 9000
+ 4764 strings out of 493304
+ 71161 string characters out of 6139871
+ 166219 words of memory out of 5000000
+ 8101 multiletter control sequences out of 15000+600000
+ 41449 words of font info for 79 fonts, out of 8000000 for 9000
  960 hyphenation exceptions out of 8191
  40i,16n,35p,831b,369s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
@@ -981,14 +1025,15 @@ f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/cour
-ier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/urw/times/utmri8a.pfb>
-Output written on artigo-ieee.pdf (8 pages, 1563524 bytes).
+ier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/urw/times/utmri8a.pfb>
+Output written on artigo-ieee.pdf (8 pages, 1512835 bytes).
 PDF statistics:
- 130 PDF objects out of 1000 (max. 8388607)
- 84 compressed objects within 1 object stream
+ 132 PDF objects out of 1000 (max. 8388607)
+ 87 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

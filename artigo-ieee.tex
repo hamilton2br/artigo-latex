@@ -995,7 +995,7 @@ It is, thus, possible to describe the state of the system before and after an in
 
 \begin{figure}[htb!]
 \footnotesize
-\caption{Evolution of disk space usage while running \fancyname.}
+\caption{Evolution of disk space usage while running \fancyname. \marcos{Tranforme em pdf vetorizado. Leia: https://www.investintech.com/resources/blog/archives/8125-how-to-excel-chart-to-pdf.html}}
 \includegraphics[center,scale=0.30]{evolucao_coleta_ieee.pdf}
 \centering
 \label{fig:evolucao_coleta}
@@ -1028,7 +1028,7 @@ Therefore, the latency hereby shown can be considered a worst case scenario for 
 \begin{figure}[tb!]
 \footnotesize
 \caption{Average time for copying the container 
-\marcos{Precisa aumentar a fonte das legendas. Por favor faça esse exercício para TODAS as figuras em vez de esperar eu reclamar uma a uma... Se a fonte está menor do que o obtido com {\footnotesize{footnotes}}, então esta errado. Isso vale para qualquer artigo e qualquer formato, então por favor adicione a sua lista de ``conhecimentos adquiridos durante o mestrado'' - Hamilton: então, eu já tinha aumentado antes :( Fiz de novo me guiando pelo footnote e transformei tudo em vetor (pdf)}
+\marcos{Precisa aumentar a fonte das legendas. Por favor faça esse exercício para TODAS as figuras em vez de esperar eu reclamar uma a uma... Se a fonte está menor do que o obtido com {\footnotesize{footnotes}}, então está errado. Isso vale para qualquer artigo e qualquer formato, então por favor adicione a sua lista de ``conhecimentos adquiridos durante o mestrado''}\marcos{Tranforme em pdf vetorizado. Leia: https://www.investintech.com/resources/blog/archives/8125-how-to-excel-chart-to-pdf.html}
 %\marcos{Aqui é ``median'' (=mediana) mesmo, ou é ``average'' (=média)? São duas coisas diferentes do ponto de vista de estatística - Hamilton: é average}.
 }
 \includegraphics[center,scale=0.30]{memoria_copia_ieee.pdf}
@@ -1038,7 +1038,7 @@ Therefore, the latency hereby shown can be considered a worst case scenario for 
 
 
 \subsubsection{Transfer process}
-If the time required for transporting the evidence to the storage server outside the cloud is longer than generation interval, the system may create a large backlog and messages may be loss.
+If the time required for transporting the evidence to the storage server outside the cloud is longer than its generation interval, the system is prone to create a large backlog and, hence, evidences may be lost.
 %
 %The evidence transport to the storage outside the cloud can take longer than generation interval, leading to evidence loss during transport. 
 %
@@ -1050,7 +1050,7 @@ Obviously, the network itself plays an important role in those numbers, so serve
 %
 %The transport time is verified to stabilize after the window size is reached 
 %
-\marcos{Se for chamar a atenção pra isso, precisa explicar a razão, ou pelo menos tentar dar uma explicação pra isso... pra mim não é óbvio (uma possibilidade é que o tempo inicial foi maior pela demora em estabelecer uma conexão, mas só você pra dizer se esse tempo está ou não incluso no gráfico; além disso, tem o problema do ``0 sample'' que levantei no caption da figura). Uma outra opção é simplesmente suprimir esse comentário (não me parece altamente relevante) - Hamilton: Removi}. 
+%\marcos{Se for chamar a atenção pra isso, precisa explicar a razão, ou pelo menos tentar dar uma explicação pra isso... pra mim não é óbvio (uma possibilidade é que o tempo inicial foi maior pela demora em estabelecer uma conexão, mas só você pra dizer se esse tempo está ou não incluso no gráfico; além disso, tem o problema do ``0 sample'' que levantei no caption da figura). Uma outra opção é simplesmente suprimir esse comentário (não me parece altamente relevante) - Hamilton: Removi}. 
 %
 %The time for transporting evidence is approximately 30 seconds on average. 
 %
@@ -1060,7 +1060,7 @@ Obviously, the network itself plays an important role in those numbers, so serve
 
 \begin{figure}[htb!]
 \footnotesize
-\caption{Evidence transport time \marcos{Não entendi a razão para começar com 0 samples e ter um tempo de ~9 segundos... Enfim, para transportar 0 samples o tempo deveria ser 0, não? Tem algo muito esquisito aqui... - Hamilton: Ajustei o inicio da série}}
+\caption{Evidence transport time \marcos{Tranforme em pdf vetorizado. Leia: https://www.investintech.com/resources/blog/archives/8125-how-to-excel-chart-to-pdf.html}}
 \includegraphics[center,scale=0.30]{evidencia_download_ieee.pdf}
 \centering
 \label{fig:evidencia_transporte}
@@ -1071,24 +1071,30 @@ Obviously, the network itself plays an important role in those numbers, so serve
 
 Our second experiment aims to determine if it is possible, through the analysis of the collected evidence, to identify malware injection in the container memory.
 %
-To this end, a library named \textbf{libexample.so} simulating a malware in the form of a library was injected into one of the containers.
+To this end, a library named \textbf{libexample.so} simulating a library-based malware was injected into one of the containers.
 %
-After five minutes of \fancyname\ collecting evidence, the aforementioned library was injected into the memory of one of the containers. 
+After five minutes of evidence collection with \fancyname, the aforementioned library was injected into the memory of one of the containers. 
 %
-After the injection, the solution was allowed to continue collecting memory snapshots for another 5 minutes.
+Subsequently to the injection, \fancyname\ was allowed to continue collecting memory snapshots for another 5 minutes.
 %
-In addition to collecting the \textbf{/proc/pid/numa\_maps} directory contents, a raw copy of the container's process memory was also acquired using the Linux \textit{GDB} utility, via the following command:
+In addition to collecting the \textbf{/proc/pid/numa\_maps} directory contents, a raw copy of the container's process memory was also acquired using the Linux \textit{GDB} utility and the \textit{nsenter} tool, via the following commands:
 
-\noindent\texttt{\footnotesize \#reading...\marcos{escreva aqui o comando... usar uma figura pra texto não faz lá muito sentido... - Hamilton: mudei a imagem para PDF}}
+\noindent\texttt{\footnotesize nsenter --target <pid> --mount --uts --ipc --net --pid}
+\\
+and
+\\
+\noindent\texttt{\footnotesize grep rw-p /proc/<pid>/maps | sed -n 's/\^\textbackslash([0-9a-f]*\textbackslash)-\textbackslash([0-9a-f]*\textbackslash) .*\$/\textbackslash1 \textbackslash2/p' | while read start stop; do gdb --batch --pid <pid> -ex "x/4096wx 0x\$start"; done > <pid>.dump }
+
+\noindent\texttt{\footnotesize \#reading...\marcos{escreva aqui o comando... usar uma figura pra texto não faz lá muito sentido... - Hamilton: mudei a imagem para PDF. Marcos: adiantou coisa nenhuma... Se o leitor não consegue copiar+colar, pode ser pdf, jpeg, ou qualquer outro formato já inventado pela humanidade ou por ETs... \textbf{PRECISA SER TEXTO!!!}. Se quiser colocar cor, use o package color do LaTeX.}}
 % described in Figure \ref{fig:comando-copia}.
 
-\begin{figure*}[htb!]
-\footnotesize
-\caption{Command to generate a raw copy of the process container memory}
-\includegraphics[scale=0.50]{comando-copia-memoria-gdb.pdf}
-\centering
-\label{fig:comando-copia}
-\end{figure*}
+%\begin{figure*}[htb!]
+%\footnotesize
+%\caption{Command to generate a raw copy of the process container memory}
+%\includegraphics[scale=0.50]{comando-copia-memoria-gdb.pdf}
+%\centering
+%\label{fig:comando-copia}
+%\end{figure*}
 
 
 %We then compared two distinct moments in the containers' lifetime: before and after the library injection
@@ -1120,16 +1126,19 @@ As expected, it is possible to see the injected \textbf{libexample.so} library b
 
 %\marcos{xxx Not fully revised from this point on}
 
-\marcos{Não tenho certeza se entendi: que ideia você quer passar com esse parágrafo exatamente? Não consegui enxergar o que a discussão tem a ver com o seu trabalho em si: ela apenas fala de uma ferramenta que (1) você não tinha mencionado antes e (2) não funciona para seus propósitos, sem que isso seja uma limitação do seu trabalho... Enfim, parece meio fora de foco isso... - Hamilton: Ajustei como eu sugeri via email}
-\textcolor{blue}{Despite the successful collection by copying the \textbf{/proc/pid/numa\_maps}, due to a feature of the linux kernel, it was not possible to copy the contents of the process memory from the container via \textit{GDB}.
+%\marcos{Não tenho certeza se entendi: que ideia você quer passar com esse parágrafo exatamente? Não consegui enxergar o que a discussão tem a ver com o seu trabalho em si: ela apenas fala de uma ferramenta que (1) você não tinha mencionado antes e (2) não funciona para seus propósitos, sem que isso seja uma limitação do seu trabalho... Enfim, parece meio fora de foco isso... - Hamilton: Ajustei como eu sugeri via email}
+%\marcos{Entendi o que você falou, mas ainda tem um problema de fluxo de escrita. Pra o leitor conseguir entendero que está acontecend o, primeiro você precisa dizer o que está tentando fazer e porque. Aí pode falar de dificuldades e como foram superadas (ou a razão pela qual são insuperáveis). Minha impressão ao ler tudo isso é que a sua ferramenta não serve pra nada, porque na evidência não tem o conteúdo da memória (afinal, ``it was not possible to copy the contents of the process memory from the container''). Não sei se é só uma questão de ``não consegui visualizar'', mas se for, não foi isso que você disse...}
+%\textcolor{blue}{The first attempt to copy the memory of the container via GDB directly was not successful. 
 %
-According to \cite{cgroupsxptrace}, this happens because the system calls used by tools such as \textit{GDB} and \textit{htop} were created before the implementation of \textit{cgroups} in the linux \textit{kernel} and thus are not aware of the existence of isolation between processes.
+%According to \cite{cgroupsxptrace}, system calls used by tools such as \textit{GDB} were created before the implementation of \textit{cgroups} and \textit{namespaces} in the linux \textit{kernel} and thus are not aware of the existence of isolation between processes.
 %
-When the system call \textit{ptrace}, employed by \textit{GDB}, tries to access an area of memory isolated by \textit{cgroups}, the kernel sends a memory access violation signal, the result is shown in Figure \ref{fig:erro-copia-gdb}.
+%When the system call \textit{ptrace}, employed by \textit{GDB}, tries to access an area of memory isolated by \textit{cgroups}, the kernel sends a memory access violation signal, preventing the memory access.
 %
-The Docker Engine \cite{capabilities} documentation mentions the command \texttt{--cap-add=SYS\_PTRACE --security-opt-seccomp=unconfined} which allows a tool named \textit{ptrace} employed by \textit{GDB} to access the memory of a process inside the container but does not allow the host machine or other container to access it.
+%In order to copy the memory of the container we used a tool called \textit{nsenter}, which bypasses the \textit{namespace} isolation created by the container running itself with the namespace of the target process, in this case the container\'s, enabling the copy of the memory.
 %
-Still according to \cite{cgroupsxptrace} an alternative to enable the monitoring and access to memory information would be to expose such information in the structure of \textbf{/sys/fs/cgroup/} in the same way that it is made to \textbf{/proc/pid/}.}
+%The following command was used:}
+
+%
 
 \begin{figure}[htb!]
 \footnotesize

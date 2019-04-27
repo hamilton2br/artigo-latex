@@ -195,13 +195,4 @@ R.~E. {Dierks T}, ``{The Transport Layer Security (TLS) Protocol},'' IETF:
 {Unix Man Pages}, ``{Numa Maps - Non Uniform Memory Architecture},''
   \urls{man7.org/linux/man-pages/man7/numa.7.html}, acessado em: 24-06-2017.
 
-\bibitem{cgroupsxptrace}
-{Fabio Kung}, ``{Memory inside LInux containers},''
-  https://fabiokung.com/2014/03/13/memory-inside-linux-containers/, acessado
-  em: 30-11-2018.
-
-\bibitem{capabilities}
-{Docker}, ``{Runtime privilege and Linux capabilities},''
-  https://docs.docker.com/engine/reference/run/, acessado em: 30-11-2018.
-
 \end{thebibliography}
