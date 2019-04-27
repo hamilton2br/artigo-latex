@@ -96,7 +96,7 @@ P.~Mell and T.~Grance, ``The {NIST} definition of cloud computing,'' NIST SP
 \bibitem{Diamanti:2018}
 Diamanti, ``Five reasons you should run containers on bare metal, not vms,''
   Diamanti, Tech. Rep., 2018, available:
-  \url{https://diamanti.com/wp-content/uploads/2018/07/Diamanti{\_}WP{\_}Five{\_}Reasons{\_}You{\_}Should{\_}Run{\_}Containers{\_}on{\_}Bare{\_}Metal{\_}071918.pdf}.
+  \url{https://diamanti.com/wp-content/uploads/2018/07/Diamanti_WP_Five_Reasons_You_Should_Run_Containers_on_Bare_Metal_071918.pdf}.
 
 \bibitem{container-survey:2016}
 {DevOps and ClusterHQ}, ``Container market adoption survey 2016,''

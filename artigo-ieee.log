@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  26 APR 2019 22:26
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  27 APR 2019 19:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -940,23 +940,24 @@ File: apos-injecao.pdf Graphic file (type pdf)
 Package pdftex.def Info: apos-injecao.pdf used on input line 1122.
 (pdftex.def)             Requested size: 845.15544pt x 705.63452pt.
 
-<nao-consido-dumpar-memoria.pdf, id=56, 845.1575pt x 686.565pt>
-File: nao-consido-dumpar-memoria.pdf Graphic file (type pdf)
-
-<use nao-consido-dumpar-memoria.pdf>
-Package pdftex.def Info: nao-consido-dumpar-memoria.pdf used on input line 1146
-.
-(pdftex.def)             Requested size: 270.45592pt x 219.70529pt.
-
-Overfull \hbox (18.45592pt too wide) in paragraph at lines 1146--1149
- [][] 
- []
-
 [6 <./memoria_copia_ieee.pdf> <./evidencia_download_ieee.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./evidencia_download_ieee.pdf): PDF inc
 lusion: multiple pdfs with page group included in a single page
-> <./antes-injecao.pdf>] (./artigo-ieee.bbl
+> <./antes-injecao.pdf>]
+<nao-consido-dumpar-memoria.pdf, id=85, 845.1575pt x 686.565pt>
+File: nao-consido-dumpar-memoria.pdf Graphic file (type pdf)
+
+<use nao-consido-dumpar-memoria.pdf>
+Package pdftex.def Info: nao-consido-dumpar-memoria.pdf used on input line 1151
+.
+(pdftex.def)             Requested size: 270.45592pt x 219.70529pt.
+
+Overfull \hbox (18.45592pt too wide) in paragraph at lines 1151--1154
+ [][] 
+ []
+
+(./artigo-ieee.bbl [7 <./apos-injecao.pdf> <./nao-consido-dumpar-memoria.pdf>]
 Underfull \hbox (badness 6910) in paragraph at lines 97--100
 []\OT1/ptm/m/n/8 Diamanti, ``Five rea-sons you should run con-tain-ers on bare
  []
@@ -969,18 +970,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 97--100
 
 Underfull \hbox (badness 10000) in paragraph at lines 97--100
 \OT1/ptm/m/n/8 https : / / diamanti . com / wp-[]content / uploads / 2018 / 07 
-/ Diamanti\OMS/cmsy/m/n/8 fn[] [] \OT1/ptm/m/n/8 WP\OMS/cmsy/m/n/8 fn[]
+/ Diamanti[]WP[]Five[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--100
-[] \OT1/ptm/m/n/8 Five\OMS/cmsy/m/n/8 fn[] [] \OT1/ptm/m/n/8 Reasons\OMS/cmsy/m
-/n/8 fn[] [] \OT1/ptm/m/n/8 You\OMS/cmsy/m/n/8 fn[] [] \OT1/ptm/m/n/8 Should\OM
-S/cmsy/m/n/8 fn[] [] \OT1/ptm/m/n/8 Run\OMS/cmsy/m/n/8 fn[] [] \OT1/ptm/m/n/8 C
-ontainers\OMS/cmsy/m/n/8 fn[] []
- []
-
-[7 <./apos-injecao.pdf> <./nao-consido-dumpar-memoria.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 102--105
 \OT1/ptm/m/n/8 https : / / clusterhq . com / assets / pdfs / state-[]of-[]conta
 iner-[]usage-[]june-[]2016 .
@@ -1012,10 +1005,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4764 strings out of 493304
- 71161 string characters out of 6139871
- 166219 words of memory out of 5000000
- 8101 multiletter control sequences out of 15000+600000
+ 4763 strings out of 493304
+ 71145 string characters out of 6139871
+ 166214 words of memory out of 5000000
+ 8100 multiletter control sequences out of 15000+600000
  41449 words of font info for 79 fonts, out of 8000000 for 9000
  960 hyphenation exceptions out of 8191
  40i,16n,35p,831b,369s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1030,7 +1023,7 @@ b></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /urw/times/utmri8a.pfb>
-Output written on artigo-ieee.pdf (8 pages, 1512835 bytes).
+Output written on artigo-ieee.pdf (8 pages, 1512936 bytes).
 PDF statistics:
  132 PDF objects out of 1000 (max. 8388607)
  87 compressed objects within 1 object stream

@@ -1126,6 +1126,11 @@ As expected, it is possible to see the injected \textbf{libexample.so} library b
 
 %\marcos{xxx Not fully revised from this point on}
 
+\textcolor{blue}{And figure \ref{fig:erro-copia-gdb} shows the content of the readable part of the memory at addresses \textbf{7fbb52a50000} where the library \textbf{libexample.so} simulating a library-based malware is allocated.
+%
+With the appropriate set of tools, cases of \textit{hollow process injection} could be analyzed.}
+%
+
 %\marcos{Não tenho certeza se entendi: que ideia você quer passar com esse parágrafo exatamente? Não consegui enxergar o que a discussão tem a ver com o seu trabalho em si: ela apenas fala de uma ferramenta que (1) você não tinha mencionado antes e (2) não funciona para seus propósitos, sem que isso seja uma limitação do seu trabalho... Enfim, parece meio fora de foco isso... - Hamilton: Ajustei como eu sugeri via email}
 %\marcos{Entendi o que você falou, mas ainda tem um problema de fluxo de escrita. Pra o leitor conseguir entendero que está acontecend o, primeiro você precisa dizer o que está tentando fazer e porque. Aí pode falar de dificuldades e como foram superadas (ou a razão pela qual são insuperáveis). Minha impressão ao ler tudo isso é que a sua ferramenta não serve pra nada, porque na evidência não tem o conteúdo da memória (afinal, ``it was not possible to copy the contents of the process memory from the container''). Não sei se é só uma questão de ``não consegui visualizar'', mas se for, não foi isso que você disse...}
 %\textcolor{blue}{The first attempt to copy the memory of the container via GDB directly was not successful. 
