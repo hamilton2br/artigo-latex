@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  27 APR 2019 19:33
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  29 APR 2019 22:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -787,13 +787,13 @@ File: check.png Graphic file (type png)
  <use check.png>
 Package pdftex.def Info: check.png used on input line 658.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
- [2] [3 <./check.png> <./x.png>] <janela_ieee-eng.pdf, id=22, 845.04686pt x 597
-.50786pt>
+ [2] [3 <./check.png> <./x.png>] <janela_ieee-eng.pdf, id=22, 361.35pt x 294.13
+892pt>
 File: janela_ieee-eng.pdf Graphic file (type pdf)
 
 <use janela_ieee-eng.pdf>
 Package pdftex.def Info: janela_ieee-eng.pdf used on input line 890.
-(pdftex.def)             Requested size: 845.0448pt x 597.5064pt.
+(pdftex.def)             Requested size: 361.34912pt x 294.13818pt.
 LaTeX Font Info:    Try loading font information for OMS+ptm on input line 903.
 
 
@@ -803,17 +803,21 @@ File: omsptm.fd
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 903.
 
-<solucao-eng-small.pdf, id=23, 845.1575pt x 314.17375pt>
+<solucao-eng-small.pdf, id=23, 568.04218pt x 154.6578pt>
 File: solucao-eng-small.pdf Graphic file (type pdf)
 
 <use solucao-eng-small.pdf>
 Package pdftex.def Info: solucao-eng-small.pdf used on input line 921.
-(pdftex.def)             Requested size: 845.15544pt x 314.17297pt.
- [4 <./janela_ieee-eng.pdf>]
+(pdftex.def)             Requested size: 568.04079pt x 154.65741pt.
+ [4 <./janela_ieee-eng.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./janela_ieee-eng.pdf): PDF inclusion: 
+invalid other resource which is no dict (key 'ProcSets', type <array>); ignored
+.
+>]
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 980.
 
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 Underfull \hbox (badness 10000) in paragraph at lines 998--998
@@ -831,133 +835,73 @@ Underfull \hbox (badness 10000) in paragraph at lines 998--998
 -excel-
  []
 
-<evolucao_coleta_ieee.pdf, id=33, 845.19763pt x 597.19112pt>
+<evolucao_coleta_ieee.pdf, id=43, 845.19763pt x 597.19112pt>
 File: evolucao_coleta_ieee.pdf Graphic file (type pdf)
 
 <use evolucao_coleta_ieee.pdf>
 Package pdftex.def Info: evolucao_coleta_ieee.pdf used on input line 999.
 (pdftex.def)             Requested size: 845.19557pt x 597.18967pt.
 
-<memoria_copia_ieee.pdf, id=34, 845.19763pt x 597.19112pt>
+<memoria_copia_ieee.pdf, id=44, 845.19763pt x 597.19112pt>
 File: memoria_copia_ieee.pdf Graphic file (type pdf)
 
 <use memoria_copia_ieee.pdf>
 Package pdftex.def Info: memoria_copia_ieee.pdf used on input line 1034.
 (pdftex.def)             Requested size: 845.19557pt x 597.18967pt.
- [5 <./solucao-eng-small.pdf> <./evolucao_coleta_ieee.pdf>] <evidencia_download
-_ieee.pdf, id=53, 845.19763pt x 597.19112pt>
+ [5 <./solucao-eng-small.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./solucao-eng-small.pdf): PDF inclusion
+: invalid other resource which is no dict (key 'ProcSets', type <array>); ignor
+ed.
+> <./evolucao_coleta_ieee.pdf>]
+<evidencia_download_ieee.pdf, id=84, 845.19763pt x 597.19112pt>
 File: evidencia_download_ieee.pdf Graphic file (type pdf)
 
 <use evidencia_download_ieee.pdf>
 Package pdftex.def Info: evidencia_download_ieee.pdf used on input line 1064.
 (pdftex.def)             Requested size: 845.19557pt x 597.18967pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+<comando-copia-memoria-gdb.pdf, id=85, 586.10968pt x 100.45529pt>
+File: comando-copia-memoria-gdb.pdf Graphic file (type pdf)
 
-LaTeX Font Info:    Try loading font information for OMS+pcr on input line 1086
-.
+<use comando-copia-memoria-gdb.pdf>
+Package pdftex.def Info: comando-copia-memoria-gdb.pdf used on input line 1094.
 
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omspcr.fd
-File: omspcr.fd 
-)
-LaTeX Font Info:    Font shape `OMS/pcr/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1086.
+(pdftex.def)             Requested size: 293.05412pt x 50.22751pt.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1082--1087
-\OT1/pcr/m/n/8 nsenter --target <pid> --mount --uts --ipc --net
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1082--1087
-\OT1/pcr/m/n/8 grep rw-p /proc/<pid>/maps | sed -n
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1082--1087
-\OT1/pcr/m/n/8 's/[]\OMS/cmsy/m/n/8 n\OT1/pcr/m/n/8 ([0-9a-f]*\OMS/cmsy/m/n/8 n
-\OT1/pcr/m/n/8 )-\OMS/cmsy/m/n/8 n\OT1/pcr/m/n/8 ([0-9a-f]*\OMS/cmsy/m/n/8 n\OT
-1/pcr/m/n/8 ) .*$/\OMS/cmsy/m/n/8 n\OT1/pcr/m/n/8 1 \OMS/cmsy/m/n/8 n\OT1/pcr/m
-/n/8 2/p' | while
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1082--1087
-\OT1/pcr/m/n/8 read start stop; do gdb --batch --pid <pid> -ex
- []
-
-LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <8> not available
-(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 1088.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1088--1090
-\OT1/pcr/m/n/8 #reading...[]MARCOS: escreva aqui o comando... usar
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1088--1090
-\OT1/pcr/m/n/8 uma figura pra texto n[]ao faz l[]a muito sentido...
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1088--1090
-\OT1/pcr/m/n/8 - Hamilton: mudei a imagem para PDF. Marcos:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1088--1090
-\OT1/pcr/m/n/8 adiantou coisa nenhuma... Se o leitor n[]ao consegue
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1088--1090
-\OT1/pcr/m/n/8 copiar+colar, pode ser pdf, jpeg, ou qualquer outro
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1088--1090
-\OT1/pcr/m/n/8 formato j[]a inventado pela humanidade ou por ETs...
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1088--1090
-\OT1/pcr/b/n/8 PRECISA SER TEXTO!!!\OT1/pcr/m/n/8 . Se quiser colocar cor, use 
-o
- []
-
-<antes-injecao.pdf, id=54, 845.1575pt x 501.875pt>
+<antes-injecao.pdf, id=86, 420.61137pt x 269.08528pt>
 File: antes-injecao.pdf Graphic file (type pdf)
  <use antes-injecao.pdf>
 Package pdftex.def Info: antes-injecao.pdf used on input line 1113.
-(pdftex.def)             Requested size: 295.80956pt x 175.65887pt.
+(pdftex.def)             Requested size: 252.36877pt x 161.45241pt.
 
-Overfull \hbox (43.80956pt too wide) in paragraph at lines 1113--1116
- [][] 
- []
-
-<apos-injecao.pdf, id=55, 845.1575pt x 705.63625pt>
+<apos-injecao.pdf, id=87, 384.47638pt x 348.34138pt>
 File: apos-injecao.pdf Graphic file (type pdf)
  <use apos-injecao.pdf>
 Package pdftex.def Info: apos-injecao.pdf used on input line 1122.
-(pdftex.def)             Requested size: 845.15544pt x 705.63452pt.
+(pdftex.def)             Requested size: 384.47543pt x 348.34053pt.
+
+<conteudo-memoria-copia-gdb.pdf, id=88, 470.7186pt x 319.1925pt>
+File: conteudo-memoria-copia-gdb.pdf Graphic file (type pdf)
+
+<use conteudo-memoria-copia-gdb.pdf>
+Package pdftex.def Info: conteudo-memoria-copia-gdb.pdf used on input line 1151
+.
+(pdftex.def)             Requested size: 254.18425pt x 172.36137pt.
+
+Overfull \hbox (2.18425pt too wide) in paragraph at lines 1151--1154
+ [][] 
+ []
 
 [6 <./memoria_copia_ieee.pdf> <./evidencia_download_ieee.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./evidencia_download_ieee.pdf): PDF inc
 lusion: multiple pdfs with page group included in a single page
-> <./antes-injecao.pdf>]
-<nao-consido-dumpar-memoria.pdf, id=85, 845.1575pt x 686.565pt>
-File: nao-consido-dumpar-memoria.pdf Graphic file (type pdf)
+> <./antes-injecao.pdf
 
-<use nao-consido-dumpar-memoria.pdf>
-Package pdftex.def Info: nao-consido-dumpar-memoria.pdf used on input line 1151
-.
-(pdftex.def)             Requested size: 270.45592pt x 219.70529pt.
-
-Overfull \hbox (18.45592pt too wide) in paragraph at lines 1151--1154
- [][] 
- []
-
-(./artigo-ieee.bbl [7 <./apos-injecao.pdf> <./nao-consido-dumpar-memoria.pdf>]
+pdfTeX warning: /usr/bin/pdflatex (file ./antes-injecao.pdf): PDF inclusion: in
+valid other resource which is no dict (key 'ProcSets', type <array>); ignored.
+>] (./artigo-ieee.bbl
 Underfull \hbox (badness 6910) in paragraph at lines 97--100
 []\OT1/ptm/m/n/8 Diamanti, ``Five rea-sons you should run con-tain-ers on bare
  []
@@ -973,7 +917,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 97--100
 / Diamanti[]WP[]Five[]
  []
 
+[7 <./comando-copia-memoria-gdb.pdf
 
+pdfTeX warning: /usr/bin/pdflatex (file ./comando-copia-memoria-gdb.pdf): PDF i
+nclusion: invalid other resource which is no dict (key 'ProcSets', type <array>
+); ignored.
+> <./apos-injecao.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./apos-injecao.pdf): PDF inclusion: inv
+alid other resource which is no dict (key 'ProcSets', type <array>); ignored.
+> <./conteudo-memoria-copia-gdb.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./conteudo-memoria-copia-gdb.pdf): PDF 
+inclusion: invalid other resource which is no dict (key 'ProcSets', type <array
+>); ignored.
+>]
 Underfull \hbox (badness 10000) in paragraph at lines 102--105
 \OT1/ptm/m/n/8 https : / / clusterhq . com / assets / pdfs / state-[]of-[]conta
 iner-[]usage-[]june-[]2016 .
@@ -1005,11 +963,11 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4763 strings out of 493304
- 71145 string characters out of 6139871
- 166214 words of memory out of 5000000
- 8100 multiletter control sequences out of 15000+600000
- 41449 words of font info for 79 fonts, out of 8000000 for 9000
+ 4747 strings out of 493304
+ 70999 string characters out of 6139871
+ 166222 words of memory out of 5000000
+ 8089 multiletter control sequences out of 15000+600000
+ 40419 words of font info for 75 fonts, out of 8000000 for 9000
  960 hyphenation exceptions out of 8191
  40i,16n,35p,831b,369s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
@@ -1018,15 +976,14 @@ f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/cour
-ier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/urw/times/utmri8a.pfb>
-Output written on artigo-ieee.pdf (8 pages, 1512936 bytes).
+ier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/urw/times/utmri8a.pfb>
+Output written on artigo-ieee.pdf (8 pages, 1262384 bytes).
 PDF statistics:
- 132 PDF objects out of 1000 (max. 8388607)
- 87 compressed objects within 1 object stream
+ 186 PDF objects out of 1000 (max. 8388607)
+ 127 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

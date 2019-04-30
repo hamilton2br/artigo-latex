@@ -887,7 +887,7 @@ This approach, illustrated in Figure \ref{fig:janela}, gives forensic analysts t
 \begin{figure}[tb!]
 \footnotesize
 \caption{Sliding window of evidence collection \marcos{Essa imagem tem MUITO espaço em branco nos arredores: fica esquisito no slide... Melhor cortar esse monte de branco - Hamilton: Done}}
-\includegraphics[center,scale=0.35]{janela_ieee-eng.pdf}
+\includegraphics[center,scale=0.70]{janela_ieee-eng.pdf}
 \centering
 \label{fig:janela}
 \end{figure}
@@ -918,7 +918,7 @@ If such SLA dictates that evidences must be stored outside the cloud environment
 \marcos{E por favor (1) aumente a fonte do texto na figura Hamilton: Done. Marcos: Faltou aumentar a fonte de ``User A''}
 \marcos{E (2) crie uma imagem vetorizada em pdf (e.g., no Visio dá para exportar como pdf) Hamilton: Está vetorizado mas fiz no Corel e exporto como jpeg. PDF é melhor? Marcos: pdf é vetorizado; jpeg não é. Não adianta criar vetorizado e colocar no artigo um export não vetorizado, pois o resultado é tão não-vetorizado quanto se você tivesse desenhado no paint... - Hamilton: Todas as imagens em PDF}
 }
-\includegraphics[center,scale=0.30]{solucao-eng-small.pdf}
+\includegraphics[center,scale=0.45]{solucao-eng-small.pdf}
 \centering
 \label{fig:Solucao}
 \end{figure}
@@ -996,7 +996,7 @@ It is, thus, possible to describe the state of the system before and after an in
 \begin{figure}[htb!]
 \footnotesize
 \caption{Evolution of disk space usage while running \fancyname. \marcos{Tranforme em pdf vetorizado. Leia: https://www.investintech.com/resources/blog/archives/8125-how-to-excel-chart-to-pdf.html}}
-\includegraphics[center,scale=0.30]{evolucao_coleta_ieee.pdf}
+\includegraphics[center,scale=0.33]{evolucao_coleta_ieee.pdf}
 \centering
 \label{fig:evolucao_coleta}
 \end{figure}
@@ -1031,7 +1031,7 @@ Therefore, the latency hereby shown can be considered a worst case scenario for 
 \marcos{Precisa aumentar a fonte das legendas. Por favor faça esse exercício para TODAS as figuras em vez de esperar eu reclamar uma a uma... Se a fonte está menor do que o obtido com {\footnotesize{footnotes}}, então está errado. Isso vale para qualquer artigo e qualquer formato, então por favor adicione a sua lista de ``conhecimentos adquiridos durante o mestrado''}\marcos{Tranforme em pdf vetorizado. Leia: https://www.investintech.com/resources/blog/archives/8125-how-to-excel-chart-to-pdf.html}
 %\marcos{Aqui é ``median'' (=mediana) mesmo, ou é ``average'' (=média)? São duas coisas diferentes do ponto de vista de estatística - Hamilton: é average}.
 }
-\includegraphics[center,scale=0.30]{memoria_copia_ieee.pdf}
+\includegraphics[center,scale=0.33]{memoria_copia_ieee.pdf}
 \centering
 \label{fig:memoria_copia}
 \end{figure}
@@ -1061,7 +1061,7 @@ Obviously, the network itself plays an important role in those numbers, so serve
 \begin{figure}[htb!]
 \footnotesize
 \caption{Evidence transport time \marcos{Tranforme em pdf vetorizado. Leia: https://www.investintech.com/resources/blog/archives/8125-how-to-excel-chart-to-pdf.html}}
-\includegraphics[center,scale=0.30]{evidencia_download_ieee.pdf}
+\includegraphics[center,scale=0.33]{evidencia_download_ieee.pdf}
 \centering
 \label{fig:evidencia_transporte}
 \end{figure}
@@ -1077,31 +1077,31 @@ After five minutes of evidence collection with \fancyname, the aforementioned li
 %
 Subsequently to the injection, \fancyname\ was allowed to continue collecting memory snapshots for another 5 minutes.
 %
-In addition to collecting the \textbf{/proc/pid/numa\_maps} directory contents, a raw copy of the container's process memory was also acquired using the Linux \textit{GDB} utility and the \textit{nsenter} tool, via the following commands:
+In addition to collecting the \textbf{/proc/pid/numa\_maps} directory contents, a raw copy of the container's process memory was also acquired using the Linux \textit{GDB} utility and the \textit{nsenter} tool, via the commands shown on Figure \ref{fig:comando-copia}.
 
-\noindent\texttt{\footnotesize nsenter --target <pid> --mount --uts --ipc --net --pid}
-\\
-and
-\\
-\noindent\texttt{\footnotesize grep rw-p /proc/<pid>/maps | sed -n 's/\^\textbackslash([0-9a-f]*\textbackslash)-\textbackslash([0-9a-f]*\textbackslash) .*\$/\textbackslash1 \textbackslash2/p' | while read start stop; do gdb --batch --pid <pid> -ex "x/4096wx 0x\$start"; done > <pid>.dump }
+%\noindent\texttt{\footnotesize nsenter --target <pid> --mount --uts --ipc --net --pid}
+%\\
+%and
+%\\
+%\noindent\texttt{\footnotesize grep rw-p /proc/<pid>/maps | sed -n 's/\^\textbackslash([0-9a-f]*\textbackslash)-\textbackslash([0-9a-f]*\textbackslash) .*\$/\textbackslash1 \textbackslash2/p' | while read start stop; do gdb --batch --pid <pid> -ex "x/4096wx 0x\$start"; done > <pid>.dump }
 
-\noindent\texttt{\footnotesize \#reading...\marcos{escreva aqui o comando... usar uma figura pra texto não faz lá muito sentido... - Hamilton: mudei a imagem para PDF. Marcos: adiantou coisa nenhuma... Se o leitor não consegue copiar+colar, pode ser pdf, jpeg, ou qualquer outro formato já inventado pela humanidade ou por ETs... \textbf{PRECISA SER TEXTO!!!}. Se quiser colocar cor, use o package color do LaTeX.}}
+%\noindent\texttt{\footnotesize \#reading...\marcos{escreva aqui o comando... usar uma figura pra texto não faz lá muito sentido... - Hamilton: mudei a imagem para PDF. Marcos: adiantou coisa nenhuma... Se o leitor não consegue copiar+colar, pode ser pdf, jpeg, ou qualquer outro formato já inventado pela humanidade ou por ETs... \textbf{PRECISA SER TEXTO!!!}. Se quiser colocar cor, use o package color do LaTeX.}}
 % described in Figure \ref{fig:comando-copia}.
 
-%\begin{figure*}[htb!]
-%\footnotesize
-%\caption{Command to generate a raw copy of the process container memory}
-%\includegraphics[scale=0.50]{comando-copia-memoria-gdb.pdf}
-%\centering
-%\label{fig:comando-copia}
-%\end{figure*}
+\begin{figure*}[htb!]
+\footnotesize
+\caption{Command to generate a raw copy of the process container memory}
+\includegraphics[scale=0.50]{comando-copia-memoria-gdb.pdf}
+\centering
+\label{fig:comando-copia}
+\end{figure*}
 
 
 %We then compared two distinct moments in the containers' lifetime: before and after the library injection
 %
 Figures \ref{fig:antes-injecao} and \ref{fig:apos-injecao} show part of the container's memory before and after the injection, respectively.
 %
-As expected, it is possible to see the injected \textbf{libexample.so} library between addresses \textbf{7fbb52a50000} and \textbf{7fbb52c51000} in the snapshot after the injection.
+As expected, it is possible to see the injected \textbf{libexample.so} library between addresses \textbf{7f85631b8000} and \textbf{7f85633b9000} in the snapshot after the injection.
 %
 %Therefore, it is possible to identify the injection of a malware in the form of a library via evidence collected by \fancyname\ from the \textbf{/proc/pid/numa\_maps} directory via comparison between two memory snapshots.
 %
@@ -1110,7 +1110,7 @@ As expected, it is possible to see the injected \textbf{libexample.so} library b
 \begin{figure}[htb!]
 \footnotesize
 \caption{Part of \textbf{/proc/pid/numa\_maps} file BEFORE injection }
-\includegraphics[scale=0.35]{antes-injecao.pdf}
+\includegraphics[scale=0.60]{antes-injecao.pdf}
 \centering
 \label{fig:antes-injecao}
 \end{figure}
@@ -1119,14 +1119,14 @@ As expected, it is possible to see the injected \textbf{libexample.so} library b
 \begin{figure}[htb!]
 \footnotesize
 \caption{Part of \textbf{/proc/pid/numa\_maps} file AFTER injection }
-\includegraphics[center,scale=0.32]{apos-injecao.pdf}
+\includegraphics[center,scale=0.60]{apos-injecao.pdf}
 \centering
 \label{fig:apos-injecao}
 \end{figure}
 
 %\marcos{xxx Not fully revised from this point on}
 
-\textcolor{blue}{And figure \ref{fig:erro-copia-gdb} shows the content of the readable part of the memory at addresses \textbf{7fbb52a50000} where the library \textbf{libexample.so} simulating a library-based malware is allocated.
+\textcolor{blue}{And figure \ref{fig:conteudo-memoria-copia-gdb} shows the content of the readable part of the memory at addresses \textbf{0x7f85633b9000} where the library \textbf{libexample.so} simulating a library-based malware is allocated.
 %
 With the appropriate set of tools, cases of \textit{hollow process injection} could be analyzed.}
 %
@@ -1147,10 +1147,10 @@ With the appropriate set of tools, cases of \textit{hollow process injection} co
 
 \begin{figure}[htb!]
 \footnotesize
-\caption{Error while attempting to copy the memory of a process inside a container \marcos{Er... o que texto em português está fazendo nesta figura?!?!?!!? - Hamilton: Traduzido}}
-\includegraphics[scale=0.32]{nao-consido-dumpar-memoria.pdf}
+\caption{Sample of the library's memory inside the container \marcos{Er... o que texto em português está fazendo nesta figura?!?!?!!? - Hamilton: totalmente alterado}}
+\includegraphics[scale=0.54]{conteudo-memoria-copia-gdb.pdf}
 \centering
-\label{fig:erro-copia-gdb}
+\label{fig:conteudo-memoria-copia-gdb}
 \end{figure}
 
 
