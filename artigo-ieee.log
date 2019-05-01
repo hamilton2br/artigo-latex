@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  29 APR 2019 22:38
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  1 MAY 2019 11:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -835,33 +835,33 @@ Underfull \hbox (badness 10000) in paragraph at lines 998--998
 -excel-
  []
 
-<evolucao_coleta_ieee.pdf, id=43, 845.19763pt x 597.19112pt>
+<evolucao_coleta_ieee.pdf, id=43, 602.25pt x 372.39125pt>
 File: evolucao_coleta_ieee.pdf Graphic file (type pdf)
 
 <use evolucao_coleta_ieee.pdf>
 Package pdftex.def Info: evolucao_coleta_ieee.pdf used on input line 999.
-(pdftex.def)             Requested size: 845.19557pt x 597.18967pt.
+(pdftex.def)             Requested size: 602.24852pt x 372.39034pt.
 
-<memoria_copia_ieee.pdf, id=44, 845.19763pt x 597.19112pt>
+<memoria_copia_ieee.pdf, id=44, 602.25pt x 372.39125pt>
 File: memoria_copia_ieee.pdf Graphic file (type pdf)
 
 <use memoria_copia_ieee.pdf>
 Package pdftex.def Info: memoria_copia_ieee.pdf used on input line 1034.
-(pdftex.def)             Requested size: 845.19557pt x 597.18967pt.
+(pdftex.def)             Requested size: 602.24852pt x 372.39034pt.
  [5 <./solucao-eng-small.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./solucao-eng-small.pdf): PDF inclusion
 : invalid other resource which is no dict (key 'ProcSets', type <array>); ignor
 ed.
 > <./evolucao_coleta_ieee.pdf>]
-<evidencia_download_ieee.pdf, id=84, 845.19763pt x 597.19112pt>
+<evidencia_download_ieee.pdf, id=89, 602.25pt x 372.39125pt>
 File: evidencia_download_ieee.pdf Graphic file (type pdf)
 
 <use evidencia_download_ieee.pdf>
 Package pdftex.def Info: evidencia_download_ieee.pdf used on input line 1064.
-(pdftex.def)             Requested size: 845.19557pt x 597.18967pt.
+(pdftex.def)             Requested size: 602.24852pt x 372.39034pt.
 
-<comando-copia-memoria-gdb.pdf, id=85, 586.10968pt x 100.45529pt>
+<comando-copia-memoria-gdb.pdf, id=90, 586.10968pt x 100.45529pt>
 File: comando-copia-memoria-gdb.pdf Graphic file (type pdf)
 
 <use comando-copia-memoria-gdb.pdf>
@@ -869,27 +869,27 @@ Package pdftex.def Info: comando-copia-memoria-gdb.pdf used on input line 1094.
 
 (pdftex.def)             Requested size: 293.05412pt x 50.22751pt.
 
-<antes-injecao.pdf, id=86, 420.61137pt x 269.08528pt>
+<antes-injecao.pdf, id=91, 420.61137pt x 269.08528pt>
 File: antes-injecao.pdf Graphic file (type pdf)
  <use antes-injecao.pdf>
 Package pdftex.def Info: antes-injecao.pdf used on input line 1113.
 (pdftex.def)             Requested size: 252.36877pt x 161.45241pt.
 
-<apos-injecao.pdf, id=87, 384.47638pt x 348.34138pt>
+<apos-injecao.pdf, id=92, 384.47638pt x 348.34138pt>
 File: apos-injecao.pdf Graphic file (type pdf)
  <use apos-injecao.pdf>
 Package pdftex.def Info: apos-injecao.pdf used on input line 1122.
 (pdftex.def)             Requested size: 384.47543pt x 348.34053pt.
 
-<conteudo-memoria-copia-gdb.pdf, id=88, 470.7186pt x 319.1925pt>
+<conteudo-memoria-copia-gdb.pdf, id=93, 470.7186pt x 319.1925pt>
 File: conteudo-memoria-copia-gdb.pdf Graphic file (type pdf)
 
 <use conteudo-memoria-copia-gdb.pdf>
-Package pdftex.def Info: conteudo-memoria-copia-gdb.pdf used on input line 1151
+Package pdftex.def Info: conteudo-memoria-copia-gdb.pdf used on input line 1149
 .
 (pdftex.def)             Requested size: 254.18425pt x 172.36137pt.
 
-Overfull \hbox (2.18425pt too wide) in paragraph at lines 1151--1154
+Overfull \hbox (2.18425pt too wide) in paragraph at lines 1149--1152
  [][] 
  []
 
@@ -901,6 +901,10 @@ lusion: multiple pdfs with page group included in a single page
 
 pdfTeX warning: /usr/bin/pdflatex (file ./antes-injecao.pdf): PDF inclusion: in
 valid other resource which is no dict (key 'ProcSets', type <array>); ignored.
+> <./apos-injecao.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./apos-injecao.pdf): PDF inclusion: inv
+alid other resource which is no dict (key 'ProcSets', type <array>); ignored.
 >] (./artigo-ieee.bbl
 Underfull \hbox (badness 6910) in paragraph at lines 97--100
 []\OT1/ptm/m/n/8 Diamanti, ``Five rea-sons you should run con-tain-ers on bare
@@ -917,27 +921,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 97--100
 / Diamanti[]WP[]Five[]
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--105
+\OT1/ptm/m/n/8 https : / / clusterhq . com / assets / pdfs / state-[]of-[]conta
+iner-[]usage-[]june-[]2016 .
+ []
+
 [7 <./comando-copia-memoria-gdb.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./comando-copia-memoria-gdb.pdf): PDF i
 nclusion: invalid other resource which is no dict (key 'ProcSets', type <array>
 ); ignored.
-> <./apos-injecao.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./apos-injecao.pdf): PDF inclusion: inv
-alid other resource which is no dict (key 'ProcSets', type <array>); ignored.
 > <./conteudo-memoria-copia-gdb.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./conteudo-memoria-copia-gdb.pdf): PDF 
 inclusion: invalid other resource which is no dict (key 'ProcSets', type <array
 >); ignored.
 >]
-Underfull \hbox (badness 10000) in paragraph at lines 102--105
-\OT1/ptm/m/n/8 https : / / clusterhq . com / assets / pdfs / state-[]of-[]conta
-iner-[]usage-[]june-[]2016 .
- []
-
-
 Overfull \hbox (22.17947pt too wide) in paragraph at lines 184--189
 []\OT1/ptm/m/n/8 5CExploring-[]Static-[]and-[]Live-[]Digital-[]Forensic-[]Metho
 ds-[]Practices-[]and-[]Tools .
@@ -980,10 +980,10 @@ ier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/urw/times/utmri8a.pfb>
-Output written on artigo-ieee.pdf (8 pages, 1262384 bytes).
+Output written on artigo-ieee.pdf (8 pages, 392211 bytes).
 PDF statistics:
- 186 PDF objects out of 1000 (max. 8388607)
- 127 compressed objects within 2 object streams
+ 201 PDF objects out of 1000 (max. 8388607)
+ 136 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
