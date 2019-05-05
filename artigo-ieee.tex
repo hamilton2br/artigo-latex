@@ -465,6 +465,10 @@ As such, it should be a useful tool for analyzing the causes of security inciden
 \section{Introduction}
 \label{sec:intro}
 
+%IEEE Transactions on Cloud Computing -- https://www.scimagojr.com/journalsearch.php?q=21100338351&tip=sid&clean=0
+%IEEE Cloud Computing -- https://www.scimagojr.com/journalsearch.php?q=21100373966&tip=sid&clean=0
+%Journal of Cloud Computing -- https://www.scimagojr.com/journalsearch.php?q=21100383744&tip=sid&clean=0
+
 %==== CONTEXTO GERAL: Nuvem e volatilidade de VMs ====
 %
 Virtualization techniques, replication of services and resource sharing among multiple users (multitenancy) are key enablers for the high scalability of computational clouds \cite{Morsy_Cloud_Security:2010}.
@@ -886,7 +890,7 @@ This approach, illustrated in Figure \ref{fig:janela}, gives forensic analysts t
 
 \begin{figure}[tb!]
 \footnotesize
-\caption{Sliding window of evidence collection \marcos{Essa imagem tem MUITO espaço em branco nos arredores: fica esquisito no slide... Melhor cortar esse monte de branco - Hamilton: Done}}
+\caption{Sliding window of evidence collection}
 \includegraphics[center,scale=0.70]{janela_ieee-eng.pdf}
 \centering
 \label{fig:janela}
@@ -904,7 +908,7 @@ Aiming to persist the evidence-origin relationship, as well as to guarantee data
 %
 The place of storage should be defined by the client and the cloud provider, and included in a service-level agreement (SLA).
 %
-If such SLA dictates that evidences must be stored outside the cloud environment, it is important to have the data transported using a secure channel (e.g. via \textit{Transport Layer Security} – TLS \cite{DierksT2008}).
+If such SLA dictates that evidences must be stored outside the cloud environment, it is important to have the data transported using a secure channel (e.g., \textit{Transport Layer Security} – TLS \cite{DierksT2008}).
 
 %avoid possible problems with the storage of these data in countries with different jurisdictions from those in which they must be applied in the investigation in question, the evidence collected is stored in a physical place outside the cloud, after being transported by a secure channel (e.g. via \textit{Transport Layer Security} – TLS \cite{DierksT2008}).
 
@@ -915,8 +919,8 @@ If such SLA dictates that evidences must be stored outside the cloud environment
 \footnotesize
 \caption{\fancyname's inner working for a single container. 
 %\marcos{Não precisa copiar 3x os mesmos blocos para explicar a solução... 1x basta... Hamilton: Era pra passar a ideia de que não é uma solução de coleta centralizada. Pelo seu comentário suspeito que não consegui. Marcos: mais fácil dizer que isso é para 1 container, como fiz agora no label}
-\marcos{E por favor (1) aumente a fonte do texto na figura Hamilton: Done. Marcos: Faltou aumentar a fonte de ``User A''}
-\marcos{E (2) crie uma imagem vetorizada em pdf (e.g., no Visio dá para exportar como pdf) Hamilton: Está vetorizado mas fiz no Corel e exporto como jpeg. PDF é melhor? Marcos: pdf é vetorizado; jpeg não é. Não adianta criar vetorizado e colocar no artigo um export não vetorizado, pois o resultado é tão não-vetorizado quanto se você tivesse desenhado no paint... - Hamilton: Todas as imagens em PDF}
+%\marcos{E por favor (1) aumente a fonte do texto na figura Hamilton: Done. Marcos: Faltou aumentar a fonte de ``User A''}
+%\marcos{E (2) crie uma imagem vetorizada em pdf (e.g., no Visio dá para exportar como pdf) Hamilton: Está vetorizado mas fiz no Corel e exporto como jpeg. PDF é melhor? Marcos: pdf é vetorizado; jpeg não é. Não adianta criar vetorizado e colocar no artigo um export não vetorizado, pois o resultado é tão não-vetorizado quanto se você tivesse desenhado no paint... - Hamilton: Todas as imagens em PDF}
 }
 \includegraphics[center,scale=0.45]{solucao-eng-small.pdf}
 \centering
@@ -995,7 +999,9 @@ It is, thus, possible to describe the state of the system before and after an in
 
 \begin{figure}[htb!]
 \footnotesize
-\caption{Evolution of disk space usage while running \fancyname. \marcos{Tranforme em pdf vetorizado. Leia: https://www.investintech.com/resources/blog/archives/8125-how-to-excel-chart-to-pdf.html}}
+\caption{Evolution of disk space usage while running \fancyname. 
+%\marcos{Tranforme em pdf vetorizado. Leia: https://www.investintech.com/resources/blog/archives/8125-how-to-excel-chart-to-pdf.html}
+}
 \includegraphics[center,scale=0.40]{evolucao_coleta_ieee.pdf}
 \centering
 \label{fig:evolucao_coleta}
@@ -1027,8 +1033,8 @@ Therefore, the latency hereby shown can be considered a worst case scenario for 
 
 \begin{figure}[tb!]
 \footnotesize
-\caption{Average time for copying the container 
-\marcos{Precisa aumentar a fonte das legendas. Por favor faça esse exercício para TODAS as figuras em vez de esperar eu reclamar uma a uma... Se a fonte está menor do que o obtido com {\footnotesize{footnotes}}, então está errado. Isso vale para qualquer artigo e qualquer formato, então por favor adicione a sua lista de ``conhecimentos adquiridos durante o mestrado''}\marcos{Tranforme em pdf vetorizado. Leia: https://www.investintech.com/resources/blog/archives/8125-how-to-excel-chart-to-pdf.html}
+\caption{Average time for saving a container's snapshot.
+%\marcos{Precisa aumentar a fonte das legendas. Por favor faça esse exercício para TODAS as figuras em vez de esperar eu reclamar uma a uma... Se a fonte está menor do que o obtido com {\footnotesize{footnotes}}, então está errado. Isso vale para qualquer artigo e qualquer formato, então por favor adicione a sua lista de ``conhecimentos adquiridos durante o mestrado''}\marcos{Tranforme em pdf vetorizado. Leia: https://www.investintech.com/resources/blog/archives/8125-how-to-excel-chart-to-pdf.html}
 %\marcos{Aqui é ``median'' (=mediana) mesmo, ou é ``average'' (=média)? São duas coisas diferentes do ponto de vista de estatística - Hamilton: é average}.
 }
 \includegraphics[center,scale=0.45]{memoria_copia_ieee.pdf}
@@ -1060,7 +1066,9 @@ Obviously, the network itself plays an important role in those numbers, so serve
 
 \begin{figure}[htb!]
 \footnotesize
-\caption{Evidence transport time \marcos{Tranforme em pdf vetorizado. Leia: https://www.investintech.com/resources/blog/archives/8125-how-to-excel-chart-to-pdf.html}}
+\caption{Time required for transporting evidences from the cloud to an external storage site.
+%\marcos{Tranforme em pdf vetorizado. Leia: https://www.investintech.com/resources/blog/archives/8125-how-to-excel-chart-to-pdf.html}
+}
 \includegraphics[center,scale=0.45]{evidencia_download_ieee.pdf}
 \centering
 \label{fig:evidencia_transporte}
@@ -1077,7 +1085,7 @@ After five minutes of evidence collection with \fancyname, the aforementioned li
 %
 Subsequently to the injection, \fancyname\ was allowed to continue collecting memory snapshots for another 5 minutes.
 %
-In addition to collecting the \textbf{/proc/pid/numa\_maps} directory contents, a raw copy of the container's process memory was also acquired using the Linux \textit{GDB} utility and the \textit{nsenter} tool, via the commands shown on Figure \ref{fig:comando-copia}.
+In addition to collecting the \textbf{/proc/pid/numa\_maps} directory contents, a raw copy of the container's process memory was also acquired using the Linux \textit{GDB} utility and the \textit{nsenter} tool, via the commands shown in Figure \ref{fig:comando-copia}.
 
 %\noindent\texttt{\footnotesize nsenter --target <pid> --mount --uts --ipc --net --pid}
 %\\
@@ -1090,7 +1098,7 @@ In addition to collecting the \textbf{/proc/pid/numa\_maps} directory contents, 
 
 \begin{figure*}[htb!]
 \footnotesize
-\caption{The two commands to generate a raw copy of the process container memory}
+\caption{Commands to generate a raw copy of a container's memory.}
 \includegraphics[scale=0.50]{comando-copia-memoria-gdb.pdf}
 \centering
 \label{fig:comando-copia}
@@ -1102,6 +1110,9 @@ In addition to collecting the \textbf{/proc/pid/numa\_maps} directory contents, 
 Figures \ref{fig:antes-injecao} and \ref{fig:apos-injecao} show part of the container's memory before and after the injection, respectively.
 %
 As expected, it is possible to see the injected \textbf{libexample.so} library between addresses \textbf{7f85631b8000} and \textbf{7f85633b9000} in the snapshot after the injection.
+%
+The library contents can also be identified when we analyze the raw copy of the container's process memory from the snapshots stored outside the cloud.
+
 %
 %Therefore, it is possible to identify the injection of a malware in the form of a library via evidence collected by \fancyname\ from the \textbf{/proc/pid/numa\_maps} directory via comparison between two memory snapshots.
 %
@@ -1124,9 +1135,8 @@ As expected, it is possible to see the injected \textbf{libexample.so} library b
 \label{fig:apos-injecao}
 \end{figure}
 
-%\marcos{xxx Not fully revised from this point on}
-
-\textcolor{blue}{And figure \ref{fig:conteudo-memoria-copia-gdb} shows the content of the readable part of the memory at addresses \textbf{0x7f85633b9000} where \textbf{libexample.so} simulating a library-based malware is allocated.}
+%\marcos{Not fully revised from this point on}
+%And Figure \ref{fig:conteudo-memoria-copia-gdb} shows the content of the readable part of the memory at addresses \textbf{0x7f85633b9000} where \textbf{libexample.so} simulating a library-based malware is allocated.
 %
 
 %\marcos{Não tenho certeza se entendi: que ideia você quer passar com esse parágrafo exatamente? Não consegui enxergar o que a discussão tem a ver com o seu trabalho em si: ela apenas fala de uma ferramenta que (1) você não tinha mencionado antes e (2) não funciona para seus propósitos, sem que isso seja uma limitação do seu trabalho... Enfim, parece meio fora de foco isso... - Hamilton: Ajustei como eu sugeri via email}
@@ -1143,13 +1153,13 @@ As expected, it is possible to see the injected \textbf{libexample.so} library b
 
 %
 
-\begin{figure}[htb!]
-\footnotesize
-\caption{Sample of the library's memory inside the container \marcos{Er... o que texto em português está fazendo nesta figura?!?!?!!? - Hamilton: totalmente alterado}}
-\includegraphics[scale=0.54]{conteudo-memoria-copia-gdb.pdf}
-\centering
-\label{fig:conteudo-memoria-copia-gdb}
-\end{figure}
+%\begin{figure}[htb!]
+%\footnotesize
+%\caption{Sample of the library's memory inside the container \marcos{Er... o que texto em português está fazendo nesta figura?!?!?!!? - Hamilton: totalmente alterado}}
+%\includegraphics[scale=0.54]{conteudo-memoria-copia-gdb.pdf}
+%\centering
+%\label{fig:conteudo-memoria-copia-gdb}
+%\end{figure}
 
 
 %\subsection{Limitations}
@@ -1250,36 +1260,41 @@ As expected, it is possible to see the injected \textbf{libexample.so} library b
 % footnotes above bottom floats. This can be corrected via the \fnbelowfloat
 % command of the stfloats package.
 
-\section{Final Considerations and future work}
+\section{Conclusions and future work}
 \label{sec:conclusion}
 
-Digital threats acting directly on the system memory do not usually leave traces in disk after their corresponding resources are removed, hindering later forensic analyses.
+Digital threats acting directly on the system memory may not leave any trace in disk after their corresponding resources are removed, hindering later forensic analyses.
 %
 This problem is especially notable in cloud computing systems, in which the allocation and removal of virtualized resources (e.g. VMs and containers) are frequent.
 %
 This characteristic, together with aspects such as multitenancy and multi-jurisdiction of computational clouds, hinders evidence collection for investigating incidents.
 
 
-In this scenario, the proposal presented aims to relate the memory photograph to its origin, using the calculated hash of the container image as a stored evidence identifier.
+To address this scenario, we hereby propose \fancyname, a solution for evidence collection in the cloud.
 %
-To prevent an excessive use of disk space, the volume of data stored uses a storage window, which allows describing the memory before and after an attack (e.g. memory injection).
+\fancyname allows the acquired memory photographs to be correlated to its origin, using the calculated hash of the container image as an identifier.
 %
-Combined with a tool for identifying threats, these \fancyname\ characteristics make it a robust solution for evidence collection and thus make forensic analyses in the cloud viable.
+In addition, the solutions employs a time window to prevent excessive disk usage for such photographs, while still allowing the memory before and after an attack to be analyzed.
+%
+Our experimental analysis indicate that, when combined with intrusion detection mechanisms for identifying threats, \fancyname\ can be used as a powerful incident management tool, improving evidence collection and forensic analysis in the cloud.
+%
 
 
-\textcolor{blue}{The proposed architecture calls for the cloud resource to be uniquely identifiable in order to make the association between evidence and its origin.
+Finally, we note that the proposed architecture calls for the cloud resource to be uniquely identifiable, so collected evidences can be correctly associated to their origin.
 %
-During our analysis, this unique form of identification was only possible through the hash of the container image. 
+When developing \fancyname, we determined that the easiest way to obtain this unique form of identification was via the hash of the container image.
 %
-This was the only feature that, submitted to the build process from the same recipe resulted in the same hash of the image.
+Indeed, and unlike what usually happens with VMs, containers built from the same recipe in the Docker Engine lead to images with the same hash.
 %
-So, the implementation for validating the proposed solution can only collect memory information in \textit{user space}.
+Nevertheless, and even though the implementation obtained is useful validating the viability of the proposed solution, it can only collect memory information in \textit{user space}.
 %
-Therefore, in principle \fancyname\ does not provide support to malware investigation techniques based on information from the \textit{kernel space}, such as comparing the information from the \textit{Process Environment Block} (PEB), which are in the user space, with information from the \textit{Virtual Address Descriptor} (VAD), which lies in the \textit{kernel space}. 
+Therefore, in principle \fancyname\ does not provide support to malware investigation techniques based on information from the \textit{kernel space}.
+%
+For example, it would not support analysis that rely on comparing (1) information acquired from the \textit{Process Environment Block} (PEB), which are in the user space, and (2) information from the \textit{Virtual Address Descriptor} (VAD), which lies in the \textit{kernel space}. 
 %
 Analyses of threats that directly manipulate the objects of the kernel (D.K.O.M – \textit{Direct Kernel Object Manipulation}) do not benefit from the solution proposed, either.
 %
-It is recommended for future work to find a way to get envidence from \textit{kernel space} associated with a container. }
+An open problem that remains is, thus, how to extend \fancyname's functionalities so it can gather evidence from the \textit{kernel space} associated with a container.
 
 
 %\textcolor{blue}{Also, it was not possible to copy the memory contents of a process running inside the container.
