@@ -696,7 +696,7 @@ For a structured discussion, in this section we analyze the works available in t
 
 The evidence-gathering process in traditional forensics consists basically in isolating a crime scene and then collecting all data that seem relevant for later analysis.
 %
-A straightforward translation of this practice to the context of digital forensics is, thus, performing the bitwise copy of the (virtual or physical) machines's memory.
+A straightforward translation of this practice to the context of digital forensics is, thus, performing the bitwise copy of the (virtual or physical) machine's memory.
 %
 In the past, when computing services manipulated much smaller amounts of memory, disk and traffic than what is seen today, such practice was not considered very problematic. 
 %
@@ -725,7 +725,7 @@ Finally, \cite{VanBaar_FAAS:2014} relies on indexing, pre-processing and knowled
 Although this approach limits the amount of data gathered in the short term, it still allows its continuous growth; therefore, in the long run, backlogs are still likely to accumulate.
 
 
-\subsection{Chain of custody garantees}
+\subsection{Chain of custody guarantees}
 \label{sec:related-chainofcustody}
 
 %\marcos{TODO: Esse aqui tem a ver com cadeia de custódia?! Não tem essa métrica de ``Accessing and collecting memory-related information in the cloud'' na tabela... Ou a tabela está errada ou esta seção está errada... Ou talvez precise incluir um terceiro critério na tabela? Enfim, tá confuso... - Hamilton: Agora sim}
@@ -931,7 +931,7 @@ If such SLA dictates that evidences must be stored outside the cloud environment
 The \fancyname\ architecture was implemented in a testing platform, aiming to assess its efficacy and efficiency.
 %in collecting the memory information from containers
 %
-The testbed employed, illustrated in Fig. \ref{fig:Solucao}, consists in creating a t2.micro instance (3.3 Mhz, 1GiB RAM and Linux 64-bit) at Amazon Web Services (AWS).
+The test bed employed, illustrated in Fig. \ref{fig:Solucao}, consists in creating a t2.micro instance (3.3 Mhz, 1GiB RAM and Linux 64-bit) at Amazon Web Services (AWS).
 %
 In this AWS instance, we installed Docker Engine 1.10 and API Docker 1.21, and then created 3 containers for executing the nginx 1.0 web server in different ports. 
 %
@@ -956,7 +956,7 @@ A physical machine outside AWS then uses an OpenVPN client to establish a VPN co
 After concluding the data acquisition process, the physical machine verifies whether there are local .mem files that are older than a certain time interval, and discards them.
 
 
-Using this testbed, two sets of experiments were performed: the first set focus on performance aspects, whereas the second evaluates \fancyname's ability to aid in identifying malware injection attacks.
+Using this test bed, two sets of experiments were performed: the first set focus on performance aspects, whereas the second evaluates \fancyname's ability to aid in identifying malware injection attacks.
 %
 Both experiments are described in the following sub-sections.
 
@@ -979,7 +979,7 @@ The system was then executed for 30 minutes, and the following metrics were coll
 
 \subsubsection{Memory}
 
-In our testbed, each memory photograph takes 244-kbytes of storage.
+In our test bed, each memory photograph takes 244-kbytes of storage.
 %
 Fig. \ref{fig:evolucao_coleta} shows the total disk space occupied during the experiment for all photographs, as obtained via the \textit{Unix} command \texttt{du -sh *.mem}. 
 %
@@ -1023,7 +1023,7 @@ Nevertheless, an even lower latency can be obtained if the collection procedure 
 %
 For example, instead of simultaneously suspending the execution of all computational resources to carry out the data collection task, one could interrupts them sequentially, in round-robin fashion.
 %
-Therefore, the latency hereby shown can be considered a worst case scenario for our testbed.
+Therefore, the latency hereby shown can be considered a worst case scenario for our test bed.
 
 %\textcolor{blue}{For the cases in which the interruption of the computational resource's execution for a short time causes problems of availability, it is possible to perform the collection procedure in separate moments of time. 
 %
@@ -1155,7 +1155,7 @@ The library contents can also be identified when we analyze the raw copy of the 
 
 %\begin{figure}[htb!]
 %\footnotesize
-%\caption{Sample of the library's memory inside the container \marcos{Er... o que texto em português está fazendo nesta figura?!?!?!!? - Hamilton: totalmente alterado}}
+%\caption{Sample of the library's memory inside the container}
 %\includegraphics[scale=0.54]{conteudo-memoria-copia-gdb.pdf}
 %\centering
 %\label{fig:conteudo-memoria-copia-gdb}
