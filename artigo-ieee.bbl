@@ -24,23 +24,23 @@
 \bibitem{Morsy_Cloud_Security:2010}
 \BIBentryALTinterwordspacing
 A.~M. Morsy, J.~Grundy, and I.~Muller, ``{An Analysis of the Cloud Computing
-  Security Problem},'' in \emph{APSEC Cloud Workshop}.\hskip 1em plus 0.5em
-  minus 0.4em\relax Sydney, Australia: Cornell University, 2010. [Online].
-  Available: \url{https://arxiv.org/abs/1609.01107}
+  Security Problem},'' 2010. [Online]. Available:
+  \url{https://arxiv.org/abs/1609.01107}
 \BIBentrySTDinterwordspacing
 
 \bibitem{Bash_Adv_in_Forensics:2015}
-P.~Gilbert and S.~Sujeet, \emph{{Advances in Digital Forensics IV}},
-  1st~ed.\hskip 1em plus 0.5em minus 0.4em\relax Orlando: Springer-US, 2008,
-  vol.~1.
+R.~Keyun, C.~Joe, K.~Tahar, and C.~Mark, ``{Advances in Digital Forensics
+  VII},'' in \emph{7th IFIP WG 11.9 International Conference on Digital
+  Forensics}, 7th~ed., P.~Gilbert and S.~Sujeet, Eds., Orlando, 2011, vol.~1,
+  ch.~3.
 
 \bibitem{Dykstra_Acquiring_for_IAAS:2012}
 \BIBentryALTinterwordspacing
 J.~Dykstra and A.~Sherman, ``{Acquiring forensic evidence from
   infrastructure-as-a-service cloud computing: Exploring and evaluating tools,
-  trust, and techniques},'' \emph{Digital Investigation}, vol.~9, pp. S90--S98,
-  2012, (Proc. of the 12th Annual DFRWS Conference). [Online]. Available:
-  \url{dx.doi.org/10.1016/j.diin.2012.05.001}
+  trust, and techniques},'' vol.~9.\hskip 1em plus 0.5em minus 0.4em\relax
+  Elsevier Ltd, 2012, pp. S90--S98, (Proc. of the 12th Annual DFRWS
+  Conference). [Online]. Available: \url{dx.doi.org/10.1016/j.diin.2012.05.001}
 \BIBentrySTDinterwordspacing
 
 \bibitem{Rahman_Live_Forensics_Techniques:2015}
@@ -53,9 +53,10 @@ S.~Rahman and M.~N.~A. Khan, ``{Review of live forensic analysis techniques},''
 \bibitem{Dykstra_FROST:2013}
 \BIBentryALTinterwordspacing
 J.~Dykstra and A.~T. Sherman, ``Design and implementation of {FROST}: Digital
-  forensic tools for the {OpenStack} cloud computing platform,'' \emph{Digital
-  Investigation}, vol.~10, pp. S87--S95, 2013, (Proc. of 13th Annual DFRWS
-  Conference). [Online]. Available: \url{dx.doi.org/10.1016/j.diin.2013.06.010}
+  forensic tools for the {OpenStack} cloud computing platform,'' vol.~10.\hskip
+  1em plus 0.5em minus 0.4em\relax Elsevier Ltd, 2013, pp. S87--S95, (Proc. of
+  13th Annual DFRWS Conference). [Online]. Available:
+  \url{dx.doi.org/10.1016/j.diin.2013.06.010}
 \BIBentrySTDinterwordspacing
 
 \bibitem{Reichert_Auto_acquisition:2015}
@@ -65,13 +66,13 @@ Z.~Reichert, K.~Richards, and K.~Yoshigoe, ``{Automated forensic data
 
 \bibitem{George_DF2CE:2012}
 S.~George, H.~Venter, and F.~Thomas, ``{Digital Forensic Framework for a Cloud
-  Environment},'' in \emph{IST Africa}.\hskip 1em plus 0.5em minus 0.4em\relax
-  Tanzania: IIMC, 2012, pp. 1--8.
+  Environment},'' in \emph{IST Africa Conference Report}.\hskip 1em plus 0.5em
+  minus 0.4em\relax Tanzania: IIMC, 2012, pp. 1--8.
 
 \bibitem{Sang_Log_approach:2013}
 T.~Sang, ``{A log-based approach to make digital forensics easier on cloud
-  computing},'' \emph{Intelligent System Design and Engineering Applications
-  (ISDEA)}, pp. 91--94, 2013.
+  computing},'' \emph{2013 3rd International Conference on Intelligent System
+  Design and Engineering Applications, ISDEA 2013}, pp. 91--94, 2013.
 
 \bibitem{Case_Memory_Forensics:2014}
 A.~Case, M.~Ligh, L.~Jamie, and A.~Walters, \emph{{The Art of Memory Forensics:
@@ -79,12 +80,9 @@ A.~Case, M.~Ligh, L.~Jamie, and A.~Walters, \emph{{The Art of Memory Forensics:
   plus 0.5em minus 0.4em\relax Hoboken, NJ: Wiley, 2014.
 
 \bibitem{Vomel_Memory_Acquisition:2013}
-\BIBentryALTinterwordspacing
-S.~V\"{o}mel and J.~St\"{u}ttgen, ``An evaluation platform for forensic memory
-  acquisition software,'' \emph{Digit. Investig.}, vol.~10, pp. S30--S40, 2013,
-  elsevier Science Publishers. [Online]. Available:
-  \url{http://dx.doi.org/10.1016/j.diin.2013.06.004}
-\BIBentrySTDinterwordspacing
+S.~V{\"{o}}mel and J.~St{\"{u}}ttgen, ``{An evaluation platform for forensic
+  memory acquisition software},'' in \emph{The Digital Forensic Research
+  Conference}, vol.~10, no. SUPPL., Monterey, Ca, 2013, pp. S30--S40.
 
 \bibitem{NIST2011}
 \BIBentryALTinterwordspacing
@@ -99,19 +97,18 @@ Diamanti, ``Five reasons you should run containers on bare metal, not vms,''
   \url{https://diamanti.com/wp-content/uploads/2018/07/Diamanti_WP_Five_Reasons_You_Should_Run_Containers_on_Bare_Metal_071918.pdf}.
 
 \bibitem{container-survey:2016}
-{DevOps and ClusterHQ}, ``Container market adoption survey 2016,''
-  \urls{https://clusterhq.com/assets/pdfs/state-of-container-usage-june-2016.pdf},
-  2016.
+{DevOps and ClusterHQ}, ``Container market adoption survey 2016,'' {DevOps and
+  ClusterHQ}, Tech. Rep., 2016, available:
+  \urls{https://clusterhq.com/assets/pdfs/state-of-container-usage-june-2016.pdf}.
 
 \bibitem{Miller_Remote_Library_Injection:2004}
-M.~Miller and J.~Turkulainen, ``Remote library injection,'' NoLogin, Tech.
+M.~Miller and J.~Turkulainen, ``Remote library injection,'' NoLogin.org, Tech.
   Rep., 2004, available:
   \url{http://www.hick.org/code/skape/papers/remote-library-injection.pdf}.
 
 \bibitem{inline-hooking:2008}
-H.~Yin, Z.~Liang, and D.~Song, ``{HookFinder}: Identifying and understanding
-  malware hooking behaviors,'' in \emph{Proceedings of the Network and
-  Distributed System Security Symposium (NDSS'08)}, 2008, pp. 1--16.
+H.~Yin, Z.~Liang, and D.~Song, ``{HookFinder: Identifying and Understanding
+  Malware Hooking Behaviors}.''
 
 \bibitem{reflective-lib-injection:2008}
 S.~Fewer, ``Reflective {DLL} injection -- v1,'' Harmony Security, Tech. Rep.,
@@ -128,8 +125,8 @@ R.~Poisel, E.~Malzer, and S.~Tjoa, ``{Evidence and cloud computing: The virtual
 
 \bibitem{Do_Desafio:2014}
 D.~Barbara, ``{Desafios da per{\'{i}}cia forense em um ambiente de
-  computa{\c{c}}{\~{a}}o nas nuvens},'' Univ. do Planalto Catarinense, Tech.
-  Rep., 2014, \urls{revista.uniplac.net/ojs/index.php/tc_si/article/view/1911}.
+  computa{\c{c}}{\~{a}}o nas nuvens},'' 2014,
+  \urls{revista.uniplac.net/ojs/index.php/tc_si/article/view/1911}.
 
 \bibitem{Dolan-Gavitt_Semantic_Gap:2011}
 B.~Dolan-Gavitt, T.~Leek, M.~Zhivich, J.~Giffin, and W.~Lee, ``Virtuoso:
@@ -182,8 +179,9 @@ S.~Alqahtany, N.~Clarke, S.~Furnell, and C.~Reich, ``Cloud forensics: A review
 \bibitem{Rafique_Static_Live_Digital_Forensics:2013}
 \BIBentryALTinterwordspacing
 M.~Rafique and M.~N.~A. Khan, ``{Exploring Static and Live Digital Forensics:
-  Methods, Practices and Tools},'' \emph{IJSER}, vol.~4, no.~10, pp.
-  1048--1056, 2013. [Online]. Available:
+  Methods, Practices and Tools},'' \emph{International Journal of Scientific \&
+  Engineering Research}, vol.~4, no.~10, pp. 1048--1056, 2013. [Online].
+  Available:
   \url{www.ijser.org/researchpaper{\%}5CExploring-Static-and-Live-Digital-Forensic-Methods-Practices-and-Tools.pdf}
 \BIBentrySTDinterwordspacing
 

@@ -27,19 +27,19 @@ abstract		= {Over the past 15 years, server virtualization has become the prefer
 @techreport{Miller_Remote_Library_Injection:2004,
 author 			= {Miller, M. and Turkulainen, J.},
 title				= {Remote Library Injection},
-institution	= {NoLogin},
+institution	= {NoLogin.org},
 year				= {2004},
 note				= {Available: \url{http://www.hick.org/code/skape/papers/remote-library-injection.pdf}},
 abstract		= {The common methods currently employed to compromise comput- ers are ineffective and easily detected by standard Anti-Virus practices. Despite this, worm authors continue to use these same approaches, blindly hoping that at least some of the hosts will remain infected long enough for the worm au- thor to make use of them. An alternative to the standard methods of computer compromise involves making use of a more complicated, yet high-yield, solution: library injection. When used in conjunction with a remote vulnerability, such as the DCOM[1] vulnerability, library injection can lead to an undetectable com- promise at the host level as far as current Anti-Virus detection mechanisms are concerned. The impact from this is far-reaching; so much so that a completely automated, high-retention, operating system independent super-worm is an ever approaching reality},
 }
 
-@inproceedings{inline-hooking:2008,
+@article{inline-hooking:2008,
+abstract = {Installing various hooks into the victim system is an important attacking strategy employed by malware, in- cluding spyware, rootkits, stealth backdoors, and others. In order to defeat existing hook detectors, malware writ- ers keep exploring new hooking mechanisms. However, the current malware analysis procedure is painstak- ing, mostly manual and error-prone. In this paper, we propose the first systematic approach for automat- ically identifying hooks and extracting hooking mech- anisms. We propose a unified approach, fine-grained impact analysis, to identify malware hooking behaviors. Our approach does not rely on any prior knowledge of hooking mechanisms, and thus can identify novel hook- ing mechanisms. Moreover, we devise a method using semantics-aware impact dependency analysis to provide a succinct and intuitive graph representation to illus- trate hooking mechanisms. We have developed a proto- type, HookFinder, and conducted extensive experiments using representative malware samples from various cat- egories. We have demonstrated that HookFinder can correctly identify the hooking behaviors of all samples, and provide accurate insights about their hooking mech- anisms.},
 author = {Yin, Heng and Liang, Zhenkai and Song, Dawn},
-title = {{HookFinder}: Identifying and Understanding Malware Hooking Behaviors},
-year = {2008},
-booktitle = {Proceedings of the Network and Distributed System Security Symposium (NDSS'08)},
-pages = {1--16},
+file = {:home/hamilton/host/hookfinder{\_}ndss08.pdf:pdf},
+title = {{HookFinder: Identifying and Understanding Malware Hooking Behaviors}}
 }
+
 
 @techreport{reflective-lib-injection:2008,
 author 			= {Stephen Fewer},
@@ -449,13 +449,11 @@ doi={10.1109/CyberSec.2012.6246108},
 month={June},}
 
 
-@article{Dykstra_FROST:2013,
+@INPROCEEDINGS{Dykstra_FROST:2013,
 abstract = {We describe the design, implementation, and evaluation of FROST - three new forensic tools for the OpenStack cloud platform. Our implementation for the OpenStack cloud platform supports an Infrastructure-as-a-Service (IaaS) cloud and provides trustworthy forensic acquisition of virtual disks, API logs, and guest firewall logs. Unlike traditional acquisition tools, FROST works at the cloud management plane rather than interacting with the operating system inside the guest virtual machines, thereby requiring no trust in the guest machine. We assume trust in the cloud provider, but FROST overcomes non-trivial challenges of remote evidence integrity by storing log data in hash trees and returning evidence with cryptographic hashes. Our tools are user-driven, allowing customers, forensic examiners, and law enforcement to conduct investigations without necessitating interaction with the cloud provider. We demonstrate how FROST's new features enable forensic investigators to obtain forensically-sound data from OpenStack clouds independent of provider interaction. Our preliminary evaluation indicates the ability of our approach to scale in a dynamic cloud environment. The design supports an extensible set of forensic objectives, including the future addition of other data preservation, discovery, real-time monitoring, metrics, auditing, and acquisition capabilities. ?? 2013 Josiah Dykstra and Alan T. Sherman. Published by Elsevier Ltd. All rights reserved.},
 author = {Dykstra, Josiah and Sherman, Alan T.},
 doi = {10.1016/j.diin.2013.06.010},
 file = {:home/hamilton/host/Bibliografia/DEsign and implementation of FROST.pdf:pdf},
-isbn = {1742-2876},
-issn = {17422876},
 journal = {Digital Investigation},
 note = {(Proc. of 13th Annual DFRWS Conference)},
 keywords = {Cloud computing,Cloud forensics,Digital forensics,FROST,OpenStack},
@@ -481,11 +479,11 @@ url = {citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.469.937},
 volume = {4},
 year = {2013}
 }
-@techreport{Do_Desafio:2014,
+@article{Do_Desafio:2014,
 abstract = {This paper presents the theoretical foundation of computer forensics, concepts, stages of an investigation, procedures and tools used by experts to investigate a cybercrime. Also addresses the issue cloud computing, the concepts, features, models and providers. Finally, we show a case study to verify the contents of files available for cloud storage providers are changed during the process of uploading, storage, and downloading. For this study the following procedures were adopted: Literature to filter quality materials produced by leading professionals in review; After choosing literature, several searches were done on websites for additional information, such as articles published in international databases and conferences in the area; Survey of the main techniques and tools used by forensic experts to analyze data in digital crimes; For the case study three accounts were created at different providers of services (Dropbox, Google Drive and OneDrive), data were collected manually through a browser and client software, both running in a virtual machine. Finally, it was found that the process of performing the download of files does not affect the contents of the same, since the MD5 hash values of downloaded files were the same as the original files. Because the files were transferred from one storage location to another, the information date and time may be changed, but the content of the files remained intact.},
 author = {Barbara, Damacena},
 file = {:home/hamilton/host/Bibliografia/DESAFIOS DA PERÍCIA FORENSE EM UM AMBIENTE DE COMPUTAÇÃO NAS NUVENS.pdf:pdf},
-institution = {Univ. do Planalto Catarinense},
+institution = {Universidade do Planalto Catarinense},
 keywords = {Forensics,cloud computing,cybercrime.,information security},
 title = {{Desafios da per{\'{i}}cia forense em um ambiente de computa{\c{c}}{\~{a}}o nas nuvens}},
 year = {2014},
@@ -494,7 +492,7 @@ note = {\urls{revista.uniplac.net/ojs/index.php/tc_si/article/view/1911}}
 @article{Rafique_Static_Live_Digital_Forensics:2013,
 author = {Rafique, Mamoona and Khan, M N A},
 file = {:home/hamilton/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Rafique, Khan - 2013 - Exploring Static and Live Digital Forensics Methods, Practices and Tools.pdf:pdf},
-journal = {IJSER},
+journal = {International Journal of Scientific \& Engineering Research},
 keywords = {Exploring Static and Live Digital Forensics: Metho,Practices and Tools},
 number = {10},
 pages = {1048--1056},
@@ -515,7 +513,7 @@ year = {2016}
 author = {George, Sibiya and Venter, Hein and Thomas, Fogwill},
 title = {{Digital Forensic Framework for a Cloud Environment}},
 year = {2012},
-booktitle = {IST Africa},
+booktitle = {IST Africa Conference Report},
 pages = {1--8},
 abstract = {The advent of cloud computing provides good opportunities for both good and malicious use. Cloud computing is at its infancy stage and its security is still an open research issue. Malicious users take advantage of the current lack of advanced security mechanisms in the cloud. Cloud computing paradigm enables users to access computing resources without necessarily owning physical infrastructures. It is therefore easy for an attacker who intends to perform malicious activities in the cloud to create a remotely hosted desktop, perform their activities and then destroy the desktop later. With the remotely hosted desktop destroyed, there is very little evidence left that can be collected by forensic experts using traditional static digital forensic methods. A scenario such as this therefore requires live digital forensic processes as a large amount of evidence can be gathered while the system is running. Key issues in cloud forensics include, but are not limited to, identity, encryption, and jurisdiction and data distribution. Digital forensic investigators currently face a challenge when criminal incidences occur as there are no well developed tools and procedures for conducting digital forensic investigations in the cloud. This paper proposes a novel framework that addresses issues of digital forensics in the cloud computing environment.},
 address = {Tanzania},
@@ -530,7 +528,6 @@ abstract = {Movement of businesses and individuals to the cloud has posed many n
 author = {Reichert, Zachary and Richards, Katarina and Yoshigoe, Kenji},
 doi = {10.1109/MASS.2014.135},
 file = {:home/hamilton/host/Bibliografia/Automated Forensic Data Acquisition in the Cloud.pdf:pdf},
-isbn = {9781479960354},
 journal = {IEEE Int. Conf. on Mobile Ad Hoc and Sensor Systems},
 keywords = {automated snapshots,cloud forensics,hypervisorbased intrusion detection systems},
 pages = {725--730},
@@ -543,7 +540,7 @@ author = {Sang, Ting},
 doi = {10.1109/ISDEA.2012.29},
 file = {:home/hamilton/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Sang - 2013 - A log-based approach to make digital forensics easier on cloud computing.pdf:pdf},
 isbn = {9780769549231},
-journal = {Intelligent System Design and Engineering Applications (ISDEA)},
+journal = {2013 3rd International Conference on Intelligent System Design and Engineering Applications, ISDEA 2013},
 keywords = {Cloud computing,Digital forensic,Log,Security},
 pages = {91--94},
 title = {{A log-based approach to make digital forensics easier on cloud computing}},
@@ -551,26 +548,29 @@ year = {2013}
 }
 
 
-%author = {Keyun, Ruan and Joe, Carthy and Tahar, Kechadi and Mark, Crosbie}, ?????? Se for citar capítulo, dê o nome do capítulo...
-%pages = {35--46},
-@book{Bash_Adv_in_Forensics:2015,
-author = {Gilbert, Peterson and Sujeet, Shenoi},
-title = {{Advances in Digital Forensics IV}},
-year = {2008},
-publisher = {Springer-US},
-edition = {1},
-abstract = {Cloud computing may well become one of the most transformative technologies in the history of computing. Cloud service providers and cus- tomers have yet to establish adequate forensic capabilities that could support investigations of criminal activities in the cloud. This paper discusses the emerging area of cloud forensics, and highlights its chal- lenges and opportunities.},
+
+@incollection{Bash_Adv_in_Forensics:2015,
+abstract = {Cloud computing may well become one of the most transformative tech- nologies in the history of computing. Cloud service providers and cus- tomers have yet to establish adequate forensic capabilities that could support investigations of criminal activities in the cloud. This paper discusses the emerging area of cloud forensics, and highlights its chal- lenges and opportunities.},
 address = {Orlando},
 archivePrefix = {arXiv},
-booktitle = {7th IFIP WG 11.9 Int. Conf. on Digital Forensics},
+arxivId = {arXiv:1011.1669v3},
+author = {Keyun, Ruan and Joe, Carthy and Tahar, Kechadi and Mark, Crosbie},
+booktitle = {7th IFIP WG 11.9 International Conference on Digital Forensics},
 doi = {10.1017/CBO9781107415324.004},
+edition = {7},
+editor = {Gilbert, Peterson and Sujeet, Shenoi},
 eprint = {arXiv:1011.1669v3},
-file = {:home/hamilton/host/Bibliografia/Advances in digital forensics.pdf:pdf},
+file = {:home/hamilton/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Keyun et al. - 2011 - Advances in Digital Forensics VII.pdf:pdf},
 isbn = {9788578110796},
 issn = {1098-6596},
 keywords = {Cloud computing,cloud forens},
+pmid = {25246403},
+title = {{Advances in Digital Forensics VII}},
 volume = {1},
+year = {2011},
+chapter = {3}
 }
+
 
 
 @INPROCEEDINGS{Aljaedi_Comparative:2011,
@@ -640,13 +640,11 @@ url = {dx.doi.org/10.1016/j.diin.2014.09.002},
 volume = {11},
 year = {2014}
 }
-@article{Dykstra_Acquiring_for_IAAS:2012,
+@inproceedings{Dykstra_Acquiring_for_IAAS:2012,
 abstract = {We expose and explore technical and trust issues that arise in acquiring forensic evidence from infrastructure-as-a-service cloud computing and analyze some strategies for addressing these challenges. First, we create a model to show the layers of trust required in the cloud. Second, we present the overarching context for a cloud forensic exam and analyze choices available to an examiner. Third, we provide for the first time an evaluation of popular forensic acquisition tools including Guidance EnCase and AccesData Forensic Toolkit, and show that they can successfully return volatile and non-volatile data from the cloud. We explain, however, that with those techniques judge and jury must accept a great deal of trust in the authenticity and integrity of the data from many layers of the cloud model. In addition, we explore four other solutions for acquisition - Trusted Platform Modules, the management plane, forensics-as-a-service, and legal solutions, which assume less trust but require more cooperation from the cloud service provider. Our work lays a foundation for future development of new acquisition methods for the cloud that will be trustworthy and forensically sound. Our work also helps forensic examiners, law enforcement, and the court evaluate confidence in evidence from the cloud. ?? 2012 Dykstra {\&} Sherman. Published by Elsevier Ltd. All rights reserved.},
 author = {Dykstra, Josiah and Sherman, Alan},
 doi = {10.1016/j.diin.2012.05.001},
 file = {:home/hamilton/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Dykstra, Sherman - 2012 - Acquiring forensic evidence from infrastructure-as-a-service cloud computing Exploring and evaluating tools, t.pdf:pdf},
-isbn = {1742-2876},
-issn = {17422876},
 journal = {Digital Investigation},
 note = {(Proc. of the 12th Annual DFRWS Conference)},
 keywords = {Amazon EC2,Cloud computing,Cloud forensics,Computer security,Digital forensics,EnCase,FTK},
@@ -733,16 +731,17 @@ year = {2004}
 }
 
 
-@article{FewerReflectiveLibraryInject:2008,
+@techreport{FewerReflectiveLibraryInject:2008,
 abstract = {The process of remotely injecting a library into a process is two fold. Firstly, the library you wish to inject must be written into the address space of the target process (Herein referred to as the host process). Secondly the library must be loaded into that host process in such a way that the library's run time expectations are met, such as resolving its imports or relocating it to a suitable location in memory. For any of these steps to occur you should have some form of code execution in the host process, presumably obtained through exploitation of a remote code execution vulnerability. Assuming},
-author = {Fewer, By Stephen},
-file = {:home/hamilton/host/Reflective DLL Injection.pdf:pdf},
+author = {Fewer, Stephen},
+file = {:home/hamilton/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Fewer - 2008 - Reflective DLL Injection.pdf:pdf},
 number = {October},
 title = {{Reflective DLL Injection}},
 year = {2008}
 }
 
-@inproceedings{Morsy_Cloud_Security:2010,
+
+@article{Morsy_Cloud_Security:2010,
 abstract = {Cloud computing is a new computational paradigm that offers an innovative business model for organizations to adopt IT without upfront investment. Despite the potential gains achieved from the cloud computing, the model security is still questionable which impacts the cloud model adoption. The security problem becomes more complicated under the cloud model as new dimensions have entered into the problem scope related to the model architecture, multi-tenancy, elasticity, and layers dependency stack. In this paper we introduce a detailed analysis of the cloud security problem. We investigated the problem from the cloud architecture perspective, the cloud offered characteristics perspective, the cloud stakeholders' perspective, and the cloud service delivery models perspective. Based on this analysis we derive a detailed specification of the cloud security problem and key features that should be covered by any proposed security solution.},
 address = {Sydney, Australia},
 publisher = {Cornell University},
@@ -779,23 +778,21 @@ keywords={cloud computing;computer centres;contracts;performance evaluation;powe
 doi={10.1109/DSDIS.2015.67},
 }
 
-@article{Vomel_Memory_Acquisition:2013,
- author = {V\"{o}mel, Stefan and St\"{u}ttgen, Johannes},
- title = {An Evaluation Platform for Forensic Memory Acquisition Software},
- journal = {Digit. Investig.},
- issue_date = {August, 2013},
- volume = {10},
- year = {2013},
- issn = {1742-2876},
- pages = {S30--S40},
- url = {http://dx.doi.org/10.1016/j.diin.2013.06.004},
- doi = {10.1016/j.diin.2013.06.004},
- acmid = {2624114},
- publisher = {Elsevier Science Publishers B. V.},
- note = {Elsevier Science Publishers},
- address = {Amsterdam, The Netherlands, The Netherlands},
- keywords = {Atomicity, Correctness, Evaluation, Forensic soundness, Integrity of a memory snapshot, Live forensics, Memory acquisition, Memory forensics, Metrics},
-} 
+@inproceedings{Vomel_Memory_Acquisition:2013,
+abstract = {Memory forensics has gradually moved into the focus of researchers and practitioners alike in recent years. With an increasing effort to extract valuable information from a snapshot of a computer's RAM, the necessity to properly assess the respective solutions rises as well. In this paper, we present an evaluation platform for forensic memory acquisition software. The platform is capable of measuring distinct factors that determine the quality of a generated memory image, specifically its correctness, atomicity, and integrity. Tests are performed for three popular open source applications, win32dd, WinPMEM, and mdd, as well as for different memory sizes. {\textcopyright} 2013 Josiah Dykstra and Alan T. Sherman. Published by Elsevier Ltd. All rights reserved.},
+address = {Monterey, Ca},
+author = {V{\"{o}}mel, Stefan and St{\"{u}}ttgen, Johannes},
+booktitle = {The Digital Forensic Research Conference},
+doi = {10.1016/j.diin.2013.06.004},
+file = {:home/hamilton/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/V{\"{o}}mel, St{\"{u}}ttgen - 2013 - An evaluation platform for forensic memory acquisition software.pdf:pdf},
+keywords = {Atomicity,Correctness,Evaluation,Forensic soundness,Integrity of a memory snapshot,Live forensics,Memory acquisition,Memory forensics,Metrics},
+number = {SUPPL.},
+pages = {S30--S40},
+title = {{An evaluation platform for forensic memory acquisition software}},
+volume = {10},
+year = {2013}
+}
+
 
 @article{FaaSIndexedSearch:2012,
 author = {Lee, Jooyoung and Un, Sungyong},
@@ -828,12 +825,14 @@ url = {csrc.nist.gov/publications/nistpubs/800-145/SP800-145.pdf},
 volume = {145},
 }
 
-@misc{container-survey:2016,
+@techreport{container-survey:2016,
  author = {{DevOps and ClusterHQ}}, 
  title = {Container Market Adoption Survey 2016},
+ institution = {{DevOps and ClusterHQ}},
  year = {2016},
- howpublished = {\urls{https://clusterhq.com/assets/pdfs/state-of-container-usage-june-2016.pdf}},
+ note = {Available: \urls{https://clusterhq.com/assets/pdfs/state-of-container-usage-june-2016.pdf}},
 }
+
 
 @article{LuisDigitalChainOfCustody:2016,
 abstract = {Modern society demands products and services increasingly sophisticated and effective, a desire that has been met through the development of more powerful, reliable and cost-efficient electronic systems. The ubiquity of these systems makes the data often stored in them to be used as evidence to prove the truth of the facts discussed in lawsuits. However, usually, the chain of custody software is insufficient by itself to guarantee the courts the quality of those digital evidences. This paper analyzes the quality gap existing between complex inspected systems and generally a limited procedure is used to document forensic inspections, and then it proposes a method to improve the reliability of the chain of custody.},

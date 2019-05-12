@@ -11,46 +11,53 @@ Database file #1: artigo-ieee.bib
 -- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty journal in Morsy_Cloud_Security:2010
+Warning--empty booktitle in Dykstra_Acquiring_for_IAAS:2012
+Warning--empty booktitle in Dykstra_FROST:2013
+Warning--empty journal in inline-hooking:2008
+Warning--empty year in inline-hooking:2008
+Warning--empty journal in Do_Desafio:2014
 
 Done.
 You've used 28 entries,
             4039 wiz_defined-function locations,
-            1009 strings with 13735 characters,
-and the built_in function-call counts, 20359 in all, are:
-= -- 1689
-> -- 426
-< -- 157
-+ -- 225
-- -- 70
-* -- 975
-:= -- 3179
-add.period$ -- 62
+            1005 strings with 13756 characters,
+and the built_in function-call counts, 20251 in all, are:
+= -- 1654
+> -- 438
+< -- 153
++ -- 229
+- -- 74
+* -- 981
+:= -- 3140
+add.period$ -- 63
 call.type$ -- 28
-change.case$ -- 34
-chr.to.int$ -- 375
-cite$ -- 28
-duplicate$ -- 1478
-empty$ -- 1659
-format.name$ -- 91
-if$ -- 4653
+change.case$ -- 37
+chr.to.int$ -- 360
+cite$ -- 34
+duplicate$ -- 1486
+empty$ -- 1662
+format.name$ -- 96
+if$ -- 4618
 int.to.chr$ -- 0
 int.to.str$ -- 28
-missing$ -- 270
-newline$ -- 127
-num.names$ -- 28
-pop$ -- 628
+missing$ -- 275
+newline$ -- 125
+num.names$ -- 30
+pop$ -- 656
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1553
+skip$ -- 1535
 stack$ -- 0
-substring$ -- 907
-swap$ -- 1180
-text.length$ -- 32
+substring$ -- 876
+swap$ -- 1166
+text.length$ -- 33
 text.prefix$ -- 0
 top$ -- 5
 type$ -- 28
-warning$ -- 0
-while$ -- 94
+warning$ -- 6
+while$ -- 91
 width$ -- 30
-write$ -- 317
+write$ -- 311
+(There were 6 warnings)
