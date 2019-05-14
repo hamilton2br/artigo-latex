@@ -44,11 +44,9 @@ J.~Dykstra and A.~Sherman, ``{Acquiring forensic evidence from
 \BIBentrySTDinterwordspacing
 
 \bibitem{Rahman_Live_Forensics_Techniques:2015}
-\BIBentryALTinterwordspacing
 S.~Rahman and M.~N.~A. Khan, ``{Review of live forensic analysis techniques},''
   \emph{International Journal of Hybrid Information Technology}, vol.~8, no.~2,
-  pp. 379--388, 2015. [Online]. Available: \url{www.sersc.org/journals/IJHIT/}
-\BIBentrySTDinterwordspacing
+  pp. 379--388, 2015.
 
 \bibitem{Dykstra_FROST:2013}
 \BIBentryALTinterwordspacing
@@ -182,7 +180,7 @@ M.~Rafique and M.~N.~A. Khan, ``{Exploring Static and Live Digital Forensics:
   Methods, Practices and Tools},'' \emph{International Journal of Scientific \&
   Engineering Research}, vol.~4, no.~10, pp. 1048--1056, 2013. [Online].
   Available:
-  \url{www.ijser.org/researchpaper{\%}5CExploring-Static-and-Live-Digital-Forensic-Methods-Practices-and-Tools.pdf}
+  \url{www.ijser.org/researchpaper/Exploring-Static-and-Live-Digital-Forensic-Methods-Practices-and-Tools.pdf}
 \BIBentrySTDinterwordspacing
 
 \bibitem{DierksT2008}

@@ -447,10 +447,10 @@ The proposal specifically focuses on the reproducibility of the collection proce
 As such, it should be a useful tool for analyzing the causes of security incidents in cloud computing systems.
 \end{abstract}
 
-% no keywords
-
-
-
+% keywords
+\begin{IEEEkeywords}
+Cloud computing, containers, digital forensics, cloud forensics, evidente acquisition, chain of custody.
+\end{IEEEkeywords}
 
 % For peer review papers, you can put extra information on the cover
 % page as needed:
@@ -873,7 +873,7 @@ Memory copies reaching a given age are periodically discarded, opening space for
 %
 After an attack event is detected (e.g., by an intrusion detection system), though, \fancyname\ stops discarding older pieces of memory from the monitoring log.
 %
-This approach, illustrated in Figure \ref{fig:janela}, gives forensic analysts the ability to analyze memory copies from before and after the intrusion, as well as assess the system's evolution during this period.
+This approach, illustrated in Fig. \ref{fig:janela}, gives forensic analysts the ability to analyze memory copies from before and after the intrusion, as well as assess the system's evolution during this period.
 
 
 %
@@ -1013,7 +1013,7 @@ A potential issue of the proposed solution is that pausing a container to collec
 %
 To assess this overhead, the times for copying the container memory were measured along the experiment.
 %
-The results are depicted in Figure \ref{fig:memoria_copia}.
+The results are depicted in Fig. \ref{fig:memoria_copia}.
 %
 This figure shows that the time for making a copy is quite short, varying between 20 and 40 milliseconds. 
 %
@@ -1085,7 +1085,7 @@ After five minutes of evidence collection with \fancyname, the aforementioned li
 %
 Subsequently to the injection, \fancyname\ was allowed to continue collecting memory snapshots for another 5 minutes.
 %
-In addition to collecting the \textbf{/proc/pid/numa\_maps} directory contents, a raw copy of the container's process memory was also acquired using the Linux \textit{GDB} utility and the \textit{nsenter} tool, via the commands shown in Figure \ref{fig:comando-copia}.
+In addition to collecting the \textbf{/proc/pid/numa\_maps} directory contents, a raw copy of the container's process memory was also acquired using the Linux \textit{GDB} utility and the \textit{nsenter} tool, via the commands shown in Fig. \ref{fig:comando-copia}.
 
 %\noindent\texttt{\footnotesize nsenter --target <pid> --mount --uts --ipc --net --pid}
 %\\
@@ -1107,7 +1107,7 @@ In addition to collecting the \textbf{/proc/pid/numa\_maps} directory contents, 
 
 %We then compared two distinct moments in the containers' lifetime: before and after the library injection
 %
-Figures \ref{fig:antes-injecao} and \ref{fig:apos-injecao} show part of the container's memory before and after the injection, respectively.
+Figs. \ref{fig:antes-injecao} and \ref{fig:apos-injecao} show part of the container's memory before and after the injection, respectively.
 %
 As expected, it is possible to see the injected \textbf{libexample.so} library between addresses \textbf{7f85631b8000} and \textbf{7f85633b9000} in the snapshot after the injection.
 %

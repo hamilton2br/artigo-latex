@@ -21,15 +21,15 @@ Warning--empty journal in Do_Desafio:2014
 Done.
 You've used 28 entries,
             4039 wiz_defined-function locations,
-            1005 strings with 13756 characters,
-and the built_in function-call counts, 20251 in all, are:
-= -- 1654
+            1004 strings with 13722 characters,
+and the built_in function-call counts, 20212 in all, are:
+= -- 1648
 > -- 438
 < -- 153
 + -- 229
 - -- 74
-* -- 981
-:= -- 3140
+* -- 976
+:= -- 3126
 add.period$ -- 63
 call.type$ -- 28
 change.case$ -- 37
@@ -38,20 +38,20 @@ cite$ -- 34
 duplicate$ -- 1486
 empty$ -- 1662
 format.name$ -- 96
-if$ -- 4618
+if$ -- 4612
 int.to.chr$ -- 0
 int.to.str$ -- 28
 missing$ -- 275
-newline$ -- 125
+newline$ -- 123
 num.names$ -- 30
-pop$ -- 656
+pop$ -- 657
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1535
+skip$ -- 1532
 stack$ -- 0
 substring$ -- 876
-swap$ -- 1166
+swap$ -- 1165
 text.length$ -- 33
 text.prefix$ -- 0
 top$ -- 5
@@ -59,5 +59,5 @@ type$ -- 28
 warning$ -- 6
 while$ -- 91
 width$ -- 30
-write$ -- 311
+write$ -- 308
 (There were 6 warnings)
