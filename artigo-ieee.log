@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  13 MAY 2019 22:39
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  14 MAY 2019 07:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -17,11 +17,12 @@ Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
 \@IEEEtrantmpcountB=\count80
 \@IEEEtrantmpcountC=\count81
 \@IEEEtrantmptoksA=\toks14
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 503.
+LaTeX Font Info:    Try loading font information for OT1+ppl on input line 503.
 
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
-File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ppl.fd
+File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
+-- Using IEEE Computer Society mode.
 -- Using 8.5in x 11in (letter) paper.
 -- Using PDF output.
 \@IEEEnormalsizeunitybaselineskip=\dimen105
@@ -29,55 +30,57 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 \CLASSINFOnormalsizebaselineskip=\dimen106
 \CLASSINFOnormalsizeunitybaselineskip=\dimen107
 \IEEEnormaljot=\dimen108
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <5.01874> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <5.01874> not available
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 1090.
 
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <7.02625> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <7.02625> not available
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 1090.
 
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <8.03> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <8.03> not available
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 1090.
 
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <9.03374> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <9.03374> not available
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 1090.
 
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <9.53561> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <9.53561> not available
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 1090.
 
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <11> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <11> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <11.04124> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <11.04124> not available
 
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 1090.
 
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <17> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <12.045> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <12.045> not available
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 1090.
 
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <20> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <17.06374> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <17.06374> not available
 
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1090.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1090.
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <20.075> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <20.075> not available
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 1090.
+
+LaTeX Font Info:    Font shape `OT1/ppl/bx/n' in size <24.09> not available
+(Font)              Font shape `OT1/ppl/b/n' tried instead on input line 1090.
+LaTeX Font Info:    Font shape `OT1/ppl/bx/it' in size <24.09> not available
+(Font)              Font shape `OT1/ppl/b/it' tried instead on input line 1090.
 
 \IEEEquantizedlength=\dimen109
 \IEEEquantizedlengthdiff=\dimen110
@@ -530,20 +533,20 @@ LaTeX Warning: Label `sec:proposal-desc-memcpy' multiply defined.
 )
 \openout1 = `artigo-ieee.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 377.
-LaTeX Font Info:    ... okay on input line 377.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 377.
-LaTeX Font Info:    ... okay on input line 377.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 377.
-LaTeX Font Info:    ... okay on input line 377.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 377.
-LaTeX Font Info:    ... okay on input line 377.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 377.
-LaTeX Font Info:    ... okay on input line 377.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 377.
-LaTeX Font Info:    ... okay on input line 377.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 378.
+LaTeX Font Info:    ... okay on input line 378.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 378.
+LaTeX Font Info:    ... okay on input line 378.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 378.
+LaTeX Font Info:    ... okay on input line 378.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 378.
+LaTeX Font Info:    ... okay on input line 378.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 378.
+LaTeX Font Info:    ... okay on input line 378.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 378.
+LaTeX Font Info:    ... okay on input line 378.
 
--- Lines per column: 56 (exact).
+-- Lines per column: 61 (exact).
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count110
@@ -605,45 +608,115 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 449.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
+File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
+)
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <8.03> not available
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 449.
+LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 44
+9.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <11.04124> on input line 449.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7.72884> on input line 449.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5.52061> on input line 449.
+LaTeX Font Info:    Try loading font information for U+pzd on input line 449.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/upzd.fd
+File: upzd.fd 2001/06/04 font definitions for U/pzd.
+)
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <11.04124> not available
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 463.
+LaTeX Font Info:    Font shape `OT1/phv/bx/sc' in size <11.04124> not available
+
+(Font)              Font shape `OT1/phv/b/sc' tried instead on input line 463.
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 583.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 583.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 645.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 645.
+Underfull \hbox (badness 4291) in paragraph at lines 546--546
+ \OT1/phv/b/sc/11.04124 2 Prob-lem state-ment: vir-tu-al-iza-tion vs.
+ []
 
-Overfull \hbox (3.80034pt too wide) in paragraph at lines 649--650
+LaTeX Font Info:    Calculating math sizes for size <9.53561> on input line 581
+.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9.53561> on input line 581.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6.6749> on input line 581.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <4.7678> on input line 581.
+LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 643.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8.03> on input line 643.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5.62097> on input line 643.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <4.015> on input line 643.
+
+Overfull \hbox (4.56912pt too wide) in paragraph at lines 647--648
  []|[]| 
  []
 
-<check.png, id=9, 602.25pt x 602.25pt>
+<check.png, id=10, 602.25pt x 602.25pt>
 File: check.png Graphic file (type png)
  <use check.png>
-Package pdftex.def Info: check.png used on input line 652.
+Package pdftex.def Info: check.png used on input line 650.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 File: check.png Graphic file (type png)
  <use check.png>
-Package pdftex.def Info: check.png used on input line 652.
+Package pdftex.def Info: check.png used on input line 650.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 File: check.png Graphic file (type png)
 
 <use check.png>
-Package pdftex.def Info: check.png used on input line 652.
+Package pdftex.def Info: check.png used on input line 650.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 File: check.png Graphic file (type png)
  <use check.png>
-Package pdftex.def Info: check.png used on input line 652.
+Package pdftex.def Info: check.png used on input line 650.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
- <x.png, id=11, 1027.84pt x 1027.84pt>
+ <x.png, id=12, 1027.84pt x 1027.84pt>
 File: x.png Graphic file (type png)
 
 <use x.png>
+Package pdftex.def Info: x.png used on input line 651.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 651.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 651.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 651.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 652.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 652.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+
+<use x.png>
+Package pdftex.def Info: x.png used on input line 652.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 652.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: x.png Graphic file (type png)
+ <use x.png>
 Package pdftex.def Info: x.png used on input line 653.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: x.png Graphic file (type png)
@@ -655,7 +728,8 @@ File: x.png Graphic file (type png)
 Package pdftex.def Info: x.png used on input line 653.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: check.png Graphic file (type png)
- <use check.png>
+
+<use check.png>
 Package pdftex.def Info: check.png used on input line 653.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 File: x.png Graphic file (type png)
@@ -667,8 +741,7 @@ File: x.png Graphic file (type png)
 Package pdftex.def Info: x.png used on input line 654.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: x.png Graphic file (type png)
-
-<use x.png>
+ <use x.png>
 Package pdftex.def Info: x.png used on input line 654.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: check.png Graphic file (type png)
@@ -676,30 +749,31 @@ File: check.png Graphic file (type png)
 Package pdftex.def Info: check.png used on input line 654.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 File: x.png Graphic file (type png)
- <use x.png>
+
+<use x.png>
 Package pdftex.def Info: x.png used on input line 655.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
-File: x.png Graphic file (type png)
- <use x.png>
-Package pdftex.def Info: x.png used on input line 655.
-(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 655.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 File: x.png Graphic file (type png)
  <use x.png>
 Package pdftex.def Info: x.png used on input line 655.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: check.png Graphic file (type png)
-
-<use check.png>
+ <use check.png>
 Package pdftex.def Info: check.png used on input line 655.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
-File: x.png Graphic file (type png)
- <use x.png>
-Package pdftex.def Info: x.png used on input line 656.
-(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
-File: x.png Graphic file (type png)
- <use x.png>
-Package pdftex.def Info: x.png used on input line 656.
-(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 656.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: check.png Graphic file (type png)
+
+<use check.png>
+Package pdftex.def Info: check.png used on input line 656.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 File: x.png Graphic file (type png)
  <use x.png>
 Package pdftex.def Info: x.png used on input line 656.
@@ -709,6 +783,14 @@ File: check.png Graphic file (type png)
 Package pdftex.def Info: check.png used on input line 656.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 657.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 657.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
 
 <use x.png>
 Package pdftex.def Info: x.png used on input line 657.
@@ -716,61 +798,40 @@ Package pdftex.def Info: x.png used on input line 657.
 File: check.png Graphic file (type png)
  <use check.png>
 Package pdftex.def Info: check.png used on input line 657.
-(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
-File: x.png Graphic file (type png)
- <use x.png>
-Package pdftex.def Info: x.png used on input line 657.
-(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
-File: check.png Graphic file (type png)
- <use check.png>
-Package pdftex.def Info: check.png used on input line 657.
-(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
-File: check.png Graphic file (type png)
- <use check.png>
-Package pdftex.def Info: check.png used on input line 658.
-(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
-File: check.png Graphic file (type png)
-
-<use check.png>
-Package pdftex.def Info: check.png used on input line 658.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 File: x.png Graphic file (type png)
  <use x.png>
 Package pdftex.def Info: x.png used on input line 658.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 658.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 658.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: check.png Graphic file (type png)
- <use check.png>
+
+<use check.png>
 Package pdftex.def Info: check.png used on input line 658.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
-File: x.png Graphic file (type png)
- <use x.png>
-Package pdftex.def Info: x.png used on input line 659.
-(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
-File: x.png Graphic file (type png)
- <use x.png>
-Package pdftex.def Info: x.png used on input line 659.
-(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
-File: x.png Graphic file (type png)
-
-<use x.png>
-Package pdftex.def Info: x.png used on input line 659.
-(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: check.png Graphic file (type png)
  <use check.png>
 Package pdftex.def Info: check.png used on input line 659.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 File: x.png Graphic file (type png)
  <use x.png>
-Package pdftex.def Info: x.png used on input line 660.
+Package pdftex.def Info: x.png used on input line 659.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: x.png Graphic file (type png)
  <use x.png>
-Package pdftex.def Info: x.png used on input line 660.
+Package pdftex.def Info: x.png used on input line 659.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
-File: x.png Graphic file (type png)
- <use x.png>
-Package pdftex.def Info: x.png used on input line 660.
-(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 659.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 File: check.png Graphic file (type png)
 
 <use check.png>
@@ -778,120 +839,107 @@ Package pdftex.def Info: check.png used on input line 660.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 File: check.png Graphic file (type png)
  <use check.png>
-Package pdftex.def Info: check.png used on input line 661.
+Package pdftex.def Info: check.png used on input line 660.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 File: x.png Graphic file (type png)
  <use x.png>
-Package pdftex.def Info: x.png used on input line 661.
-(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
-File: x.png Graphic file (type png)
- <use x.png>
-Package pdftex.def Info: x.png used on input line 661.
+Package pdftex.def Info: x.png used on input line 660.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: check.png Graphic file (type png)
  <use check.png>
-Package pdftex.def Info: check.png used on input line 661.
+Package pdftex.def Info: check.png used on input line 660.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
-File: check.png Graphic file (type png)
-
-<use check.png>
-Package pdftex.def Info: check.png used on input line 662.
-(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
-File: check.png Graphic file (type png)
- <use check.png>
-Package pdftex.def Info: check.png used on input line 662.
-(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
-File: x.png Graphic file (type png)
- <use x.png>
-Package pdftex.def Info: x.png used on input line 662.
-(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
-File: check.png Graphic file (type png)
- <use check.png>
-Package pdftex.def Info: check.png used on input line 662.
-(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
- [2] [3 <./check.png> <./x.png>] <janela_ieee-eng.pdf, id=22, 361.35pt x 294.13
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <9.53561> not available
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 691.
+ [2] [3 <./check.png> <./x.png>] <janela_ieee-eng.pdf, id=24, 361.35pt x 294.13
 892pt>
 File: janela_ieee-eng.pdf Graphic file (type pdf)
 
 <use janela_ieee-eng.pdf>
-Package pdftex.def Info: janela_ieee-eng.pdf used on input line 894.
+Package pdftex.def Info: janela_ieee-eng.pdf used on input line 892.
 (pdftex.def)             Requested size: 361.34912pt x 294.13818pt.
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 907.
+LaTeX Font Info:    Try loading font information for OMS+ppl on input line 905.
 
 
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
-File: omsptm.fd 
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsppl.fd
+File: omsppl.fd 
 )
-LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 907.
+LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <9.53561> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 905.
 
-<solucao-eng-small.pdf, id=23, 568.04218pt x 154.6578pt>
+<solucao-eng-small.pdf, id=25, 568.04218pt x 154.6578pt>
 File: solucao-eng-small.pdf Graphic file (type pdf)
 
 <use solucao-eng-small.pdf>
-Package pdftex.def Info: solucao-eng-small.pdf used on input line 925.
+Package pdftex.def Info: solucao-eng-small.pdf used on input line 923.
 (pdftex.def)             Requested size: 568.04079pt x 154.65741pt.
  [4 <./janela_ieee-eng.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./janela_ieee-eng.pdf): PDF inclusion: 
 invalid other resource which is no dict (key 'ProcSets', type <array>); ignored
 .
->]
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 984.
-
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
-<evolucao_coleta_ieee.pdf, id=43, 602.25pt x 372.39125pt>
-File: evolucao_coleta_ieee.pdf Graphic file (type pdf)
-
-<use evolucao_coleta_ieee.pdf>
-Package pdftex.def Info: evolucao_coleta_ieee.pdf used on input line 1005.
-(pdftex.def)             Requested size: 602.24852pt x 372.39034pt.
-
-<memoria_copia_ieee.pdf, id=44, 602.25pt x 372.39125pt>
-File: memoria_copia_ieee.pdf Graphic file (type pdf)
-
-<use memoria_copia_ieee.pdf>
-Package pdftex.def Info: memoria_copia_ieee.pdf used on input line 1040.
-(pdftex.def)             Requested size: 602.24852pt x 372.39034pt.
- [5 <./solucao-eng-small.pdf
+> <./solucao-eng-small.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./solucao-eng-small.pdf): PDF inclusion
 : invalid other resource which is no dict (key 'ProcSets', type <array>); ignor
 ed.
-> <./evolucao_coleta_ieee.pdf>]
-<evidencia_download_ieee.pdf, id=89, 602.25pt x 372.39125pt>
+>]
+LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <9.53561> not available
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 978.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 982.
+
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+<evolucao_coleta_ieee.pdf, id=67, 602.25pt x 372.39125pt>
+File: evolucao_coleta_ieee.pdf Graphic file (type pdf)
+
+<use evolucao_coleta_ieee.pdf>
+Package pdftex.def Info: evolucao_coleta_ieee.pdf used on input line 1003.
+(pdftex.def)             Requested size: 602.24852pt x 372.39034pt.
+
+<memoria_copia_ieee.pdf, id=68, 602.25pt x 372.39125pt>
+File: memoria_copia_ieee.pdf Graphic file (type pdf)
+
+<use memoria_copia_ieee.pdf>
+Package pdftex.def Info: memoria_copia_ieee.pdf used on input line 1038.
+(pdftex.def)             Requested size: 602.24852pt x 372.39034pt.
+ [5 <./evolucao_coleta_ieee.pdf> <./memoria_copia_ieee.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./memoria_copia_ieee.pdf): PDF inclusio
+n: multiple pdfs with page group included in a single page
+>] <evidencia_download_ieee.pdf, id=108, 602.25pt x 372.39125pt>
 File: evidencia_download_ieee.pdf Graphic file (type pdf)
 
 <use evidencia_download_ieee.pdf>
-Package pdftex.def Info: evidencia_download_ieee.pdf used on input line 1072.
+Package pdftex.def Info: evidencia_download_ieee.pdf used on input line 1070.
 (pdftex.def)             Requested size: 602.24852pt x 372.39034pt.
 
-<comando-copia-memoria-gdb.pdf, id=90, 586.10968pt x 100.45529pt>
+<comando-copia-memoria-gdb.pdf, id=109, 586.10968pt x 100.45529pt>
 File: comando-copia-memoria-gdb.pdf Graphic file (type pdf)
 
 <use comando-copia-memoria-gdb.pdf>
-Package pdftex.def Info: comando-copia-memoria-gdb.pdf used on input line 1102.
+Package pdftex.def Info: comando-copia-memoria-gdb.pdf used on input line 1100.
 
-(pdftex.def)             Requested size: 293.05412pt x 50.22751pt.
+(pdftex.def)             Requested size: 234.43971pt x 40.1814pt.
 
-<antes-injecao.pdf, id=91, 420.61137pt x 269.08528pt>
+<antes-injecao.pdf, id=110, 420.61137pt x 269.08528pt>
 File: antes-injecao.pdf Graphic file (type pdf)
  <use antes-injecao.pdf>
-Package pdftex.def Info: antes-injecao.pdf used on input line 1124.
+Package pdftex.def Info: antes-injecao.pdf used on input line 1122.
 (pdftex.def)             Requested size: 252.36877pt x 161.45241pt.
 
-<apos-injecao.pdf, id=92, 384.47638pt x 348.34138pt>
+<apos-injecao.pdf, id=111, 384.47638pt x 348.34138pt>
 File: apos-injecao.pdf Graphic file (type pdf)
  <use apos-injecao.pdf>
-Package pdftex.def Info: apos-injecao.pdf used on input line 1133.
+Package pdftex.def Info: apos-injecao.pdf used on input line 1131.
 (pdftex.def)             Requested size: 384.47543pt x 348.34053pt.
 
-[6 <./memoria_copia_ieee.pdf> <./evidencia_download_ieee.pdf
+[6 <./evidencia_download_ieee.pdf> <./comando-copia-memoria-gdb.pdf
 
-pdfTeX warning: /usr/bin/pdflatex (file ./evidencia_download_ieee.pdf): PDF inc
-lusion: multiple pdfs with page group included in a single page
+pdfTeX warning: /usr/bin/pdflatex (file ./comando-copia-memoria-gdb.pdf): PDF i
+nclusion: invalid other resource which is no dict (key 'ProcSets', type <array>
+); ignored.
 > <./antes-injecao.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ./antes-injecao.pdf): PDF inclusion: in
@@ -901,72 +949,72 @@ valid other resource which is no dict (key 'ProcSets', type <array>); ignored.
 pdfTeX warning: /usr/bin/pdflatex (file ./apos-injecao.pdf): PDF inclusion: inv
 alid other resource which is no dict (key 'ProcSets', type <array>); ignored.
 >] (./artigo-ieee.bbl
-Underfull \hbox (badness 6910) in paragraph at lines 93--96
-[]\OT1/ptm/m/n/8 Diamanti, ``Five rea-sons you should run con-tain-ers on bare
+Underfull \hbox (badness 5578) in paragraph at lines 93--96
+\OT1/ppl/m/n/8.03 metal, not vms,'' Dia-manti, Tech. Rep., 2018, avail-able:
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 93--96
-\OT1/ptm/m/n/8 metal, not vms,'' Dia-manti, Tech. Rep., 2018, avail-able:
+\OT1/ppl/m/n/8.03 https : / / diamanti . com / wp-[]content / uploads / 2018 / 
+07 / Diamanti[]
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 93--96
-\OT1/ptm/m/n/8 https : / / diamanti . com / wp-[]content / uploads / 2018 / 07 
-/ Diamanti[]WP[]Five[]
+\OT1/ppl/m/n/8.03 WP[]Five[]Reasons[]You[]Should[]Run[]Containers[]on[]Bare[]
  []
 
-[7 <./comando-copia-memoria-gdb.pdf
 
-pdfTeX warning: /usr/bin/pdflatex (file ./comando-copia-memoria-gdb.pdf): PDF i
-nclusion: invalid other resource which is no dict (key 'ProcSets', type <array>
-); ignored.
->]
-Overfull \hbox (8.59348pt too wide) in paragraph at lines 179--185
-\OT1/ptm/m/n/8 Exploring-[]Static-[]and-[]Live-[]Digital-[]Forensic-[]Methods-[
-]Practices-[]and-[]Tools .
+Underfull \hbox (badness 10000) in paragraph at lines 98--101
+[]\OT1/ppl/m/n/8.03 DevOps and Clus-terHQ, ``Con-tainer mar-ket adop-tion
  []
 
-)
 
-** Conference Paper **
-Before submitting the final camera ready copy, remember to:
+Underfull \hbox (badness 10000) in paragraph at lines 98--101
+\OT1/ppl/m/n/8.03 sur-vey 2016,'' De-vOps and Clus-terHQ, Tech. Rep.,
+ []
 
- 1. Manually equalize the lengths of two columns on the last page
- of your paper;
 
- 2. Ensure that any PostScript and/or PDF output post-processing
- uses only Type 1 fonts and that every step in the generation
- process uses the appropriate paper size.
+Underfull \hbox (badness 10000) in paragraph at lines 98--101
+\OT1/ppl/m/n/8.03 2016, avail-able: $https : / / clusterhq . com / assets / pdf
+s /
+ []
 
-[8
 
-] (./artigo-ieee.aux)
+Overfull \hbox (28.72102pt too wide) in paragraph at lines 179--185
+\OT1/ppl/m/n/8.03 Exploring-[]Static-[]and-[]Live-[]Digital-[]Forensic-[]Method
+s-[]Practices-[]and-[]Tools .
+ []
+
+) [7] (./artigo-ieee.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4870 strings out of 493304
- 73855 string characters out of 6139871
- 170499 words of memory out of 5000000
- 8213 multiletter control sequences out of 15000+600000
- 40419 words of font info for 75 fonts, out of 8000000 for 9000
+ 4988 strings out of 493304
+ 75993 string characters out of 6139871
+ 170172 words of memory out of 5000000
+ 8315 multiletter control sequences out of 15000+600000
+ 44620 words of font info for 93 fonts, out of 8000000 for 9000
  960 hyphenation exceptions out of 8191
- 40i,16n,35p,662b,369s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 40i,16n,35p,662b,374s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
-rw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb
-8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on artigo-ieee.pdf (8 pages, 363808 bytes).
+rw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/u
+hvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/urw/palatino/uplri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/z
+apfding/uzdr.pfb>
+Output written on artigo-ieee.pdf (7 pages, 394279 bytes).
 PDF statistics:
- 189 PDF objects out of 1000 (max. 8388607)
- 128 compressed objects within 2 object streams
+ 198 PDF objects out of 1000 (max. 8388607)
+ 135 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

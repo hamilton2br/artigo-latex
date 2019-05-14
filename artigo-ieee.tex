@@ -64,7 +64,8 @@
 % should be used if it is desired that the figures are to be displayed in
 % draft mode.
 %
-\documentclass[conference]{IEEEtran}
+%\documentclass[conference]{IEEEtran}
+\documentclass[10pt,journal,compsoc]{IEEEtran}
 % Add the compsoc option for Computer Society conferences.
 %
 % If IEEEtran.cls has not been installed into the LaTeX system files,
@@ -421,20 +422,12 @@ Email: hamiltonii@gmail.com, mjunior@larc.usp.br, gomi@usp.br}
 %Telephone: (800) 555--1212, Fax: (888) 555--1212}
 %\IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}}
 
-
-
-
 % use for special paper notices
 %\IEEEspecialpapernotice{(Invited Paper)}
 
-
-
-
-% make the title area
-\maketitle
-
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
+\IEEEtitleabstractindextext{%
 \begin{abstract}
 Cloud architectures are increasingly more common, as is the number of security issues involving this technology. 
 %
@@ -450,7 +443,12 @@ As such, it should be a useful tool for analyzing the causes of security inciden
 % keywords
 \begin{IEEEkeywords}
 Cloud computing, containers, digital forensics, cloud forensics, evidente acquisition, chain of custody.
-\end{IEEEkeywords}
+\end{IEEEkeywords}}
+
+% make the title area
+\maketitle
+
+
 
 % For peer review papers, you can put extra information on the cover
 % page as needed:
@@ -1096,13 +1094,13 @@ In addition to collecting the \textbf{/proc/pid/numa\_maps} directory contents, 
 %\noindent\texttt{\footnotesize \#reading...\marcos{escreva aqui o comando... usar uma figura pra texto não faz lá muito sentido... - Hamilton: mudei a imagem para PDF. Marcos: adiantou coisa nenhuma... Se o leitor não consegue copiar+colar, pode ser pdf, jpeg, ou qualquer outro formato já inventado pela humanidade ou por ETs... \textbf{PRECISA SER TEXTO!!!}. Se quiser colocar cor, use o package color do LaTeX.}}
 % described in Figure \ref{fig:comando-copia}.
 
-\begin{figure*}[htb!]
+\begin{figure}[htb!]
 \footnotesize
 \caption{Commands to generate a raw copy of a container's memory.}
-\includegraphics[scale=0.50]{comando-copia-memoria-gdb.pdf}
+\includegraphics[scale=0.40]{comando-copia-memoria-gdb.pdf}
 \centering
 \label{fig:comando-copia}
-\end{figure*}
+\end{figure}
 
 
 %We then compared two distinct moments in the containers' lifetime: before and after the library injection
