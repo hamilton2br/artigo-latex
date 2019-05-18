@@ -442,7 +442,7 @@ As such, it should be a useful tool for analyzing the causes of security inciden
 
 % keywords
 \begin{IEEEkeywords}
-Cloud computing, containers, digital forensics, cloud forensics, evidente acquisition, chain of custody.
+Cloud computing, containers, digital forensics, cloud forensics, evidence acquisition, chain of custody.
 \end{IEEEkeywords}}
 
 % make the title area
@@ -549,7 +549,7 @@ Section \ref{sec:conclusion} presents our final considerations.
 
 Cloud computing refers to a model that provides network access to a configurable amount of computing resources, in such a manner that users can allocate and release computational resources on demand and with minimal management effort \cite{NIST2011}.
 %
-Depending on which resources are provided to clients (also called tenants), three main cloud service models can be defined \cite{NIST2011}: software as a service (SaaS), in which the software to be used by the clients is provided; platform as a service (PaaS), in which an environment is provided for clients to develop, test and execute their software; and infrastructure as a service (IaaS), in which basic computational resources are provided (e.g., processing, memory and storage), usually by means of virtualization.
+Depending on which resources are provided to clients, three main cloud service models can be defined \cite{NIST2011}: software as a service (SaaS), in which the software to be used by the clients is provided; platform as a service (PaaS), in which an environment is provided for clients to develop, test and execute their software; and infrastructure as a service (IaaS), in which basic computational resources are provided (e.g., processing, memory and storage), usually by means of virtualization.
 %
 In this work, we focus on the IaaS service model, where clients have further control over the underlying cloud resources.
 
@@ -852,7 +852,7 @@ Instead, it is executed jointly with processes that may modify the very memory p
 Hence, if one of such processes maliciously erases traces of its existence from the container memory, important information may eventually be lost.
 
 
-Aiming to improve the atomicity of a memory copy process, \fancyname\ temporarily interrupts the execution of the container, makes a copies its contents, and then resumes its execution. 
+Aiming to improve the atomicity of a memory copy process, \fancyname\ temporarily interrupts the execution of the container, makes a copies of its contents, and then resumes its execution. 
 %
 This technique is similar to that adopted by \cite{Rafique_Static_Live_Digital_Forensics:2013} for VMs, producing a photograph of the container's volatile memory for latter analysis.
 
