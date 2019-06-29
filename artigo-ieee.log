@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  18 MAY 2019 10:48
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  28 JUN 2019 21:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -734,23 +734,6 @@ Package pdftex.def Info: check.png used on input line 653.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 File: x.png Graphic file (type png)
  <use x.png>
-Package pdftex.def Info: x.png used on input line 654.
-(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
-File: x.png Graphic file (type png)
- <use x.png>
-Package pdftex.def Info: x.png used on input line 654.
-(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
-File: x.png Graphic file (type png)
- <use x.png>
-Package pdftex.def Info: x.png used on input line 654.
-(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
-File: check.png Graphic file (type png)
- <use check.png>
-Package pdftex.def Info: check.png used on input line 654.
-(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
-File: x.png Graphic file (type png)
-
-<use x.png>
 Package pdftex.def Info: x.png used on input line 655.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: check.png Graphic file (type png)
@@ -764,14 +747,14 @@ Package pdftex.def Info: x.png used on input line 655.
 File: check.png Graphic file (type png)
  <use check.png>
 Package pdftex.def Info: check.png used on input line 655.
-(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
-File: check.png Graphic file (type png)
- <use check.png>
-Package pdftex.def Info: check.png used on input line 656.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 File: check.png Graphic file (type png)
 
 <use check.png>
+Package pdftex.def Info: check.png used on input line 656.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: check.png Graphic file (type png)
+ <use check.png>
 Package pdftex.def Info: check.png used on input line 656.
 (pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 File: x.png Graphic file (type png)
@@ -787,12 +770,12 @@ File: x.png Graphic file (type png)
 Package pdftex.def Info: x.png used on input line 657.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: x.png Graphic file (type png)
- <use x.png>
+
+<use x.png>
 Package pdftex.def Info: x.png used on input line 657.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: x.png Graphic file (type png)
-
-<use x.png>
+ <use x.png>
 Package pdftex.def Info: x.png used on input line 657.
 (pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
 File: check.png Graphic file (type png)
@@ -856,22 +839,22 @@ LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <9.53561> not available
 File: janela_ieee-eng.pdf Graphic file (type pdf)
 
 <use janela_ieee-eng.pdf>
-Package pdftex.def Info: janela_ieee-eng.pdf used on input line 892.
+Package pdftex.def Info: janela_ieee-eng.pdf used on input line 894.
 (pdftex.def)             Requested size: 361.34912pt x 294.13818pt.
-LaTeX Font Info:    Try loading font information for OMS+ppl on input line 905.
+LaTeX Font Info:    Try loading font information for OMS+ppl on input line 907.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsppl.fd
 File: omsppl.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <9.53561> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 905.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 907.
 
 <solucao-eng-small.pdf, id=25, 568.04218pt x 154.6578pt>
 File: solucao-eng-small.pdf Graphic file (type pdf)
 
 <use solucao-eng-small.pdf>
-Package pdftex.def Info: solucao-eng-small.pdf used on input line 923.
+Package pdftex.def Info: solucao-eng-small.pdf used on input line 925.
 (pdftex.def)             Requested size: 568.04079pt x 154.65741pt.
  [4 <./janela_ieee-eng.pdf
 
@@ -885,8 +868,8 @@ pdfTeX warning: /usr/bin/pdflatex (file ./solucao-eng-small.pdf): PDF inclusion
 ed.
 >]
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <9.53561> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 978.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 982.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 980.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 984.
 
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
@@ -895,14 +878,14 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 File: evolucao_coleta_ieee.pdf Graphic file (type pdf)
 
 <use evolucao_coleta_ieee.pdf>
-Package pdftex.def Info: evolucao_coleta_ieee.pdf used on input line 1003.
+Package pdftex.def Info: evolucao_coleta_ieee.pdf used on input line 1005.
 (pdftex.def)             Requested size: 602.24852pt x 372.39034pt.
 
 <memoria_copia_ieee.pdf, id=68, 602.25pt x 372.39125pt>
 File: memoria_copia_ieee.pdf Graphic file (type pdf)
 
 <use memoria_copia_ieee.pdf>
-Package pdftex.def Info: memoria_copia_ieee.pdf used on input line 1038.
+Package pdftex.def Info: memoria_copia_ieee.pdf used on input line 1040.
 (pdftex.def)             Requested size: 602.24852pt x 372.39034pt.
  [5 <./evolucao_coleta_ieee.pdf> <./memoria_copia_ieee.pdf
 
@@ -912,27 +895,27 @@ n: multiple pdfs with page group included in a single page
 File: evidencia_download_ieee.pdf Graphic file (type pdf)
 
 <use evidencia_download_ieee.pdf>
-Package pdftex.def Info: evidencia_download_ieee.pdf used on input line 1070.
+Package pdftex.def Info: evidencia_download_ieee.pdf used on input line 1072.
 (pdftex.def)             Requested size: 602.24852pt x 372.39034pt.
 
 <comando-copia-memoria-gdb.pdf, id=109, 586.10968pt x 100.45529pt>
 File: comando-copia-memoria-gdb.pdf Graphic file (type pdf)
 
 <use comando-copia-memoria-gdb.pdf>
-Package pdftex.def Info: comando-copia-memoria-gdb.pdf used on input line 1100.
+Package pdftex.def Info: comando-copia-memoria-gdb.pdf used on input line 1102.
 
 (pdftex.def)             Requested size: 234.43971pt x 40.1814pt.
 
 <antes-injecao.pdf, id=110, 420.61137pt x 269.08528pt>
 File: antes-injecao.pdf Graphic file (type pdf)
  <use antes-injecao.pdf>
-Package pdftex.def Info: antes-injecao.pdf used on input line 1122.
+Package pdftex.def Info: antes-injecao.pdf used on input line 1124.
 (pdftex.def)             Requested size: 252.36877pt x 161.45241pt.
 
 <apos-injecao.pdf, id=111, 384.47638pt x 348.34138pt>
 File: apos-injecao.pdf Graphic file (type pdf)
  <use apos-injecao.pdf>
-Package pdftex.def Info: apos-injecao.pdf used on input line 1131.
+Package pdftex.def Info: apos-injecao.pdf used on input line 1133.
 (pdftex.def)             Requested size: 384.47543pt x 348.34053pt.
 
 [6 <./evidencia_download_ieee.pdf> <./comando-copia-memoria-gdb.pdf
@@ -981,7 +964,7 @@ s /
  []
 
 
-Overfull \hbox (28.72102pt too wide) in paragraph at lines 179--185
+Overfull \hbox (28.72102pt too wide) in paragraph at lines 180--186
 \OT1/ppl/m/n/8.03 Exploring-[]Static-[]and-[]Live-[]Digital-[]Forensic-[]Method
 s-[]Practices-[]and-[]Tools .
  []
@@ -992,10 +975,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4988 strings out of 493304
+ 4987 strings out of 493304
  75993 string characters out of 6139871
- 170172 words of memory out of 5000000
- 8315 multiletter control sequences out of 15000+600000
+ 169172 words of memory out of 5000000
+ 8314 multiletter control sequences out of 15000+600000
  44620 words of font info for 93 fonts, out of 8000000 for 9000
  960 hyphenation exceptions out of 8191
  40i,16n,35p,662b,374s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1011,7 +994,7 @@ exlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf
 -dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/palatino/uplri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/z
 apfding/uzdr.pfb>
-Output written on artigo-ieee.pdf (7 pages, 394146 bytes).
+Output written on artigo-ieee.pdf (7 pages, 393893 bytes).
 PDF statistics:
  198 PDF objects out of 1000 (max. 8388607)
  135 compressed objects within 2 object streams

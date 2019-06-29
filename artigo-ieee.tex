@@ -651,7 +651,7 @@ For a structured discussion, in this section we analyze the works available in t
 \cite{George_DF2CE:2012}							& \xfig		  		& \xfig       & \xfig       & \cfig                             \\ \hline
 \cite{Poisel_VMI:2013}								& \xfig       	& \xfig       & \xfig       & \cfig                             \\ \hline
 \cite{Dykstra_FROST:2013}							& \xfig      		& \xfig       & \xfig       & \cfig                             \\ \hline
-\cite{Do_Desafio:2014}								& \xfig		    	& \xfig       & \xfig       & \cfig                             \\ \hline
+%\cite{Do_Desafio:2014}								& \xfig		    	& \xfig       & \xfig       & \cfig                             \\ \hline
 \cite{Reichert_Auto_acquisition:2015}	& \xfig  	    	& \cfig       & \xfig       & \cfig                             \\ \hline
 \cite{Sang_Log_approach:2013}					& \cfig   			& \cfig	      & \xfig       & \cfig                             \\ \hline
 \cite{Dolan-Gavitt_Semantic_Gap:2011}	& \xfig       	& \xfig       & \xfig       & \cfig                             \\ \hline
@@ -852,7 +852,9 @@ Instead, it is executed jointly with processes that may modify the very memory p
 Hence, if one of such processes maliciously erases traces of its existence from the container memory, important information may eventually be lost.
 
 
-Aiming to improve the atomicity of a memory copy process, \fancyname\ temporarily interrupts the execution of the container, makes a copies of its contents, and then resumes its execution. 
+Aiming to improve the atomicity of a memory copy process and inspired on the process of cloud checkpointing \cite{cloud_checkpointing_2015}, 
+%
+\fancyname\ temporarily interrupts the execution of the container, makes a copies of its contents, and then resumes its execution. 
 %
 This technique is similar to that adopted by \cite{Rafique_Static_Live_Digital_Forensics:2013} for VMs, producing a photograph of the container's volatile memory for latter analysis.
 

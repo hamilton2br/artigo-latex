@@ -16,48 +16,47 @@ Warning--empty booktitle in Dykstra_Acquiring_for_IAAS:2012
 Warning--empty booktitle in Dykstra_FROST:2013
 Warning--empty journal in inline-hooking:2008
 Warning--empty year in inline-hooking:2008
-Warning--empty journal in Do_Desafio:2014
 
 Done.
 You've used 28 entries,
             4039 wiz_defined-function locations,
-            1004 strings with 13722 characters,
-and the built_in function-call counts, 20212 in all, are:
-= -- 1648
-> -- 438
-< -- 153
-+ -- 229
-- -- 74
-* -- 976
-:= -- 3126
+            1003 strings with 13763 characters,
+and the built_in function-call counts, 20649 in all, are:
+= -- 1682
+> -- 457
+< -- 160
++ -- 239
+- -- 77
+* -- 999
+:= -- 3172
 add.period$ -- 63
 call.type$ -- 28
-change.case$ -- 37
-chr.to.int$ -- 360
-cite$ -- 34
-duplicate$ -- 1486
-empty$ -- 1662
-format.name$ -- 96
-if$ -- 4612
+change.case$ -- 36
+chr.to.int$ -- 378
+cite$ -- 33
+duplicate$ -- 1509
+empty$ -- 1689
+format.name$ -- 100
+if$ -- 4720
 int.to.chr$ -- 0
 int.to.str$ -- 28
-missing$ -- 275
+missing$ -- 278
 newline$ -- 123
 num.names$ -- 30
-pop$ -- 657
+pop$ -- 665
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1532
+skip$ -- 1563
 stack$ -- 0
-substring$ -- 876
-swap$ -- 1165
-text.length$ -- 33
+substring$ -- 916
+swap$ -- 1195
+text.length$ -- 34
 text.prefix$ -- 0
 top$ -- 5
 type$ -- 28
-warning$ -- 6
-while$ -- 91
+warning$ -- 5
+while$ -- 95
 width$ -- 30
-write$ -- 308
-(There were 6 warnings)
+write$ -- 309
+(There were 5 warnings)

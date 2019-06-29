@@ -121,11 +121,6 @@ R.~Poisel, E.~Malzer, and S.~Tjoa, ``{Evidence and cloud computing: The virtual
   \url{citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.469.937}
 \BIBentrySTDinterwordspacing
 
-\bibitem{Do_Desafio:2014}
-D.~Barbara, ``{Desafios da per{\'{i}}cia forense em um ambiente de
-  computa{\c{c}}{\~{a}}o nas nuvens},'' 2014,
-  \urls{revista.uniplac.net/ojs/index.php/tc_si/article/view/1911}.
-
 \bibitem{Dolan-Gavitt_Semantic_Gap:2011}
 B.~Dolan-Gavitt, T.~Leek, M.~Zhivich, J.~Giffin, and W.~Lee, ``Virtuoso:
   Narrowing the semantic gap in virtual machine introspection,'' in \emph{IEEE
@@ -173,6 +168,12 @@ S.~Alqahtany, N.~Clarke, S.~Furnell, and C.~Reich, ``Cloud forensics: A review
   of challenges, solutions and open problems,'' in \emph{Int. Conference on
   Cloud Computing (ICCC)}.\hskip 1em plus 0.5em minus 0.4em\relax Plymouth, UK:
   IEEE, April 2015, pp. 1--9.
+
+\bibitem{cloud_checkpointing_2015}
+J.~Cao, M.~Simonin, G.~Cooperman, and C.~Morin, ``{Checkpointing as a service
+  in heterogeneous cloud environments},'' \emph{Proceedings - 2015 IEEE/ACM
+  15th International Symposium on Cluster, Cloud, and Grid Computing, CCGrid
+  2015}, pp. 61--70, 2015.
 
 \bibitem{Rafique_Static_Live_Digital_Forensics:2013}
 \BIBentryALTinterwordspacing

@@ -1,3 +1,17 @@
+@article{cloud_checkpointing_2015,
+abstract = {A non-invasive, cloud-agnostic approach is demonstrated for extending existing cloud platforms to include checkpoint-restart capability. Most cloud platforms currently rely on each application to provide its own fault tolerance. A uniform mechanism within the cloud itself serves two purposes: (a) direct support for long-running jobs, which would otherwise require a custom fault-tolerant mechanism for each application, and (b) the administrative capability to manage an over-subscribed cloud by temporarily swapping out jobs when higher priority jobs arrive. An advantage of this uniform approach is that it also supports parallel and distributed computations, over both TCP and InfiniBand, thus allowing traditional HPC applications to take advantage of an existing cloud infrastructure. Additionally, an integrated health-monitoring mechanism detects when long-running jobs either fail or incur exceptionally low performance, perhaps due to resource starvation, and proactively suspends the job. The cloud-agnostic feature is demonstrated by applying the implementation to two very different cloud platforms: Snooze and Open Stack. The use of a cloud-agnostic architecture also enables, for the first time, migration of applications from one cloud platform to another.},
+author = {Cao, Jiajun and Simonin, Matthieu and Cooperman, Gene and Morin, Christine},
+doi = {10.1109/CCGrid.2015.160},
+file = {:home/hamilton/host/cao2015.pdf:pdf},
+isbn = {9781479980062},
+journal = {Proceedings - 2015 IEEE/ACM 15th International Symposium on Cluster, Cloud, and Grid Computing, CCGrid 2015},
+keywords = {Checkpoint-restart,Cloud computing,Distributed application,Infrastructure-as-a-service,Scalability,Self-healing,Virtualization},
+pages = {61--70},
+title = {{Checkpointing as a service in heterogeneous cloud environments}},
+year = {2015}
+}
+
+
 @article{Stelly2017,
 abstract = {The rapid growth of raw data volume requiring forensic processing has become one of the top concerns of forensic analysts. At present, there are no readily available solutions that provide: a) open and flexible integration of existing forensic tools into a processing pipeline; and b) scale-out architecture that is compatible with common cloud technologies. Containers, lightweight OS-level virtualized environments, are quickly becoming the preferred architectural unit for building large-scale data processing systems. We present a container-based software framework, SCARF, which applies this approach to forensic computations. Our prototype demonstrates its practicality by providing low-cost integration of both custom code and a variety of third-party tools via simple data interfaces. The resulting system fits well with the data parallel nature of most forensic tasks, which tend to have few dependencies that limit parallel execution. Our experimental evaluation shows that for several types of processing tasksesuch as hashing, indexing and bulk processingeperformance scales almost linearly with the addition of hardware resources. We show that the software engineering effort to integrate new tools is quite modest, and all the critical task scheduling and resource allocation are automatically managed by the container orchestration runtimeeDocker Swarm, or similar.},
 author = {Stelly, Christopher and Roussev, Vassil},
