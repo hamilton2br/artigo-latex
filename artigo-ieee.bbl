@@ -44,9 +44,12 @@ J.~Dykstra and A.~Sherman, ``{Acquiring forensic evidence from
 \BIBentrySTDinterwordspacing
 
 \bibitem{Rahman_Live_Forensics_Techniques:2015}
+\BIBentryALTinterwordspacing
 S.~Rahman and M.~N.~A. Khan, ``{Review of live forensic analysis techniques},''
   \emph{International Journal of Hybrid Information Technology}, vol.~8, no.~2,
-  pp. 379--388, 2015.
+  pp. 379--388, 2015. [Online]. Available:
+  \url{https://www.researchgate.net/publication/283740637_Review_of_Live_Forensic_Analysis_Techniques}
+\BIBentrySTDinterwordspacing
 
 \bibitem{Dykstra_FROST:2013}
 \BIBentryALTinterwordspacing
@@ -58,9 +61,12 @@ J.~Dykstra and A.~T. Sherman, ``Design and implementation of {FROST}: Digital
 \BIBentrySTDinterwordspacing
 
 \bibitem{Reichert_Auto_acquisition:2015}
+\BIBentryALTinterwordspacing
 Z.~Reichert, K.~Richards, and K.~Yoshigoe, ``{Automated forensic data
   acquisition in the cloud},'' \emph{IEEE Int. Conf. on Mobile Ad Hoc and
-  Sensor Systems}, pp. 725--730, 2015.
+  Sensor Systems}, pp. 725--730, 2015. [Online]. Available:
+  \url{https://ieeexplore.ieee.org/document/7035772}
+\BIBentrySTDinterwordspacing
 
 \bibitem{George_DF2CE:2012}
 S.~George, H.~Venter, and F.~Thomas, ``{Digital Forensic Framework for a Cloud
@@ -68,9 +74,12 @@ S.~George, H.~Venter, and F.~Thomas, ``{Digital Forensic Framework for a Cloud
   minus 0.4em\relax Tanzania: IIMC, 2012, pp. 1--8.
 
 \bibitem{Sang_Log_approach:2013}
+\BIBentryALTinterwordspacing
 T.~Sang, ``{A log-based approach to make digital forensics easier on cloud
   computing},'' \emph{2013 3rd International Conference on Intelligent System
-  Design and Engineering Applications, ISDEA 2013}, pp. 91--94, 2013.
+  Design and Engineering Applications, ISDEA 2013}, pp. 91--94, 2013. [Online].
+  Available: \url{https://ieeexplore.ieee.org/document/6454779}
+\BIBentrySTDinterwordspacing
 
 \bibitem{Case_Memory_Forensics:2014}
 A.~Case, M.~Ligh, L.~Jamie, and A.~Walters, \emph{{The Art of Memory Forensics:
@@ -157,11 +166,14 @@ D.~Quick and K.~K.~R. Choo, ``{Impacts of increasing volume of digital forensic
 \BIBentrySTDinterwordspacing
 
 \bibitem{Simou_Cloud_Chlng:2014}
+\BIBentryALTinterwordspacing
 S.~Simou, C.~Kalloniatis, E.~Kavakli, and S.~Gritzalis, ``{Cloud forensics:
   Identifying the major issues and challenges},'' in \emph{Advanced Information
   Systems Engineering (CAiSE 2014)}, vol. 8484.\hskip 1em plus 0.5em minus
   0.4em\relax Cham, CH: Springer International Publishing Switzerland 2014,
-  2014, pp. 271--284.
+  2014, pp. 271--284. [Online]. Available:
+  \url{https://www.researchgate.net/publication/289531775_Cloud_Forensics_Identifying_the_Major_Issues_and_Challenges}
+\BIBentrySTDinterwordspacing
 
 \bibitem{Clarke_Review_of_Challenges:2015}
 S.~Alqahtany, N.~Clarke, S.~Furnell, and C.~Reich, ``Cloud forensics: A review
