@@ -1,0 +1,509 @@
+%% BioMed_Central_Tex_Template_v1.06
+%%                                      %
+%  bmc_article.tex            ver: 1.06 %
+%                                       %
+
+%%IMPORTANT: do not delete the first line of this template
+%%It must be present to enable the BMC Submission system to
+%%recognise this template!!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                     %%
+%%  LaTeX template for BioMed Central  %%
+%%     journal article submissions     %%
+%%                                     %%
+%%          <8 June 2012>              %%
+%%                                     %%
+%%                                     %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% For instructions on how to fill out this Tex template           %%
+%% document please refer to Readme.html and the instructions for   %%
+%% authors page on the biomed central website                      %%
+%% http://www.biomedcentral.com/info/authors/                      %%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%% BioMed Central currently use the MikTex distribution of         %%
+%% TeX for Windows) of TeX and LaTeX.  This is available from      %%
+%% http://www.miktex.org                                           %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% additional documentclass options:
+%  [doublespacing]
+%  [linenumbers]   - put the line numbers on margins
+
+%%% loading packages, author definitions
+
+%\documentclass[twocolumn]{bmcart}% uncomment this for twocolumn layout and comment line below
+\documentclass{bmcart}
+
+%%% Load packages
+%\usepackage{amsthm,amsmath}
+%\RequirePackage{natbib}
+%\RequirePackage[authoryear]{natbib}% uncomment this for author-year bibliography
+%\RequirePackage{hyperref}
+\usepackage[utf8]{inputenc} %unicode support
+%\usepackage[applemac]{inputenc} %applemac support if unicode package fails
+%\usepackage[latin1]{inputenc} %UNIX support if unicode package fails
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                             %%
+%%  If you wish to display your graphics for   %%
+%%  your own use using includegraphic or       %%
+%%  includegraphics, then comment out the      %%
+%%  following two lines of code.               %%
+%%  NB: These line *must* be included when     %%
+%%  submitting to BMC.                         %%
+%%  All figure files must be submitted as      %%
+%%  separate graphics through the BMC          %%
+%%  submission process, not included in the    %%
+%%  submitted article.                         %%
+%%                                             %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\def\includegraphic{}
+\def\includegraphics{}
+
+%placeholder for solution's name
+\newcommand{\fancyname}{Dizang}
+\newcommand{\fancynameX}{\fancyname}
+
+%%% Put your definitions there:
+\startlocaldefs
+
+%shortcuts
+\newcommand{\mr}[2]{\multirow{#1}{*}{#2}}
+\newcommand{\mc}[2]{\multicolumn{#1}{|L|}{#2}}
+\newcommand{\xfig}{\includegraphics[scale=0.007]{x.png}}
+%\newcommand{\xfig}{\mc{2}{\includegraphics[scale=0.007]{x.png}}}
+\newcommand{\cfig}{\includegraphics[scale=0.015]{check.png}}
+%\newcommand{\cfig}{\mc{2}{\includegraphics[scale=0.015]{check.png}}}
+%\newcommand{\rotb}[1]{\rotatebox{90}{\parbox{3.0cm}{\textbf{#1}}}}
+\newcommand{\rotb}[1]{\adjustbox{minipage=3.2cm,rotate=90}{{\textbf{#1}}}}
+
+\newcommand{\urls}[1]{{\footnotesize{\url{#1}}}}
+\newcommand{\tab}{\ \ \ }
+\newcommand{\tabX}{\tab\tab}
+\newcommand{\tabXL}{\tabX\tabX}
+
+\endlocaldefs
+
+
+%%% Begin ...
+\begin{document}
+
+%%% Start of article front matter
+\begin{frontmatter}
+
+\begin{fmbox}
+\dochead{Research}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Enter the title of your article here     %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{\fancyname: A solution for collecting forensic evidences in cloud environments}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Enter the authors here                   %%
+%%                                          %%
+%% Specify information, if available,       %%
+%% in the form:                             %%
+%%   <key>={<id1>,<id2>}                    %%
+%%   <key>=                                 %%
+%% Comment or delete the keys which are     %%
+%% not used. Repeat \author command as much %%
+%% as required.                             %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\author[
+   addressref={aff1},                   % id's of addresses, e.g. {aff1,aff2}
+   %corref={aff1},                       % id of corresponding address, if any
+   %noteref={n1},                        % id's of article notes, if any
+   email={hamiltonii@gmail.com}   % email address
+]{\inits{HJSFII}\fnm{Hamilton J S} \snm{Fonte II}}
+\author[
+   addressref={aff1},
+   %corref={aff1},                       % id of corresponding address, if any
+   %noteref={n1},                        % id's of article notes, if any
+   email={mjunior@larc.usp.br}
+]{\inits{MAS}\fnm{Marcos A.} \snm{Simplicio Jr.}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Enter the authors' addresses here        %%
+%%                                          %%
+%% Repeat \address commands as much as      %%
+%% required.                                %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\address[id=aff1]{%                           % unique id
+  \orgname{Escola Politécnica, Universidade de São Paulo (USP)}, % university, etc
+  \street{Av. Prof. Luciano Gualberto, 380},                     %
+  \postcode{05508-010}                                % post or zip code
+  \city{São Paulo, SP},                              % city
+  \cny{BR}                                    % country
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Enter short notes here                   %%
+%%                                          %%
+%% Short notes will be after addresses      %%
+%% on first page.                           %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{artnotes}
+%\note{Sample of title note}     % note to the article
+%\note[id=n1]{Equal contributor} % note, connected to author
+\end{artnotes}
+
+\end{fmbox}% comment this for two column layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% The Abstract begins here                 %%
+%%                                          %%
+%% Please refer to the Instructions for     %%
+%% authors on http://www.biomedcentral.com  %%
+%% and include the section headings         %%
+%% accordingly for your article type.       %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{abstractbox}
+
+\begin{abstract} % abstract
+Cloud architectures are increasingly more common, as is the number of security issues involving this technology. 
+%
+Unfortunately, due to the volatile nature of virtualized resources in the cloud, the task of gathering evidences for forensic analysis currently faces practical and legal challenges.
+%
+In this work, we address this issue by analyzing proposals aimed at meeting such challenges, discussing their limitations and then presenting a solution to overcome them.
+%
+The proposal specifically focuses on the reproducibility of the collection process in virtualized environments, without violating jurisdictions or the privacy of those not involved in the investigation.
+%
+As such, it should be a useful tool for analyzing the causes of security incidents in cloud computing systems.
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% The keywords begin here                  %%
+%%                                          %%
+%% Put each keyword in separate \kwd{}.     %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{keyword}
+\kwd{Cloud computing}
+\kwd{containers}
+\kwd{digital forensics}
+\kwd{cloud forensics}
+\kwd{evidence acquisition}
+\kwd{chain of custody}
+\end{keyword}
+
+% MSC classifications codes, if any
+%\begin{keyword}[class=AMS]
+%\kwd[Primary ]{}
+%\kwd{}
+%\kwd[; secondary ]{}
+%\end{keyword}
+
+\end{abstractbox}
+%
+%\end{fmbox}% uncomment this for twcolumn layout
+
+\end{frontmatter}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% The Main Body begins here                %%
+%%                                          %%
+%% Please refer to the instructions for     %%
+%% authors on:                              %%
+%% http://www.biomedcentral.com/info/authors%%
+%% and include the section headings         %%
+%% accordingly for your article type.       %%
+%%                                          %%
+%% See the Results and Discussion section   %%
+%% for details on how to create sub-sections%%
+%%                                          %%
+%% use \cite{...} to cite references        %%
+%%  \cite{koon} and                         %%
+%%  \cite{oreg,khar,zvai,xjon,schn,pond}    %%
+%%  \nocite{smith,marg,hunn,advi,koha,mouse}%%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%% start of article main body
+% <put your article body there>
+
+%%%%%%%%%%%%%%%%
+%% Background %%
+%%
+\section*{Introduction}
+\label{sec:intro}
+%==== CONTEXTO GERAL: Nuvem e volatilidade de VMs ====
+%
+Virtualization techniques, replication of services and resource sharing among multiple users (multitenancy) are key enablers for the high scalability of computational clouds \cite{Morsy_Cloud_Security:2010}.
+%
+At the same time, however, these mechanisms also lead to the volatility of the virtual resources executing cloud-based applications.
+%
+After all, when submitted to a high load, a cloud application may create clones of the virtual machines (VMs) or containers hosting it, and then balance the load among those copies; this auto-scaling behavior is expected to avoid any degradation of the quality provided by the service.
+%
+After the load subsides, the cloned instances are usually deactivated, their resources are released and the system returns to the previous capacity, thus avoiding unnecessary costs.
+
+
+%==== CONTEXTO ESPECÍFICO + PROBLEMA GERAL: Forense na nuvem vs. volatilidade + multitenancy + multidomains ====
+%
+Despite interesting from the efficiency and cost viewpoints, such volatility of the cloud is likely to causes problems from the perspective of attack response teams and forensic experts.
+%
+For example, suppose that a temporary virtual processing instance undergoes an attack that directly affects its memory, without leaving traces in permanent storage (e.g., log files).
+%
+In this case, the evidences of this event may be completely lost after such instances are deactivated and their resources are released.
+%
+This issue is further aggravated by aspects such as multitenancy and multi-jurisdiction, typical of cloud solutions \cite{Bash_Adv_in_Forensics:2015}.
+%
+Particularly, the multitenancy aspect makes it harder to isolate the hardware executing the applications of interest: since each piece of hardware is shared by a number of users, physically removing them for analysis could lead to privacy violation of users not related to the investigation. 
+%
+Moreover, due the distributed nature of the cloud, data relevant to the investigation may be allocated in different countries.
+%
+In practice, this encumbers the acquisition of the corresponding information, especially when there are no cooperation agreements among the entities involved \cite{Dykstra_Acquiring_for_IAAS:2012}.
+%
+%Moreover, the distributed nature of the cloud may lead to allocating information relevant to the investigation in different countries, thus hindering obtaining this information, especially when there are no cooperation agreements among the entities involved \cite{Dykstra_Acquiring_for_IAAS:2012}.
+%
+Combined, these characteristics hinder the implementation of an evidence collection process.
+%
+As a result, the response to memory-oriented attacks may be delayed, and evidences collected afterward may not have the necessary credibility so that they can be accepted in legal processes.
+%
+In particular, it becomes harder for forensic experts to comply with privacy, jurisdiction and chain of custody requirements, as well as to ensure the reproducibility of the collection process \cite{Rahman_Live_Forensics_Techniques:2015}.
+
+
+%==== O QUE EXISTE E PORQUE NÃO É SUFICIENTE: ??? ====
+%
+Even though the literature include solutions aimed at collecting information in the cloud for forensic analysis, most of them handle collection, transport and storage in an isolated manner.
+%
+For example, \cite{Dykstra_FROST:2013} and \cite{Reichert_Auto_acquisition:2015} deal with factors such as multitenancy and multi-jurisdiction, discussing forms of collecting and preserving evidence outside the cloud.
+%
+In comparison, \cite{George_DF2CE:2012} concentrates on forensic analysis to collect evidence from VMs while they are being executed, whereas \cite{Sang_Log_approach:2013} deals with ensuring the chain of custody when transporting evidences.
+%
+However, none of the proposals identified in the literature (1) describe how data are collected and stored observing the chain of custody, and (2) create the required conditions for reproducing the evidence collection process even if a virtualized resource is decommissioned.
+
+
+%==== O QUE FAZEMOS: Ataques de injeção ====
+%
+Aiming to overcome these limitations, this work presents \fancyname, a proposal focusing on: (1) the reproducibility of the collection process; (2) establishing a link between the evidence collected and its origin (assuming the cloud resource is univocally identifiable); and (3) preserving the jurisdiction and the privacy of those not involved in the investigation.
+%\marcos{Em algum lugar deste parágrafo, precisamos dizer que a solução é voltada a conteineres e a razao para isso. Coloquei uma razão acima, no item 2, mas não sei se está 100\% correta... provavelmente precisará melhorar}
+%
+As such, the proposed solution can be used as tool for incident management, safeguarding evidences for analysis during a post-incident stage.
+%
+In addition, these characteristics contribute to the credibility of collected evidences and, thus, to their acceptability in a possible legal process.
+%
+%Lastly, Incident Management, which increasingly shares processes and tools with \textit{Digital Forensics}, may benefit from a ready-to-use solution for collecting and preserving evidences at the \textit{preparation for the incident} stage. It should also be able to preserve evidences for the \textit{post-incident} stage, thus making it unnecessary to be concerned with their partial or total loss at the \textit{detection and analysis stages}.
+%
+%For this, the system is supposed to be monitored and executed within a cloud resource univocally identifiable.
+%
+When compared with similar-purpose solutions, \fancyname\ is particularly useful against code injection attacks \cite{Case_Memory_Forensics:2014}, which would normally leave no traces when cloud-based virtual instances are deactivated and their memory is released \cite{Vomel_Memory_Acquisition:2013,Case_Memory_Forensics:2014}.
+
+
+The rest of this paper is organized as follows.
+%
+Section \ref{sec:cloud} briefly discusses cloud solutions and their characteristics.
+%
+Section \ref{sec:related} analyzes the related works, in particular those focused on forensic analysis of (virtualized) memory information.
+%
+Section \ref{sec:proposal} details the proposed solution and its features.
+%
+Section \ref{sec:conclusion} presents our final considerations.
+
+
+
+\section*{Problem statement: virtualization vs. forensics in the cloud}
+\label{sec:cloud}
+
+Cloud computing refers to a model that provides network access to a configurable amount of computing resources, in such a manner that users can allocate and release computational resources on demand and with minimal management effort \cite{NIST2011}.
+%
+Depending on which resources are provided to clients, three main cloud service models can be defined \cite{NIST2011}: software as a service (SaaS), in which the software to be used by the clients is provided; platform as a service (PaaS), in which an environment is provided for clients to develop, test and execute their software; and infrastructure as a service (IaaS), in which basic computational resources are provided (e.g., processing, memory and storage), usually by means of virtualization.
+%
+In this work, we focus on the IaaS service model, where clients have further control over the underlying cloud resources.
+
+
+The traditional way of virtualizing IaaS resources in the cloud is to rely on virtual machines (VMs) \cite{Diamanti:2018}.
+%
+More recently, however, there has been an increasing interest in using containers for this purpose.
+%
+Indeed, according to a study conducted in 2016 with 235 companies involved with software development \cite{container-survey:2016}, 76\% of the respondents used containers to improve the efficiency of their development process and of their cloud micro-services architecture.
+%
+However, whereas VMs involve instantiating a virtual hardware and also an operating system (OS) on top of the native system, virtualization with containers is conducted at the level of the native OS.
+%
+According do \cite{Diamanti:2018}, containers allow for a simpler implementation and better resource usage, eliminating layers between the application being executed and the physical hardware.
+%
+They also have a lower total cost and a more predictable performance.
+
+
+
+\subsection*{Sub-heading for section}
+Text for this sub-heading \ldots
+\subsubsection*{Sub-sub heading for section}
+Text for this sub-sub-heading \ldots
+\paragraph*{Sub-sub-sub heading for section}
+Text for this sub-sub-sub-heading \ldots
+In this section we examine the growth rate of the mean of $Z_0$, $Z_1$ and $Z_2$. In
+addition, we examine a common modeling assumption and note the
+importance of considering the tails of the extinction time $T_x$ in
+studies of escape dynamics.
+We will first consider the expected resistant population at $vT_x$ for
+some $v>0$, (and temporarily assume $\alpha=0$)
+%
+\[
+ E \bigl[Z_1(vT_x) \bigr]= E
+\biggl[\mu T_x\int_0^{v\wedge
+1}Z_0(uT_x)
+\exp \bigl(\lambda_1T_x(v-u) \bigr)\,du \biggr].
+\]
+%
+If we assume that sensitive cells follow a deterministic decay
+$Z_0(t)=xe^{\lambda_0 t}$ and approximate their extinction time as
+$T_x\approx-\frac{1}{\lambda_0}\log x$, then we can heuristically
+estimate the expected value as
+%
+\begin{eqnarray}\label{eqexpmuts}
+E\bigl[Z_1(vT_x)\bigr] &=& \frac{\mu}{r}\log x
+\int_0^{v\wedge1}x^{1-u}x^{({\lambda_1}/{r})(v-u)}\,du
+\nonumber\\
+&=& \frac{\mu}{r}x^{1-{\lambda_1}/{\lambda_0}v}\log x\int_0^{v\wedge
+1}x^{-u(1+{\lambda_1}/{r})}\,du
+\nonumber\\
+&=& \frac{\mu}{\lambda_1-\lambda_0}x^{1+{\lambda_1}/{r}v} \biggl(1-\exp \biggl[-(v\wedge1) \biggl(1+
+\frac{\lambda_1}{r}\biggr)\log x \biggr] \biggr).
+\end{eqnarray}
+%
+Thus we observe that this expected value is finite for all $v>0$ (also see \cite{koon,khar,zvai,xjon,marg}).
+%\nocite{oreg,schn,pond,smith,marg,hunn,advi,koha,mouse}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Backmatter begins here                   %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{backmatter}
+
+\section*{Competing interests}
+  The authors declare that they have no competing interests.
+
+\section*{Author's contributions}
+    Text for this section \ldots
+
+\section*{Acknowledgements}
+  Text for this section \ldots
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                  The Bibliography                       %%
+%%                                                         %%
+%%  Bmc_mathpys.bst  will be used to                       %%
+%%  create a .BBL file for submission.                     %%
+%%  After submission of the .TEX file,                     %%
+%%  you will be prompted to submit your .BBL file.         %%
+%%                                                         %%
+%%                                                         %%
+%%  Note that the displayed Bibliography will not          %%
+%%  necessarily be rendered by Latex exactly as specified  %%
+%%  in the online Instructions for Authors.                %%
+%%                                                         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% if your bibliography is in bibtex format, use those commands:
+\bibliographystyle{bmc-mathphys} % Style BST file (bmc-mathphys, vancouver, spbasic).
+\bibliography{artigo-bmc}      % Bibliography file (usually '*.bib' )
+% for author-year bibliography (bmc-mathphys or spbasic)
+% a) write to bib file (bmc-mathphys only)
+% @settings{label, options="nameyear"}
+% b) uncomment next line
+%\nocite{label}
+
+% or include bibliography directly:
+% \begin{thebibliography}
+% \bibitem{b1}
+% \end{thebibliography}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                               %%
+%% Figures                       %%
+%%                               %%
+%% NB: this is for captions and  %%
+%% Titles. All graphics must be  %%
+%% submitted separately and NOT  %%
+%% included in the Tex document  %%
+%%                               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%
+%% Do not use \listoffigures as most will included as separate files
+
+\section*{Figures}
+  \begin{figure}[h!]
+  \caption{\csentence{Sample figure title.}
+      A short description of the figure content
+      should go here.}
+      \end{figure}
+
+\begin{figure}[h!]
+  \caption{\csentence{Sample figure title.}
+      Figure legend text.}
+      \end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                               %%
+%% Tables                        %%
+%%                               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Use of \listoftables is discouraged.
+%%
+\section*{Tables}
+\begin{table}[h!]
+\caption{Sample table title. This is where the description of the table should go.}
+      \begin{tabular}{cccc}
+        \hline
+           & B1  &B2   & B3\\ \hline
+        A1 & 0.1 & 0.2 & 0.3\\
+        A2 & ... & ..  & .\\
+        A3 & ..  & .   & .\\ \hline
+      \end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                               %%
+%% Additional Files              %%
+%%                               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Additional Files}
+  \subsection*{Additional file 1 --- Sample additional file title}
+    Additional file descriptions text (including details of how to
+    view the file, if it is in a non-standard format or the file extension).  This might
+    refer to a multi-page table or a figure.
+
+  \subsection*{Additional file 2 --- Sample additional file title}
+    Additional file descriptions text.
+
+
+\end{backmatter}
+\end{document}
