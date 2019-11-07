@@ -29,35 +29,44 @@
 \citation{Miller_Remote_Library_Injection:2004}
 \citation{inline-hooking:2008}
 \citation{reflective-lib-injection:2008}
-\citation{koon}
-\citation{khar}
-\citation{zvai}
-\citation{xjon}
-\citation{marg}
+\citation{Quick_Increase_Volume_Impact:2014}
+\citation{Quick_Increase_Volume_Impact:2014}
+\citation{Dezfouli_Backup_approach:2012}
+\citation{Sang_Log_approach:2013}
+\citation{VanBaar_FAAS:2014}
+\citation{Dezfouli_Backup_approach:2012}
+\citation{Sang_Log_approach:2013}
+\citation{VanBaar_FAAS:2014}
+\citation{Simou_Cloud_Chlng:2014}
+\newlabel{sec:related}{{}{4}}
+\newlabel{sec:related-continuousCollection}{{}{4}}
+\newlabel{sec:related-chainofcustody}{{}{4}}
+\citation{Sang_Log_approach:2013}
+\citation{VanBaar_FAAS:2014}
+\citation{Sang_Log_approach:2013}
+\citation{VanBaar_FAAS:2014}
+\citation{Reichert_Auto_acquisition:2015}
+\citation{George_DF2CE:2012}
+\citation{Poisel_VMI:2013}
+\citation{Dykstra_FROST:2013}
+\citation{Sang_Log_approach:2013}
+\citation{George_DF2CE:2012}
+\citation{Clarke_Review_of_Challenges:2015}
+\newlabel{sec:related-reproducibility}{{}{5}}
+\newlabel{sec:related-privacy}{{}{5}}
+\citation{cloud_checkpointing_2015}
+\citation{Rafique_Static_Live_Digital_Forensics:2013}
+\newlabel{sec:proposal}{{}{6}}
+\newlabel{sec:proposal-desc-id}{{}{6}}
+\newlabel{sec:proposal-desc-memcpy}{{}{6}}
+\citation{DierksT2008}
+\citation{UnixManPages_numa_maps}
+\newlabel{sec:proposal-sec-strg}{{}{7}}
+\newlabel{sec:proposal-impl}{{}{7}}
+\newlabel{sec:proposal-exp}{{}{8}}
+\newlabel{sec:conclusion}{{}{9}}
 \bibstyle{bmc-mathphys}
 \bibdata{artigo-bmc}
-\bibcite{Morsy_Cloud_Security:2010}{1}
-\bibcite{Bash_Adv_in_Forensics:2015}{2}
-\bibcite{Dykstra_Acquiring_for_IAAS:2012}{3}
-\bibcite{Rahman_Live_Forensics_Techniques:2015}{4}
-\bibcite{Dykstra_FROST:2013}{5}
-\bibcite{Reichert_Auto_acquisition:2015}{6}
-\bibcite{George_DF2CE:2012}{7}
-\bibcite{Sang_Log_approach:2013}{8}
-\bibcite{Case_Memory_Forensics:2014}{9}
-\bibcite{Vomel_Memory_Acquisition:2013}{10}
-\bibcite{NIST2011}{11}
-\newlabel{eqexpmuts}{{1}{4}}
-\bibcite{Diamanti:2018}{12}
-\bibcite{container-survey:2016}{13}
-\bibcite{Miller_Remote_Library_Injection:2004}{14}
-\bibcite{inline-hooking:2008}{15}
-\bibcite{reflective-lib-injection:2008}{16}
-\bibcite{Poisel_VMI:2013}{17}
-\bibcite{Dolan-Gavitt_Semantic_Gap:2011}{18}
-\bibcite{Aljaedi_Comparative:2011}{19}
-\bibcite{Dezfouli_Backup_approach:2012}{20}
-\bibcite{VanBaar_FAAS:2014}{21}
 \citation{George_DF2CE:2012}
 \citation{Poisel_VMI:2013}
 \citation{Dykstra_FROST:2013}
@@ -67,10 +76,26 @@
 \citation{Aljaedi_Comparative:2011}
 \citation{Dezfouli_Backup_approach:2012}
 \citation{VanBaar_FAAS:2014}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces {\mathversion  {bold}\bfseries  Sample figure title.} A short description of the figure content should go here.}}{5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces {\mathversion  {bold}\bfseries  Sample figure title.} Figure legend text.}}{5}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Solutions for collecting memory information from cloud machines for forensic analysis}}{6}}
-\newlabel{tab:related-work}{{1}{6}}
-\newlabel{LastPage}{{}{6}}
-\xdef\lastpage@lastpage{6}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Sliding window of evidence collection}}{10}}
+\newlabel{fig:janela}{{1}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Dizang's inner working for a single container.}}{10}}
+\newlabel{fig:Solucao}{{2}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Evolution of disk space usage while running Dizang.}}{11}}
+\newlabel{fig:evolucao_coleta}{{3}{11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Average time for saving a container's snapshot.}}{11}}
+\newlabel{fig:memoria_copia}{{4}{11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Time required for transporting evidences from the cloud to an external storage site.}}{11}}
+\newlabel{fig:evidencia_transporte}{{5}{11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Commands to generate a raw copy of a container's memory.}}{12}}
+\newlabel{fig:comando-copia}{{6}{12}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Part of \fig@textbf  {/proc/pid/numa\_maps} file BEFORE injection }}{12}}
+\newlabel{fig:antes-injecao}{{7}{12}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Part of \fig@textbf  {/proc/pid/numa\_maps} file AFTER injection }}{12}}
+\newlabel{fig:apos-injecao}{{8}{12}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Sample of the library's memory inside the container}}{13}}
+\newlabel{fig:conteudo-memoria-copia-gdb}{{9}{13}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Solutions for collecting memory information from cloud machines for forensic analysis}}{13}}
+\newlabel{tab:related-work}{{1}{13}}
+\newlabel{LastPage}{{}{13}}
+\xdef\lastpage@lastpage{13}
 \gdef\lastpage@lastpageHy{}

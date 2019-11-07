@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  1 SEP 2019 12:41
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.10)  7 NOV 2019 21:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -549,6 +549,22 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 196.
 
+LaTeX Warning: Citation `Morsy_Cloud_Security:2010' on page 1 undefined on inpu
+t line 283.
+
+
+LaTeX Warning: Citation `Bash_Adv_in_Forensics:2015' on page 1 undefined on inp
+ut line 300.
+
+
+LaTeX Warning: Citation `Dykstra_Acquiring_for_IAAS:2012' on page 1 undefined o
+n input line 306.
+
+
+LaTeX Warning: Citation `Rahman_Live_Forensics_Techniques:2015' on page 1 undef
+ined on input line 314.
+
+
 LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <8> not available
 (Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 315.
 
@@ -562,255 +578,496 @@ Overfull \hbox (1.0pt too wide) has occurred while \output is active
 
 ]
 
-LaTeX Warning: Reference `sec:related' on page 2 undefined on input line 348.
+LaTeX Warning: Citation `Dykstra_FROST:2013' on page 2 undefined on input line 
+321.
 
 
-LaTeX Warning: Reference `sec:proposal' on page 2 undefined on input line 350.
+LaTeX Warning: Citation `Reichert_Auto_acquisition:2015' on page 2 undefined on
+ input line 321.
 
 
-LaTeX Warning: Reference `sec:conclusion' on page 2 undefined on input line 352
-.
+LaTeX Warning: Citation `George_DF2CE:2012' on page 2 undefined on input line 3
+23.
+
+
+LaTeX Warning: Citation `Sang_Log_approach:2013' on page 2 undefined on input l
+ine 323.
+
+
+LaTeX Warning: Citation `Case_Memory_Forensics:2014' on page 2 undefined on inp
+ut line 341.
+
+
+LaTeX Warning: Citation `Vomel_Memory_Acquisition:2013' on page 2 undefined on 
+input line 341.
+
+
+LaTeX Warning: Citation `Case_Memory_Forensics:2014' on page 2 undefined on inp
+ut line 341.
+
+
+LaTeX Warning: Citation `NIST2011' on page 2 undefined on input line 359.
+
+
+LaTeX Warning: Citation `NIST2011' on page 2 undefined on input line 361.
 
 [2]
+
+LaTeX Warning: Citation `Diamanti:2018' on page 3 undefined on input line 366.
+
+
+LaTeX Warning: Citation `container-survey:2016' on page 3 undefined on input li
+ne 370.
+
+
+LaTeX Warning: Citation `Diamanti:2018' on page 3 undefined on input line 374.
+
+
+LaTeX Warning: Citation `Case_Memory_Forensics:2014' on page 3 undefined on inp
+ut line 385.
+
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 390.
 
- (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 390.
- [3]
-
-LaTeX Warning: Citation `koon' on page 4 undefined on input line 452.
 
 
-LaTeX Warning: Citation `khar' on page 4 undefined on input line 452.
+LaTeX Warning: Citation `Miller_Remote_Library_Injection:2004' on page 3 undefi
+ned on input line 390.
 
 
-LaTeX Warning: Citation `zvai' on page 4 undefined on input line 452.
+LaTeX Warning: Citation `inline-hooking:2008' on page 3 undefined on input line
+ 397.
 
 
-LaTeX Warning: Citation `xjon' on page 4 undefined on input line 452.
+LaTeX Warning: Citation `reflective-lib-injection:2008' on page 3 undefined on 
+input line 402.
+
+[3]
+
+LaTeX Warning: Citation `Quick_Increase_Volume_Impact:2014' on page 4 undefined
+ on input line 433.
 
 
-LaTeX Warning: Citation `marg' on page 4 undefined on input line 452.
+LaTeX Warning: Citation `Quick_Increase_Volume_Impact:2014' on page 4 undefined
+ on input line 437.
 
-(./artigo-bmc.bbl [4]
+
+LaTeX Warning: Citation `Dezfouli_Backup_approach:2012' on page 4 undefined on 
+input line 443.
+
+
+LaTeX Warning: Citation `Sang_Log_approach:2013' on page 4 undefined on input l
+ine 443.
+
+
+LaTeX Warning: Citation `VanBaar_FAAS:2014' on page 4 undefined on input line 4
+43.
+
+
+LaTeX Warning: Citation `Dezfouli_Backup_approach:2012' on page 4 undefined on 
+input line 447.
+
+
+LaTeX Warning: Citation `Sang_Log_approach:2013' on page 4 undefined on input l
+ine 449.
+
+
+LaTeX Warning: Citation `VanBaar_FAAS:2014' on page 4 undefined on input line 4
+53.
+
+
+LaTeX Warning: Citation `Simou_Cloud_Chlng:2014' on page 4 undefined on input l
+ine 480.
+
+[4]
+
+LaTeX Warning: Citation `Sang_Log_approach:2013' on page 5 undefined on input l
+ine 485.
+
+
+LaTeX Warning: Citation `VanBaar_FAAS:2014' on page 5 undefined on input line 4
+85.
+
+
+LaTeX Warning: Citation `Sang_Log_approach:2013' on page 5 undefined on input l
+ine 487.
+
+
+LaTeX Warning: Citation `VanBaar_FAAS:2014' on page 5 undefined on input line 4
+91.
+
+
+LaTeX Warning: Citation `Reichert_Auto_acquisition:2015' on page 5 undefined on
+ input line 523.
+
+
+LaTeX Warning: Citation `George_DF2CE:2012' on page 5 undefined on input line 5
+23.
+
+
+LaTeX Warning: Citation `Poisel_VMI:2013' on page 5 undefined on input line 523
+.
+
+
+LaTeX Warning: Citation `Dykstra_FROST:2013' on page 5 undefined on input line 
+523.
+
+
+LaTeX Warning: Citation `Sang_Log_approach:2013' on page 5 undefined on input l
+ine 525.
+
+
+LaTeX Warning: Citation `George_DF2CE:2012' on page 5 undefined on input line 5
+25.
+
+
+LaTeX Warning: Citation `Clarke_Review_of_Challenges:2015' on page 5 undefined 
+on input line 529.
+
+[5]
+
+LaTeX Warning: Citation `cloud_checkpointing_2015' on page 6 undefined on input
+ line 582.
+
+
+LaTeX Warning: Citation `Rafique_Static_Live_Digital_Forensics:2013' on page 6 
+undefined on input line 586.
+
+[6]
+
+LaTeX Warning: Citation `DierksT2008' on page 7 undefined on input line 616.
+
+
+LaTeX Warning: Citation `UnixManPages_numa_maps' on page 7 undefined on input l
+ine 637.
+
+[7] [8] [9]
+No file artigo-bmc.bbl.
+<janela_ieee-eng.pdf, id=41, 361.35pt x 294.13892pt>
+File: janela_ieee-eng.pdf Graphic file (type pdf)
+ <use janela_ieee-eng.pdf>
+Package pdftex.def Info: janela_ieee-eng.pdf used on input line 828.
+(pdftex.def)             Requested size: 361.34912pt x 294.13818pt.
+
+<solucao-eng-small.pdf, id=42, 568.04218pt x 154.6578pt>
+File: solucao-eng-small.pdf Graphic file (type pdf)
+
+<use solucao-eng-small.pdf>
+Package pdftex.def Info: solucao-eng-small.pdf used on input line 837.
+(pdftex.def)             Requested size: 568.04079pt x 154.65741pt.
+
+<evolucao_coleta_ieee.pdf, id=43, 602.25pt x 372.39125pt>
+File: evolucao_coleta_ieee.pdf Graphic file (type pdf)
+
+<use evolucao_coleta_ieee.pdf>
+Package pdftex.def Info: evolucao_coleta_ieee.pdf used on input line 846.
+(pdftex.def)             Requested size: 602.24852pt x 372.39034pt.
+
+<memoria_copia_ieee.pdf, id=44, 602.25pt x 372.39125pt>
+File: memoria_copia_ieee.pdf Graphic file (type pdf)
+
+<use memoria_copia_ieee.pdf>
+Package pdftex.def Info: memoria_copia_ieee.pdf used on input line 855.
+(pdftex.def)             Requested size: 602.24852pt x 372.39034pt.
+
+<evidencia_download_ieee.pdf, id=45, 602.25pt x 372.39125pt>
+File: evidencia_download_ieee.pdf Graphic file (type pdf)
+
+<use evidencia_download_ieee.pdf>
+Package pdftex.def Info: evidencia_download_ieee.pdf used on input line 864.
+(pdftex.def)             Requested size: 602.24852pt x 372.39034pt.
+
+<comando-copia-memoria-gdb.pdf, id=46, 586.10968pt x 100.45529pt>
+File: comando-copia-memoria-gdb.pdf Graphic file (type pdf)
+
+<use comando-copia-memoria-gdb.pdf>
+Package pdftex.def Info: comando-copia-memoria-gdb.pdf used on input line 873.
+(pdftex.def)             Requested size: 234.43971pt x 40.1814pt.
+
+<antes-injecao.pdf, id=47, 420.61137pt x 269.08528pt>
+File: antes-injecao.pdf Graphic file (type pdf)
+ <use antes-injecao.pdf>
+Package pdftex.def Info: antes-injecao.pdf used on input line 882.
+(pdftex.def)             Requested size: 252.36877pt x 161.45241pt.
+
+<apos-injecao.pdf, id=48, 384.47638pt x 348.34138pt>
+File: apos-injecao.pdf Graphic file (type pdf)
+ <use apos-injecao.pdf>
+Package pdftex.def Info: apos-injecao.pdf used on input line 891.
+(pdftex.def)             Requested size: 384.47543pt x 348.34053pt.
+
+<conteudo-memoria-copia-gdb.pdf, id=49, 470.7186pt x 319.1925pt>
+File: conteudo-memoria-copia-gdb.pdf Graphic file (type pdf)
+
+<use conteudo-memoria-copia-gdb.pdf>
+Package pdftex.def Info: conteudo-memoria-copia-gdb.pdf used on input line 900.
+
+(pdftex.def)             Requested size: 254.18425pt x 172.36137pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 232.
+(Font)              <8> on input line 922.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 232.
-)
-Overfull \hbox (3.77156pt too wide) in paragraph at lines 544--545
+(Font)              <6> on input line 922.
+
+Overfull \hbox (3.77156pt too wide) in paragraph at lines 926--927
  []|[]| 
  []
 
-
-Overfull \hbox (45.80861pt too wide) in paragraph at lines 547--547
- []|\OT1/cmss/m/n/8 [scale=0.007]x.png| 
- []
-
-
-Overfull \hbox (61.76717pt too wide) in paragraph at lines 547--547
- []|\OT1/cmss/m/n/8 [scale=0.015]check.png| 
- []
-
-
-Overfull \hbox (61.76717pt too wide) in paragraph at lines 547--547
- []|\OT1/cmss/m/n/8 [scale=0.015]check.png| 
- []
-
-
-Overfull \hbox (61.76717pt too wide) in paragraph at lines 547--547
- []|\OT1/cmss/m/n/8 [scale=0.015]check.png| 
- []
-
-
-Overfull \hbox (45.80861pt too wide) in paragraph at lines 548--548
- []|\OT1/cmss/m/n/8 [scale=0.007]x.png| 
- []
-
-
-Overfull \hbox (45.80861pt too wide) in paragraph at lines 548--548
- []|\OT1/cmss/m/n/8 [scale=0.007]x.png| 
- []
-
-
-Overfull \hbox (45.80861pt too wide) in paragraph at lines 548--548
- []|\OT1/cmss/m/n/8 [scale=0.007]x.png| 
- []
-
-
-Overfull \hbox (61.76717pt too wide) in paragraph at lines 548--548
- []|\OT1/cmss/m/n/8 [scale=0.015]check.png| 
- []
-
-
-Overfull \hbox (45.80861pt too wide) in paragraph at lines 549--549
- []|\OT1/cmss/m/n/8 [scale=0.007]x.png| 
- []
-
-
-Overfull \hbox (45.80861pt too wide) in paragraph at lines 549--549
- []|\OT1/cmss/m/n/8 [scale=0.007]x.png| 
- []
-
-
-Overfull \hbox (45.80861pt too wide) in paragraph at lines 549--549
- []|\OT1/cmss/m/n/8 [scale=0.007]x.png| 
- []
-
-
-Overfull \hbox (61.76717pt too wide) in paragraph at lines 549--549
- []|\OT1/cmss/m/n/8 [scale=0.015]check.png| 
- []
-
-
-Overfull \hbox (45.80861pt too wide) in paragraph at lines 550--550
- []|\OT1/cmss/m/n/8 [scale=0.007]x.png| 
- []
-
-
-Overfull \hbox (45.80861pt too wide) in paragraph at lines 550--550
- []|\OT1/cmss/m/n/8 [scale=0.007]x.png| 
- []
-
-
-Overfull \hbox (45.80861pt too wide) in paragraph at lines 550--550
- []|\OT1/cmss/m/n/8 [scale=0.007]x.png| 
- []
-
-
-Overfull \hbox (61.76717pt too wide) in paragraph at lines 550--550
- []|\OT1/cmss/m/n/8 [scale=0.015]check.png| 
- []
-
-
-Overfull \hbox (45.80861pt too wide) in paragraph at lines 552--552
- []|\OT1/cmss/m/n/8 [scale=0.007]x.png| 
- []
-
-
-Overfull \hbox (61.76717pt too wide) in paragraph at lines 552--552
- []|\OT1/cmss/m/n/8 [scale=0.015]check.png| 
- []
-
-
-Overfull \hbox (45.80861pt too wide) in paragraph at lines 552--552
- []|\OT1/cmss/m/n/8 [scale=0.007]x.png| 
- []
-
-
-Overfull \hbox (61.76717pt too wide) in paragraph at lines 552--552
- []|\OT1/cmss/m/n/8 [scale=0.015]check.png| 
- []
-
-
-Overfull \hbox (61.76717pt too wide) in paragraph at lines 553--553
- []|\OT1/cmss/m/n/8 [scale=0.015]check.png| 
- []
-
-
-Overfull \hbox (61.76717pt too wide) in paragraph at lines 553--553
- []|\OT1/cmss/m/n/8 [scale=0.015]check.png| 
- []
-
-
-Overfull \hbox (45.80861pt too wide) in paragraph at lines 553--553
- []|\OT1/cmss/m/n/8 [scale=0.007]x.png| 
- []
-
-
-Overfull \hbox (61.76717pt too wide) in paragraph at lines 553--553
- []|\OT1/cmss/m/n/8 [scale=0.015]check.png| 
- []
-
-
-Overfull \hbox (45.80861pt too wide) in paragraph at lines 554--554
- []|\OT1/cmss/m/n/8 [scale=0.007]x.png| 
- []
-
-
-Overfull \hbox (45.80861pt too wide) in paragraph at lines 554--554
- []|\OT1/cmss/m/n/8 [scale=0.007]x.png| 
- []
-
-
-Overfull \hbox (45.80861pt too wide) in paragraph at lines 554--554
- []|\OT1/cmss/m/n/8 [scale=0.007]x.png| 
- []
-
-
-Overfull \hbox (61.76717pt too wide) in paragraph at lines 554--554
- []|\OT1/cmss/m/n/8 [scale=0.015]check.png| 
- []
-
-
-Overfull \hbox (45.80861pt too wide) in paragraph at lines 555--555
- []|\OT1/cmss/m/n/8 [scale=0.007]x.png| 
- []
-
-
-Overfull \hbox (45.80861pt too wide) in paragraph at lines 555--555
- []|\OT1/cmss/m/n/8 [scale=0.007]x.png| 
- []
-
-
-Overfull \hbox (45.80861pt too wide) in paragraph at lines 555--555
- []|\OT1/cmss/m/n/8 [scale=0.007]x.png| 
- []
-
-
-Overfull \hbox (61.76717pt too wide) in paragraph at lines 555--555
- []|\OT1/cmss/m/n/8 [scale=0.015]check.png| 
- []
-
-
-Overfull \hbox (61.76717pt too wide) in paragraph at lines 556--556
- []|\OT1/cmss/m/n/8 [scale=0.015]check.png| 
- []
-
-
-Overfull \hbox (45.80861pt too wide) in paragraph at lines 556--556
- []|\OT1/cmss/m/n/8 [scale=0.007]x.png| 
- []
-
-
-Overfull \hbox (45.80861pt too wide) in paragraph at lines 556--556
- []|\OT1/cmss/m/n/8 [scale=0.007]x.png| 
- []
-
-
-Overfull \hbox (61.76717pt too wide) in paragraph at lines 556--556
- []|\OT1/cmss/m/n/8 [scale=0.015]check.png| 
- []
-
-
-Overfull \hbox (61.76717pt too wide) in paragraph at lines 557--557
- []|\OT1/cmss/m/n/8 [scale=0.015]check.png| 
- []
-
-
-Overfull \hbox (61.76717pt too wide) in paragraph at lines 557--557
- []|\OT1/cmss/m/n/8 [scale=0.015]check.png| 
- []
-
-
-Overfull \hbox (45.80861pt too wide) in paragraph at lines 557--557
- []|\OT1/cmss/m/n/8 [scale=0.007]x.png| 
- []
-
-
-Overfull \hbox (61.76717pt too wide) in paragraph at lines 557--557
- []|\OT1/cmss/m/n/8 [scale=0.015]check.png| 
- []
+<check.png, id=50, 602.25pt x 602.25pt>
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 929.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 929.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: check.png Graphic file (type png)
+
+<use check.png>
+Package pdftex.def Info: check.png used on input line 929.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 929.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+
+
+LaTeX Warning: Citation `George_DF2CE:2012' on page 10 undefined on input line 
+930.
+
+<x.png, id=52, 1027.84pt x 1027.84pt>
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 930.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 930.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 930.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: check.png Graphic file (type png)
+
+<use check.png>
+Package pdftex.def Info: check.png used on input line 930.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+
+
+LaTeX Warning: Citation `Poisel_VMI:2013' on page 10 undefined on input line 93
+1.
+
+File: x.png Graphic file (type png)
+<use x.png>
+Package pdftex.def Info: x.png used on input line 931.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 931.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 931.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 931.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+
+
+LaTeX Warning: Citation `Dykstra_FROST:2013' on page 10 undefined on input line
+ 932.
+
+File: x.png Graphic file (type png)
+<use x.png>
+Package pdftex.def Info: x.png used on input line 932.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 932.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 932.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 932.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+
+
+LaTeX Warning: Citation `Reichert_Auto_acquisition:2015' on page 10 undefined o
+n input line 934.
+
+File: x.png Graphic file (type png)
+<use x.png>
+Package pdftex.def Info: x.png used on input line 934.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 934.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 934.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 934.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+
+
+LaTeX Warning: Citation `Sang_Log_approach:2013' on page 10 undefined on input 
+line 935.
+
+File: check.png Graphic file (type png)
+<use check.png>
+Package pdftex.def Info: check.png used on input line 935.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 935.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 935.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 935.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+
+
+LaTeX Warning: Citation `Dolan-Gavitt_Semantic_Gap:2011' on page 10 undefined o
+n input line 936.
+
+File: x.png Graphic file (type png)
+<use x.png>
+Package pdftex.def Info: x.png used on input line 936.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 936.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 936.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 936.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+
+
+LaTeX Warning: Citation `Aljaedi_Comparative:2011' on page 10 undefined on inpu
+t line 937.
+
+File: x.png Graphic file (type png)
+<use x.png>
+Package pdftex.def Info: x.png used on input line 937.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 937.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 937.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 937.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+
+
+LaTeX Warning: Citation `Dezfouli_Backup_approach:2012' on page 10 undefined on
+ input line 938.
+
+File: check.png Graphic file (type png)
+<use check.png>
+Package pdftex.def Info: check.png used on input line 938.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 938.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 938.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 938.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+
+
+LaTeX Warning: Citation `VanBaar_FAAS:2014' on page 10 undefined on input line 
+939.
+
+File: check.png Graphic file (type png)
+<use check.png>
+Package pdftex.def Info: check.png used on input line 939.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 939.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
+File: x.png Graphic file (type png)
+ <use x.png>
+Package pdftex.def Info: x.png used on input line 939.
+(pdftex.def)             Requested size: 7.19875pt x 7.19875pt.
+File: check.png Graphic file (type png)
+ <use check.png>
+Package pdftex.def Info: check.png used on input line 939.
+(pdftex.def)             Requested size: 9.03336pt x 9.03336pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 AED: lastpage setting LastPage
-[5] [6] (./artigo-bmc.aux)
+[10 <./janela_ieee-eng.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./janela_ieee-eng.pdf): PDF inclusion: 
+invalid other resource which is no dict (key 'ProcSets', type <array>); ignored
+.
+> <./solucao-eng-small.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./solucao-eng-small.pdf): PDF inclusion
+: invalid other resource which is no dict (key 'ProcSets', type <array>); ignor
+ed.
+>] [11 <./evolucao_coleta_ieee.pdf> <./memoria_copia_ieee.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./memoria_copia_ieee.pdf): PDF inclusio
+n: multiple pdfs with page group included in a single page
+> <./evidencia_download_ieee.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./evidencia_download_ieee.pdf): PDF inc
+lusion: multiple pdfs with page group included in a single page
+>] [12 <./comando-copia-memoria-gdb.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./comando-copia-memoria-gdb.pdf): PDF i
+nclusion: invalid other resource which is no dict (key 'ProcSets', type <array>
+); ignored.
+> <./antes-injecao.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./antes-injecao.pdf): PDF inclusion: in
+valid other resource which is no dict (key 'ProcSets', type <array>); ignored.
+> <./apos-injecao.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./apos-injecao.pdf): PDF inclusion: inv
+alid other resource which is no dict (key 'ProcSets', type <array>); ignored.
+>] [13 <./conteudo-memoria-copia-gdb.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./conteudo-memoria-copia-gdb.pdf): PDF 
+inclusion: invalid other resource which is no dict (key 'ProcSets', type <array
+>); ignored.
+> <./check.png> <./x.png>] (./artigo-bmc.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
@@ -818,33 +1075,33 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 4133 strings out of 493304
- 57557 string characters out of 6139871
- 139787 words of memory out of 5000000
- 7510 multiletter control sequences out of 15000+600000
- 11019 words of font info for 39 fonts, out of 8000000 for 9000
+ 4155 strings out of 493304
+ 58923 string characters out of 6139871
+ 142879 words of memory out of 5000000
+ 7522 multiletter control sequences out of 15000+600000
+ 11160 words of font info for 39 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,13n,56p,527b,444s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,16n,56p,532b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmss17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-sbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on artigo-bmc.pdf (6 pages, 181235 bytes).
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmtt10.pfb>
+Output written on artigo-bmc.pdf (13 pages, 426186 bytes).
 PDF statistics:
- 83 PDF objects out of 1000 (max. 8388607)
- 59 compressed objects within 1 object stream
+ 219 PDF objects out of 1000 (max. 8388607)
+ 148 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
