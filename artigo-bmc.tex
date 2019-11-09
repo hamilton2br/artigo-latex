@@ -600,7 +600,7 @@ Memory copies reaching a given age are periodically discarded, opening space for
 %
 After an attack event is detected (e.g., by an intrusion detection system), though, \fancyname\ stops discarding older pieces of memory from the monitoring log.
 %
-This approach, illustrated in Fig. \ref{fig:janela}, gives forensic analysts the ability to analyze memory copies from before and after the intrusion, as well as assess the system's evolution during this period.
+This approach, illustrated in Figure \ref{fig:janela}, gives forensic analysts the ability to analyze memory copies from before and after the intrusion, as well as assess the system's evolution during this period.
 
 
 \subsection*{Secure data storage}
@@ -623,7 +623,7 @@ If such SLA dictates that evidences must be stored outside the cloud environment
 The \fancyname\ architecture was implemented in a testing platform, aiming to assess its efficacy and efficiency.
 %in collecting the memory information from containers
 %
-The test bed employed, illustrated in Fig. \ref{fig:Solucao}, consists in creating a t2.micro instance (3.3 Mhz, 1GiB RAM and Linux 64-bit) at Amazon Web Services (AWS).
+The test bed employed, illustrated in Figure \ref{fig:Solucao}, consists in creating a t2.micro instance (3.3 Mhz, 1GiB RAM and Linux 64-bit) at Amazon Web Services (AWS).
 %
 In this AWS instance, we installed Docker Engine 1.10 and API Docker 1.21, and then created 3 containers for executing the nginx 1.0 web server in different ports. 
 %
@@ -671,7 +671,7 @@ The system was then executed for 30 minutes, and the following metrics were coll
 
 In our test bed, each memory photograph takes 244-kbytes of storage.
 %
-Fig. \ref{fig:evolucao_coleta} shows the total disk space occupied during the experiment for all photographs, as obtained via the \textit{Unix} command \texttt{du -sh *.mem}. 
+Figure \ref{fig:evolucao_coleta} shows the total disk space occupied during the experiment for all photographs, as obtained via the \textit{Unix} command \texttt{du -sh *.mem}. 
 %
 This figure shows that, as expected, the disk space usage increases linearly until the time window is reached, and then stays constant due to older samples being discarded.
 %
@@ -685,7 +685,7 @@ A potential issue of the proposed solution is that pausing a container to collec
 %
 To assess this overhead, the times for copying the container memory were measured along the experiment.
 %
-The results are depicted in Fig. \ref{fig:memoria_copia}.
+The results are depicted in Figure \ref{fig:memoria_copia}.
 %
 This figure shows that the time for making a copy is quite short, varying between 20 and 40 milliseconds. 
 %
@@ -703,7 +703,7 @@ If the time required for transporting the evidence to the storage server outside
 %
 %The evidence transport to the storage outside the cloud can take longer than generation interval, leading to evidence loss during transport. 
 %
-To evaluate this factor, the evidence transport time was measured along the experiment, as illustrated in Fig. \ref{fig:evidencia_transporte}.
+To evaluate this factor, the evidence transport time was measured along the experiment, as illustrated in Figure \ref{fig:evidencia_transporte}.
 %
 The result obtained is that the time for transporting evidence from the AWS server in North America to our test server in South America is around 30 seconds on average.
 %
@@ -720,9 +720,9 @@ After five minutes of evidence collection with \fancyname, the aforementioned li
 %
 Subsequently to the injection, \fancyname\ was allowed to continue collecting memory snapshots for another 5 minutes.
 %
-In addition to collecting the \textbf{/proc/pid/numa\_maps} directory contents, a raw copy of the container's process memory was also acquired using the Linux \textit{GDB} utility and the \textit{nsenter} tool, via the commands shown in Fig. \ref{fig:comando-copia}.
+In addition to collecting the \textbf{/proc/pid/numa\_maps} directory contents, a raw copy of the container's process memory was also acquired using the Linux \textit{GDB} utility and the \textit{nsenter} tool, via the commands shown in Figure \ref{fig:comando-copia}.
 %
-Figs. \ref{fig:antes-injecao} and \ref{fig:apos-injecao} show part of the container's memory before and after the injection, respectively.
+Figures \ref{fig:antes-injecao} and \ref{fig:apos-injecao} show part of the container's memory before and after the injection, respectively.
 %
 As expected, it is possible to see the injected \textbf{libexample.so} library between addresses \textbf{7f85631b8000} and \textbf{7f85633b9000} in the snapshot after the injection.
 %
@@ -776,6 +776,11 @@ An open problem that remains is, thus, how to extend \fancyname's functionalitie
 
 \section*{Competing interests}
   The authors declare that they have no competing interests.
+  
+\section*{Author's contribution}
+  All authors have participated in conception and design, or analysis and
+  interpretation of the data, drafting the article or revising it critically for
+  important intellectual content, approval of the final version.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -822,85 +827,78 @@ An open problem that remains is, thus, how to extend \fancyname's functionalitie
 %% Do not use \listoffigures as most will included as separate files
 
 \section*{Figures}
-\begin{figure}[tb!]
-\footnotesize
-\caption{Sliding window of evidence collection}
-\includegraphics[center,scale=0.70]{janela_ieee-eng.pdf}
-\centering
-\label{fig:janela}
-\end{figure}
 
-   
-\begin{figure}[htb!]
-\footnotesize
-\caption{\fancyname's inner working for a single container.}
-\includegraphics[center,scale=0.45]{solucao-eng-small.pdf}
-\centering
-\label{fig:Solucao}
-\end{figure}
+    \begin{figure}[h!]
+    %\footnotesize
+    \caption{\csentence{Sliding window}  Memory snapshot collection strategy }
+    %\includegraphics[center,scale=0.70]{janela_ieee-eng.pdf}
+    %\centering
+    \label{fig:janela}
+    \end{figure}
       
-      
-\begin{figure}[htb!]
-\footnotesize
-\caption{Evolution of disk space usage while running \fancyname.}
-\includegraphics[center,scale=0.40]{evolucao_coleta_ieee.pdf}
-\centering
-\label{fig:evolucao_coleta}
-\end{figure}
-      
-      
-\begin{figure}[tb!]
-\footnotesize
-\caption{Average time for saving a container's snapshot.}
-\includegraphics[center,scale=0.45]{memoria_copia_ieee.pdf}
-\centering
-\label{fig:memoria_copia}
-\end{figure}
-      
-      
-\begin{figure}[htb!]
-\footnotesize
-\caption{Time required for transporting evidences from the cloud to an external storage site.}
-\includegraphics[center,scale=0.45]{evidencia_download_ieee.pdf}
-\centering
-\label{fig:evidencia_transporte}
-\end{figure}
-      
-      
-\begin{figure}[htb!]
-\footnotesize
-\caption{Commands to generate a raw copy of a container's memory.}
-\includegraphics[scale=0.40]{comando-copia-memoria-gdb.pdf}
-\centering
-\label{fig:comando-copia}
-\end{figure}
-      
-      
-\begin{figure}[htb!]
-\footnotesize
-\caption{Part of \textbf{/proc/pid/numa\_maps} file BEFORE injection }
-\includegraphics[scale=0.60]{antes-injecao.pdf}
-\centering
-\label{fig:antes-injecao}
-\end{figure}
+    \begin{figure}[h!]
+    %\footnotesize
+    \caption{\csentence{High level schema} \fancyname's inner working for a single container. }
+    %\includegraphics[center,scale=0.45]{solucao-eng-small.pdf}
+    %\centering
+    \label{fig:Solucao}
+    \end{figure}
+	  
+    \begin{figure}[h!]
+    %\footnotesize
+    \caption{\csentence{Disk space usage} Evolution of disk space usage while running \fancyname.  }
+    %\includegraphics[center,scale=0.40]{evolucao_coleta_ieee.pdf}
+    %\centering
+    \label{fig:evolucao_coleta}
+    \end{figure}
+	  
+    \begin{figure}[h!]
+    %\footnotesize
+    \caption{\csentence{Memory copy} Average time for saving a container's snapshot. }
+    %\includegraphics[center,scale=0.45]{memoria_copia_ieee.pdf}
+    %\centering
+    \label{fig:memoria_copia}
+    \end{figure}
+	  
+    \begin{figure}[htb!]
+    %\footnotesize
+    \caption{\csentence{Evidence transport time} Average time required for transporting evidences from the cloud to an external storage site. }
+    %\includegraphics[center,scale=0.45]{evidencia_download_ieee.pdf}
+    %\centering
+    \label{fig:evidencia_transporte}
+    \end{figure}
+	  
+    \begin{figure}[h!]
+    %\footnotesize
+    \caption{\csentence{GDB Command} Commands to generate a raw copy of a container's memory. }
+    %\includegraphics[scale=0.40]{comando-copia-memoria-gdb.pdf}
+    %\centering
+    \label{fig:comando-copia}
+    \end{figure}
+	  
+    \begin{figure}[h!]
+    %\footnotesize
+    \caption{\csentence{Before injection} Part of \textbf{/proc/pid/numa\_maps} file BEFORE injection. }
+    %\includegraphics[scale=0.60]{antes-injecao.pdf}
+    %\centering
+    \label{fig:antes-injecao}
+    \end{figure}
 
-
-\begin{figure}[htb!]
-\footnotesize
-\caption{Part of \textbf{/proc/pid/numa\_maps} file AFTER injection }
-\includegraphics[center,scale=0.60]{apos-injecao.pdf}
-\centering
-\label{fig:apos-injecao}
-\end{figure}
-      
-      
-\begin{figure}[htb!]
-\footnotesize
-\caption{Sample of the library's memory inside the container}
-\includegraphics[scale=0.54]{conteudo-memoria-copia-gdb.pdf}
-\centering
-\label{fig:conteudo-memoria-copia-gdb}
-\end{figure}
+    \begin{figure}[h!]
+    %\footnotesize
+    \caption{\csentence{After injection} Part of \textbf{/proc/pid/numa\_maps} file AFTER injection. }
+    %\includegraphics[center,scale=0.60]{apos-injecao.pdf}
+    %\centering
+    \label{fig:apos-injecao}
+    \end{figure}
+	
+    \begin{figure}[h!]
+    %\footnotesize
+    \caption{\csentence{Raw memory} Sample of the library's memory inside the container. }
+    %\includegraphics[scale=0.54]{conteudo-memoria-copia-gdb.pdf}
+    %\centering
+    \label{fig:conteudo-memoria-copia-gdb}
+    \end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -914,6 +912,7 @@ An open problem that remains is, thus, how to extend \fancyname's functionalitie
 
 
 \section*{Tables}
+
 \begin{table}[h!]
 \centering
 \caption{Solutions for collecting memory information from cloud machines for forensic analysis}

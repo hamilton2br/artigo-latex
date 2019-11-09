@@ -1,0 +1,81 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: artigo-bmc.aux
+The style file: bmc-mathphys.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: artigo-bmc.bib
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--"{The" isn't a brace-balanced string for entry Case_Memory_Forensics:2014
+while executing--line 2686 of file bmc-mathphys.bst
+Warning--"{The" isn't a brace-balanced string for entry Case_Memory_Forensics:2014
+while executing--line 2686 of file bmc-mathphys.bst
+Warning--"{The" isn't a brace-balanced string for entry Case_Memory_Forensics:2014
+while executing--line 2686 of file bmc-mathphys.bst
+Warning--"memory}" isn't a brace-balanced string for entry Case_Memory_Forensics:2014
+while executing--line 2686 of file bmc-mathphys.bst
+Warning--"memory}" isn't a brace-balanced string for entry Case_Memory_Forensics:2014
+while executing--line 2686 of file bmc-mathphys.bst
+Warning--"MEMORY}" isn't a brace-balanced string for entry Case_Memory_Forensics:2014
+while executing--line 2686 of file bmc-mathphys.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+You've used 28 entries,
+            7128 wiz_defined-function locations,
+            1341 strings with 16407 characters,
+and the built_in function-call counts, 578250 in all, are:
+= -- 107055
+> -- 852
+< -- 498
++ -- 65948
+- -- 305
+* -- 14937
+:= -- 100586
+add.period$ -- 62
+call.type$ -- 28
+change.case$ -- 318
+chr.to.int$ -- 1025
+cite$ -- 28
+duplicate$ -- 2537
+empty$ -- 7383
+format.name$ -- 808
+if$ -- 148501
+int.to.chr$ -- 1
+int.to.str$ -- 77
+missing$ -- 925
+newline$ -- 830
+num.names$ -- 143
+pop$ -- 1226
+preamble$ -- 1
+purify$ -- 132
+quote$ -- 56
+skip$ -- 64328
+stack$ -- 0
+substring$ -- 55253
+swap$ -- 770
+text.length$ -- 514
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 1050
+warning$ -- 0
+while$ -- 992
+width$ -- 0
+write$ -- 1081
+(There were 6 warnings)
