@@ -43,8 +43,8 @@
 
 %%% loading packages, author definitions
 
-%\documentclass[twocolumn]{bmcart}% uncomment this for twocolumn layout and comment line below
-\documentclass{bmcart}
+\documentclass[twocolumn, notitlepage]{bmcart}% uncomment this for twocolumn layout and comment line below
+%\documentclass{bmcart}
 
 %%% Load packages
 %\usepackage{amsthm,amsmath}
@@ -151,14 +151,14 @@
 
 \author[
    addressref={aff1},                   % id's of addresses, e.g. {aff1,aff2}
-   %corref={aff1},                       % id of corresponding address, if any
+   corref={aff1},                       % id of corresponding address, if any
    %noteref={n1},                        % id's of article notes, if any
    email={hamiltonii@gmail.com}   % email address
 ]{\inits{HJSFII}\fnm{Hamilton J S} \snm{Fonte II}}
 \author[
    addressref={aff1},
-   %corref={aff1},                       % id of corresponding address, if any
-   %noteref={n1},                        % id's of article notes, if any
+   corref={aff1},                       % id of corresponding address, if any
+   noteref={n1},                        % id's of article notes, if any
    email={mjunior@larc.usp.br}
 ]{\inits{MAS}\fnm{Marcos A.} \snm{Simplicio Jr.}}
 
@@ -187,10 +187,9 @@
 %% on first page.                           %%
 %%                                          %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{artnotes}
 %\note{Sample of title note}     % note to the article
-%\note[id=n1]{Equal contributor} % note, connected to author
+\note[id=n1]{Equal contributor} % note, connected to author
 \end{artnotes}
 
 \end{fmbox}% comment this for two column layout
@@ -205,6 +204,7 @@
 %% accordingly for your article type.       %%
 %%                                          %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\twocolumn[
 
 \begin{abstractbox}
 
@@ -237,14 +237,9 @@ As such, it should be a useful tool for analyzing the causes of security inciden
 \kwd{chain of custody}
 \end{keyword}
 
-% MSC classifications codes, if any
-%\begin{keyword}[class=AMS]
-%\kwd[Primary ]{}
-%\kwd{}
-%\kwd[; secondary ]{}
-%\end{keyword}
-
 \end{abstractbox}
+]
+
 %
 %\end{fmbox}% uncomment this for twcolumn layout
 
@@ -269,7 +264,6 @@ As such, it should be a useful tool for analyzing the causes of security inciden
 %%  \nocite{smith,marg,hunn,advi,koha,mouse}%%
 %%                                          %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%% start of article main body
 % <put your article body there>
 
