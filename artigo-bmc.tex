@@ -43,8 +43,8 @@
 
 %%% loading packages, author definitions
 
-\documentclass[twocolumn, notitlepage]{bmcart}% uncomment this for twocolumn layout and comment line below
-%\documentclass{bmcart}
+%\documentclass[twocolumn, notitlepage]{bmcart}% uncomment this for twocolumn layout and comment line below
+\documentclass{bmcart}
 
 %%% Load packages
 %\usepackage{amsthm,amsmath}
@@ -204,7 +204,6 @@
 %% accordingly for your article type.       %%
 %%                                          %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\twocolumn[
 
 \begin{abstractbox}
 
@@ -238,7 +237,6 @@ As such, it should be a useful tool for analyzing the causes of security inciden
 \end{keyword}
 
 \end{abstractbox}
-]
 
 %
 %\end{fmbox}% uncomment this for twcolumn layout
@@ -299,8 +297,6 @@ Moreover, due the distributed nature of the cloud, data relevant to the investig
 %
 In practice, this encumbers the acquisition of the corresponding information, especially when there are no cooperation agreements among the entities involved \cite{Dykstra_Acquiring_for_IAAS:2012}.
 %
-%Moreover, the distributed nature of the cloud may lead to allocating information relevant to the investigation in different countries, thus hindering obtaining this information, especially when there are no cooperation agreements among the entities involved \cite{Dykstra_Acquiring_for_IAAS:2012}.
-%
 Combined, these characteristics hinder the implementation of an evidence collection process.
 %
 As a result, the response to memory-oriented attacks may be delayed, and evidences collected afterward may not have the necessary credibility so that they can be accepted in legal processes.
@@ -322,15 +318,10 @@ However, none of the proposals identified in the literature (1) describe how dat
 %==== O QUE FAZEMOS: Ataques de injeção ====
 %
 Aiming to overcome these limitations, this work presents \fancyname, a proposal focusing on: (1) the reproducibility of the collection process; (2) establishing a link between the evidence collected and its origin (assuming the cloud resource is univocally identifiable); and (3) preserving the jurisdiction and the privacy of those not involved in the investigation.
-%\marcos{Em algum lugar deste parágrafo, precisamos dizer que a solução é voltada a conteineres e a razao para isso. Coloquei uma razão acima, no item 2, mas não sei se está 100\% correta... provavelmente precisará melhorar}
 %
 As such, the proposed solution can be used as tool for incident management, safeguarding evidences for analysis during a post-incident stage.
 %
 In addition, these characteristics contribute to the credibility of collected evidences and, thus, to their acceptability in a possible legal process.
-%
-%Lastly, Incident Management, which increasingly shares processes and tools with \textit{Digital Forensics}, may benefit from a ready-to-use solution for collecting and preserving evidences at the \textit{preparation for the incident} stage. It should also be able to preserve evidences for the \textit{post-incident} stage, thus making it unnecessary to be concerned with their partial or total loss at the \textit{detection and analysis stages}.
-%
-%For this, the system is supposed to be monitored and executed within a cloud resource univocally identifiable.
 %
 When compared with similar-purpose solutions, \fancyname\ is particularly useful against code injection attacks \cite{Case_Memory_Forensics:2014}, which would normally leave no traces when cloud-based virtual instances are deactivated and their memory is released \cite{Vomel_Memory_Acquisition:2013,Case_Memory_Forensics:2014}.
 
@@ -557,7 +548,6 @@ This contrasts with VM-based implementations, in which random alphanumeric numbe
 Hence, and even though a VM-based implementation of \fancyname\ would also be possible, the proposed architecture focus on container-oriented clouds.
 %
 In particular, \fancyname\ can take advantage of Linux containers (LXC) to persist the source-evidence relationship.
-%to correlate a piece of evidence to its volatile origin, 
 %
 Basically, LXC uses \textit{cgroups} and \textit{namespacing} of the Linux kernel for managing and isolating virtual resources; the resulting containers, albeit still volatile, univocally identify the compiled images being executed.
 
@@ -584,10 +574,6 @@ As long as such data collection process is repeated periodically, in short time 
 %
 However, as discussed in Section \ref{sec:related-continuousCollection}, this may also lead to a huge volume of information to be stored and analyzed.
 %
-%Most of the forensic techniques currently most widely employed are directed to obtaining information in its totality, be it via bit by bit copy, be it by obtaining the physical hardware \cite{Simou_Cloud_Chlng:2014} \cite{Bem_Past_Present_Future:2008}. 
-%
-%Even though these techniques may sound interesting at first, many times they are eventually responsible for a problem: the growing volume of information investigators have to analyze \cite{Quick_Increase_Volume_Impact:2014}.
-%
 To mitigate this issue, \fancyname\ employs a time window that limits the number of memory photographs stored while the system operates under normal circumstances, i.e., when it is not under attack.
 %
 Memory copies reaching a given age are periodically discarded, opening space for new photographs.
@@ -601,7 +587,6 @@ This approach, illustrated in Figure \ref{fig:janela}, gives forensic analysts t
 \label{sec:proposal-sec-strg}
 
 
-%Aiming to persist the evidence-origin relationship, as well as to guarantee data integrity, \fancyname\ calculates the hash of the pair \{evidence, container image identifier\} and stores the triple \{hash, container image identifier, evidence\}.
 %
 Aiming to persist the evidence-origin relationship, as well as to guarantee data integrity, \fancyname\ calculates the hash $H$ of the pair \{memory photograph, resource identifier\} and stores the triple \{$H$, memory photograph, resource identifier\}.
 %
@@ -615,7 +600,6 @@ If such SLA dictates that evidences must be stored outside the cloud environment
 \label{sec:proposal-impl}
 
 The \fancyname\ architecture was implemented in a testing platform, aiming to assess its efficacy and efficiency.
-%in collecting the memory information from containers
 %
 The test bed employed, illustrated in Figure \ref{fig:Solucao}, consists in creating a t2.micro instance (3.3 Mhz, 1GiB RAM and Linux 64-bit) at Amazon Web Services (AWS).
 %
@@ -624,8 +608,8 @@ In this AWS instance, we installed Docker Engine 1.10 and API Docker 1.21, and t
 We developed a Java application, which is executed on the host OS to: 
 (1) discover the process identifier associated to each container, and then 
 (2) access the container's 
-%\marcos{o que seria essa ``a Java application''? Você que desenvolveu? Tem que deixar claro se você usou algo ou desenvolveu esse algo - Hamilton: Done} 
-%\marcos{of that container's (é isso mesmo?? É do container ou é do sistema como um todo?) - Hamilton: Sim, é do conteiner, é a parte que consigo identificar unicamente. Porém faltou mencionar que Java application é executada no S.O. host.} 
+
+%
 \textit{Non-Uniform Memory Allocation descriptor} (\textbf{/proc/pid/numa\_maps}).
 %
 The latter contains the allocation of the memory pages, the nodes associated to these pages and what was allocated in their respective access policies \cite{UnixManPages_numa_maps}.
@@ -650,7 +634,6 @@ Both experiments are described in the following sub-sections.
 \subsection*{Performance Analysis}
 \label{sec:proposal-exp}
 
-%To assess the \fancyname efficacy in collecting evidence, \textcolor{blue}{two experiments} were performed using the environment implemented (described in Section \ref{sec:proposal-impl}).
 %
 For the first experiment, the system was configured to collect memory photographs in $t=1$ minute intervals and send them to the physical machine outside the cloud.
 %
@@ -694,8 +677,6 @@ Therefore, the latency hereby shown can be considered a worst case scenario for 
 
 \subsubsection*{Transfer process}
 If the time required for transporting the evidence to the storage server outside the cloud is longer than its generation interval, the system is prone to create a large backlog and, hence, evidences may be lost.
-%
-%The evidence transport to the storage outside the cloud can take longer than generation interval, leading to evidence loss during transport. 
 %
 To evaluate this factor, the evidence transport time was measured along the experiment, as illustrated in Figure \ref{fig:evidencia_transporte}.
 %
@@ -854,7 +835,7 @@ An open problem that remains is, thus, how to extend \fancyname's functionalitie
     \label{fig:memoria_copia}
     \end{figure}
 	  
-    \begin{figure}[htb!]
+    \begin{figure}[h!]
     %\footnotesize
     \caption{\csentence{Evidence transport time} Average time required for transporting evidences from the cloud to an external storage site. }
     %\includegraphics[center,scale=0.45]{evidencia_download_ieee.pdf}
